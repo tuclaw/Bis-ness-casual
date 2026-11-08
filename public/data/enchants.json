@@ -1,0 +1,2407 @@
+[
+  {
+    "id": 1219587,
+    "enchantId": 7667,
+    "name": "Enchant Cloak - Agility",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "agi": 5.0
+    },
+    "effect": "Permanently enchant a Cloak to add 5 to agility.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Cloak - Agility (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25086,
+    "enchantId": 2622,
+    "name": "Enchant Cloak - Dodge",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "dodge": 1.0
+    },
+    "effect": "Permanently enchant a cloak to give a 1% chance to dodge.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Cloak - Dodge (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25081,
+    "enchantId": 2619,
+    "name": "Enchant Cloak - Greater Fire Resistance",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "fireRes": 15.0
+    },
+    "effect": "Permanently enchant a cloak to give 15 fire resistance.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Cloak - Greater Fire Resistance (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25082,
+    "enchantId": 2620,
+    "name": "Enchant Cloak - Greater Nature Resistance",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "natureRes": 15.0
+    },
+    "effect": "Permanently enchant a cloak to give 15 nature resistance.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Cloak - Greater Nature Resistance (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25083,
+    "enchantId": 910,
+    "name": "Enchant Cloak - Stealth",
+    "slot": "back",
+    "fit": "any",
+    "stats": {},
+    "effect": "Permanently enchant a cloak to give an increase to your stealth as if you were 1 level higher.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Cloak - Stealth (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25084,
+    "enchantId": 2621,
+    "name": "Enchant Cloak - Subtlety",
+    "slot": "back",
+    "fit": "any",
+    "stats": {},
+    "effect": "Permanently enchant a cloak to decrease threat caused by the wearer by 2%.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Cloak - Subtlety (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20015,
+    "enchantId": 1889,
+    "name": "Enchant Cloak - Superior Defense",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "armor": 70.0
+    },
+    "effect": "Permanently enchant a cloak to give 70 additional armor.",
+    "req": 57,
+    "skill": 305,
+    "source": "Formula: Enchant Cloak - Superior Defense (skill 285)",
+    "proc": false
+  },
+  {
+    "id": 20014,
+    "enchantId": 1888,
+    "name": "Enchant Cloak - Greater Resistance",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "resAll": 5.0
+    },
+    "effect": "Permanently enchant a cloak to give 5 to all resistances.",
+    "req": 53,
+    "skill": 285,
+    "source": "Formula: Enchant Cloak - Greater Resistance (skill 265)",
+    "proc": false
+  },
+  {
+    "id": 13882,
+    "enchantId": 849,
+    "name": "Enchant Cloak - Lesser Agility",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "agi": 3.0
+    },
+    "effect": "Permanently enchant a cloak to give 3 Agility.",
+    "req": 45,
+    "skill": 245,
+    "source": "Formula: Enchant Cloak - Lesser Agility (skill 225)",
+    "proc": false
+  },
+  {
+    "id": 13746,
+    "enchantId": 884,
+    "name": "Enchant Cloak - Greater Defense",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "armor": 60.0
+    },
+    "effect": "Permanently enchant a cloak to give 60 additional armor.",
+    "req": 45,
+    "skill": 225,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13794,
+    "enchantId": 903,
+    "name": "Enchant Cloak - Resistance",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "resAll": 3.0
+    },
+    "effect": "Permanently enchant a cloak to give 3 to all resistances.",
+    "req": 45,
+    "skill": 225,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13657,
+    "enchantId": 2463,
+    "name": "Enchant Cloak - Fire Resistance",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "fireRes": 12.0
+    },
+    "effect": "Permanently enchant a cloak to give 12 Fire Resistance.",
+    "req": 39,
+    "skill": 195,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13635,
+    "enchantId": 848,
+    "name": "Enchant Cloak - Defense",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "armor": 30.0
+    },
+    "effect": "Permanently enchant a cloak to give 30 additional armor.",
+    "req": 35,
+    "skill": 175,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13522,
+    "enchantId": 804,
+    "name": "Enchant Cloak - Lesser Shadow Resistance",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "shadowRes": 10.0
+    },
+    "effect": "Permanently enchant a cloak so that it increases resistance to shadow by 10.",
+    "req": 27,
+    "skill": 160,
+    "source": "Formula: Enchant Cloak - Lesser Shadow Resistance (skill 135)",
+    "proc": false
+  },
+  {
+    "id": 7861,
+    "enchantId": 256,
+    "name": "Enchant Cloak - Lesser Fire Resistance",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "fireRes": 10.0
+    },
+    "effect": "Permanently enchant a cloak so that it increases resistance to fire by 10.",
+    "req": 30,
+    "skill": 150,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13421,
+    "enchantId": 744,
+    "name": "Enchant Cloak - Lesser Protection",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "armor": 20.0
+    },
+    "effect": "Permanently enchant a cloak to increase armor by 20.",
+    "req": 28,
+    "skill": 140,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13419,
+    "enchantId": 247,
+    "name": "Enchant Cloak - Minor Agility",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "agi": 3.0
+    },
+    "effect": "Permanently enchant a cloak to grant +3 Agility.",
+    "req": 22,
+    "skill": 135,
+    "source": "Formula: Enchant Cloak - Minor Agility (skill 110)",
+    "proc": false
+  },
+  {
+    "id": 7771,
+    "enchantId": 783,
+    "name": "Enchant Cloak - Minor Protection",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "armor": 10.0
+    },
+    "effect": "Permanently enchant a cloak to increase armor by 10.",
+    "req": 18,
+    "skill": 110,
+    "source": "Formula: Imbue Cloak - Protection (skill 90)",
+    "proc": false
+  },
+  {
+    "id": 7454,
+    "enchantId": 65,
+    "name": "Enchant Cloak - Minor Resistance",
+    "slot": "back",
+    "fit": "any",
+    "stats": {
+      "resAll": 2.0
+    },
+    "effect": "Permanently enchant a cloak so that it increases the resistance to all schools of magic by 2.",
+    "req": 19,
+    "skill": 95,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 20025,
+    "enchantId": 1891,
+    "name": "Enchant Chest - Greater Stats",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "str": 4.0,
+      "agi": 4.0,
+      "int": 4.0,
+      "spi": 4.0,
+      "sta": 4.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to grant +4 to all stats.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Chest - Greater Stats (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20028,
+    "enchantId": 1893,
+    "name": "Enchant Chest - Major Intellect",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "int": 10.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to give +10 Intellect.",
+    "req": 58,
+    "skill": 310,
+    "source": "Formula: Enchant Chest - Major Intellect (skill 290)",
+    "proc": false
+  },
+  {
+    "id": 20026,
+    "enchantId": 1892,
+    "name": "Enchant Chest - Major Stamina",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "sta": 10.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to grant +10 Stamina.",
+    "req": 55,
+    "skill": 295,
+    "source": "Formula: Enchant Chest - Major Stamina (skill 275)",
+    "proc": false
+  },
+  {
+    "id": 13941,
+    "enchantId": 928,
+    "name": "Enchant Chest - Stats",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "str": 3.0,
+      "agi": 3.0,
+      "int": 3.0,
+      "spi": 3.0,
+      "sta": 3.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to grant +3 to all stats.",
+    "req": 53,
+    "skill": 265,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13917,
+    "enchantId": 913,
+    "name": "Enchant Chest - Superior Intellect",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "int": 8.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to give +8 Intellect.",
+    "req": 50,
+    "skill": 250,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13858,
+    "enchantId": 908,
+    "name": "Enchant Chest - Superior Stamina",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "sta": 8.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to grant +8 Stamina.",
+    "req": 48,
+    "skill": 240,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 1249071,
+    "enchantId": 8220,
+    "name": "Enchant Chest - Absorption",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "absorb": 17.5
+    },
+    "effect": "Enchant a piece of chest armor so it has a 25% chance per hit of giving you 50 points of damage absorption. Cannot occur more often than once every 5 sec.",
+    "req": 44,
+    "skill": 225,
+    "source": "Formula: Enchant Chest - Absorption (skill 220)",
+    "proc": true
+  },
+  {
+    "id": 13700,
+    "enchantId": 866,
+    "name": "Enchant Chest - Lesser Stats",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "str": 2.0,
+      "agi": 2.0,
+      "int": 2.0,
+      "spi": 2.0,
+      "sta": 2.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to grant +2 to all stats.",
+    "req": 44,
+    "skill": 220,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13663,
+    "enchantId": 857,
+    "name": "Enchant Chest - Greater Intellect",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "int": 6.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to give +6 Intellect.",
+    "req": 41,
+    "skill": 205,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13640,
+    "enchantId": 850,
+    "name": "Enchant Chest - Greater Stamina",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "sta": 6.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to give +6 Stamina.",
+    "req": 36,
+    "skill": 180,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13626,
+    "enchantId": 847,
+    "name": "Enchant Chest - Minor Stats",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "str": 1.0,
+      "agi": 1.0,
+      "int": 1.0,
+      "spi": 1.0,
+      "sta": 1.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to grant +1 to all stats.",
+    "req": 35,
+    "skill": 175,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13607,
+    "enchantId": 843,
+    "name": "Enchant Chest - Intellect",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "int": 4.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to increase the Intellect of the wearer by 4.",
+    "req": 34,
+    "skill": 170,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13538,
+    "enchantId": 63,
+    "name": "Enchant Chest - Lesser Absorption",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "absorb": 8.75
+    },
+    "effect": "Enchant a piece of chest armor so it has a 5% chance per hit of giving you 25 points of damage absorption. Cannot occur more often than once every 5 sec.",
+    "req": 33,
+    "skill": 165,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": true
+  },
+  {
+    "id": 7857,
+    "enchantId": 254,
+    "name": "Enchant Chest - Stamina",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "sta": 4.0
+    },
+    "effect": "Permanently enchant a piece of chest armor to increase the Stamina of the wearer by 4.",
+    "req": 29,
+    "skill": 145,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 7776,
+    "enchantId": 246,
+    "name": "Enchant Chest - Lesser Intellect",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "int": 3.0
+    },
+    "effect": "Permanently enchant a piece of chest armor so that it increases the Intellect of the wearer by 3.",
+    "req": 16,
+    "skill": 115,
+    "source": "Formula: Enchant Chest - Lesser Intellect (skill 80)",
+    "proc": false
+  },
+  {
+    "id": 7748,
+    "enchantId": 242,
+    "name": "Enchant Chest - Lesser Stamina",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "sta": 3.0
+    },
+    "effect": "Permanently enchant a piece of chest armor so that it increases the Stamina of the wearer by 3.",
+    "req": 21,
+    "skill": 105,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 7426,
+    "enchantId": 44,
+    "name": "Enchant Chest - Minor Absorption",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "absorb": 3.5
+    },
+    "effect": "Enchant a piece of chest armor so it has a 2% chance per hit of giving you 10 points of damage absorption. Cannot occur more often than once every 5 sec.",
+    "req": 18,
+    "skill": 90,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": true
+  },
+  {
+    "id": 7443,
+    "enchantId": 24,
+    "name": "Enchant Chest - Minor Intellect",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "int": 2.0
+    },
+    "effect": "Permanently enchant a piece of chest armor so that it increases the Intellect of the wearer by 2.",
+    "req": 4,
+    "skill": 80,
+    "source": "Formula: Enchant Chest - Minor Intellect (skill 20)",
+    "proc": false
+  },
+  {
+    "id": 7420,
+    "enchantId": 41,
+    "name": "Enchant Chest - Inferior Stamina",
+    "slot": "chest",
+    "fit": "any",
+    "stats": {
+      "sta": 2.0
+    },
+    "effect": "Permanently enchant a piece of chest armor so that it increases the Stamina of the wearer by 2.",
+    "req": 14,
+    "skill": 70,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 20023,
+    "enchantId": 1887,
+    "name": "Enchant Boots - Greater Agility",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "agi": 7.0
+    },
+    "effect": "Permanently enchant boots to give +7 Agility.",
+    "req": 59,
+    "skill": 315,
+    "source": "Formula: Enchant Boots - Greater Agility (skill 295)",
+    "proc": false
+  },
+  {
+    "id": 20024,
+    "enchantId": 851,
+    "name": "Enchant Boots - Spirit",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "spi": 5.0
+    },
+    "effect": "Permanently enchant boots to give +5 Spirit.",
+    "req": 55,
+    "skill": 295,
+    "source": "Formula: Enchant Boots - Spirit (skill 275)",
+    "proc": false
+  },
+  {
+    "id": 20020,
+    "enchantId": 929,
+    "name": "Enchant Boots - Greater Stamina",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "sta": 7.0
+    },
+    "effect": "Permanently enchant boots to give +7 Stamina.",
+    "req": 52,
+    "skill": 280,
+    "source": "Formula: Enchant Boots - Greater Stamina (skill 260)",
+    "proc": false
+  },
+  {
+    "id": 1328948,
+    "enchantId": 8737,
+    "name": "Enchant Boots - Speed",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "moveSpeed": 8.0
+    },
+    "effect": "Permanently enchant boots to increase movement speed by 8%.",
+    "req": 56,
+    "skill": 280,
+    "source": "Formula: Enchant Boots - Speed (skill 280)",
+    "proc": false
+  },
+  {
+    "id": 13935,
+    "enchantId": 904,
+    "name": "Enchant Boots - Agility",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "agi": 5.0
+    },
+    "effect": "Permanently enchant boots to give +5 Agility.",
+    "req": 51,
+    "skill": 255,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13890,
+    "enchantId": 911,
+    "name": "Enchant Boots - Minor Speed",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "moveSpeed": 4.0
+    },
+    "effect": "Permanently enchant boots to increase movement speed by 4%.",
+    "req": 49,
+    "skill": 245,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13836,
+    "enchantId": 852,
+    "name": "Enchant Boots - Stamina",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "sta": 5.0
+    },
+    "effect": "Permanently enchant boots to give +5 Stamina.",
+    "req": 47,
+    "skill": 235,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13687,
+    "enchantId": 8203,
+    "name": "Enchant Boots - Lesser Spirit",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "spi": 4.0
+    },
+    "effect": "Permanently enchant boots to give +4 Spirit.",
+    "req": 38,
+    "skill": 210,
+    "source": "Formula: Enchant Boots - Lesser Spirit (skill 190)",
+    "proc": false
+  },
+  {
+    "id": 13644,
+    "enchantId": 254,
+    "name": "Enchant Boots - Lesser Stamina",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "sta": 4.0
+    },
+    "effect": "Permanently enchant boots to give +4 Stamina.",
+    "req": 38,
+    "skill": 190,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13637,
+    "enchantId": 8204,
+    "name": "Enchant Boots - Lesser Agility",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "agi": 4.0
+    },
+    "effect": "Permanently enchant boots to give +4 Agility.",
+    "req": 36,
+    "skill": 180,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 7867,
+    "enchantId": 247,
+    "name": "Enchant Boots - Minor Agility",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "agi": 3.0
+    },
+    "effect": "Permanently enchant a pair of boots so they increase the wearer's Agility by 3.",
+    "req": 25,
+    "skill": 150,
+    "source": "Formula: Enchant Boots - Minor Agility (skill 125)",
+    "proc": false
+  },
+  {
+    "id": 7863,
+    "enchantId": 66,
+    "name": "Enchant Boots - Minor Stamina",
+    "slot": "feet",
+    "fit": "any",
+    "stats": {
+      "sta": 3.0
+    },
+    "effect": "Permanently enchant a pair of boots so they increase the wearer's Stamina by 3.",
+    "req": 25,
+    "skill": 150,
+    "source": "Formula: Enchant Boots - Minor Stamina (skill 125)",
+    "proc": false
+  },
+  {
+    "id": 1213626,
+    "enchantId": 7647,
+    "name": "Enchant Gloves - Arcane Power",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "arcane": 20.0
+    },
+    "effect": "Permanently enchant gloves to increase arcane damage by up to 20.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Gloves - Arcane Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25078,
+    "enchantId": 2616,
+    "name": "Enchant Gloves - Fire Power",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "fire": 20.0
+    },
+    "effect": "Permanently enchant gloves to increase fire damage by up to 20.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Gloves - Fire Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25074,
+    "enchantId": 2615,
+    "name": "Enchant Gloves - Frost Power",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "frost": 20.0
+    },
+    "effect": "Permanently enchant gloves to increase frost damage by up to 20.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Gloves - Frost Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25079,
+    "enchantId": 2617,
+    "name": "Enchant Gloves - Healing Power",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "heal": 35.0,
+      "sd": 12.0
+    },
+    "effect": "Permanently enchant gloves to increase the caster's healing spells by up to 35 and damage spells by up to 12.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Gloves - Healing Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1213622,
+    "enchantId": 7646,
+    "name": "Enchant Gloves - Holy Power",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "holy": 20.0
+    },
+    "effect": "Permanently enchant gloves to increase holy damage by up to 20.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Gloves - Holy Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1248645,
+    "enchantId": 8213,
+    "name": "Enchant Gloves - Natural Power",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "nature": 20.0
+    },
+    "effect": "Permanently enchant gloves to increase Nature damage by up to 20.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Gloves - Natural Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25073,
+    "enchantId": 2614,
+    "name": "Enchant Gloves - Shadow Power",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "shadow": 20.0
+    },
+    "effect": "Permanently enchant gloves to increase shadow damage by up to 20.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Gloves - Shadow Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 25080,
+    "enchantId": 2564,
+    "name": "Enchant Gloves - Superior Agility",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "agi": 15.0
+    },
+    "effect": "Permanently enchant gloves to increase agility by 15.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Gloves - Superior Agility (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1248640,
+    "enchantId": 2563,
+    "name": "Enchant Gloves - Superior Strength",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "str": 15.0
+    },
+    "effect": "Permanently enchant gloves to increase Strength by 15.",
+    "req": 60,
+    "skill": 320,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 20013,
+    "enchantId": 8207,
+    "name": "Enchant Gloves - Greater Strength",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "str": 10.0
+    },
+    "effect": "Permanently enchant gloves to grant +10 Strength.",
+    "req": 59,
+    "skill": 315,
+    "source": "Formula: Enchant Gloves - Greater Strength (skill 295)",
+    "proc": false
+  },
+  {
+    "id": 20012,
+    "enchantId": 8206,
+    "name": "Enchant Gloves - Greater Agility",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "agi": 10.0
+    },
+    "effect": "Permanently enchant gloves to grant +10 Agility.",
+    "req": 54,
+    "skill": 290,
+    "source": "Formula: Enchant Gloves - Greater Agility (skill 270)",
+    "proc": false
+  },
+  {
+    "id": 13948,
+    "enchantId": 931,
+    "name": "Enchant Gloves - Minor Haste",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "haste": 1.0
+    },
+    "effect": "Permanently enchant gloves to grant a +1% attack and casting speed bonus.",
+    "req": 54,
+    "skill": 270,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13887,
+    "enchantId": 927,
+    "name": "Enchant Gloves - Strength",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "str": 7.0
+    },
+    "effect": "Permanently enchant gloves to grant +7 Strength.",
+    "req": 49,
+    "skill": 245,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13815,
+    "enchantId": 1887,
+    "name": "Enchant Gloves - Agility",
+    "slot": "hands",
+    "fit": "any",
+    "stats": {
+      "agi": 7.0
+    },
+    "effect": "Permanently enchant gloves to grant +7 Agility.",
+    "req": 46,
+    "skill": 230,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 20036,
+    "enchantId": 1904,
+    "name": "Enchant 2H Weapon - Major Intellect",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "int": 9.0
+    },
+    "effect": "Permanently enchant a Two-Handed Melee Weapon to add 9 to intellect.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant 2H Weapon - Major Intellect (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20035,
+    "enchantId": 1903,
+    "name": "Enchant 2H Weapon - Major Spirit",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "spi": 9.0
+    },
+    "effect": "Permanently enchant a Two-Handed Melee Weapon to add 9 to Spirit.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant 2H Weapon - Major Spirit (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1248636,
+    "enchantId": 8212,
+    "name": "Enchant 2H Weapon - Mighty Healing Power",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "heal": 100.0,
+      "sd": 34.0
+    },
+    "effect": "Permanently enchant a two-handed melee weapon to increase healing by up to 100 and damage by up to 34.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant 2H Weapon - Mighty Healing Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1248607,
+    "enchantId": 8211,
+    "name": "Enchant 2H Weapon - Mighty Spell Power",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "sp": 55.0
+    },
+    "effect": "Permanently enchant a two-handed melee weapon to increase damage and healing by up to 55.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant 2H Weapon - Mighty Spell Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1219580,
+    "enchantId": 7662,
+    "name": "Enchant 2H Weapon - Spellblasting",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "sp": 65.0
+    },
+    "effect": "Permanently enchant a 2H Weapon to add 65 Spell Power.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant 2H Weapon - Spellblasting (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20034,
+    "enchantId": 1900,
+    "name": "Enchant Weapon - Crusader",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "str": 35.0
+    },
+    "effect": "Permanently enchant a melee weapon so that often when attacking in melee it heals for 75 to 125 and increases Strength by 100 for 15 sec.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Weapon - Crusader (skill 300)",
+    "proc": true
+  },
+  {
+    "id": 22750,
+    "enchantId": 2505,
+    "name": "Enchant Weapon - Healing Power",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "heal": 55.0,
+      "sd": 19.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to add up to 55 points of healing to healing spells and up to 19 points of damage to damage spells.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Weapon - Healing Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20032,
+    "enchantId": 1898,
+    "name": "Enchant Weapon - Lifestealing",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {},
+    "effect": "Permanently enchant a melee weapon to often steal life from the enemy and give it to the wielder.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Weapon - Lifestealing (skill 300)",
+    "proc": true
+  },
+  {
+    "id": 23804,
+    "enchantId": 2568,
+    "name": "Enchant Weapon - Mighty Intellect",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "int": 22.0
+    },
+    "effect": "Permanently enchant a melee weapon to grant +22 Intellect.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Weapon - Mighty Intellect (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 23803,
+    "enchantId": 2567,
+    "name": "Enchant Weapon - Mighty Spirit",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "spi": 22.0
+    },
+    "effect": "Permanently enchant a melee weapon to grant +22 Spirit.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Weapon - Mighty Spirit (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 22749,
+    "enchantId": 2504,
+    "name": "Enchant Weapon - Spell Power",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "sd": 30.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to add up to 30 damage to spells.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Weapon - Spell Power (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20031,
+    "enchantId": 1897,
+    "name": "Enchant Weapon - Superior Striking",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "wpnDamage": 5.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to do 5 additional points of damage.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Weapon - Superior Striking (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20030,
+    "enchantId": 1896,
+    "name": "Enchant 2H Weapon - Superior Impact",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "wpnDamage": 9.0
+    },
+    "effect": "Permanently enchant a two-handed melee weapon to do +9 damage.",
+    "req": 59,
+    "skill": 315,
+    "source": "Formula: Enchant 2H Weapon - Superior Impact (skill 295)",
+    "proc": false
+  },
+  {
+    "id": 20033,
+    "enchantId": 1899,
+    "name": "Enchant Weapon - Unholy Weapon",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {},
+    "effect": "Permanently enchant a melee weapon to often inflict a curse on the target reducing their melee damage.",
+    "req": 59,
+    "skill": 315,
+    "source": "Formula: Enchant Weapon - Unholy Weapon (skill 295)",
+    "proc": true
+  },
+  {
+    "id": 27837,
+    "enchantId": 2646,
+    "name": "Enchant 2H Weapon - Agility",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "agi": 25.0
+    },
+    "effect": "Permanently enchant a two-handed melee weapon to grant +25 Agility.",
+    "req": 58,
+    "skill": 310,
+    "source": "Formula: Enchant 2H Weapon - Agility (skill 290)",
+    "proc": false
+  },
+  {
+    "id": 23800,
+    "enchantId": 2564,
+    "name": "Enchant Weapon - Agility",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "agi": 15.0
+    },
+    "effect": "Permanently enchant a melee weapon to grant +15 Agility.",
+    "req": 58,
+    "skill": 310,
+    "source": "Formula: Enchant Weapon - Agility (skill 290)",
+    "proc": false
+  },
+  {
+    "id": 23799,
+    "enchantId": 2563,
+    "name": "Enchant Weapon - Strength",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "str": 15.0
+    },
+    "effect": "Permanently enchant a melee weapon to grant +15 strength.",
+    "req": 58,
+    "skill": 310,
+    "source": "Formula: Enchant Weapon - Strength (skill 290)",
+    "proc": false
+  },
+  {
+    "id": 20029,
+    "enchantId": 1894,
+    "name": "Enchant Weapon - Icy Chill",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {},
+    "effect": "Permanently enchant a melee weapon to often chill the target reducing their movement and attack speed.",
+    "req": 57,
+    "skill": 305,
+    "source": "Formula: Enchant Weapon - Icy Chill (skill 285)",
+    "proc": true
+  },
+  {
+    "id": 1248668,
+    "enchantId": 8215,
+    "name": "Enchant 2H Weapon - Strength",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "str": 25.0
+    },
+    "effect": "Permanently enchant a two-handed melee weapon to grant +25 Strength.",
+    "req": 58,
+    "skill": 295,
+    "source": "Formula: Enchant 2H Weapon - Strength (skill 290)",
+    "proc": false
+  },
+  {
+    "id": 13898,
+    "enchantId": 803,
+    "name": "Enchant Weapon - Fiery Weapon",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "fire": 14.0
+    },
+    "effect": "Permanently enchant a melee weapon to often strike for 40 additional fire damage.",
+    "req": 53,
+    "skill": 285,
+    "source": "Formula: Enchant Weapon - Fiery Weapon (skill 265) Drops in Blackrock Depths : Pyromancer Loregrain",
+    "proc": true
+  },
+  {
+    "id": 13943,
+    "enchantId": 805,
+    "name": "Enchant Weapon - Greater Striking",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "wpnDamage": 4.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to do 4 additional points of damage.",
+    "req": 53,
+    "skill": 265,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13937,
+    "enchantId": 963,
+    "name": "Enchant 2H Weapon - Greater Impact",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "wpnDamage": 7.0
+    },
+    "effect": "Permanently enchant a two-handed melee weapon to do +7 damage.",
+    "req": 52,
+    "skill": 260,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13915,
+    "enchantId": 912,
+    "name": "Enchant Weapon - Demonslaying",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {},
+    "effect": "Permanently enchant a melee weapon to have a chance of stunning and doing heavy damage to demons.",
+    "req": 46,
+    "skill": 250,
+    "source": "Formula: Enchant Weapon - Demonslaying (skill 230)",
+    "proc": true
+  },
+  {
+    "id": 1248511,
+    "enchantId": 2563,
+    "name": "Enchant 2H Weapon - Lesser Strength",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "str": 15.0
+    },
+    "effect": "Permanently enchant a Two-handed Melee Weapon to grant +15 Strength.",
+    "req": 44,
+    "skill": 240,
+    "source": "Formula: Enchant 2H Weapon - Lesser Strength (skill 220)",
+    "proc": false
+  },
+  {
+    "id": 1248510,
+    "enchantId": 2618,
+    "name": "Enchant 2H Weapon - Lesser Agility",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "agi": 15.0
+    },
+    "effect": "Permanently enchant a Two-handed Melee Weapon to grant +15 Agility.",
+    "req": 42,
+    "skill": 230,
+    "source": "Formula: Enchant 2H Weapon - Lesser Agility (skill 210)",
+    "proc": false
+  },
+  {
+    "id": 13695,
+    "enchantId": 8205,
+    "name": "Enchant 2H Weapon - Impact",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "wpnDamage": 6.0
+    },
+    "effect": "Permanently enchant a Two-handed Melee Weapon to do 6 additional points of damage.",
+    "req": 44,
+    "skill": 220,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13693,
+    "enchantId": 943,
+    "name": "Enchant Weapon - Striking",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "wpnDamage": 3.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to do 3 additional points of damage.",
+    "req": 43,
+    "skill": 215,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 21931,
+    "enchantId": 2443,
+    "name": "Enchant Weapon - Winter's Might",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "frost": 15.0
+    },
+    "effect": "Permanently enchant a weapon to grant up to 15 additional frost damage when casting frost spells.",
+    "req": 38,
+    "skill": 210,
+    "source": "Formula: Enchant Weapon - Winter's Might (skill 190)",
+    "proc": false
+  },
+  {
+    "id": 13653,
+    "enchantId": 853,
+    "name": "Enchant Weapon - Lesser Beastslayer",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "wpnDamage": 6.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to do 6 additional points of damage to Beasts.",
+    "req": 35,
+    "skill": 195,
+    "source": "Formula: Enchant Weapon - Lesser Beastslayer (skill 175)",
+    "proc": false
+  },
+  {
+    "id": 13655,
+    "enchantId": 854,
+    "name": "Enchant Weapon - Lesser Elemental Slayer",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {},
+    "effect": "Permanently enchant a Melee Weapon to do 6 additional damage against Elementals.",
+    "req": 35,
+    "skill": 195,
+    "source": "Formula: Enchant Weapon - Lesser Elemental Slayer (skill 175)",
+    "proc": false
+  },
+  {
+    "id": 13529,
+    "enchantId": 1897,
+    "name": "Enchant 2H Weapon - Lesser Impact",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "wpnDamage": 5.0
+    },
+    "effect": "Permanently enchant a Two-handed Melee Weapon to do 5 additional points of damage.",
+    "req": 34,
+    "skill": 170,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13503,
+    "enchantId": 241,
+    "name": "Enchant Weapon - Lesser Striking",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "wpnDamage": 2.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to do 2 additional points of damage.",
+    "req": 33,
+    "skill": 165,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 1248757,
+    "enchantId": 8216,
+    "name": "Enchant Weapon - Insight",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "spi": 35.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to have a chance to grant Insight when you cast a spell, increasing Spirit by 100% for 10 sec.",
+    "req": 28,
+    "skill": 140,
+    "source": "Formula: Enchant Weapon - Insight (skill 140)",
+    "proc": true
+  },
+  {
+    "id": 1248760,
+    "enchantId": 8721,
+    "name": "Enchant Weapon - Recovery",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {},
+    "effect": "Permanently enchant a Melee Weapon to trigger Recovery when you are Parried or Dodged, healing you for 5% of your maximum health. Cannot occur more often than once every 10 sec.",
+    "req": 28,
+    "skill": 140,
+    "source": "Formula: Enchant Weapon - Recovery (skill 140)",
+    "proc": true
+  },
+  {
+    "id": 1248805,
+    "enchantId": 8217,
+    "name": "Enchant Weapon - Revelation",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {},
+    "effect": "Permanently enchant a Melee Weapon to have a chance to trigger Revelation when a non-periodic spell fails to critically strike. Revelation grants 100% increased critical strike chance to the next non-periodic spell cast. Revelation's chance to trigger is diminished as your critical strike chance increases.",
+    "req": 28,
+    "skill": 140,
+    "source": "Formula: Enchant Weapon - Revelation (skill 140)",
+    "proc": true
+  },
+  {
+    "id": 13380,
+    "enchantId": 851,
+    "name": "Enchant 2H Weapon - Lesser Spirit",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "spi": 5.0
+    },
+    "effect": "Permanently enchant a Two-Handed Melee Weapon to add 5 to Spirit.",
+    "req": 22,
+    "skill": 135,
+    "source": "Formula: Enchant 2H Weapon - Lesser Spirit (skill 110)",
+    "proc": false
+  },
+  {
+    "id": 7793,
+    "enchantId": 723,
+    "name": "Enchant 2H Weapon - Lesser Intellect",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "int": 5.0
+    },
+    "effect": "Permanently enchant a Two-Handed Melee Weapon to add 5 to Intellect.",
+    "req": 20,
+    "skill": 130,
+    "source": "Formula: Enchant 2H Weapon - Lesser Intellect (skill 100)",
+    "proc": false
+  },
+  {
+    "id": 7745,
+    "enchantId": 805,
+    "name": "Enchant 2H Weapon - Minor Impact",
+    "slot": "mainhand",
+    "fit": "twohand",
+    "stats": {
+      "wpnDamage": 4.0
+    },
+    "effect": "Permanently enchant a Two-Handed Melee Weapon to do 4 additional points of damage.",
+    "req": 26,
+    "skill": 130,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 7786,
+    "enchantId": 249,
+    "name": "Enchant Weapon - Minor Beastslayer",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "wpnDamage": 2.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to do 2 additional points of damage to Beasts.",
+    "req": 18,
+    "skill": 120,
+    "source": "Formula: Enchant Weapon - Minor Beastslayer (skill 90)",
+    "proc": false
+  },
+  {
+    "id": 7788,
+    "enchantId": 250,
+    "name": "Enchant Weapon - Minor Striking",
+    "slot": "mainhand",
+    "fit": "weapon",
+    "stats": {
+      "wpnDamage": 1.0
+    },
+    "effect": "Permanently enchant a Melee Weapon to do 1 additional point of damage.",
+    "req": 24,
+    "skill": 120,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 1249059,
+    "enchantId": 904,
+    "name": "Enchant Necklace - Agility",
+    "slot": "neck",
+    "fit": "any",
+    "stats": {
+      "agi": 5.0
+    },
+    "effect": "Permanently enchant a necklace to increase Agility by 5.",
+    "req": 42,
+    "skill": 225,
+    "source": "Formula: Enchant Necklace - Agility (skill 210)",
+    "proc": false
+  },
+  {
+    "id": 1249060,
+    "enchantId": 925,
+    "name": "Enchant Necklace - Deflection",
+    "slot": "neck",
+    "fit": "any",
+    "stats": {
+      "def": 5.0
+    },
+    "effect": "Permanently enchant a necklace to increase defense skill by 5.",
+    "req": 42,
+    "skill": 225,
+    "source": "Formula: Enchant Necklace - Deflection (skill 210)",
+    "proc": false
+  },
+  {
+    "id": 1249058,
+    "enchantId": 8219,
+    "name": "Enchant Necklace - Healing Power",
+    "slot": "neck",
+    "fit": "any",
+    "stats": {
+      "heal": 11.0,
+      "sd": 4.0
+    },
+    "effect": "Permanently enchant a necklace to increase healing by up to 11 and spell damage by up to 4.",
+    "req": 42,
+    "skill": 225,
+    "source": "Formula: Enchant Necklace - Healing Power (skill 210)",
+    "proc": false
+  },
+  {
+    "id": 1249057,
+    "enchantId": 8218,
+    "name": "Enchant Necklace - Spell Power",
+    "slot": "neck",
+    "fit": "any",
+    "stats": {
+      "sp": 6.0
+    },
+    "effect": "Permanently enchant a necklace to increase spell damage and healing by up to 6.",
+    "req": 42,
+    "skill": 225,
+    "source": "Formula: Enchant Necklace - Spell Power (skill 210)",
+    "proc": false
+  },
+  {
+    "id": 1249019,
+    "enchantId": 856,
+    "name": "Enchant Necklace - Strength",
+    "slot": "neck",
+    "fit": "any",
+    "stats": {
+      "str": 5.0
+    },
+    "effect": "Permanently enchant a necklace to increase Strength by 5.",
+    "req": 42,
+    "skill": 225,
+    "source": "Formula: Enchant Necklace - Strength (skill 210)",
+    "proc": false
+  },
+  {
+    "id": 1219578,
+    "enchantId": 7660,
+    "name": "Enchant Off-Hand - Excellent Spirit",
+    "slot": "offhand",
+    "fit": "holdable",
+    "stats": {
+      "spi": 12.0
+    },
+    "effect": "Permanently enchant an Off-Hand to add 12 to spirit.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Off Hand - Excellent Spirit (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1219577,
+    "enchantId": 7659,
+    "name": "Enchant Off-Hand - Superior Intellect",
+    "slot": "offhand",
+    "fit": "holdable",
+    "stats": {
+      "int": 9.0
+    },
+    "effect": "Permanently enchant an Off-Hand to add 9 to intellect.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Off Hand - Superior Intellect (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1219579,
+    "enchantId": 7661,
+    "name": "Enchant Off-Hand - Wisdom",
+    "slot": "offhand",
+    "fit": "holdable",
+    "stats": {
+      "int": 6.0
+    },
+    "effect": "Permanently enchant an Off-Hand to add 6 to intellect and 5 to spirit.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Off Hand - Wisdom (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1220623,
+    "enchantId": 7664,
+    "name": "Enchant Shield - Critical Strike",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "crit": 1.0
+    },
+    "effect": "Permanently enchant a Shield to add 1% critical strike chance.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Shield - Critical Strike (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1219581,
+    "enchantId": 7663,
+    "name": "Enchant Shield - Excellent Stamina",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "sta": 12.0
+    },
+    "effect": "Permanently enchant a Shield to add 12 to stamina.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Shield - Excellent Stamina (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20016,
+    "enchantId": 1890,
+    "name": "Enchant Shield - Superior Spirit",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "spi": 9.0
+    },
+    "effect": "Permanently enchant a shield to give +9 Spirit.",
+    "req": 56,
+    "skill": 300,
+    "source": "Formula: Enchant Shield - Superior Spirit (skill 280)",
+    "proc": false
+  },
+  {
+    "id": 20017,
+    "enchantId": 1886,
+    "name": "Enchant Shield - Greater Stamina",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "sta": 9.0
+    },
+    "effect": "Permanently enchant a shield to give +9 Stamina.",
+    "req": 53,
+    "skill": 285,
+    "source": "Formula: Enchant Shield - Greater Stamina (skill 265)",
+    "proc": false
+  },
+  {
+    "id": 13933,
+    "enchantId": 926,
+    "name": "Enchant Shield - Frost Resistance",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "frostRes": 8.0
+    },
+    "effect": "Permanently enchant a shield to give +8 Frost Resistance.",
+    "req": 47,
+    "skill": 255,
+    "source": "Formula: Enchant Shield - Frost Resistance (skill 235)",
+    "proc": false
+  },
+  {
+    "id": 13905,
+    "enchantId": 907,
+    "name": "Enchant Shield - Greater Spirit",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "spi": 7.0
+    },
+    "effect": "Permanently enchant a shield to give +7 Spirit.",
+    "req": 50,
+    "skill": 250,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13817,
+    "enchantId": 929,
+    "name": "Enchant Shield - Stamina",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "sta": 7.0
+    },
+    "effect": "Permanently enchant a shield to give +7 Stamina.",
+    "req": 42,
+    "skill": 230,
+    "source": "Formula: Enchant Shield - Stamina (skill 210)",
+    "proc": false
+  },
+  {
+    "id": 13689,
+    "enchantId": 863,
+    "name": "Enchant Shield - Lesser Block",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "block": 2.0
+    },
+    "effect": "Permanently enchant a shield to give +2% chance to block.",
+    "req": 39,
+    "skill": 215,
+    "source": "Formula: Enchant Shield - Lesser Block (skill 195)",
+    "proc": false
+  },
+  {
+    "id": 13659,
+    "enchantId": 851,
+    "name": "Enchant Shield - Spirit",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "spi": 5.0
+    },
+    "effect": "Permanently enchant a shield to give 5 Spirit.",
+    "req": 40,
+    "skill": 200,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13631,
+    "enchantId": 852,
+    "name": "Enchant Shield - Lesser Stamina",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "sta": 5.0
+    },
+    "effect": "Permanently enchant a shield to give 5 Stamina.",
+    "req": 35,
+    "skill": 175,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13485,
+    "enchantId": 255,
+    "name": "Enchant Shield - Lesser Spirit",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "spi": 3.0
+    },
+    "effect": "Permanently enchant a shield to give 3 spirit.",
+    "req": 31,
+    "skill": 155,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13464,
+    "enchantId": 848,
+    "name": "Enchant Shield - Lesser Protection",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "armor": 30.0
+    },
+    "effect": "Permanently enchant a shield to increase its armor by 30.",
+    "req": 23,
+    "skill": 140,
+    "source": "Formula: Enchant Shield - Lesser Protection (skill 115)",
+    "proc": false
+  },
+  {
+    "id": 13378,
+    "enchantId": 66,
+    "name": "Enchant Shield - Minor Stamina",
+    "slot": "offhand",
+    "fit": "shield",
+    "stats": {
+      "sta": 3.0
+    },
+    "effect": "Permanently enchant a shield so that it increases the Stamina of the bearer by 3.",
+    "req": 26,
+    "skill": 130,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 1220624,
+    "enchantId": 7665,
+    "name": "Enchant Bracer - Greater Spellpower",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "sp": 16.0
+    },
+    "effect": "Permanently enchant Bracers to add 16 to spell power.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Bracer - Greater Spellpower (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 23802,
+    "enchantId": 2566,
+    "name": "Enchant Bracer - Healing Power",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "heal": 24.0,
+      "sd": 8.0
+    },
+    "effect": "Permanently enchant bracers to increase the effects of your healing spells by up to 24 and the effects of your damage spells by up to 8.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Bracer - Healing (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1248665,
+    "enchantId": 8214,
+    "name": "Enchant Bracer - Superior Deflection",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "def": 9.0
+    },
+    "effect": "Permanently enchant bracers to give +9 defense skill.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Bracer - Superior Deflection (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1248661,
+    "enchantId": 1901,
+    "name": "Enchant Bracer - Superior Intellect",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "int": 9.0
+    },
+    "effect": "Permanently enchant bracers to give +9 Intellect.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Bracer - Superior Intellect (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 20011,
+    "enchantId": 1886,
+    "name": "Enchant Bracer - Superior Stamina",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "sta": 9.0
+    },
+    "effect": "Permanently enchant bracers to give +9 Stamina.",
+    "req": 60,
+    "skill": 320,
+    "source": "Formula: Enchant Bracer - Superior Stamina (skill 300)",
+    "proc": false
+  },
+  {
+    "id": 1248599,
+    "enchantId": 7656,
+    "name": "Enchant Bracer - Superior Agility",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "agi": 9.0
+    },
+    "effect": "Permanently enchant bracers to give +9 Agility.",
+    "req": 59,
+    "skill": 315,
+    "source": "Formula: Enchant Bracer - Superior Agility (skill 295)",
+    "proc": false
+  },
+  {
+    "id": 20010,
+    "enchantId": 1885,
+    "name": "Enchant Bracer - Superior Strength",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "str": 9.0
+    },
+    "effect": "Permanently enchant bracers to give +9 Strength.",
+    "req": 59,
+    "skill": 315,
+    "source": "Formula: Enchant Bracer - Superior Strength (skill 295)",
+    "proc": false
+  },
+  {
+    "id": 23801,
+    "enchantId": 2565,
+    "name": "Enchant Bracer - Mana Regeneration",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "mp5": 4.0
+    },
+    "effect": "Permanently enchant bracers to restore 4 mana every 5 seconds.",
+    "req": 58,
+    "skill": 310,
+    "source": "Formula: Enchant Bracer - Mana Regeneration (skill 290)",
+    "proc": false
+  },
+  {
+    "id": 20009,
+    "enchantId": 1884,
+    "name": "Enchant Bracer - Superior Spirit",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "spi": 9.0
+    },
+    "effect": "Permanently enchant bracers to give +9 Spirit.",
+    "req": 54,
+    "skill": 290,
+    "source": "Formula: Enchant Bracer - Superior Spirit (skill 270)",
+    "proc": false
+  },
+  {
+    "id": 20008,
+    "enchantId": 1883,
+    "name": "Enchant Bracer - Greater Intellect",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "int": 7.0
+    },
+    "effect": "Permanently enchant bracers to give +7 Intellect.",
+    "req": 51,
+    "skill": 275,
+    "source": "Formula: Enchant Bracer - Greater Intellect (skill 255)",
+    "proc": false
+  },
+  {
+    "id": 13945,
+    "enchantId": 929,
+    "name": "Enchant Bracer - Greater Stamina",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "sta": 7.0
+    },
+    "effect": "Permanently enchant bracers to give +7 Stamina.",
+    "req": 49,
+    "skill": 265,
+    "source": "Formula: Enchant Bracer - Greater Stamina (skill 245)",
+    "proc": false
+  },
+  {
+    "id": 1248500,
+    "enchantId": 1887,
+    "name": "Enchant Bracer - Greater Agility",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "agi": 7.0
+    },
+    "effect": "Permanently enchant bracers to give +7 Agility.",
+    "req": 48,
+    "skill": 260,
+    "source": "Formula: Enchant Bracer - Greater Agility (skill 240)",
+    "proc": false
+  },
+  {
+    "id": 13939,
+    "enchantId": 927,
+    "name": "Enchant Bracer - Greater Strength",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "str": 7.0
+    },
+    "effect": "Permanently enchant bracers to give +7 Strength.",
+    "req": 52,
+    "skill": 260,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13931,
+    "enchantId": 923,
+    "name": "Enchant Bracer - Deflection",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "def": 7.0
+    },
+    "effect": "Permanently enchant bracers to give +7 Defense.",
+    "req": 47,
+    "skill": 255,
+    "source": "Formula: Enchant Bracer - Deflection (skill 235)",
+    "proc": false
+  },
+  {
+    "id": 13846,
+    "enchantId": 907,
+    "name": "Enchant Bracer - Greater Spirit",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "spi": 7.0
+    },
+    "effect": "Permanently enchant bracers to give +7 Spirit.",
+    "req": 44,
+    "skill": 240,
+    "source": "Formula: Enchant Bracer - Greater Spirit (skill 220)",
+    "proc": false
+  },
+  {
+    "id": 13822,
+    "enchantId": 905,
+    "name": "Enchant Bracer - Intellect",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "int": 5.0
+    },
+    "effect": "Permanently enchant bracers to give +5 Intellect.",
+    "req": 46,
+    "skill": 230,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 1248497,
+    "enchantId": 904,
+    "name": "Enchant Bracer - Agility",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "agi": 5.0
+    },
+    "effect": "Permanently enchant bracers to give +5 Agility.",
+    "req": 38,
+    "skill": 225,
+    "source": "Formula: Enchant Bracer - Agility (skill 190)",
+    "proc": false
+  },
+  {
+    "id": 1248498,
+    "enchantId": 8209,
+    "name": "Enchant Bracer - Lesser Healing Power",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "heal": 16.0,
+      "sd": 6.0
+    },
+    "effect": "Permanently enchant bracers to increase healing by up to 16 and damage by up to 6.",
+    "req": 41,
+    "skill": 225,
+    "source": "Formula: Enchant Bracer - Lesser Healing Power (skill 205)",
+    "proc": false
+  },
+  {
+    "id": 13661,
+    "enchantId": 856,
+    "name": "Enchant Bracer - Strength",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "str": 5.0
+    },
+    "effect": "Permanently enchant bracers to give +5 Strength.",
+    "req": 40,
+    "skill": 200,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13646,
+    "enchantId": 925,
+    "name": "Enchant Bracer - Lesser Deflection",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "def": 5.0
+    },
+    "effect": "Permanently enchant bracers to give +5 Defense.",
+    "req": 34,
+    "skill": 190,
+    "source": "Formula: Enchant Bracer - Lesser Deflection (skill 170)",
+    "proc": false
+  },
+  {
+    "id": 13648,
+    "enchantId": 852,
+    "name": "Enchant Bracer - Stamina",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "sta": 5.0
+    },
+    "effect": "Permanently enchant bracers to give +5 Stamina.",
+    "req": 38,
+    "skill": 190,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13642,
+    "enchantId": 851,
+    "name": "Enchant Bracer - Spirit",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "spi": 5.0
+    },
+    "effect": "Permanently enchant bracers to give +5 Spirit.",
+    "req": 37,
+    "skill": 185,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 13622,
+    "enchantId": 8734,
+    "name": "Enchant Bracer - Lesser Intellect",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "int": 3.0
+    },
+    "effect": "Permanently enchant a bracer so it increases the wearer's Intellect by 3.",
+    "req": 35,
+    "skill": 175,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 1248460,
+    "enchantId": 8204,
+    "name": "Enchant Bracer - Lesser Agility",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "agi": 4.0
+    },
+    "effect": "Permanently enchant a bracer so it increases the wearer's Agility by 4.",
+    "req": 28,
+    "skill": 165,
+    "source": "Formula: Enchant Bracer - Lesser Agility (skill 140)",
+    "proc": false
+  },
+  {
+    "id": 13536,
+    "enchantId": 823,
+    "name": "Enchant Bracer - Lesser Strength",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "str": 4.0
+    },
+    "effect": "Permanently enchant a bracer so it increases the wearer's Strength by 4.",
+    "req": 28,
+    "skill": 165,
+    "source": "Formula: Enchant Bracer - Lesser Strength (skill 140)",
+    "proc": false
+  },
+  {
+    "id": 13501,
+    "enchantId": 254,
+    "name": "Enchant Bracer - Lesser Stamina",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "sta": 4.0
+    },
+    "effect": "Permanently enchant a bracer so it increases the wearer's Stamina by 4.",
+    "req": 31,
+    "skill": 155,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 7859,
+    "enchantId": 8203,
+    "name": "Enchant Bracer - Lesser Spirit",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "spi": 4.0
+    },
+    "effect": "Permanently enchant a bracer so it increases the wearer's Spirit by 4.",
+    "req": 24,
+    "skill": 145,
+    "source": "Formula: Enchant Bracer - Lesser Spirit (skill 120)",
+    "proc": false
+  },
+  {
+    "id": 1248459,
+    "enchantId": 8208,
+    "name": "Enchant Bracer - Minor Healing Power",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "heal": 8.0,
+      "sd": 3.0
+    },
+    "effect": "Permanently enchant bracers so they increase the wearer's healing spells by up to 8 and damage spells by up to 3.",
+    "req": 18,
+    "skill": 120,
+    "source": "Formula: Enchant Bracer - Minor Healing Power (skill 90)",
+    "proc": false
+  },
+  {
+    "id": 7779,
+    "enchantId": 247,
+    "name": "Enchant Bracer - Minor Agility",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "agi": 3.0
+    },
+    "effect": "Permanently enchant bracers so they increase the wearer's Agility by 3.",
+    "req": 23,
+    "skill": 115,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 7782,
+    "enchantId": 248,
+    "name": "Enchant Bracer - Minor Strength",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "str": 3.0
+    },
+    "effect": "Permanently enchant bracers so they increase the wearer's Strength by 3.",
+    "req": 16,
+    "skill": 115,
+    "source": "Formula: Enchant Bracer - Minor Strength (skill 80)",
+    "proc": false
+  },
+  {
+    "id": 1248458,
+    "enchantId": 246,
+    "name": "Enchant Bracer - Minor Intellect",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "int": 3.0
+    },
+    "effect": "Permanently enchant bracers to give +3 Intellect.",
+    "req": 14,
+    "skill": 110,
+    "source": "Formula: Enchant Bracer - Minor Intellect (skill 70)",
+    "proc": false
+  },
+  {
+    "id": 7766,
+    "enchantId": 243,
+    "name": "Enchant Bracer - Minor Spirit",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "spi": 3.0
+    },
+    "effect": "Permanently enchant bracers so they increase the wearer's Spirit by 3.",
+    "req": 12,
+    "skill": 105,
+    "source": "Formula: Enchant Bracer - Minor Spirit (skill 60)",
+    "proc": false
+  },
+  {
+    "id": 7457,
+    "enchantId": 66,
+    "name": "Enchant Bracer - Minor Stamina",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "sta": 3.0
+    },
+    "effect": "Permanently enchant bracers so they increase the wearer's Stamina by 3.",
+    "req": 20,
+    "skill": 100,
+    "source": "Source unconfirmed in client data (trainer or quest)",
+    "proc": false
+  },
+  {
+    "id": 7428,
+    "enchantId": 924,
+    "name": "Enchant Bracer - Minor Deflect",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "def": 3.0
+    },
+    "effect": "Permanently enchant bracers so that the defense skill of the wearer is increased by 3.",
+    "req": 16,
+    "skill": 80,
+    "source": "Trainer (learned with Enchanting)",
+    "proc": false
+  },
+  {
+    "id": 7418,
+    "enchantId": 41,
+    "name": "Enchant Bracer - Inferior Stamina",
+    "slot": "wrist",
+    "fit": "any",
+    "stats": {
+      "sta": 2.0
+    },
+    "effect": "Permanently enchant bracers to increase the Stamina of the wearer by 2.",
+    "req": 4,
+    "skill": 20,
+    "source": "Trainer (learned with Enchanting)",
+    "proc": false
+  }
+]

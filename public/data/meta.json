@@ -1,0 +1,40 @@
+{
+  "items": 8503,
+  "enchants": 160,
+  "buckets": {
+    "ranged": 320,
+    "head": 599,
+    "twohand": 519,
+    "onehand": 391,
+    "waist": 643,
+    "wrist": 517,
+    "feet": 776,
+    "hands": 774,
+    "legs": 753,
+    "shoulder": 632,
+    "neck": 215,
+    "finger": 389,
+    "chest": 820,
+    "back": 312,
+    "shield": 168,
+    "holdable": 151,
+    "trinket": 218,
+    "mainhand": 257,
+    "relic": 39,
+    "offhand": 10
+  },
+  "itemSource": "Forever Wowhead tooltip cache (Napalmsteak/Classic-WoW-Item-Caches, Forever Cache.json), tooltips refreshed through 2026-11-07.",
+  "enchantSource": "Warcraft Forever client data build 1.60.1.70862 (warcraftforever.com) with source notes from wowfdb.com enchanting recipes.",
+  "characterSource": "Official Armory characterProfileInitialState for Daz Dingomon and Mrs Dingomon on US PvP, 2026-11-08.",
+  "unparsedEnchants": [
+    "Enchant Cloak - Stealth: Permanently enchant a cloak to give an increase to your stealth as if you were 1 level higher.",
+    "Enchant Cloak - Subtlety: Permanently enchant a cloak to decrease threat caused by the wearer by 2%.",
+    "Enchant Weapon - Recovery: Permanently enchant a Melee Weapon to trigger Recovery when you are Parried or Dodged, healing you for 5% of your maximum health. Cannot occ",
+    "Enchant Weapon - Icy Chill: Permanently enchant a melee weapon to often chill the target reducing their movement and attack speed.",
+    "Enchant Weapon - Revelation: Permanently enchant a Melee Weapon to have a chance to trigger Revelation when a non-periodic spell fails to critically strike. Revelation g",
+    "Enchant Weapon - Demonslaying: Permanently enchant a melee weapon to have a chance of stunning and doing heavy damage to demons.",
+    "Enchant Weapon - Lifestealing: Permanently enchant a melee weapon to often steal life from the enemy and give it to the wielder.",
+    "Enchant Weapon - Unholy Weapon: Permanently enchant a melee weapon to often inflict a curse on the target reducing their melee damage.",
+    "Enchant Weapon - Lesser Elemental Slayer: Permanently enchant a Melee Weapon to do 6 additional damage against Elementals."
+  ]
+}

@@ -1,0 +1,815 @@
+[
+  {
+    "slug": "daz-dingomon",
+    "region": "us",
+    "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
+    "fetchedAt": "2026-11-08T12:02:25Z",
+    "source": "armory-snapshot",
+    "sourceNote": "Official US Forever Armory embed, captured 8 Nov 2026. The Armory only returned the active spec; the off spec is the saved profile.",
+    "mainSpec": "shaman-restoration",
+    "offSpec": "shaman-enhancement",
+    "character": {
+      "name": "Daz",
+      "surname": "Dingomon",
+      "level": 17,
+      "classId": "shaman",
+      "className": "Shaman",
+      "race": "Troll",
+      "gender": "Male",
+      "faction": "horde",
+      "ruleset": "PvP",
+      "rulesetId": 1,
+      "guild": "\u00d8nlyDads",
+      "ilvl": 9,
+      "honorableKills": 44,
+      "region": "us",
+      "updatedAt": "2026-11-08T12:02:25Z",
+      "stats": [
+        {
+          "key": "HEALTH",
+          "value": 550,
+          "percent": false
+        },
+        {
+          "key": "MANA",
+          "value": 501,
+          "percent": false
+        },
+        {
+          "key": "ITEMLEVEL",
+          "value": 9,
+          "percent": false
+        },
+        {
+          "key": "MOVEMENTSPEED",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "STRENGTH",
+          "value": 37,
+          "percent": false
+        },
+        {
+          "key": "AGILITY",
+          "value": 30,
+          "percent": false
+        },
+        {
+          "key": "INTELLECT",
+          "value": 32,
+          "percent": false
+        },
+        {
+          "key": "STAMINA",
+          "value": 58,
+          "percent": false
+        },
+        {
+          "key": "CRITICALSTRIKE",
+          "value": 5.197,
+          "percent": true
+        },
+        {
+          "key": "HASTE",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "MASTERY",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "BONUSARMOR",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "VERSATILITY",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "AVOIDANCE",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "ATTACKPOWER",
+          "value": 173,
+          "percent": false
+        },
+        {
+          "key": "ATTACKSPEED",
+          "value": 2,
+          "percent": false
+        },
+        {
+          "key": "ATTACKDPS",
+          "value": 24.607143,
+          "percent": false
+        },
+        {
+          "key": "SPELLPOWER",
+          "value": 3,
+          "percent": false
+        },
+        {
+          "key": "MANAREGEN",
+          "value": 52,
+          "percent": false
+        },
+        {
+          "key": "ARMOR",
+          "value": 771,
+          "percent": false
+        },
+        {
+          "key": "DODGE",
+          "value": 5.197,
+          "percent": true
+        },
+        {
+          "key": "PARRY",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "BLOCK",
+          "value": 4.96,
+          "percent": true
+        }
+      ],
+      "specs": [
+        {
+          "id": "restoration",
+          "name": "Restoration",
+          "spent": 8,
+          "active": true,
+          "talents": [
+            {
+              "name": "Tidal Focus",
+              "rank": 5,
+              "description": "Reduces the Mana cost of your healing spells by 5% and improves your chance to hit by 5%."
+            },
+            {
+              "name": "Mindfulness",
+              "rank": 3,
+              "description": "Allows 50% of your Mana regeneration to continue while casting."
+            }
+          ]
+        }
+      ],
+      "gear": [
+        {
+          "slot": "back",
+          "armorySlot": "back",
+          "itemId": 273005,
+          "name": "Satyrskin Cloak",
+          "quality": "rare",
+          "ilvl": 18,
+          "req": 13,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "CLOAK",
+          "stats": {
+            "sta": 3.0,
+            "fireRes": 3.0,
+            "armor": 17.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "chest",
+          "armorySlot": "chest",
+          "itemId": 2300,
+          "name": "Embossed Leather Vest",
+          "quality": "uncommon",
+          "ilvl": 12,
+          "req": 7,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "CHEST",
+          "stats": {
+            "sta": 2.0,
+            "armor": 62.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": {
+            "enchantId": 41,
+            "name": "Enchant Chest - Inferior Stamina",
+            "label": "Enchanted: Stamina +2"
+          }
+        },
+        {
+          "slot": "feet",
+          "armorySlot": "foot",
+          "itemId": 2309,
+          "name": "Embossed Leather Boots",
+          "quality": "uncommon",
+          "ilvl": 15,
+          "req": 10,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "FEET",
+          "stats": {
+            "sta": 2.0,
+            "sp": 2.0,
+            "armor": 48.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "hands",
+          "armorySlot": "hand",
+          "itemId": 14117,
+          "name": "Aboriginal Gloves of the Sorcerer",
+          "quality": "uncommon",
+          "ilvl": 16,
+          "req": 11,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "HAND",
+          "stats": {
+            "int": 2.0,
+            "sta": 1.0,
+            "sp": 1.0,
+            "armor": 18.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "legs",
+          "armorySlot": "leg",
+          "itemId": 15450,
+          "name": "Dredgemire Leggings",
+          "quality": "uncommon",
+          "ilvl": 18,
+          "req": null,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "LEGS",
+          "stats": {
+            "sta": 3.0,
+            "spi": 3.0,
+            "armor": 65.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "offhand",
+          "armorySlot": "offhand",
+          "itemId": 3655,
+          "name": "Burnished Shield",
+          "quality": "uncommon",
+          "ilvl": 21,
+          "req": 16,
+          "armorType": "shield",
+          "weaponType": null,
+          "inventoryType": "SHIELD",
+          "stats": {
+            "str": 2.0,
+            "sta": 3.0,
+            "armor": 428.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "ranged",
+          "armorySlot": "ranged",
+          "itemId": 263412,
+          "name": "Totem of Charged Flames",
+          "quality": "uncommon",
+          "ilvl": 10,
+          "req": null,
+          "armorType": "totem",
+          "weaponType": null,
+          "inventoryType": "RELIC",
+          "stats": {},
+          "dps": null,
+          "speed": null,
+          "effect": "Equip: Reduces the mana cost of Flame Shock and Lightning Bolt by 5 Mana.",
+          "enchant": null
+        },
+        {
+          "slot": "waist",
+          "armorySlot": "waist",
+          "itemId": 4246,
+          "name": "Fine Leather Belt",
+          "quality": "uncommon",
+          "ilvl": 16,
+          "req": 11,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "WAIST",
+          "stats": {
+            "agi": 2.0,
+            "sta": 2.0,
+            "armor": 40.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "mainhand",
+          "armorySlot": "weapon",
+          "itemId": 272998,
+          "name": "Bone Knuckles",
+          "quality": "rare",
+          "ilvl": 18,
+          "req": 13,
+          "armorType": null,
+          "weaponType": "fist weapon",
+          "inventoryType": "WEAPONMAINHAND",
+          "stats": {
+            "ap": 6.0,
+            "apBeast": 6.0
+          },
+          "dps": 12.25,
+          "speed": 2.0,
+          "effect": null,
+          "enchant": {
+            "enchantId": 6,
+            "name": null,
+            "label": "Rockbiter 2"
+          }
+        },
+        {
+          "slot": "wrist",
+          "armorySlot": "wrist",
+          "itemId": 15453,
+          "name": "Savannah Bracers",
+          "quality": "uncommon",
+          "ilvl": 18,
+          "req": null,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "WRIST",
+          "stats": {
+            "sta": 3.0,
+            "armor": 33.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        }
+      ],
+      "professions": [
+        {
+          "name": "Skinning",
+          "skill": 118,
+          "max": 150,
+          "primary": true
+        },
+        {
+          "name": "Enchanting",
+          "skill": 75,
+          "max": 150,
+          "primary": true
+        },
+        {
+          "name": "Cooking",
+          "skill": 126,
+          "max": 150,
+          "primary": false
+        },
+        {
+          "name": "Fishing",
+          "skill": 150,
+          "max": 150,
+          "primary": false
+        },
+        {
+          "name": "First Aid",
+          "skill": 25,
+          "max": 75,
+          "primary": false
+        }
+      ]
+    }
+  },
+  {
+    "slug": "mrs-dingomon",
+    "region": "us",
+    "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
+    "fetchedAt": "2026-11-08T12:02:22Z",
+    "source": "armory-snapshot",
+    "sourceNote": "Official US Forever Armory embed, captured 8 Nov 2026. The Armory only returned the active spec; the off spec is the saved profile.",
+    "mainSpec": "mage-arcane",
+    "offSpec": "mage-frost-pvp",
+    "character": {
+      "name": "Mrs",
+      "surname": "Dingomon",
+      "level": 17,
+      "classId": "mage",
+      "className": "Mage",
+      "race": "Troll",
+      "gender": "Female",
+      "faction": "horde",
+      "ruleset": "PvP",
+      "rulesetId": 1,
+      "guild": "\u00d8nlyDads",
+      "ilvl": 9,
+      "honorableKills": 52,
+      "region": "us",
+      "updatedAt": "2026-11-08T12:02:22Z",
+      "stats": [
+        {
+          "key": "HEALTH",
+          "value": 462,
+          "percent": false
+        },
+        {
+          "key": "MANA",
+          "value": 850,
+          "percent": false
+        },
+        {
+          "key": "ITEMLEVEL",
+          "value": 10,
+          "percent": false
+        },
+        {
+          "key": "MOVEMENTSPEED",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "STRENGTH",
+          "value": 23,
+          "percent": false
+        },
+        {
+          "key": "AGILITY",
+          "value": 33,
+          "percent": false
+        },
+        {
+          "key": "INTELLECT",
+          "value": 55,
+          "percent": false
+        },
+        {
+          "key": "STAMINA",
+          "value": 42,
+          "percent": false
+        },
+        {
+          "key": "CRITICALSTRIKE",
+          "value": 5.0639005,
+          "percent": true
+        },
+        {
+          "key": "HASTE",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "MASTERY",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "BONUSARMOR",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "VERSATILITY",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "AVOIDANCE",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "ATTACKPOWER",
+          "value": 13,
+          "percent": false
+        },
+        {
+          "key": "ATTACKSPEED",
+          "value": 2,
+          "percent": false
+        },
+        {
+          "key": "ATTACKDPS",
+          "value": 12.746754,
+          "percent": false
+        },
+        {
+          "key": "SPELLPOWER",
+          "value": 28,
+          "percent": false
+        },
+        {
+          "key": "MANAREGEN",
+          "value": 68,
+          "percent": false
+        },
+        {
+          "key": "ARMOR",
+          "value": 220,
+          "percent": false
+        },
+        {
+          "key": "DODGE",
+          "value": 5.6639,
+          "percent": true
+        },
+        {
+          "key": "PARRY",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "BLOCK",
+          "value": 0,
+          "percent": true
+        }
+      ],
+      "specs": [
+        {
+          "id": "arcane",
+          "name": "Arcane",
+          "spent": 8,
+          "active": true,
+          "talents": [
+            {
+              "name": "Wand Specialization",
+              "rank": 2,
+              "description": "Increases your damage with Wands by 25%."
+            },
+            {
+              "name": "Improved Channeling",
+              "rank": 3,
+              "description": "Gives your Arcane Missiles spell a 60% chance and your Arcane Blast and Arcane Wrath spells a 42% chance to not lose casting time when you take damage."
+            },
+            {
+              "name": "Arcane Subtlety",
+              "rank": 1,
+              "description": "Reduces your target's resistance to all your spells by 8 and reduces the threat caused by your Arcane spells by 15%."
+            },
+            {
+              "name": "Missile Barrage",
+              "rank": 2,
+              "description": "Gives your Arcane Blast spell a 40% chance, and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a 20% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec."
+            }
+          ]
+        }
+      ],
+      "gear": [
+        {
+          "slot": "back",
+          "armorySlot": "back",
+          "itemId": 6585,
+          "name": "Scouting Cloak of the Wolf",
+          "quality": "uncommon",
+          "ilvl": 20,
+          "req": 15,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "CLOAK",
+          "stats": {
+            "agi": 2.0,
+            "spi": 2.0,
+            "armor": 17.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "chest",
+          "armorySlot": "chest",
+          "itemId": 5202,
+          "name": "Corsair's Overshirt",
+          "quality": "rare",
+          "ilvl": 22,
+          "req": 17,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "CHEST",
+          "stats": {
+            "sta": 5.0,
+            "sd": 3.0,
+            "heal": 11.0,
+            "spi": 8.0,
+            "armor": 40.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "feet",
+          "armorySlot": "foot",
+          "itemId": 14114,
+          "name": "Aboriginal Footwraps of the Sorcerer",
+          "quality": "uncommon",
+          "ilvl": 16,
+          "req": 11,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "FEET",
+          "stats": {
+            "int": 2.0,
+            "sta": 1.0,
+            "sp": 1.0,
+            "armor": 20.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "hands",
+          "armorySlot": "hand",
+          "itemId": 4768,
+          "name": "Adept's Gloves",
+          "quality": "rare",
+          "ilvl": 17,
+          "req": 12,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "HAND",
+          "stats": {
+            "int": 5.0,
+            "sta": 5.0,
+            "armor": 21.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "legs",
+          "armorySlot": "leg",
+          "itemId": 10047,
+          "name": "Simple Kilt",
+          "quality": "uncommon",
+          "ilvl": 15,
+          "req": 10,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "LEGS",
+          "stats": {
+            "sta": 3.0,
+            "sp": 2.0,
+            "armor": 24.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "ranged",
+          "armorySlot": "ranged",
+          "itemId": 11288,
+          "name": "Greater Magic Wand",
+          "quality": "uncommon",
+          "ilvl": 23,
+          "req": 13,
+          "armorType": null,
+          "weaponType": "wand",
+          "inventoryType": "RANGEDRIGHT",
+          "stats": {
+            "sp": 2.0
+          },
+          "dps": 17.5,
+          "speed": 1.8,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "waist",
+          "armorySlot": "waist",
+          "itemId": 253887,
+          "name": "Novice Ardent's Sash",
+          "quality": "rare",
+          "ilvl": 15,
+          "req": 10,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "WAIST",
+          "stats": {
+            "int": 3.0,
+            "sd": 2.0,
+            "heal": 6.0,
+            "spi": 3.0,
+            "armor": 17.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "mainhand",
+          "armorySlot": "weapon",
+          "itemId": 15444,
+          "name": "Staff of Orgrimmar",
+          "quality": "rare",
+          "ilvl": 18,
+          "req": null,
+          "armorType": null,
+          "weaponType": "staff",
+          "inventoryType": "TWOHWEAPON",
+          "stats": {
+            "int": 6.0,
+            "agi": 6.0
+          },
+          "dps": 11.818181,
+          "speed": 3.3,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "wrist",
+          "armorySlot": "wrist",
+          "itemId": 14148,
+          "name": "Crystalline Cuffs",
+          "quality": "rare",
+          "ilvl": 18,
+          "req": 13,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "WRIST",
+          "stats": {
+            "sta": 2.0,
+            "spi": 3.0,
+            "armor": 15.0
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": {
+            "enchantId": 924,
+            "name": "Enchant Bracer - Minor Deflect",
+            "label": "Enchanted: Defense +3"
+          }
+        }
+      ],
+      "professions": [
+        {
+          "name": "Tailoring",
+          "skill": 83,
+          "max": 150,
+          "primary": true
+        },
+        {
+          "name": "Herbalism",
+          "skill": 77,
+          "max": 150,
+          "primary": true
+        },
+        {
+          "name": "Cooking",
+          "skill": 124,
+          "max": 150,
+          "primary": false
+        },
+        {
+          "name": "Fishing",
+          "skill": 123,
+          "max": 150,
+          "primary": false
+        },
+        {
+          "name": "First Aid",
+          "skill": 1,
+          "max": 75,
+          "primary": false
+        }
+      ]
+    }
+  }
+]
