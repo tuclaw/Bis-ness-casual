@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { characterFromArmoryState, parseArmoryHtml } from "../src/lib/armory.ts";
 import { parseCharacterQuery } from "../src/lib/names.ts";
+import { wowheadIconUrl, wowheadItemUrl } from "../src/lib/format.ts";
 import { rankEntries, recommendEnchantments, recommendGear } from "../src/lib/recommend.ts";
 import { scoreItem } from "../src/lib/score.ts";
 import type { Enchant, GearItem, SavedProfile } from "../src/lib/types.ts";
@@ -44,7 +45,7 @@ describe("level window", () => {
     item({ id: 4, name: "Also", req: 18, bucket: "chest", stats: { heal: 9 } }),
   ];
 
-  it("keeps the overall best when the slider would hide it", () => {
+  it("lists only items that can be worn inside the level window", () => {
     const ranked = rankEntries({
       entries: pool,
       scoreOf: (entry) => scoreItem(entry, "shaman-restoration"),
@@ -52,12 +53,12 @@ describe("level window", () => {
       window: 2,
       equippedScore: 1,
     });
-    expect(ranked[0]?.entry.name).toBe("Best");
+    expect(ranked.map((row) => row.entry.name)).not.toContain("Best");
+    expect(ranked[0]?.entry.name).toBe("Band");
     expect(ranked[0]?.overallBest).toBe(true);
-    expect(ranked[0]?.outsideLevel).toBe(true);
-    expect(ranked.filter((row) => !row.outsideLevel).every((row) => row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
-    expect(ranked.filter((row) => !row.outsideLevel).length).toBeGreaterThan(0);
-    expect(ranked.length).toBeLessThanOrEqual(5);
+    expect(ranked.every((row) => !row.outsideLevel && row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
+    expect(ranked.length).toBeGreaterThan(0);
+    expect(ranked.length).toBeLessThanOrEqual(4);
   });
 });
 
@@ -85,7 +86,7 @@ describe("spec scores", () => {
 });
 
 describe("enchants", () => {
-  it("surfaces the best chest enchant outside a narrow level window", () => {
+  it("hides chest enchants outside a narrow level window", () => {
     const result = recommendEnchantments({
       enchants,
       spec: "mage-arcane",
@@ -96,10 +97,9 @@ describe("enchants", () => {
       equippedScore: null,
     });
     expect(result.available).toBe(true);
-    const best = result.ranked.find((row) => row.overallBest);
-    expect(best?.outsideLevel).toBe(true);
-    expect(best?.entry.req).toBeGreaterThan(19);
-    expect(result.ranked.filter((row) => !row.outsideLevel).every((row) => row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
+    expect(result.ranked.length).toBeGreaterThan(0);
+    expect(result.ranked.every((row) => !row.outsideLevel && row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
+    expect(result.ranked[0]?.overallBest).toBe(true);
   });
 
   it("has no head enchants and does have Forever necklace enchants", () => {
@@ -107,7 +107,7 @@ describe("enchants", () => {
     const necks = recommendEnchantments({ enchants, spec: "shaman-restoration", level: 60, window: 40, slot: "neck", equipped: null, equippedScore: null });
     expect(necks.available).toBe(true);
     expect(necks.ranked.length).toBeGreaterThan(0);
-    expect(necks.ranked.length).toBeLessThanOrEqual(5);
+    expect(necks.ranked.length).toBeLessThanOrEqual(4);
   });
 
   it("prefers frost damage for Frost PvP gloves and healing for restoration", () => {
@@ -115,6 +115,49 @@ describe("enchants", () => {
     const resto = recommendEnchantments({ enchants, spec: "shaman-restoration", level: 60, window: 0, slot: "hands", equipped: null, equippedScore: null });
     expect(frost.ranked[0]?.entry.stats.frost ?? 0).toBeGreaterThan(0);
     expect((resto.ranked[0]?.entry.stats.heal ?? 0) + (resto.ranked[0]?.entry.stats.int ?? 0)).toBeGreaterThan(0);
+  });
+});
+
+describe("wearable best in slot", () => {
+  it("skips mail a shaman cannot wear inside the level window", () => {
+    const mail = item({ id: 1, name: "Mail", req: 17, bucket: "chest", armor: "mail", stats: { heal: 80 } });
+    const cloth = item({ id: 2, name: "Cloth", req: 17, bucket: "chest", armor: "cloth", stats: { heal: 12 } });
+    const ranked = recommendGear({
+      items: [mail, cloth],
+      spec: "shaman-restoration",
+      faction: "horde",
+      level: 17,
+      window: 8,
+      slot: "chest",
+      equipped: null,
+    });
+    expect(ranked.map((row) => row.entry.name)).toEqual(["Cloth"]);
+  });
+
+  it("allows mail once the level window reaches 40", () => {
+    const mail = item({ id: 1, name: "Mail", req: 40, bucket: "chest", armor: "mail", stats: { heal: 80 } });
+    const cloth = item({ id: 2, name: "Cloth", req: 36, bucket: "chest", armor: "cloth", stats: { heal: 12 } });
+    const ranked = recommendGear({
+      items: [mail, cloth],
+      spec: "shaman-restoration",
+      faction: "horde",
+      level: 36,
+      window: 8,
+      slot: "chest",
+      equipped: null,
+    });
+    expect(ranked[0]?.entry.name).toBe("Mail");
+    expect(ranked.every((row) => row.entry.req >= 28 && row.entry.req <= 44)).toBe(true);
+  });
+});
+
+describe("item links", () => {
+  it("builds the full Forever Wowhead item URL", () => {
+    expect(wowheadItemUrl(6832, "Cloak of Blight")).toBe("https://www.wowhead.com/forever/item=6832/cloak-of-blight");
+    expect(wowheadItemUrl(271810, "Corpsefeeder's Shedding")).toBe(
+      "https://www.wowhead.com/forever/item=271810/corpsefeeders-shedding",
+    );
+    expect(wowheadIconUrl("INV_Misc_Cape_18")).toBe("https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_18.jpg");
   });
 });
 
@@ -147,7 +190,22 @@ describe("armory html", () => {
         faction: { slug: "horde" },
         ruleset: { name: "Normal", rulesetId: 2 },
         region: "eu",
-        gear: {},
+        avatar: { url: "https://render.worldofwarcraft.com/forever-us/character/1/2-avatar.jpg" },
+        render: {
+          foreground: { url: "https://render.worldofwarcraft.com/forever-us/character/1/2-main-raw.png" },
+          background: { url: "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg" },
+        },
+        gear: {
+          back: {
+            name: "Satyrskin Cloak",
+            quality: { type: "RARE" },
+            level: { value: 18 },
+            item: { id: 273005 },
+            media: { content: { assets: [{ key: "icon", value: "https://render.worldofwarcraft.com/forever-us/icons/56/133770.jpg" }] } },
+            inventory_type: { type: "CLOAK" },
+            stats: [],
+          },
+        },
         stats: { groups: [] },
         specs: [{ id: "elemental", name: "Elemental", spentPoints: 5, active: true, talents: [] }],
         professions: {},
@@ -159,5 +217,9 @@ describe("armory html", () => {
     expect(character.surname).toBe("Windfury");
     expect(character.classId).toBe("shaman");
     expect(character.specs[0]?.name).toBe("Elemental");
+    expect(character.portraitUrl).toContain("2-avatar.jpg");
+    expect(character.modelUrl).toContain("main-raw.png");
+    expect(character.gear[0]?.iconUrl).toContain("133770.jpg");
+    expect(character.gear[0]?.name).toBe("Satyrskin Cloak");
   });
 });

@@ -181,7 +181,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133770.jpg"
         },
         {
           "slot": "chest",
@@ -205,7 +206,8 @@
             "enchantId": 41,
             "name": "Enchant Chest - Inferior Stamina",
             "label": "Enchanted: Stamina +2"
-          }
+          },
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132724.jpg"
         },
         {
           "slot": "feet",
@@ -226,7 +228,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132539.jpg"
         },
         {
           "slot": "hands",
@@ -248,7 +251,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132952.jpg"
         },
         {
           "slot": "legs",
@@ -269,7 +273,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134587.jpg"
         },
         {
           "slot": "offhand",
@@ -290,7 +295,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134949.jpg"
         },
         {
           "slot": "ranged",
@@ -307,7 +313,8 @@
           "dps": null,
           "speed": null,
           "effect": "Equip: Reduces the mana cost of Flame Shock and Lightning Bolt by 5 Mana.",
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134919.jpg"
         },
         {
           "slot": "waist",
@@ -328,7 +335,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132493.jpg"
         },
         {
           "slot": "mainhand",
@@ -352,7 +360,8 @@
             "enchantId": 6,
             "name": null,
             "label": "Rockbiter 2"
-          }
+          },
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132369.jpg"
         },
         {
           "slot": "wrist",
@@ -372,7 +381,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132606.jpg"
         }
       ],
       "professions": [
@@ -406,7 +416,10 @@
           "max": 75,
           "primary": false
         }
-      ]
+      ],
+      "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/231/189671-avatar.jpg",
+      "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/231/189671-main-raw.png",
+      "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     }
   },
   {
@@ -601,7 +614,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133754.jpg"
         },
         {
           "slot": "chest",
@@ -624,7 +638,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135012.jpg"
         },
         {
           "slot": "feet",
@@ -646,7 +661,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132592.jpg"
         },
         {
           "slot": "hands",
@@ -667,7 +683,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132939.jpg"
         },
         {
           "slot": "legs",
@@ -688,7 +705,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134591.jpg"
         },
         {
           "slot": "ranged",
@@ -707,7 +725,8 @@
           "dps": 17.5,
           "speed": 1.8,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135144.jpg"
         },
         {
           "slot": "waist",
@@ -730,7 +749,8 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/236918.jpg"
         },
         {
           "slot": "mainhand",
@@ -750,7 +770,8 @@
           "dps": 11.818181,
           "speed": 3.3,
           "effect": null,
-          "enchant": null
+          "enchant": null,
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135225.jpg"
         },
         {
           "slot": "wrist",
@@ -775,7 +796,8 @@
             "enchantId": 924,
             "name": "Enchant Bracer - Minor Deflect",
             "label": "Enchanted: Defense +3"
-          }
+          },
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132612.jpg"
         }
       ],
       "professions": [
@@ -809,7 +831,10 @@
           "max": 75,
           "primary": false
         }
-      ]
+      ],
+      "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/223/5406431-avatar.jpg",
+      "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/223/5406431-main-raw.png",
+      "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     }
   }
 ]

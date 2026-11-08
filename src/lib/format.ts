@@ -94,3 +94,19 @@ export function preferredStatOrder(key: string): number {
   const index = STAT_PRIORITY.indexOf(key);
   return index === -1 ? 50 : index;
 }
+
+/** Large Forever/Wowhead icon file, 56px, the size the Armory uses. */
+export function wowheadIconUrl(icon: string): string {
+  const file = icon.toLowerCase().replace(/\.jpg$/, "");
+  return `https://wow.zamimg.com/images/wow/icons/large/${file}.jpg`;
+}
+
+/** Full Forever Wowhead item page, including the name slug. */
+export function wowheadItemUrl(id: number, name: string): string {
+  const slug = name
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return `https://www.wowhead.com/forever/item=${id}/${slug}`;
+}

@@ -63,17 +63,12 @@ export function rankEntries<T extends { id: number; req: number }>(args: RankArg
     return !outsideLevel && !outsideFit;
   };
 
-  const best = scored[0]!;
   const picks: Ranked<T>[] = [];
-  const bestIsPractical = practical(best);
-  if (!bestIsPractical) picks.push(decorate(best, true));
   for (const row of scored) {
     if (!practical(row)) continue;
-    if (picks.some((pick) => pick.entry.id === row.entry.id)) continue;
-    picks.push(decorate(row, row === best));
-    if (picks.length >= limit + (bestIsPractical ? 0 : 1)) break;
+    picks.push(decorate(row, picks.length === 0));
+    if (picks.length >= limit) break;
   }
-  if (!picks.length) picks.push(decorate(best, true));
   return picks;
 }
 
@@ -114,10 +109,11 @@ function slotMatch(item: GearItem, slot: PlannerSlot, cls: ClassInfo): boolean {
   return item.bucket === slot;
 }
 
-function proficiencyOk(item: GearItem, cls: ClassInfo, level: number): boolean {
-  if (item.armor === "mail" && cls.mailAt && level < cls.mailAt) return false;
-  if (item.armor === "plate" && cls.plateAt && level < cls.plateAt) return false;
-  return true;
+function proficiencyOk(item: GearItem, cls: ClassInfo, level: number, window: number): boolean {
+  const high = Math.min(60, level + window);
+  const gate = item.armor === "mail" ? cls.mailAt : item.armor === "plate" ? cls.plateAt : undefined;
+  const earliest = gate ? Math.max(item.req, gate) : item.req;
+  return earliest <= high;
 }
 
 export function scoreEquippedItem(item: EquippedItem | null, spec: SpecId): number | null {
@@ -147,7 +143,7 @@ export function recommendGear(args: {
     scoreOf: (item) => scoreItem(item, args.spec),
     level: args.level,
     window: args.window,
-    fitOk: (item) => proficiencyOk(item, cls, args.level),
+    fitOk: (item) => proficiencyOk(item, cls, args.level, args.window),
     equippedScore: scoreEquippedItem(args.equipped, args.spec),
     equippedId: args.equipped?.itemId ?? null,
     emptySlot: !args.equipped,

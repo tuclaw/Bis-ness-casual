@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { ImportError, importCharacter, profileFromPaste } from "./lib/armory.ts";
 import { classById, specById, specsForClass } from "./lib/classes.ts";
-import { formatScore, preferredStatOrder, qualityName, statLabel } from "./lib/format.ts";
+import { formatScore, preferredStatOrder, qualityName, statLabel, wowheadItemUrl } from "./lib/format.ts";
+import { lookupItemIcon } from "./lib/icons.ts";
 import { parseCharacterQuery, REGION_ORDER, type Region } from "./lib/names.ts";
 import { recommendEnchantments, recommendGear, type Ranked } from "./lib/recommend.ts";
 import { equippedEnchantStats, scoreEnchant, scoreStats, topStatLines } from "./lib/score.ts";
@@ -17,6 +18,10 @@ import seeds from "./data/characters.json";
 
 const SEED_PROFILES = seeds as SavedProfile[];
 const STORAGE_KEY = "bis-ness-casual-imports";
+
+const LEFT_SLOTS = ["head", "neck", "shoulder", "back", "chest", "wrist"];
+const RIGHT_SLOTS = ["hands", "waist", "legs", "feet", "finger1", "finger2", "trinket1", "trinket2"];
+const WEAPON_SLOTS = ["mainhand", "offhand", "ranged"];
 
 const ROWS: Array<{ id: string; slot: PlannerSlot; label: string; armorySlot: string }> = [
   { id: "head", slot: "head", label: "Head", armorySlot: "head" },
@@ -73,6 +78,8 @@ export function App() {
   const [paste, setPaste] = useState("");
   const [catalog, setCatalog] = useState<{ items: GearItem[]; enchants: Enchant[] } | null>(null);
   const [catalogError, setCatalogError] = useState<string | null>(null);
+  const [selectedSlot, setSelectedSlot] = useState("chest");
+  const [icons, setIcons] = useState<Record<number, string | null>>({});
 
   useEffect(() => {
     const base = import.meta.env.BASE_URL;
@@ -178,7 +185,61 @@ export function App() {
         ? "Relic"
         : "Ranged";
 
-  const gearBySlot = new Map(character.gear.map((item) => [item.armorySlot, item]));
+  const plans = useMemo(() => {
+    if (!catalog) return [];
+    const bySlot = new Map(character.gear.map((item) => [item.armorySlot, item]));
+    return ROWS.map((row) => {
+      const equipped = bySlot.get(row.armorySlot) ?? null;
+      const exclude =
+        row.id === "finger2" || row.id === "trinket2"
+          ? uniquePick(catalog.items, {
+              spec: target,
+              faction: character.faction,
+              level: character.level,
+              window: windowN,
+              slot: row.slot,
+              equipped: bySlot.get(row.id === "finger2" ? "finger1" : "trinket1") ?? null,
+            })
+          : [];
+      return {
+        row,
+        equipped,
+        gear: recommendGear({
+          items: catalog.items,
+          spec: target,
+          faction: character.faction,
+          level: character.level,
+          window: windowN,
+          slot: row.slot,
+          equipped,
+          excludeIds: exclude,
+        }),
+        enchantPlan: planEnchants(catalog.enchants, target, character.level, windowN, row.slot, equipped),
+      };
+    });
+  }, [catalog, character, target, windowN]);
+
+  useEffect(() => {
+    const ids = new Set<number>();
+    for (const plan of plans) {
+      if (plan.equipped?.itemId) ids.add(plan.equipped.itemId);
+      for (const pick of plan.gear) ids.add(pick.entry.id);
+    }
+    const missing = [...ids].filter((id) => id > 0 && icons[id] === undefined);
+    if (!missing.length) return;
+    let cancel = false;
+    void Promise.all(missing.map(async (id) => [id, await lookupItemIcon(id)] as const)).then((rows) => {
+      if (cancel) return;
+      setIcons((current) => {
+        const next = { ...current };
+        for (const [id, url] of rows) next[id] = url;
+        return next;
+      });
+    });
+    return () => {
+      cancel = true;
+    };
+  }, [plans, icons]);
   const visibleStats = character.stats
     .filter((stat) => ["HEALTH", "MANA", "STRENGTH", "AGILITY", "INTELLECT", "STAMINA", "SPELLPOWER", "ATTACKPOWER", "ARMOR", "CRITICALSTRIKE"].includes(stat.key))
     .sort((a, b) => preferredStatOrder(a.key) - preferredStatOrder(b.key));
@@ -207,6 +268,7 @@ export function App() {
               onClick={() => selectProfile(item)}
               role="listitem"
             >
+              {item.character.portraitUrl && <img className="profile-portrait" src={item.character.portraitUrl} alt="" />}
               <strong>
                 {item.character.name} {item.character.surname}
               </strong>
@@ -354,7 +416,7 @@ export function App() {
             />
           </label>
           <p className="note">
-            Showing required levels {low}–{high}. The overall best item and enchant stay visible even when they sit outside this window.
+            Showing required levels {low}–{high}. Only best-in-slot picks you can wear in this range are listed.
           </p>
         </div>
 
@@ -392,69 +454,18 @@ export function App() {
       {!catalog && !catalogError && <p className="note">Loading the Forever item and enchant catalogs…</p>}
 
       {catalog && (
-        <div className="slots">
-          {ROWS.map((row) => {
-            const equipped = gearBySlot.get(row.armorySlot) ?? null;
-            const label = row.slot === "ranged" ? rangedLabel : row.label;
-            const exclude =
-              row.id === "finger2" || row.id === "trinket2"
-                ? uniquePick(catalog.items, {
-                    spec: target,
-                    faction: character.faction,
-                    level: character.level,
-                    window: windowN,
-                    slot: row.slot,
-                    equipped: gearBySlot.get(row.id === "finger2" ? "finger1" : "trinket1") ?? null,
-                  })
-                : [];
-            const gear = recommendGear({
-              items: catalog.items,
-              spec: target,
-              faction: character.faction,
-              level: character.level,
-              window: windowN,
-              slot: row.slot,
-              equipped,
-              excludeIds: exclude,
-            });
-            const enchantPlan = planEnchants(catalog.enchants, target, character.level, windowN, row.slot, equipped);
-            return (
-              <section className="panel slot" key={row.id}>
-                <div>
-                  <h3>{label}</h3>
-                  {equipped ? <ItemCard item={equipped} spec={target} equipped /> : <p className="empty">Nothing equipped.</p>}
-                </div>
-                <div>
-                  <div className="recs">
-                    {gear.length === 0 && <p className="empty">No catalog items for this slot, class, and faction.</p>}
-                    {gear.map((pick) => (
-                      <MiniCard key={pick.entry.id} pick={pick} spec={target} kind="item" />
-                    ))}
-                  </div>
-                  <div className="enchant-block">
-                    <h4>Enchants</h4>
-                    {!enchantPlan.available && <p className="empty">This slot cannot be enchanted with the Forever formulas in the catalog.</p>}
-                    {enchantPlan.available && equipped?.enchant && (
-                      <p className="note">
-                        Equipped: {equipped.enchant.label}
-                        {equipped.enchant.name ? ` (${equipped.enchant.name})` : ""}
-                        {enchantPlan.scored ? "" : ". This enchant is not an Enchanting formula in the catalog, so upgrade marks are withheld."}
-                      </p>
-                    )}
-                    {enchantPlan.available && (
-                      <div className="recs">
-                        {enchantPlan.ranked.length === 0 && <p className="empty">No enchants for this specialization.</p>}
-                        {enchantPlan.ranked.map((pick) => (
-                          <MiniCard key={pick.entry.id} pick={pick} spec={target} kind="enchant" />
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </section>
-            );
-          })}
-        </div>
+        <ArmoryBoard
+          rows={ROWS}
+          plans={plans}
+          character={character}
+          rangedLabel={rangedLabel}
+          selectedId={selectedSlot}
+          onSelect={setSelectedSlot}
+          icons={icons}
+          low={low}
+          high={high}
+          spec={target}
+        />
       )}
 
       <footer>
@@ -507,11 +518,17 @@ function planEnchants(
   return { ...result, scored: Boolean(current) && equippedScore != null };
 }
 
-function ItemCard({ item, spec, equipped }: { item: EquippedItem; spec: SpecId; equipped?: boolean }) {
+function ItemCard({ item, spec, equipped, icon }: { item: EquippedItem; spec: SpecId; equipped?: boolean; icon?: string | null }) {
   const lines = topStatLines(item.stats, spec);
+  const href = wowheadItemUrl(item.itemId, item.name);
   return (
     <article className={`card q-${item.quality}`}>
-      <div className="card-name">{item.name}</div>
+      <div className="card-head">
+        <ItemIcon src={icon ?? item.iconUrl} quality={item.quality} />
+        <div>
+      <div className="card-name">
+        <ItemLink href={href}>{item.name}</ItemLink>
+      </div>
       <div className="meta">
         {qualityName(item.quality)} · ilvl {item.ilvl}
         {item.req != null ? ` · requires ${item.req}` : ""}
@@ -525,6 +542,11 @@ function ItemCard({ item, spec, equipped }: { item: EquippedItem; spec: SpecId; 
       </div>
       {item.effect && <div className="source">{item.effect}</div>}
       {item.enchant && <div className="source">Enchant: {item.enchant.label}</div>}
+      <ItemLink className="full-link" href={href}>
+        {href}
+      </ItemLink>
+        </div>
+      </div>
     </article>
   );
 }
@@ -533,18 +555,24 @@ function MiniCard<T extends GearItem | Enchant>({
   pick,
   spec,
   kind,
+  icon,
 }: {
   pick: Ranked<T>;
   spec: SpecId;
   kind: "item" | "enchant";
+  icon?: string | null;
 }) {
   const item = pick.entry;
   const lines = topStatLines(item.stats, spec, 3);
   const quality = "quality" in item ? qualityName(item.quality) : "enchant";
   const name = item.name;
+  const href = kind === "item" ? wowheadItemUrl(item.id, name) : null;
   return (
     <article className={`mini q-${quality}`}>
-      <div className="card-name">{name}</div>
+      <div className="card-head">
+        {kind === "item" && <ItemIcon src={icon} quality={quality} />}
+        <div>
+      <div className="card-name">{href ? <ItemLink href={href}>{name}</ItemLink> : name}</div>
       <div className="meta">
         {"ilvl" in item ? `ilvl ${item.ilvl} · ` : `skill ${item.skill} · `}
         requires {item.req}
@@ -568,7 +596,168 @@ function MiniCard<T extends GearItem | Enchant>({
       </div>
       {"source" in item && item.source && <div className="source">{item.source}</div>}
       {kind === "enchant" && "effect" in item && <div className="source">{item.effect}</div>}
+      {href && (
+        <ItemLink className="full-link" href={href}>
+          {href}
+        </ItemLink>
+      )}
+        </div>
+      </div>
     </article>
+  );
+}
+
+function ItemIcon({ src, quality }: { src?: string | null; quality: string }) {
+  return (
+    <span className={`item-icon q-${quality}`}>
+      {src ? <img src={src} alt="" /> : <span className="item-icon-empty" />}
+    </span>
+  );
+}
+
+function ArmoryBoard({
+  rows,
+  plans,
+  character,
+  rangedLabel,
+  selectedId,
+  onSelect,
+  icons,
+  low,
+  high,
+  spec,
+}: {
+  rows: typeof ROWS;
+  plans: Array<{
+    row: (typeof ROWS)[number];
+    equipped: EquippedItem | null;
+    gear: Ranked<GearItem>[];
+    enchantPlan: ReturnType<typeof planEnchants>;
+  }>;
+  character: SavedProfile["character"];
+  rangedLabel: string;
+  selectedId: string;
+  onSelect: (id: string) => void;
+  icons: Record<number, string | null>;
+  low: number;
+  high: number;
+  spec: SpecId;
+}) {
+  const byId = new Map(plans.map((plan) => [plan.row.id, plan]));
+  const selected = byId.get(selectedId) ?? plans[0];
+  const labelFor = (row: (typeof ROWS)[number]) => (row.slot === "ranged" ? rangedLabel : row.label);
+  const iconFor = (item: EquippedItem | null) => (item ? item.iconUrl || icons[item.itemId] || null : null);
+
+  return (
+    <section className="panel armory">
+      <div className="doll">
+        <div className="doll-col">{LEFT_SLOTS.map((id) => slotButton(id))}</div>
+        <div className="doll-center">
+          <div className="doll-id">
+            {character.portraitUrl && <img className="portrait" src={character.portraitUrl} alt="" />}
+            <div>
+              <h2>
+                {character.name} {character.surname}
+              </h2>
+              <p>
+                Level {character.level} {character.className}
+                {character.ilvl != null ? ` · ilvl ${character.ilvl}` : ""}
+              </p>
+            </div>
+          </div>
+          <div
+            className="doll-stage"
+            style={character.backdropUrl ? { backgroundImage: `url(${character.backdropUrl})` } : undefined}
+          >
+            {character.modelUrl ? (
+              <img className="doll-model" src={character.modelUrl} alt={`${character.name} ${character.surname}`} />
+            ) : (
+              <p className="empty">No Armory portrait for this profile.</p>
+            )}
+          </div>
+        </div>
+        <div className="doll-col">{RIGHT_SLOTS.map((id) => slotButton(id))}</div>
+      </div>
+      <div className="doll-weapons">{WEAPON_SLOTS.map((id) => slotButton(id))}</div>
+      {selected && (
+        <div className="slot-detail">
+          <div>
+            <h3>{labelFor(selected.row)}</h3>
+            {selected.equipped ? (
+              <ItemCard item={selected.equipped} spec={spec} equipped icon={iconFor(selected.equipped)} />
+            ) : (
+              <p className="empty">Nothing equipped.</p>
+            )}
+          </div>
+          <div>
+            <h3>Best in slot</h3>
+            <div className="recs">
+              {selected.gear.length === 0 && (
+                <p className="empty">
+                  No item for this slot can be worn at required levels {low}–{high}.
+                </p>
+              )}
+              {selected.gear.map((pick) => (
+                <MiniCard key={pick.entry.id} pick={pick} spec={spec} kind="item" icon={icons[pick.entry.id]} />
+              ))}
+            </div>
+            <div className="enchant-block">
+              <h4>Enchants</h4>
+              {!selected.enchantPlan.available && (
+                <p className="empty">This slot cannot be enchanted with the Forever formulas in the catalog.</p>
+              )}
+              {selected.enchantPlan.available && selected.equipped?.enchant && (
+                <p className="note">
+                  Equipped: {selected.equipped.enchant.label}
+                  {selected.equipped.enchant.name ? ` (${selected.equipped.enchant.name})` : ""}
+                  {selected.enchantPlan.scored
+                    ? ""
+                    : ". This enchant is not an Enchanting formula in the catalog, so upgrade marks are withheld."}
+                </p>
+              )}
+              {selected.enchantPlan.available && (
+                <div className="recs">
+                  {selected.enchantPlan.ranked.length === 0 && <p className="empty">No enchants in this level window.</p>}
+                  {selected.enchantPlan.ranked.map((pick) => (
+                    <MiniCard key={pick.entry.id} pick={pick} spec={spec} kind="enchant" />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+
+  function slotButton(id: string) {
+    const plan = byId.get(id);
+    const row = rows.find((item) => item.id === id);
+    if (!plan || !row) return null;
+    const equipped = plan.equipped;
+    return (
+      <button
+        key={id}
+        type="button"
+        className={id === selectedId ? "slot-btn active" : "slot-btn"}
+        aria-pressed={id === selectedId}
+        onClick={() => onSelect(id)}
+      >
+        <ItemIcon src={iconFor(equipped)} quality={equipped?.quality ?? "empty"} />
+        <span className="slot-copy">
+          <b>{labelFor(row)}</b>
+          <span className={equipped ? `qtext-${equipped.quality}` : ""}>{equipped ? equipped.name : "Empty"}</span>
+        </span>
+      </button>
+    );
+  }
+}
+
+function ItemLink({ href, className, children }: { href: string; className?: string; children: string }) {
+  return (
+    <a className={className} href={href} target="_blank" rel="noreferrer">
+      {children}
+    </a>
   );
 }
 

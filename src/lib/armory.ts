@@ -173,11 +173,16 @@ export function characterFromArmoryState(state: Record<string, unknown>): Normal
     const itemClass = text(asRecord(piece.item_class)?.name);
     const subclass = text(asRecord(piece.item_subclass)?.name);
     const item = asRecord(piece.item);
+    const media = asRecord(asRecord(piece.media)?.content);
+    const iconAsset = (Array.isArray(media?.assets) ? media.assets : [])
+      .map(asRecord)
+      .find((asset) => text(asset?.key) === "icon");
     gear.push({
       slot,
       armorySlot: key,
       itemId: num(item?.id) ?? num(piece.id) ?? 0,
       name: text(piece.name) ?? "Unknown item",
+      iconUrl: text(iconAsset?.value),
       quality: (text(asRecord(piece.quality)?.type) ?? "COMMON").toLowerCase(),
       ilvl: nestedNumber(piece.level) ?? 0,
       req: nestedNumber(asRecord(piece.requirements)?.level),
@@ -249,6 +254,7 @@ export function characterFromArmoryState(state: Record<string, unknown>): Normal
   }
 
   const updated = asRecord(character.lastUpdatedTimestamp);
+  const render = asRecord(character.render);
   const cls = asRecord(character.class);
   const race = asRecord(character.race);
   const faction = asRecord(character.faction);
@@ -277,6 +283,9 @@ export function characterFromArmoryState(state: Record<string, unknown>): Normal
     specs,
     gear,
     professions,
+    portraitUrl: text(asRecord(character.avatar)?.url),
+    modelUrl: text(asRecord(render?.foreground)?.url),
+    backdropUrl: text(asRecord(render?.background)?.url),
   };
 }
 

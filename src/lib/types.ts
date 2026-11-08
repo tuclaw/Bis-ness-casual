@@ -106,6 +106,7 @@ export interface EquippedItem {
   speed: number | null;
   effect: string | null;
   enchant: EquippedEnchant | null;
+  iconUrl?: string | null;
 }
 
 export interface Talent {
@@ -155,6 +156,9 @@ export interface NormalizedCharacter {
   specs: CharacterSpec[];
   gear: EquippedItem[];
   professions: Profession[];
+  portraitUrl?: string | null;
+  modelUrl?: string | null;
+  backdropUrl?: string | null;
 }
 
 export type ProfileSource = "armory-snapshot" | "armory-live" | "forever-tool" | "pasted";
