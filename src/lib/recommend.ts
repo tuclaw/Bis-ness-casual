@@ -142,23 +142,46 @@ export function hardAllowItem(item: GearItem, specId: SpecId, faction: Faction):
     return false;
   }
   if (item.bucket === "ranged" || item.bucket === "relic") {
-    if (kind && !cls.ranged.includes(kind)) return false;
-    if (!kind && !cls.ranged.length) return false;
+    if (!kind || !cls.ranged.includes(kind)) return false;
   }
   return true;
 }
 
-function slotMatch(item: GearItem, slot: PlannerSlot, cls: ClassInfo): boolean {
-  if (slot === "mainhand") return ["mainhand", "onehand", "twohand"].includes(item.bucket);
+const RELIC_KINDS = new Set(["totem", "libram", "idol"]);
+const RANGED_KINDS = new Set(["bow", "gun", "crossbow", "thrown", "wand"]);
+
+/** True when the catalog's slot and weapon subtype are legal in this planner slot for the class. */
+export function itemFitsSlot(item: GearItem, slot: PlannerSlot, cls: ClassInfo): boolean {
+  const kind = weaponKind(item.weapon);
+  const relic = kind != null && RELIC_KINDS.has(kind);
+  const rangedWeapon = kind != null && RANGED_KINDS.has(kind);
+
+  if (slot === "ranged") {
+    if (!kind || !cls.ranged.includes(kind)) return false;
+    if (relic) return item.bucket === "relic" || item.bucket === "ranged";
+    return rangedWeapon && item.bucket === "ranged";
+  }
+  if (relic || rangedWeapon) return false;
+
+  if (slot === "mainhand") {
+    if (item.bucket === "twohand") return cls.twoHand && kind != null && cls.weapons.includes(kind);
+    if (item.bucket === "mainhand" || item.bucket === "onehand") return kind != null && cls.weapons.includes(kind);
+    return false;
+  }
   if (slot === "offhand") {
     if (item.bucket === "shield") return cls.shield;
     if (item.bucket === "holdable") return cls.holdable;
-    if (item.bucket === "onehand" || item.bucket === "offhand") return cls.dualWield;
+    if (item.bucket === "offhand" || item.bucket === "onehand") return cls.dualWield && kind != null && cls.weapons.includes(kind);
     return false;
   }
-  if (slot === "ranged") return item.bucket === "ranged" || item.bucket === "relic";
-  if (slot === "chest") return item.bucket === "chest";
+  if (slot === "wrist") return item.bucket === "wrist";
+  if (slot === "finger") return item.bucket === "finger";
+  if (slot === "trinket") return item.bucket === "trinket";
   return item.bucket === slot;
+}
+
+function slotMatch(item: GearItem, slot: PlannerSlot, cls: ClassInfo): boolean {
+  return itemFitsSlot(item, slot, cls);
 }
 
 function proficiencyOk(item: GearItem, cls: ClassInfo, level: number, window: number): boolean {

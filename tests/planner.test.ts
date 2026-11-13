@@ -6,8 +6,8 @@ import { parseCharacterQuery } from "../src/lib/names.ts";
 import { wowheadIconUrl, wowheadItemUrl } from "../src/lib/format.ts";
 import { recommendDungeons } from "../src/lib/dungeons.ts";
 import { defaultSourceFilters, hiddenByToggle, sourceAllowed, sourceTypes } from "../src/lib/sources.ts";
-import { bisLongevity, longevityLabel, rankEntries, recommendEnchantments, recommendGear, type Ranked } from "../src/lib/recommend.ts";
-import { classById, specById } from "../src/lib/classes.ts";
+import { bisLongevity, hardAllowItem, itemFitsSlot, longevityLabel, rankEntries, recommendEnchantments, recommendGear, type Ranked } from "../src/lib/recommend.ts";
+import { classById, specById, specsForClass } from "../src/lib/classes.ts";
 import { scoreItem } from "../src/lib/score.ts";
 import type { Enchant, GearItem, SavedProfile } from "../src/lib/types.ts";
 
@@ -321,6 +321,74 @@ describe("item links", () => {
       "https://www.wowhead.com/forever/item=271810/corpsefeeders-shedding",
     );
     expect(wowheadIconUrl("INV_Misc_Cape_18")).toBe("https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_18.jpg");
+  });
+});
+
+const PLANNER_SLOTS: Array<{ id: string; slot: import("../src/lib/types.ts").PlannerSlot; armorySlot: string }> = [
+  { id: "head", slot: "head", armorySlot: "head" },
+  { id: "neck", slot: "neck", armorySlot: "neck" },
+  { id: "shoulder", slot: "shoulder", armorySlot: "shoulder" },
+  { id: "back", slot: "back", armorySlot: "back" },
+  { id: "chest", slot: "chest", armorySlot: "chest" },
+  { id: "wrist", slot: "wrist", armorySlot: "wrist" },
+  { id: "hands", slot: "hands", armorySlot: "hand" },
+  { id: "waist", slot: "waist", armorySlot: "waist" },
+  { id: "legs", slot: "legs", armorySlot: "leg" },
+  { id: "feet", slot: "feet", armorySlot: "foot" },
+  { id: "finger1", slot: "finger", armorySlot: "finger1" },
+  { id: "finger2", slot: "finger", armorySlot: "finger2" },
+  { id: "trinket1", slot: "trinket", armorySlot: "trinket1" },
+  { id: "trinket2", slot: "trinket", armorySlot: "trinket2" },
+  { id: "mainhand", slot: "mainhand", armorySlot: "weapon" },
+  { id: "offhand", slot: "offhand", armorySlot: "offhand" },
+  { id: "ranged", slot: "ranged", armorySlot: "ranged" },
+];
+
+describe("slot inventory types", () => {
+  it("keeps every recommendation in a legal slot for every saved character and spec", () => {
+    for (const profile of characters) {
+      const cls = classById(profile.character.classId);
+      expect(cls, profile.slug).toBeTruthy();
+      for (const piece of profile.character.gear) {
+        const row = PLANNER_SLOTS.find((candidate) => candidate.armorySlot === piece.armorySlot);
+        expect(row, `${profile.slug} ${piece.name} -> ${piece.armorySlot}`).toBeTruthy();
+        expect(piece.slot, `${profile.slug} ${piece.name}`).toBe(row?.slot);
+      }
+      for (const spec of specsForClass(profile.character.classId)) {
+        for (const row of PLANNER_SLOTS) {
+          const ranked = recommendGear({
+            items,
+            spec: spec.id,
+            faction: profile.character.faction,
+            level: profile.character.level,
+            window: 8,
+            slot: row.slot,
+            equipped: profile.character.gear.find((piece) => piece.armorySlot === row.armorySlot) ?? null,
+            limit: 10,
+          });
+          for (const pick of ranked) {
+            const label = `${profile.slug} ${spec.id} ${row.id} ${pick.entry.name} bucket=${pick.entry.bucket} weapon=${pick.entry.weapon ?? "-"}`;
+            expect(itemFitsSlot(pick.entry, row.slot, cls!), label).toBe(true);
+            expect(hardAllowItem(pick.entry, spec.id, profile.character.faction), label).toBe(true);
+            if (row.slot === "ranged") {
+              expect(pick.entry.name.toLowerCase(), label).not.toContain("bracer");
+              expect(cls!.ranged, label).toContain(pick.entry.weapon);
+            }
+            if (row.slot === "wrist") expect(pick.entry.bucket, label).toBe("wrist");
+          }
+        }
+      }
+    }
+  });
+
+  it("gives shaman totems, paladin librams, and druid idols, never a bracer", () => {
+    const relic = (spec: import("../src/lib/types.ts").SpecId, faction: "horde" | "alliance") =>
+      recommendGear({ items, spec, faction, level: 30, window: 10, slot: "ranged", equipped: null, limit: 6 }).map((row) => row.entry);
+    expect(relic("shaman-restoration", "horde").every((item) => item.weapon === "totem")).toBe(true);
+    expect(relic("paladin-holy", "horde").every((item) => item.weapon === "libram")).toBe(true);
+    expect(relic("druid-feral", "horde").every((item) => item.weapon === "idol")).toBe(true);
+    expect(relic("shaman-restoration", "horde").some((item) => /bracer|belt/i.test(item.name))).toBe(false);
+    expect(relic("druid-balance", "horde").some((item) => /bracer/i.test(item.name))).toBe(false);
   });
 });
 
