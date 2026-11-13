@@ -201,7 +201,7 @@ export function characterFromArmoryState(state: Record<string, unknown>): Normal
         ? {
             enchantId: num(enchantRaw.enchantment_id),
             name: text(asRecord(enchantRaw.source_item)?.name),
-            label: text(enchantRaw.display_string) ?? "Enchanted",
+            label: text(enchantRaw.display_string) ?? "",
           }
         : null,
     });

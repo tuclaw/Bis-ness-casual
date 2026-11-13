@@ -1,6 +1,10 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { tooltipFromEquipped, tooltipFromGear } from "../src/lib/tooltip.ts";
-import type { EquippedItem, GearItem } from "../src/lib/types.ts";
+import { enchantDisplayText, tooltipFromEnchant, tooltipFromEquipped, tooltipFromGear } from "../src/lib/tooltip.ts";
+import type { Enchant, EquippedItem, GearItem, SavedProfile } from "../src/lib/types.ts";
+
+const characters = JSON.parse(readFileSync(new URL("../src/data/characters.json", import.meta.url), "utf8")) as SavedProfile[];
+const enchants = JSON.parse(readFileSync(new URL("../public/data/enchants.json", import.meta.url), "utf8")) as Enchant[];
 
 function gear(partial: Partial<GearItem> & Pick<GearItem, "id" | "name">): GearItem {
   return {
@@ -86,5 +90,43 @@ describe("armory item tooltip", () => {
     expect(model.lines.find((line) => line.kind === "enchant")?.text).toBe("Enchanted: Stamina +3");
     expect(model.lines.find((line) => line.kind === "slot")).toMatchObject({ text: "Chest", right: "Cloth" });
     expect(model.lines.some((line) => line.kind === "binding" || line.kind === "durability" || line.kind === "sell")).toBe(false);
+  });
+
+  it("uses each saved character's Armory enchant display string on the green line", () => {
+    const seen: string[] = [];
+    for (const profile of characters) {
+      for (const piece of profile.character.gear) {
+        if (!piece.enchant) continue;
+        const model = tooltipFromEquipped(piece, null);
+        const line = model.lines.find((row) => row.kind === "enchant");
+        const label = `${profile.slug} ${piece.name}`;
+        expect(line?.text, label).toBe(piece.enchant.label);
+        expect(line?.text, label).not.toMatch(/^Enchant id /);
+        expect(line?.text, label).not.toBe("Enchanted");
+        seen.push(`${profile.slug}:${piece.armorySlot}`);
+      }
+    }
+    expect(seen.length).toBeGreaterThan(0);
+    expect(seen).toContain("daz-dingomon:chest");
+    expect(seen).toContain("sir-stackers:chest");
+  });
+
+  it("does not invent enchant text when the payload has only an id or a name", () => {
+    expect(enchantDisplayText({ enchantId: 242, name: null, label: "" })).toBe(
+      "Enchant id 242. The Armory payload has no enchant text.",
+    );
+    expect(enchantDisplayText({ enchantId: 242, name: "Enchant Chest - Lesser Stamina", label: "Enchanted" })).toBe(
+      "Enchant Chest - Lesser Stamina",
+    );
+    expect(enchantDisplayText({ enchantId: 242, name: null, label: "Enchanted: Stamina +3" })).toBe("Enchanted: Stamina +3");
+  });
+
+  it("shows a catalog enchant's effect in the tooltip without an Other: source prefix", () => {
+    const enchant = enchants.find((row) => row.name === "Enchant Chest - Lesser Stamina");
+    expect(enchant).toBeTruthy();
+    const model = tooltipFromEnchant(enchant!);
+    expect(model.lines.find((line) => line.kind === "effect")?.text).toBe(enchant!.effect);
+    expect(model.lines.some((line) => line.text.startsWith("Other:"))).toBe(false);
+    expect(model.lines.some((line) => line.text === enchant!.source)).toBe(true);
   });
 });

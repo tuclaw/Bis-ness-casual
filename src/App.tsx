@@ -28,7 +28,7 @@ import type {
 import seeds from "./data/characters.json";
 import { QuestingPage } from "./Questing.tsx";
 import { SourceNote } from "./SourceNote.tsx";
-import { tooltipFromEquipped, tooltipFromGear, type TipModel } from "./lib/tooltip.ts";
+import { tooltipFromEnchant, tooltipFromEquipped, tooltipFromGear, type TipModel } from "./lib/tooltip.ts";
 
 const SEED_PROFILES = seeds as SavedProfile[];
 const STORAGE_KEY = "bis-ness-casual-imports";
@@ -747,56 +747,6 @@ function WowLink({ href }: { href: string }) {
   );
 }
 
-function GearTip({
-  name,
-  quality,
-  ilvl,
-  req,
-  dps,
-  speed,
-  lines,
-  effect,
-  source,
-  extra,
-  href,
-}: {
-  name: string;
-  quality: string;
-  ilvl?: number | null;
-  req?: number | null;
-  dps?: number | null;
-  speed?: number | null;
-  lines: string[];
-  effect?: string | null;
-  source?: string | null;
-  extra?: string | null;
-  href: string | null;
-}) {
-  return (
-    <>
-      <p className={`tip-name qtext-${quality}`}>{name}</p>
-      <p className="tip-yellow">{titleCase(quality)}</p>
-      {ilvl != null && <p className="tip-yellow">Item level {ilvl}</p>}
-      {req != null && <p>Requires level {req}</p>}
-      {dps ? (
-        <p>
-          {dps.toFixed(1)} damage per second
-          {speed ? ` · ${speed.toFixed(2)} speed` : ""}
-        </p>
-      ) : null}
-      {lines.map((line) => (
-        <p key={line}>{line}</p>
-      ))}
-      {effect && <p className="tip-yellow">{effect}</p>}
-      <p>
-        <SourceNote source={source ?? undefined} />
-      </p>
-      {extra && <p>{extra}</p>}
-      {href && <WowLink href={href} />}
-    </>
-  );
-}
-
 function DataRow({
   id,
   pinned,
@@ -1121,7 +1071,6 @@ function EnchantPick({
 }) {
   const item = pick.entry;
   const id = `enchant-${item.id}`;
-  const lines = topStatLines(item.stats, spec, 8);
   const bits = [`skill ${item.skill}`, `req ${item.req}`];
   const compact = topStatLines(item.stats, spec, 2);
   if (compact.length) bits.push(...compact);
@@ -1139,18 +1088,7 @@ function EnchantPick({
       href={null}
       sub={bits.join(" · ")}
       delta={deltaView(pick)}
-      tip={
-        <GearTip
-          name={item.name}
-          quality="enchant"
-          req={item.req}
-          lines={lines}
-          effect={item.effect}
-          source={item.source}
-          extra={`Skill ${item.skill}${item.fit !== "any" ? ` · ${fitLabel(item.fit)}` : ""}`}
-          href={null}
-        />
-      }
+      tip={<ArmoryPanels item={tooltipFromEnchant(item)} />}
     />
   );
 }

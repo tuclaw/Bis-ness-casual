@@ -1,5 +1,5 @@
 import { formatStat, qualityName } from "./format.ts";
-import type { EquippedItem, GearItem, StatBlock } from "./types.ts";
+import type { Enchant, EquippedEnchant, EquippedItem, GearItem, StatBlock } from "./types.ts";
 
 /** Lines the Forever Armory item popup can show. A line is omitted when the record has no value for it. */
 export type TipKind =
@@ -17,7 +17,8 @@ export type TipKind =
   | "classes"
   | "req"
   | "sell"
-  | "source";
+  | "source"
+  | "note";
 
 export interface TipLine {
   kind: TipKind;
@@ -194,6 +195,16 @@ export function tooltipFromGear(item: GearItem, href: string | null, compare?: S
   });
 }
 
+/** Armory display string when it has real text. Never the bare fallback word "Enchanted". */
+export function enchantDisplayText(enchant: EquippedEnchant): string {
+  const label = enchant.label?.trim() ?? "";
+  if (label && label.toLowerCase() !== "enchanted") return label;
+  const name = enchant.name?.trim();
+  if (name) return name;
+  if (enchant.enchantId != null) return `Enchant id ${enchant.enchantId}. The Armory payload has no enchant text.`;
+  return "The Armory payload has no enchant text.";
+}
+
 export function tooltipFromEquipped(item: EquippedItem, href: string | null): TipModel {
   return build({
     name: item.name,
@@ -206,8 +217,22 @@ export function tooltipFromEquipped(item: EquippedItem, href: string | null): Ti
     dps: item.dps,
     stats: item.stats,
     effect: item.effect,
-    enchant: item.enchant?.label,
+    enchant: item.enchant ? enchantDisplayText(item.enchant) : null,
     req: item.req,
     href,
   });
+}
+
+/** Catalog enchant recommendation. The green line is the stored effect, not a rewritten "Enchanted:" sentence. */
+export function tooltipFromEnchant(enchant: Enchant): TipModel {
+  const model = build({
+    name: enchant.name,
+    quality: "common",
+    stats: enchant.stats,
+    effect: enchant.effect,
+    req: enchant.req,
+  });
+  if (Number.isFinite(enchant.skill)) model.lines.push({ kind: "note", text: `Skill ${enchant.skill}` });
+  if (enchant.source?.trim()) model.lines.push({ kind: "note", text: enchant.source.trim() });
+  return model;
 }
