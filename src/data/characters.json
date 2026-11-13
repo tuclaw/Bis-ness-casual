@@ -2543,5 +2543,605 @@
       "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/240/11165168-main-raw.png",
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     }
+  },
+  {
+    "slug": "sir-stackers",
+    "region": "us",
+    "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
+    "fetchedAt": "2026-11-13T19:36:26.674Z",
+    "source": "armory-snapshot",
+    "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
+    "mainSpec": "warrior-arms",
+    "offSpec": null,
+    "character": {
+      "name": "Sir",
+      "surname": "Stackers",
+      "level": 31,
+      "classId": "warrior",
+      "className": "Warrior",
+      "race": "Undead",
+      "gender": "Male",
+      "faction": "horde",
+      "ruleset": "PvP",
+      "rulesetId": 1,
+      "guild": "ØnlyDads",
+      "ilvl": 30,
+      "honorableKills": 5,
+      "region": "us",
+      "updatedAt": "2026-11-13T18:43:16Z",
+      "stats": [
+        {
+          "key": "HEALTH",
+          "value": 951,
+          "percent": false
+        },
+        {
+          "key": "RAGE",
+          "value": 100,
+          "percent": false
+        },
+        {
+          "key": "ITEMLEVEL",
+          "value": 30,
+          "percent": false
+        },
+        {
+          "key": "MOVEMENTSPEED",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "STRENGTH",
+          "value": 97,
+          "percent": false
+        },
+        {
+          "key": "AGILITY",
+          "value": 20,
+          "percent": false
+        },
+        {
+          "key": "INTELLECT",
+          "value": 10,
+          "percent": false
+        },
+        {
+          "key": "STAMINA",
+          "value": 73,
+          "percent": false
+        },
+        {
+          "key": "CRITICALSTRIKE",
+          "value": 1.3660002,
+          "percent": true
+        },
+        {
+          "key": "HASTE",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "MASTERY",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "BONUSARMOR",
+          "value": 192,
+          "percent": false
+        },
+        {
+          "key": "VERSATILITY",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "AVOIDANCE",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "ATTACKPOWER",
+          "value": 291,
+          "percent": false
+        },
+        {
+          "key": "ATTACKSPEED",
+          "value": 2,
+          "percent": false
+        },
+        {
+          "key": "ATTACKDPS",
+          "value": 14.64873,
+          "percent": false
+        },
+        {
+          "key": "SPELLPOWER",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "MANAREGEN",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "ARMOR",
+          "value": 366,
+          "percent": false
+        },
+        {
+          "key": "DODGE",
+          "value": 2.286,
+          "percent": true
+        },
+        {
+          "key": "PARRY",
+          "value": 8.4,
+          "percent": true
+        },
+        {
+          "key": "BLOCK",
+          "value": 6.4,
+          "percent": true
+        }
+      ],
+      "specs": [
+        {
+          "id": "arms",
+          "name": "Arms",
+          "spent": 22,
+          "active": true,
+          "talents": [
+            {
+              "name": "Deflection",
+              "rank": 3,
+              "description": "Increases your Parry chance by 3%."
+            },
+            {
+              "name": "Improved Rend",
+              "rank": 3,
+              "description": "Increases the Bleed damage done by your Rend ability by 35%."
+            },
+            {
+              "name": "Improved Tactical Mastery",
+              "rank": 3,
+              "description": "Tactical Mastery lets you retain up to an additional 15 Rage when you change stances."
+            },
+            {
+              "name": "Improved Overpower",
+              "rank": 2,
+              "description": "Increases the critical strike chance of your Overpower ability by 50%."
+            },
+            {
+              "name": "Anger Management",
+              "rank": 1,
+              "description": "Generates 1 Rage every 3 sec while in combat, and reduces Rage loss while out of combat by 30%."
+            },
+            {
+              "name": "Deep Wounds",
+              "rank": 3,
+              "description": "Your critical strikes cause your opponent to Bleed, dealing 60% of your melee weapon's average damage over 12 sec."
+            },
+            {
+              "name": "Spearing Strike",
+              "rank": 1,
+              "description": "A brutal attack that deals 75% weapon damage. Deals an additional 75% weapon damage against Giants, Dragonkin, and mounted targets. Mounted targets are dismounted."
+            },
+            {
+              "name": "Two-Handed Weapon Specialization",
+              "rank": 2,
+              "description": "Increases the damage you deal with two-handed melee weapons by 4%."
+            },
+            {
+              "name": "Impale",
+              "rank": 2,
+              "description": "Increases the critical strike damage bonus of your abilities by 20%."
+            },
+            {
+              "name": "Bloodthrill",
+              "rank": 1,
+              "description": "Grants your Main Hand melee attacks against enemies afflicted by your Rend a 10% chance to allow an activation of Overpower."
+            },
+            {
+              "name": "Sweeping Strikes",
+              "rank": 1,
+              "description": "Your next 5 melee attacks strike an additional nearby opponent."
+            }
+          ]
+        }
+      ],
+      "gear": [
+        {
+          "slot": "back",
+          "armorySlot": "back",
+          "itemId": 271719,
+          "name": "Furs of the Earthen Ring",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133756.jpg",
+          "quality": "rare",
+          "ilvl": 33,
+          "req": null,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "CLOAK",
+          "stats": {
+            "int": 5,
+            "str": 5,
+            "spi": 5,
+            "armor": 25
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "chest",
+          "armorySlot": "chest",
+          "itemId": 2870,
+          "name": "Shining Silver Breastplate",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132750.jpg",
+          "quality": "rare",
+          "ilvl": 29,
+          "req": 24,
+          "armorType": "mail",
+          "weaponType": null,
+          "inventoryType": "CHEST",
+          "stats": {
+            "str": 14,
+            "sta": 6,
+            "armor": 214
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": {
+            "enchantId": 8483,
+            "name": "Forceful Medium Armor Kit",
+            "label": "Enchanted: Attack Power +4 and Armor +16"
+          }
+        },
+        {
+          "slot": "feet",
+          "armorySlot": "foot",
+          "itemId": 271211,
+          "name": "Vilewalkers",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132551.jpg",
+          "quality": "rare",
+          "ilvl": 22,
+          "req": 17,
+          "armorType": "mail",
+          "weaponType": null,
+          "inventoryType": "FEET",
+          "stats": {
+            "str": 7,
+            "sta": 5,
+            "armor": 131
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": {
+            "enchantId": 8483,
+            "name": "Forceful Medium Armor Kit",
+            "label": "Enchanted: Attack Power +4 and Armor +16"
+          }
+        },
+        {
+          "slot": "hands",
+          "armorySlot": "hand",
+          "itemId": 16978,
+          "name": "Warsong Gauntlets",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132949.jpg",
+          "quality": "rare",
+          "ilvl": 27,
+          "req": null,
+          "armorType": "mail",
+          "weaponType": null,
+          "inventoryType": "HAND",
+          "stats": {
+            "str": 10,
+            "sta": 3,
+            "armor": 130
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": {
+            "enchantId": 8486,
+            "name": "Forceful Heavy Armor Kit",
+            "label": "Enchanted: Attack Power +6 and Armor +24"
+          }
+        },
+        {
+          "slot": "head",
+          "armorySlot": "head",
+          "itemId": 6686,
+          "name": "Tusken Helm",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133077.jpg",
+          "quality": "rare",
+          "ilvl": 34,
+          "req": 29,
+          "armorType": "mail",
+          "weaponType": null,
+          "inventoryType": "HEAD",
+          "stats": {
+            "str": 13,
+            "armor": 188
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "finger",
+          "armorySlot": "finger1",
+          "itemId": 274078,
+          "name": "Boar Signet",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133368.jpg",
+          "quality": "uncommon",
+          "ilvl": 32,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "FINGER",
+          "stats": {
+            "sta": 5
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "trinket",
+          "armorySlot": "trinket1",
+          "itemId": 273298,
+          "name": "Lookie's Spyglass",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134440.jpg",
+          "quality": "rare",
+          "ilvl": 23,
+          "req": 18,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "TRINKET",
+          "stats": {
+            "spi": 1
+          },
+          "dps": null,
+          "speed": null,
+          "effect": "Use: Allows you to look far into the distance.",
+          "enchant": null
+        },
+        {
+          "slot": "legs",
+          "armorySlot": "leg",
+          "itemId": 250524,
+          "name": "Guard's Silvered Chain Leggings",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134668.jpg",
+          "quality": "rare",
+          "ilvl": 30,
+          "req": 25,
+          "armorType": "mail",
+          "weaponType": null,
+          "inventoryType": "LEGS",
+          "stats": {
+            "str": 7,
+            "sta": 11,
+            "armor": 191
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": {
+            "enchantId": 8483,
+            "name": "Forceful Medium Armor Kit",
+            "label": "Enchanted: Attack Power +4 and Armor +16"
+          }
+        },
+        {
+          "slot": "neck",
+          "armorySlot": "neck",
+          "itemId": 281265,
+          "name": "Roadwatcher's Confidence",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133288.jpg",
+          "quality": "uncommon",
+          "ilvl": 20,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "NECK",
+          "stats": {
+            "spi": 3
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "ranged",
+          "armorySlot": "ranged",
+          "itemId": 274084,
+          "name": "Quilboar Blaster",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135614.jpg",
+          "quality": "rare",
+          "ilvl": 36,
+          "req": null,
+          "armorType": null,
+          "weaponType": "gun",
+          "inventoryType": "RANGEDRIGHT",
+          "stats": {
+            "agi": 4,
+            "spi": 4
+          },
+          "dps": 18.571426,
+          "speed": 2.8,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "finger",
+          "armorySlot": "finger2",
+          "itemId": 6414,
+          "name": "Seal of Sylvanas",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133357.jpg",
+          "quality": "rare",
+          "ilvl": 29,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "FINGER",
+          "stats": {
+            "sta": 8,
+            "ap": 6
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "trinket",
+          "armorySlot": "trinket2",
+          "itemId": 280766,
+          "name": "Satchel of Potions",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133633.jpg",
+          "quality": "uncommon",
+          "ilvl": 33,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "TRINKET",
+          "stats": {},
+          "dps": null,
+          "speed": null,
+          "effect": "Use: Reach into the bag and hope for the best. (10 Min Cooldown)",
+          "enchant": null
+        },
+        {
+          "slot": "shoulder",
+          "armorySlot": "shoulder",
+          "itemId": 7424,
+          "name": "Phalanx Spaulders of Defense",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135057.jpg",
+          "quality": "uncommon",
+          "ilvl": 33,
+          "req": 28,
+          "armorType": "mail",
+          "weaponType": null,
+          "inventoryType": "SHOULDER",
+          "stats": {
+            "armor": 155
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "waist",
+          "armorySlot": "waist",
+          "itemId": 6460,
+          "name": "Cobrahn's Grasp",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132492.jpg",
+          "quality": "rare",
+          "ilvl": 22,
+          "req": 17,
+          "armorType": "mail",
+          "weaponType": null,
+          "inventoryType": "WAIST",
+          "stats": {
+            "agi": 3,
+            "str": 7,
+            "armor": 107
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "mainhand",
+          "armorySlot": "weapon",
+          "itemId": 6975,
+          "name": "Whirlwind Axe",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132403.jpg",
+          "quality": "rare",
+          "ilvl": 40,
+          "req": null,
+          "armorType": null,
+          "weaponType": "axe",
+          "inventoryType": "TWOHWEAPON",
+          "stats": {
+            "str": 16,
+            "sta": 15
+          },
+          "dps": 35.555553,
+          "speed": 3.6,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "wrist",
+          "armorySlot": "wrist",
+          "itemId": 15566,
+          "name": "Marauder's Bracers of the Beast",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132615.jpg",
+          "quality": "uncommon",
+          "ilvl": 35,
+          "req": 30,
+          "armorType": "mail",
+          "weaponType": null,
+          "inventoryType": "WRIST",
+          "stats": {
+            "agi": 3,
+            "str": 3,
+            "sta": 6,
+            "armor": 93
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        }
+      ],
+      "professions": [
+        {
+          "name": "Mining",
+          "skill": 160,
+          "max": 225,
+          "primary": true
+        },
+        {
+          "name": "Blacksmithing",
+          "skill": 135,
+          "max": 225,
+          "primary": true
+        },
+        {
+          "name": "Cooking",
+          "skill": 22,
+          "max": 75,
+          "primary": false
+        },
+        {
+          "name": "Fishing",
+          "skill": 2,
+          "max": 75,
+          "primary": false
+        },
+        {
+          "name": "First Aid",
+          "skill": 33,
+          "max": 75,
+          "primary": false
+        }
+      ],
+      "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/155/8913819-avatar.jpg",
+      "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/155/8913819-main-raw.png",
+      "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
+    }
   }
 ]

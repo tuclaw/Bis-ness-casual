@@ -472,6 +472,20 @@ describe("seed characters", () => {
     expect(mrs?.character.gear.find((piece) => piece.armorySlot === "wrist")?.name).toBe("Tabitha's Cuffs");
     expect(daz?.character.specs[0]?.talents.map((talent) => talent.name)).toContain("Tidal Focus");
   });
+
+  it("includes Sir Stackers from the US Forever Armory", () => {
+    const profile = characters.find((item) => item.slug === "sir-stackers");
+    expect(profile?.region).toBe("us");
+    expect(profile?.mainSpec).toBe("warrior-arms");
+    expect(profile?.offSpec).toBeNull();
+    expect(profile?.character.className).toBe("Warrior");
+    expect(profile?.character.race).toBe("Undead");
+    expect(profile?.character.faction).toBe("horde");
+    expect(profile?.character.level).toBe(31);
+    expect(profile?.character.specs.filter((spec) => spec.active).map((spec) => spec.name)).toEqual(["Arms"]);
+    expect(profile?.character.gear.map((piece) => piece.name)).toContain("Whirlwind Axe");
+    expect(profile?.character.gear.find((piece) => piece.armorySlot === "chest")?.name).toBe("Shining Silver Breastplate");
+  });
 });
 
 describe("profile api snapshot", () => {
