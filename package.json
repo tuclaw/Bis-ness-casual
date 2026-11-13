@@ -9,6 +9,7 @@
     "test": "vitest run",
     "preview": "vite preview --host 127.0.0.1 --port 4177",
     "catalog": "python3 scripts/compile_catalog.py",
+    "quests": "node --experimental-strip-types scripts/compile-quests.mts",
     "refresh": "node --experimental-strip-types scripts/refresh-armory.mts"
   },
   "dependencies": {

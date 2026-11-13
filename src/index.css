@@ -59,7 +59,22 @@ a { color: var(--gold); }
   padding: 10px 0 12px;
   margin-bottom: 16px;
 }
-.brand { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+.brand { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.app-nav { display: flex; }
+.app-nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.app-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--gold);
+  font-weight: 650;
+}
 .brand-name {
   font-family: var(--display);
   font-size: 22px;
@@ -403,6 +418,42 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
   white-space: nowrap;
   border: 0;
 }
+
+.next-zone { margin: 4px 0 16px; }
+.zone-title { font-family: var(--display); font-size: 28px; font-weight: 600; margin: 4px 0; }
+.zone-list { list-style: none; margin: 0; padding: 0; }
+.zone-list button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  min-height: 52px;
+  padding: 8px;
+  display: grid;
+  gap: 2px;
+}
+.zone-list button[aria-pressed="true"] { border-left-color: var(--gold); }
+.zone-name { display: flex; justify-content: space-between; gap: 12px; font-weight: 650; }
+.zone-stats { display: block; }
+.quest-list { display: grid; }
+.quest-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+.quest-row a { font-weight: 650; text-decoration: none; }
+.quest-row a:hover { text-decoration: underline; text-underline-offset: 2px; }
+.quest-kinds { font-size: 13px; font-weight: 650; text-align: right; }
+.kind-drop { color: var(--down); }
+.kind-slay, .kind-errand { color: var(--gold); }
+.kind-gather, .kind-unknown { color: var(--muted); }
 
 footer { margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 footer p { margin: 8px 0; max-width: 68ch; }

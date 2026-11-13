@@ -26,6 +26,7 @@ import type {
   SpecId,
 } from "./lib/types.ts";
 import seeds from "./data/characters.json";
+import { QuestingPage } from "./Questing.tsx";
 import { SourceNote } from "./SourceNote.tsx";
 import { tooltipFromEquipped, tooltipFromGear, type TipModel } from "./lib/tooltip.ts";
 
@@ -96,6 +97,15 @@ export function App() {
   const [selectedSlot, setSelectedSlot] = useState("chest");
   const [icons, setIcons] = useState<Record<number, string | null>>({});
   const [sourceFilters, setSourceFilters] = useState<SourceFilters>(() => loadSourceFilters());
+  const [page, setPage] = useState<"gear" | "questing">(() => (window.location.hash.replace(/^#\/?/, "").startsWith("questing") ? "questing" : "gear"));
+
+  useEffect(() => {
+    function onHash() {
+      setPage(window.location.hash.replace(/^#\/?/, "").startsWith("questing") ? "questing" : "gear");
+    }
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   useEffect(() => {
     const base = import.meta.env.BASE_URL;
@@ -267,6 +277,14 @@ export function App() {
         <div className="brand">
           <span className="brand-name">Bis-ness</span>
           <span className="brand-sub">Casual</span>
+          <nav className="app-nav" aria-label="Sections">
+            <a href="#gear" aria-current={page === "gear" ? "page" : undefined}>
+              Gear
+            </a>
+            <a href="#questing" aria-current={page === "questing" ? "page" : undefined}>
+              Questing
+            </a>
+          </nav>
         </div>
         <div className="switchers">
           <label className="char-pick">
@@ -286,7 +304,7 @@ export function App() {
               ))}
             </select>
           </label>
-          <div className="spec-switch" role="group" aria-label="Dual specialization">
+          {page === "gear" && <div className="spec-switch" role="group" aria-label="Dual specialization">
             <button type="button" aria-pressed={side === "main"} onClick={() => { setSide("main"); setTarget(profile.mainSpec); }}>
               {specById(profile.mainSpec).name}
             </button>
@@ -302,7 +320,7 @@ export function App() {
             >
               {profile.offSpec ? specById(profile.offSpec).name : "No off spec"}
             </button>
-          </div>
+          </div>}
         </div>
       </header>
 
@@ -347,6 +365,10 @@ export function App() {
         </dl>
       </section>
 
+      {page === "questing" ? (
+        <QuestingPage character={character} />
+      ) : (
+        <>
       {catalog && sourceFilters.dungeon && <DungeonBoard dungeons={dungeonPicks} />}
 
       <section className="toolbar" aria-label="Planner controls">
@@ -489,6 +511,8 @@ export function App() {
           high={high}
           spec={target}
         />
+      )}
+        </>
       )}
 
       <footer>
