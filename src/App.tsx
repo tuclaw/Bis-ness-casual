@@ -356,7 +356,7 @@ export function App() {
               <a href={profile.armoryUrl}>Official Armory</a>
               {profile.fetchedAt ? ` · Snapshot as of ${formatAsOf(profile.fetchedAt)}` : ""}
               {character.updatedAt ? ` · Armory last updated ${formatAsOf(character.updatedAt)}` : ""}
-              . GitHub Pages keeps this capture because the Armory does not send CORS headers. The dev server can still import a live profile.
+              . This is the last captured snapshot. A scheduled job refreshes it; the browser cannot, because the Armory does not send CORS headers.
             </p>
           </div>
           <div className="stats">

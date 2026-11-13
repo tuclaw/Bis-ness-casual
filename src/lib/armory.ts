@@ -530,6 +530,175 @@ export function profileFromPaste(text: string, fallbackRegion = "us"): SavedProf
   throw new Error("That paste is not an Armory character profile.");
 }
 
+const API_SLOT_KEY: Record<string, string> = {
+  HEAD: "head",
+  NECK: "neck",
+  SHOULDER: "shoulder",
+  BACK: "back",
+  CHEST: "chest",
+  ROBE: "chest",
+  WRIST: "wrist",
+  HANDS: "hand",
+  WAIST: "waist",
+  LEGS: "leg",
+  FEET: "foot",
+  FINGER_1: "finger1",
+  FINGER_2: "finger2",
+  TRINKET_1: "trinket1",
+  TRINKET_2: "trinket2",
+  MAIN_HAND: "weapon",
+  OFF_HAND: "offhand",
+  RANGED: "ranged",
+  RANGEDRIGHT: "ranged",
+};
+
+function effectiveNumber(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  const record = asRecord(value);
+  return num(record?.effective) ?? num(record?.value);
+}
+
+function statEntry(key: string, value: number | null, percent = false): Record<string, unknown> | null {
+  if (value == null) return null;
+  return { enum: key, value: { value, type: percent ? "PERCENTAGE" : "NUMERIC" } };
+}
+
+/**
+ * Reshape Blizzard Profile API documents (profile-forever-*) into the Armory
+ * embed `characterFromArmoryState` already understands. Missing fields stay absent.
+ */
+export function armoryStateFromProfileApi(parts: {
+  summary: Record<string, unknown>;
+  equipment: Record<string, unknown>;
+  statistics?: Record<string, unknown> | null;
+  specializations?: Record<string, unknown> | null;
+  professions?: Record<string, unknown> | null;
+  media?: Record<string, unknown> | null;
+  pvp?: Record<string, unknown> | null;
+  iconUrls?: Record<number, string>;
+  region: string;
+}): Record<string, unknown> {
+  const summary = parts.summary;
+  const gear: Record<string, unknown> = {};
+  const equipped = Array.isArray(parts.equipment.equipped_items) ? parts.equipment.equipped_items : [];
+  for (const raw of equipped) {
+    const piece = asRecord(raw);
+    if (!piece) continue;
+    const slotType = text(asRecord(piece.slot)?.type);
+    const key = slotType ? API_SLOT_KEY[slotType] : undefined;
+    if (!key) continue;
+    const item = asRecord(piece.item);
+    const itemId = num(item?.id) ?? num(piece.item_id);
+    const icon = itemId != null ? parts.iconUrls?.[itemId] : undefined;
+    gear[key] = {
+      ...piece,
+      item: item ?? (itemId != null ? { id: itemId } : undefined),
+      media: icon ? { content: { assets: [{ key: "icon", value: icon }] } } : piece.media,
+    };
+  }
+
+  const stats = asRecord(parts.statistics);
+  const powerName = text(asRecord(stats?.power_type)?.name);
+  const statRows = [
+    statEntry("HEALTH", num(stats?.health)),
+    powerName === "Mana" ? statEntry("MANA", num(stats?.power)) : null,
+    statEntry("STRENGTH", effectiveNumber(stats?.strength)),
+    statEntry("AGILITY", effectiveNumber(stats?.agility)),
+    statEntry("INTELLECT", effectiveNumber(stats?.intellect)),
+    statEntry("STAMINA", effectiveNumber(stats?.stamina)),
+    statEntry("ARMOR", effectiveNumber(stats?.armor)),
+    statEntry("SPELLPOWER", effectiveNumber(stats?.spell_power)),
+    statEntry("ATTACKPOWER", effectiveNumber(stats?.attack_power)),
+    statEntry("CRITICALSTRIKE", effectiveNumber(stats?.melee_crit) ?? effectiveNumber(stats?.spell_crit), true),
+  ].filter((row): row is Record<string, unknown> => row != null);
+
+  const specDoc = asRecord(parts.specializations);
+  const activeName = text(asRecord(specDoc?.active_specialization)?.name);
+  const specs = (Array.isArray(specDoc?.specializations) ? specDoc.specializations : []).flatMap((raw) => {
+    const row = asRecord(raw);
+    if (!row) return [];
+    const spec = asRecord(row.specialization);
+    const name = text(spec?.name) ?? text(row.specialization_name);
+    if (!name) return [];
+    const talents = (Array.isArray(row.talents) ? row.talents : []).flatMap((talentRaw) => {
+      const talent = asRecord(talentRaw);
+      if (!talent) return [];
+      const info = asRecord(talent.talent);
+      const talentName = text(info?.name) ?? text(talent.name);
+      if (!talentName) return [];
+      return [
+        {
+          name: talentName,
+          rank: num(talent.talent_rank) ?? num(talent.rank) ?? 0,
+          description: text(asRecord(talent.spell_tooltip)?.description) ?? undefined,
+        },
+      ];
+    });
+    const spent = talents.reduce((total, talent) => total + talent.rank, 0);
+    return [{ id: name.toLowerCase(), name, spentPoints: spent, active: activeName ? name === activeName : true, talents }];
+  });
+
+  const profDoc = asRecord(parts.professions);
+  const mapProfs = (list: unknown) =>
+    (Array.isArray(list) ? list : []).flatMap((raw) => {
+      const row = asRecord(raw);
+      if (!row) return [];
+      const profession = asRecord(row.profession);
+      const tier = asRecord((Array.isArray(row.tiers) ? row.tiers : [])[0]);
+      const name = text(profession?.name) ?? text(row.name);
+      if (!name) return [];
+      return [
+        {
+          name,
+          tiers: [
+            {
+              skillPoints: num(tier?.skill_points) ?? num(tier?.skillPoints),
+              maxSkillPoints: num(tier?.max_skill_points) ?? num(tier?.maxSkillPoints),
+            },
+          ],
+        },
+      ];
+    });
+
+  const mediaAssets = Array.isArray(asRecord(parts.media)?.assets) ? (asRecord(parts.media)?.assets as unknown[]) : [];
+  const mediaUrl = (key: string) => {
+    const asset = mediaAssets.map(asRecord).find((row) => text(row?.key) === key);
+    return text(asset?.value);
+  };
+  const login = num(summary.last_login_timestamp);
+  const pvp = asRecord(parts.pvp);
+  const kills = num(pvp?.honorable_kills) ?? num(asRecord(pvp?.honorable_kills)?.value);
+  const classRecord = asRecord(summary.character_class);
+  const classIdNum = num(classRecord?.id);
+  const classSlug = text(classRecord?.name)?.toLowerCase() ?? (classIdNum != null ? CLASS_BY_NUMBER[classIdNum] : null);
+
+  return {
+    character: {
+      name: text(summary.name),
+      surname: text(summary.surname),
+      level: num(summary.level),
+      class: { slug: classSlug, name: text(classRecord?.name) },
+      race: { name: text(asRecord(summary.race)?.name) },
+      gender: asRecord(summary.gender) ?? (text(summary.gender) ? { name: text(summary.gender) } : undefined),
+      faction: { slug: text(asRecord(summary.faction)?.type)?.toLowerCase(), name: text(asRecord(summary.faction)?.name) },
+      ruleset: { name: text(asRecord(summary.ruleset)?.name), rulesetId: num(asRecord(summary.ruleset)?.id) },
+      guild: asRecord(summary.guild),
+      averageItemLevel: num(summary.average_item_level),
+      region: parts.region,
+      lastUpdatedTimestamp: login != null ? { iso8601: new Date(login).toISOString() } : undefined,
+      avatar: mediaUrl("avatar") ? { url: mediaUrl("avatar") } : undefined,
+      render: {
+        foreground: mediaUrl("main-raw") ? { url: mediaUrl("main-raw") } : undefined,
+      },
+      gear,
+      stats: { groups: [{ stats: statRows }] },
+      specs,
+      professions: { primaries: mapProfs(profDoc?.primaries), secondaries: mapProfs(profDoc?.secondaries) },
+      pvp: kills != null ? { honorableKills: { value: kills } } : undefined,
+    },
+  };
+}
+
 export function factionOf(character: NormalizedCharacter): Faction {
   return character.faction === "alliance" ? "alliance" : "horde";
 }

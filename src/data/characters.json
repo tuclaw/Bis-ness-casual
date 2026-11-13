@@ -3,9 +3,9 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-13T16:30:00.000Z",
+    "fetchedAt": "2026-11-13T16:34:38.610Z",
     "source": "armory-snapshot",
-    "sourceNote": "Official US Forever Armory embed, captured 13 Nov 2026. The Armory only returned the active spec; the off spec is the previously saved profile.",
+    "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
     "offSpec": "shaman-enhancement",
     "character": {
@@ -504,9 +504,9 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-13T16:30:00.000Z",
+    "fetchedAt": "2026-11-13T16:34:38.610Z",
     "source": "armory-snapshot",
-    "sourceNote": "Official US Forever Armory embed, captured 13 Nov 2026. The Armory only returned the active spec; the off spec is the previously saved profile.",
+    "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
     "offSpec": "mage-frost-pvp",
     "character": {

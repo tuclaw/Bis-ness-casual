@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { characterFromArmoryState, parseArmoryHtml } from "../src/lib/armory.ts";
+import { armoryStateFromProfileApi, characterFromArmoryState, parseArmoryHtml } from "../src/lib/armory.ts";
+import { snapshotChanged } from "../src/lib/snapshot.ts";
 import { parseCharacterQuery } from "../src/lib/names.ts";
 import { wowheadIconUrl, wowheadItemUrl } from "../src/lib/format.ts";
 import { bisLongevity, longevityLabel, rankEntries, recommendEnchantments, recommendGear } from "../src/lib/recommend.ts";
@@ -222,6 +223,58 @@ describe("seed characters", () => {
     expect(mrs?.character.gear.map((piece) => piece.name)).toContain("Coldspire Staff");
     expect(mrs?.character.gear.find((piece) => piece.armorySlot === "wrist")?.name).toBe("Tabitha's Cuffs");
     expect(daz?.character.specs[0]?.talents.map((talent) => talent.name)).toContain("Tidal Focus");
+  });
+});
+
+describe("profile api snapshot", () => {
+  it("maps a Forever profile equipment document without adding gear", () => {
+    const state = armoryStateFromProfileApi({
+      region: "us",
+      summary: {
+        name: "Daz",
+        surname: "Dingomon",
+        level: 23,
+        character_class: { name: "Shaman", id: 7 },
+        race: { name: "Troll" },
+        faction: { type: "HORDE", name: "Horde" },
+        ruleset: { name: "PvP", id: 1 },
+        average_item_level: 16,
+        last_login_timestamp: Date.parse("2026-11-13T11:08:31Z"),
+      },
+      equipment: {
+        equipped_items: [
+          {
+            name: "Woolen Cape",
+            slot: { type: "BACK" },
+            item: { id: 2584 },
+            quality: { type: "UNCOMMON" },
+            level: { value: 16 },
+            requirements: { level: { value: 11 } },
+            inventory_type: { type: "CLOAK" },
+            item_class: { name: "Armor" },
+            item_subclass: { name: "Cloth" },
+            stats: [{ type: { type: "SPIRIT" }, value: 1 }],
+          },
+        ],
+      },
+      statistics: { health: 764, power: 933, power_type: { name: "Mana" }, intellect: { effective: 51 } },
+      iconUrls: { 2584: "https://render.worldofwarcraft.com/forever-us/icons/56/133770.jpg" },
+    });
+    const character = characterFromArmoryState(state);
+    expect(character.level).toBe(23);
+    expect(character.classId).toBe("shaman");
+    expect(character.gear.map((piece) => piece.name)).toEqual(["Woolen Cape"]);
+    expect(character.gear[0]?.armorySlot).toBe("back");
+    expect(character.gear[0]?.iconUrl).toContain("133770.jpg");
+    expect(character.stats.find((stat) => stat.key === "HEALTH")?.value).toBe(764);
+  });
+
+  it("ignores the fetch clock when deciding whether a snapshot changed", () => {
+    const [first] = characters;
+    expect(first).toBeTruthy();
+    const later = { ...first!, fetchedAt: "2026-11-14T00:00:00.000Z" };
+    expect(snapshotChanged([first!], [later])).toBe(false);
+    expect(snapshotChanged([first!], [{ ...first!, character: { ...first!.character, level: first!.character.level + 1 } }])).toBe(true);
   });
 });
 

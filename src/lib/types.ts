@@ -161,7 +161,7 @@ export interface NormalizedCharacter {
   backdropUrl?: string | null;
 }
 
-export type ProfileSource = "armory-snapshot" | "armory-live" | "forever-tool" | "pasted";
+export type ProfileSource = "armory-snapshot" | "armory-live" | "forever-tool" | "pasted" | "blizzard-api";
 
 export interface SavedProfile {
   slug: string;

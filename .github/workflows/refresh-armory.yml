@@ -1,0 +1,52 @@
+# Refresh Forever character snapshots.
+#
+# Blizzard Profile API (namespace profile-forever-{region}) is used when both
+# repository Actions secrets are set:
+#   BLIZZARD_CLIENT_ID
+#   BLIZZARD_CLIENT_SECRET
+# Create them at https://develop.battle.net/ and add them under
+# GitHub → Settings → Secrets and variables → Actions.
+# If either secret is missing, or a character request fails, the job parses
+# the official Forever Armory HTML instead. Secrets are never written to the repo.
+
+name: Refresh Armory snapshots
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-armory
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: pull
+        run: npm run refresh
+        env:
+          BLIZZARD_CLIENT_ID: ${{ secrets.BLIZZARD_CLIENT_ID }}
+          BLIZZARD_CLIENT_SECRET: ${{ secrets.BLIZZARD_CLIENT_SECRET }}
+      - if: steps.pull.outputs.changed == 'true'
+        run: npm test
+      - if: steps.pull.outputs.changed == 'true'
+        run: npm run build
+      - name: Commit snapshot when the Armory data changed
+        if: steps.pull.outputs.changed == 'true'
+        run: |
+          git config user.name "tuclaw"
+          git config user.email "272105347+tuclaw@users.noreply.github.com"
+          git add characters.config.json src/data/characters.json docs
+          git commit -m "Refresh Forever Armory snapshots"
+          git push

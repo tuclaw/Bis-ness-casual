@@ -44,6 +44,8 @@ Enchants come from Warcraft Forever's client data for build 1.60.1.70862 (effect
 
 The production build is the `docs/` folder (`vite build` with relative asset paths).
 
+[`.github/workflows/refresh-armory.yml`](.github/workflows/refresh-armory.yml) refreshes every character in [`characters.config.json`](characters.config.json) every 6 hours. It uses the Blizzard Profile API (`profile-forever-{region}`) when the Actions secrets `BLIZZARD_CLIENT_ID` and `BLIZZARD_CLIENT_SECRET` are set, and otherwise parses the official Armory page. It commits a new snapshot only when the character data changed, then rebuilds `docs/`.
+
 Either:
 
 - Settings → Pages → Deploy from a branch → `main` → `/docs`, or
