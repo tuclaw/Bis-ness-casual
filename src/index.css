@@ -295,8 +295,10 @@ a.full-link { display: inline-block; margin-top: 6px; color: var(--gold-2); font
 .rank { width: 18px; flex: none; color: #6b6256; font-weight: 700; padding-top: 10px; }
 .hunt-body { min-width: 0; }
 .hunt-title { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
-.parchment .meta, .parchment .source, .parchment .empty { color: #5c4632; }
+.parchment .meta, .parchment .source, .parchment .empty { color: #3d2b1c; }
+.parchment .lines span { background: rgba(42, 28, 18, 0.1); color: #24160e; }
 .parchment .card-name a { color: inherit; }
+.parchment a.full-link { color: #6a3d12; font-weight: 700; text-decoration: underline; }
 .qtext-poor { color: #9d9d9d; }
 .qtext-common { color: #f6ecda; }
 .qtext-uncommon { color: #1eff00; }

@@ -89,7 +89,9 @@ export function rankEntries<T extends { id: number; req: number }>(args: RankArg
     row: { entry: T; score: number },
     overallBest: boolean,
   ): Ranked<T> => {
-    const outsideLevel = row.entry.req < args.level - args.window || row.entry.req > args.level + args.window;
+    const low = Math.max(1, args.level - args.window);
+    const high = Math.min(60, args.level + args.window);
+    const outsideLevel = row.entry.req < low || row.entry.req > high;
     const outsideFit = args.fitOk ? !args.fitOk(row.entry) : false;
     let upgrade: boolean | null = null;
     let delta: number | null = null;
@@ -104,23 +106,21 @@ export function rankEntries<T extends { id: number; req: number }>(args: RankArg
     return { ...row, outsideLevel, outsideFit, overallBest, upgrade, delta };
   };
 
+  const low = Math.max(1, args.level - args.window);
+  const high = Math.min(60, args.level + args.window);
   const practical = (row: { entry: T; score: number }) => {
-    const outsideLevel = row.entry.req < args.level - args.window || row.entry.req > args.level + args.window;
+    const outsideLevel = row.entry.req < low || row.entry.req > high;
     const outsideFit = args.fitOk ? !args.fitOk(row.entry) : false;
     return !outsideLevel && !outsideFit;
   };
 
-  const best = scored[0]!;
   const picks: Ranked<T>[] = [];
   const cap = Math.max(1, limit);
-  if (!practical(best)) picks.push(decorate(best, true));
   for (const row of scored) {
     if (picks.length >= cap) break;
     if (!practical(row)) continue;
-    if (picks.some((pick) => pick.entry.id === row.entry.id)) continue;
-    picks.push(decorate(row, row.entry.id === best.entry.id));
+    picks.push(decorate(row, picks.length === 0));
   }
-  if (!picks.length) picks.push(decorate(best, true));
   return picks;
 }
 

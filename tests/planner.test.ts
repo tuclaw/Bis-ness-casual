@@ -49,7 +49,7 @@ describe("level window", () => {
     item({ id: 4, name: "Also", req: 18, bucket: "chest", stats: { heal: 9 } }),
   ];
 
-  it("always keeps the overall best and fills the rest from the level window", () => {
+  it("ranks only items inside the level window", () => {
     const ranked = rankEntries({
       entries: pool,
       scoreOf: (entry) => scoreItem(entry, "shaman-restoration"),
@@ -58,10 +58,9 @@ describe("level window", () => {
       equippedScore: 1,
       limit: 2,
     });
-    expect(ranked.map((row) => row.entry.name)).toEqual(["Best", "Band"]);
+    expect(ranked.map((row) => row.entry.name)).toEqual(["Band", "Also"]);
     expect(ranked[0]?.overallBest).toBe(true);
-    expect(ranked[0]?.outsideLevel).toBe(true);
-    expect(ranked[1]?.outsideLevel).toBe(false);
+    expect(ranked.every((row) => !row.outsideLevel && row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
   });
 
   it("does not invent extra picks when fewer items are eligible", () => {
@@ -72,7 +71,7 @@ describe("level window", () => {
       window: 2,
       limit: 10,
     });
-    expect(ranked).toHaveLength(2);
+    expect(ranked.map((row) => row.entry.name)).toEqual(["Band"]);
   });
 });
 
@@ -100,7 +99,7 @@ describe("spec scores", () => {
 });
 
 describe("enchants", () => {
-  it("keeps the best chest enchant even when it is outside a narrow level window", () => {
+  it("hides chest enchants whose required level is outside a narrow window", () => {
     const result = recommendEnchantments({
       enchants,
       spec: "mage-arcane",
@@ -112,10 +111,9 @@ describe("enchants", () => {
       limit: 3,
     });
     expect(result.available).toBe(true);
+    expect(result.ranked.length).toBeGreaterThan(0);
     expect(result.ranked[0]?.overallBest).toBe(true);
-    expect(result.ranked[0]?.outsideLevel).toBe(true);
-    expect(result.ranked.slice(1).every((row) => !row.outsideLevel && row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
-    expect(result.ranked.length).toBeLessThanOrEqual(3);
+    expect(result.ranked.every((row) => !row.outsideLevel && row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
   });
 
   it("has no head enchants and does have Forever necklace enchants", () => {
@@ -135,7 +133,7 @@ describe("enchants", () => {
 });
 
 describe("wearable best in slot", () => {
-  it("still lists the best mail piece when the shaman cannot wear it yet", () => {
+  it("skips mail a shaman cannot wear inside the level window", () => {
     const mail = item({ id: 1, name: "Mail", req: 17, bucket: "chest", armor: "mail", stats: { heal: 80 } });
     const cloth = item({ id: 2, name: "Cloth", req: 17, bucket: "chest", armor: "cloth", stats: { heal: 12 } });
     const ranked = recommendGear({
@@ -148,9 +146,8 @@ describe("wearable best in slot", () => {
       equipped: null,
       limit: 2,
     });
-    expect(ranked.map((row) => row.entry.name)).toEqual(["Mail", "Cloth"]);
+    expect(ranked.map((row) => row.entry.name)).toEqual(["Cloth"]);
     expect(ranked[0]?.overallBest).toBe(true);
-    expect(ranked[0]?.outsideFit).toBe(true);
   });
 
   it("allows mail once the level window reaches 40", () => {
@@ -280,7 +277,7 @@ describe("recommendations per slot", () => {
       equipped: null,
       limit: 2,
     });
-    expect(two.map((row) => row.entry.name)).toEqual(["Short", "Long"]);
+    expect(two.map((row) => row.entry.name)).toEqual(["Long"]);
     expect(two.find((row) => row.longest)?.entry.name).toBe("Long");
     const one = recommendGear({
       items: [short, lasting],
@@ -292,7 +289,7 @@ describe("recommendations per slot", () => {
       equipped: null,
       limit: 1,
     });
-    expect(one.map((row) => row.entry.name)).toEqual(["Short"]);
+    expect(one.map((row) => row.entry.name)).toEqual(["Long"]);
     expect(one[0]?.longest).toBe(true);
   });
 });
@@ -370,6 +367,10 @@ describe("slot inventory types", () => {
             const label = `${profile.slug} ${spec.id} ${row.id} ${pick.entry.name} bucket=${pick.entry.bucket} weapon=${pick.entry.weapon ?? "-"}`;
             expect(itemFitsSlot(pick.entry, row.slot, cls!), label).toBe(true);
             expect(hardAllowItem(pick.entry, spec.id, profile.character.faction), label).toBe(true);
+            const low = Math.max(1, profile.character.level - 8);
+            const high = Math.min(60, profile.character.level + 8);
+            expect(pick.entry.req, label).toBeGreaterThanOrEqual(low);
+            expect(pick.entry.req, label).toBeLessThanOrEqual(high);
             if (row.slot === "ranged") {
               expect(pick.entry.name.toLowerCase(), label).not.toContain("bracer");
               expect(cls!.ranged, label).toContain(pick.entry.weapon);

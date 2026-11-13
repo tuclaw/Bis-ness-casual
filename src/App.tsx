@@ -432,7 +432,7 @@ export function App() {
             />
           </label>
           <p className="note">
-            Showing required levels {low}–{high}. The overall best stays on the list even when its required level is outside this window.
+            Showing required levels {low}–{high}. Only items you can wear in this window are listed.
           </p>
         </div>
         <div className="slider-row">
@@ -622,7 +622,7 @@ function ItemCard({ item, spec, equipped, icon }: { item: EquippedItem; spec: Sp
       {item.effect && <div className="source">{item.effect}</div>}
       {item.enchant && <div className="source">Enchant: {item.enchant.label}</div>}
       <ItemLink className="full-link" href={href}>
-        {href}
+        Wowhead
       </ItemLink>
         </div>
       </div>
@@ -685,7 +685,7 @@ function MiniCard<T extends GearItem | Enchant>({
         {kind === "enchant" && "effect" in item && <div className="source">{item.effect}</div>}
         {href && (
           <ItemLink className="full-link" href={href}>
-            {href}
+            Wowhead
           </ItemLink>
         )}
       </div>
