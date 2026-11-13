@@ -78,8 +78,10 @@ interface RankArgs<T extends { id: number; req: number }> {
   limit?: number;
 }
 
+export const DEFAULT_PICKS_PER_SLOT = 3;
+
 export function rankEntries<T extends { id: number; req: number }>(args: RankArgs<T>): Ranked<T>[] {
-  const limit = args.limit ?? 4;
+  const limit = args.limit ?? DEFAULT_PICKS_PER_SLOT;
   const scored = args.entries
     .map((entry) => ({ entry, score: args.scoreOf(entry) }))
     .sort((a, b) => b.score - a.score || a.entry.req - b.entry.req || a.entry.id - b.entry.id);
@@ -223,7 +225,7 @@ export function recommendGear(args: {
     equippedScore: scoreEquippedItem(args.equipped, args.spec),
     equippedId: args.equipped?.itemId ?? null,
     emptySlot: !args.equipped,
-    limit: args.limit ?? 4,
+    limit: args.limit ?? DEFAULT_PICKS_PER_SLOT,
   });
   const withSpan = ranked.map((pick) => ({ ...pick, longevity: bisLongevity(pick.entry, pool, args.spec, cls) }));
   const bestSpan = withSpan.reduce((best, pick) => Math.max(best, pick.longevity.levels), 0);
@@ -300,7 +302,7 @@ export function recommendEnchantments(args: {
     equippedScore: args.equippedScore,
     equippedId: args.equippedEnchantId ?? null,
     emptySlot: false,
-    limit: args.limit ?? 4,
+    limit: args.limit ?? DEFAULT_PICKS_PER_SLOT,
   });
   return { available: true, ranked };
 }

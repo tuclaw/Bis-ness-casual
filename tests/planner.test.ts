@@ -121,7 +121,7 @@ describe("enchants", () => {
     const necks = recommendEnchantments({ enchants, spec: "shaman-restoration", level: 60, window: 40, slot: "neck", equipped: null, equippedScore: null });
     expect(necks.available).toBe(true);
     expect(necks.ranked.length).toBeGreaterThan(0);
-    expect(necks.ranked.length).toBeLessThanOrEqual(4);
+    expect(necks.ranked.length).toBeLessThanOrEqual(3);
   });
 
   it("prefers frost damage for Frost PvP gloves and healing for restoration", () => {
@@ -264,6 +264,23 @@ describe("best dungeon", () => {
 });
 
 describe("recommendations per slot", () => {
+  it("defaults to three picks when the caller does not set a limit", () => {
+    const items = [1, 2, 3, 4, 5].map((id) =>
+      item({ id, name: `Cloth ${id}`, req: 17, bucket: "chest", armor: "cloth", stats: { heal: id } }),
+    );
+    const ranked = recommendGear({
+      items,
+      spec: "shaman-restoration",
+      faction: "horde",
+      level: 17,
+      window: 2,
+      slot: "chest",
+      equipped: null,
+    });
+    expect(ranked).toHaveLength(3);
+    expect(ranked.map((row) => row.entry.name)).toEqual(["Cloth 5", "Cloth 4", "Cloth 3"]);
+  });
+
   it("badges the longest pick among however many the slider asks for", () => {
     const short = item({ id: 1, name: "Short", req: 50, bucket: "chest", armor: "cloth", stats: { heal: 100 } });
     const lasting = item({ id: 2, name: "Long", req: 17, bucket: "chest", armor: "cloth", stats: { heal: 20 } });

@@ -15,7 +15,7 @@ import {
   type SourceFilters,
   type SourceType,
 } from "./lib/sources.ts";
-import { longevityLabel, LONG_BIS_LEVELS, recommendEnchantments, recommendGear, type Ranked } from "./lib/recommend.ts";
+import { DEFAULT_PICKS_PER_SLOT, longevityLabel, LONG_BIS_LEVELS, recommendEnchantments, recommendGear, type Ranked } from "./lib/recommend.ts";
 import { equippedEnchantStats, scoreEnchant, scoreStats, topStatLines } from "./lib/score.ts";
 import type {
   Enchant,
@@ -1134,15 +1134,15 @@ function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
 function loadPickCount(): number {
   try {
     const raw = localStorage.getItem(PICKS_KEY);
-    if (raw == null || raw === "") return 4;
+    if (raw == null || raw === "") return DEFAULT_PICKS_PER_SLOT;
     return clampPickCount(Number(raw));
   } catch {
-    return 4;
+    return DEFAULT_PICKS_PER_SLOT;
   }
 }
 
 function clampPickCount(value: number): number {
-  if (!Number.isInteger(value)) return 4;
+  if (!Number.isInteger(value)) return DEFAULT_PICKS_PER_SLOT;
   return Math.min(10, Math.max(1, value));
 }
 
