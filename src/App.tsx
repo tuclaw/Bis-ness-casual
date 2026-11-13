@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { ImportError, importCharacter, profileFromPaste } from "./lib/armory.ts";
 import { classById, specById, specsForClass } from "./lib/classes.ts";
 import { formatScore, preferredStatOrder, qualityName, statLabel, wowheadItemUrl } from "./lib/format.ts";
@@ -261,133 +261,32 @@ export function App() {
 
   return (
     <div className="app">
-      <header className="hero">
-        <div className="mark">
-          <Mark />
-          <div>
-            <p className="eyebrow">World of Warcraft: Forever</p>
-            <h1>Bis-ness Casual</h1>
-          </div>
+      <header className="topbar">
+        <div className="brand">
+          <span className="brand-name">Bis-ness</span>
+          <span className="brand-sub">Casual</span>
         </div>
-        <p className="lede">
-          Import a two-part Forever name, read the equipped gear the Armory actually has, and rank slot upgrades for the spec you want to play.
-        </p>
-      </header>
-
-      <section className="panel switcher">
-        <div className="profile-row" role="list">
-          {profiles.map((item) => (
-            <button
-              key={profileKey(item)}
-              className={profileKey(item) === profileKey(profile) ? "profile-card active" : "profile-card"}
-              onClick={() => selectProfile(item)}
-              role="listitem"
+        <div className="switchers">
+          <label className="char-pick">
+            {character.portraitUrl && <img src={character.portraitUrl} alt="" />}
+            <select
+              value={profileKey(profile)}
+              aria-label="Character"
+              onChange={(event) => {
+                const next = profiles.find((item) => profileKey(item) === event.target.value);
+                if (next) selectProfile(next);
+              }}
             >
-              {item.character.portraitUrl && <img className="profile-portrait" src={item.character.portraitUrl} alt="" />}
-              <strong>
-                {item.character.name} {item.character.surname}
-              </strong>
-              <span>
-                {" "}
-                · {item.character.level} {item.character.className}
-              </span>
-              <small>
-                {item.character.faction} · {item.character.ruleset ?? "ruleset unknown"} · {item.region.toUpperCase()}
-              </small>
-            </button>
-          ))}
-        </div>
-        <form className="import" onSubmit={onImport}>
-          <label>
-            Import by name or Armory URL
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Daz Dingomon"
-              aria-label="Character name or Armory URL"
-            />
-          </label>
-          <label>
-            Region
-            <select value={region} onChange={(event) => setRegion(event.target.value as Region)} aria-label="Region">
-              {REGION_ORDER.map((item) => (
-                <option key={item} value={item}>
-                  {item.toUpperCase()}
+              {profiles.map((item) => (
+                <option key={profileKey(item)} value={profileKey(item)}>
+                  {item.character.name} {item.character.surname} · {item.character.level} {item.character.className} · {item.region.toUpperCase()}
                 </option>
               ))}
             </select>
           </label>
-          <button className="btn" disabled={busy} type="submit">
-            {busy ? "Looking up…" : "Import"}
-          </button>
-        </form>
-        <label className="check">
-          <input type="checkbox" checked={searchOthers} onChange={(event) => setSearchOthers(event.target.checked)} />
-          If the chosen region has no profile, try the other regions
-        </label>
-        {error && (
-          <div className="banner" role="alert">
-            <p>{error}</p>
-            {attempts.length > 0 && (
-              <ul>
-                {attempts.slice(0, 8).map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-        )}
-        <details className="paste">
-          <summary>Paste an Armory page if the browser is blocked</summary>
-          <p className="note">
-            Open the character on the official Armory, view the page source, and paste it here. The planner reads the embedded profile and does not invent gear.
-          </p>
-          <textarea value={paste} onChange={(event) => setPaste(event.target.value)} aria-label="Pasted Armory page" />
-          <button className="btn secondary" type="button" onClick={onPaste}>
-            Use pasted profile
-          </button>
-        </details>
-      </section>
-
-      <section className="panel sheet">
-        <div className="who">
-          <div>
-            <h2>
-              {character.name} {character.surname}
-            </h2>
-            <div className="chips">
-              <span className={`chip ${character.faction}`}>{character.faction}</span>
-              <span className="chip">{character.race}</span>
-              <span className="chip" style={{ borderColor: cls?.color }}>
-                {character.className}
-              </span>
-              <span className="chip">{character.ruleset ?? "Ruleset unknown"}</span>
-              <span className="chip">Level {character.level}</span>
-              {character.guild && <span className="chip">{character.guild}</span>}
-              {character.ilvl != null && <span className="chip">ilvl {character.ilvl}</span>}
-              {character.honorableKills != null && <span className="chip">{character.honorableKills} HK</span>}
-            </div>
-            <p className="note">
-              <a href={profile.armoryUrl}>Official Armory</a>
-              {profile.fetchedAt ? ` · Snapshot as of ${formatAsOf(profile.fetchedAt)}` : ""}
-              {character.updatedAt ? ` · Armory last updated ${formatAsOf(character.updatedAt)}` : ""}
-              . This is the last captured snapshot. A scheduled job refreshes it; the browser cannot, because the Armory does not send CORS headers.
-            </p>
-          </div>
-          <div className="stats">
-            {visibleStats.map((stat) => (
-              <div className="stat" key={stat.key}>
-                <b>{stat.percent ? `${stat.value.toFixed(1)}%` : Math.round(stat.value)}</b>
-                <span>{statLabel(stat.key)}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="controls">
-          <div className="toggle" role="group" aria-label="Dual specialization">
+          <div className="spec-switch" role="group" aria-label="Dual specialization">
             <button type="button" aria-pressed={side === "main"} onClick={() => { setSide("main"); setTarget(profile.mainSpec); }}>
-              Main · {specById(profile.mainSpec).name}
+              {specById(profile.mainSpec).name}
             </button>
             <button
               type="button"
@@ -399,94 +298,181 @@ export function App() {
                 setTarget(profile.offSpec);
               }}
             >
-              Off spec · {profile.offSpec ? specById(profile.offSpec).name : "not in Armory"}
+              {profile.offSpec ? specById(profile.offSpec).name : "No off spec"}
             </button>
           </div>
-          <div>
-            <div className="spec-row">
-              <label>
-                Recommend for
-                <select value={target} onChange={(event) => setTarget(event.target.value as SpecId)} aria-label="Target specialization">
-                  {specOptions.map((spec) => (
-                    <option key={spec.id} value={spec.id}>
-                      {spec.name}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <p className="note">{specById(target).note ?? "Scores use this spec, even if it is not the spec logged out on the Armory."}</p>
-            </div>
-          </div>
         </div>
+      </header>
 
-        <div className="slider-row">
-          <label>
-            Required level window: character level ± {windowN}
-            <input
-              type="range"
-              min={0}
-              max={40}
-              value={windowN}
-              onChange={(event) => setWindowN(Number(event.target.value))}
-              aria-valuetext={`level ${character.level} plus or minus ${windowN}, required levels ${low} to ${high}`}
-            />
-          </label>
-          <p className="note">
-            Showing required levels {low}–{high}. Only items you can wear in this window are listed.
+      <section className="identity">
+        <div>
+          <h1>
+            {character.name} {character.surname}
+          </h1>
+          <p className="idline">
+            Level {character.level} {character.race} {character.className} ·{" "}
+            <span className={`faction-${character.faction}`}>{character.faction}</span>
+            {" · "}
+            {character.ruleset ?? "ruleset unknown"}
           </p>
+          <p className="idline">
+            {[
+              character.guild,
+              character.ilvl != null ? `ilvl ${character.ilvl}` : null,
+              character.honorableKills != null ? `${character.honorableKills} HK` : null,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
+          </p>
+          <p className="fine">
+            <a href={profile.armoryUrl}>Armory</a>
+            {profile.fetchedAt ? ` · snapshot ${formatAsOf(profile.fetchedAt)}` : ""}
+            {character.updatedAt ? ` · updated ${formatAsOf(character.updatedAt)}` : ""}. The page keeps this snapshot because the Armory does not send CORS headers.
+          </p>
+          {character.professions.length > 0 && (
+            <p className="fine">
+              {character.professions.map((prof) => `${prof.name} ${prof.skill ?? "?"}/${prof.max ?? "?"}`).join(" · ")}
+            </p>
+          )}
         </div>
-        <div className="slider-row">
-          <label>
-            Recommendations per slot: {picksPerSlot}
-            <input
-              type="range"
-              min={1}
-              max={10}
-              value={picksPerSlot}
-              onChange={(event) => setPicksPerSlot(clampPickCount(Number(event.target.value)))}
-              aria-valuetext={`${picksPerSlot} recommendations per slot`}
-            />
-          </label>
-          <p className="note">Each slot and its flyout show this many ranked picks. A slot with fewer eligible items shows only those.</p>
-        </div>
+        <dl className="statline">
+          {visibleStats.map((stat) => (
+            <div key={stat.key}>
+              <dt>{statLabel(stat.key)}</dt>
+              <dd className="num">{stat.percent ? `${stat.value.toFixed(1)}%` : Math.round(stat.value)}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
 
+      {catalog && sourceFilters.dungeon && <DungeonBoard dungeons={dungeonPicks} />}
+
+      <section className="toolbar" aria-label="Planner controls">
+        <label className="field">
+          <span>Recommend for</span>
+          <select value={target} onChange={(event) => setTarget(event.target.value as SpecId)} aria-label="Target specialization">
+            {specOptions.map((spec) => (
+              <option key={spec.id} value={spec.id}>
+                {spec.name}
+              </option>
+            ))}
+          </select>
+          <span className="fine">{specById(target).note ?? "Scores use this spec, even if it is not the spec logged out on the Armory."}</span>
+        </label>
+        <label className="slider">
+          <span>
+            Level window <b className="num">± {windowN}</b> <span className="fine">{low}–{high}</span>
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={40}
+            value={windowN}
+            onChange={(event) => setWindowN(Number(event.target.value))}
+            aria-valuetext={`level ${character.level} plus or minus ${windowN}, required levels ${low} to ${high}`}
+          />
+        </label>
+        <label className="slider">
+          <span>
+            Per slot <b className="num">{picksPerSlot}</b>
+          </span>
+          <input
+            type="range"
+            min={1}
+            max={10}
+            value={picksPerSlot}
+            onChange={(event) => setPicksPerSlot(clampPickCount(Number(event.target.value)))}
+            aria-valuetext={`${picksPerSlot} recommendations per slot`}
+          />
+        </label>
         <SourceFiltersBar
           filters={sourceFilters}
           hideCounts={hideCounts}
           onToggle={(type) => setSourceFilters((current) => ({ ...current, [type]: !current[type] }))}
         />
-
-        {catalog && sourceFilters.dungeon && <DungeonBoard dungeons={dungeonPicks} />}
-
-        <div>
-          <h3>Talents</h3>
-          {publishedTree ? (
-            <div className="talents">
-              {publishedTree.talents.map((talent) => (
-                <div className="talent" key={`${talent.name}-${talent.rank}`}>
-                  <b>
-                    {talent.name} {talent.rank}
-                  </b>
-                  {talent.description && <span>{talent.description}</span>}
+        <details className="fold">
+          <summary>Talents · {specById(target).name}</summary>
+          <div className="fold-body">
+            {publishedTree ? (
+              publishedTree.talents.length > 0 ? (
+                <ul className="talent-list">
+                  {publishedTree.talents.map((talent) => (
+                    <li key={`${talent.name}-${talent.rank}`}>
+                      <b>
+                        {talent.name} {talent.rank}
+                      </b>
+                      {talent.description && <span>{talent.description}</span>}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="empty">No talent points in the Armory profile for {publishedTree.name}.</p>
+              )
+            ) : (
+              <p className="empty">
+                The Armory snapshot does not include the {specById(target).name} talent tree. Recommendations still follow the selector above.
+              </p>
+            )}
+          </div>
+        </details>
+        <details className="fold">
+          <summary>Import a character</summary>
+          <div className="fold-body">
+            <form className="import" onSubmit={onImport}>
+              <label className="field">
+                Name or Armory URL
+                <input
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Daz Dingomon"
+                  aria-label="Character name or Armory URL"
+                />
+              </label>
+              <label className="field">
+                Region
+                <select value={region} onChange={(event) => setRegion(event.target.value as Region)} aria-label="Region">
+                  {REGION_ORDER.map((item) => (
+                    <option key={item} value={item}>
+                      {item.toUpperCase()}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <button className="btn" disabled={busy} type="submit">
+                {busy ? "Looking up…" : "Import"}
+              </button>
+              <label className="check">
+                <input type="checkbox" checked={searchOthers} onChange={(event) => setSearchOthers(event.target.checked)} />
+                If this region has no profile, try the others
+              </label>
+              {error && (
+                <div className="banner" role="alert">
+                  <p>{error}</p>
+                  {attempts.length > 0 && (
+                    <ul>
+                      {attempts.slice(0, 8).map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-              ))}
-              {publishedTree.talents.length === 0 && <p className="note">No talent points in the Armory profile for {publishedTree.name}.</p>}
+              )}
+            </form>
+            <div className="fold-span">
+              <p className="fine">
+                If the browser is blocked, open the character on the official Armory, view the page source, and paste it here. The planner reads the embedded profile and does not invent gear.
+              </p>
+              <textarea value={paste} onChange={(event) => setPaste(event.target.value)} aria-label="Pasted Armory page" />
+              <button className="btn secondary" type="button" onClick={onPaste}>
+                Use pasted profile
+              </button>
             </div>
-          ) : (
-            <p className="note">
-              The Armory snapshot does not include the {specById(target).name} talent tree. Recommendations still follow the selector above.
-            </p>
-          )}
-          {character.professions.length > 0 && (
-            <p className="note">
-              {character.professions.map((prof) => `${prof.name} ${prof.skill ?? "?"}/${prof.max ?? "?"}`).join(" · ")}
-            </p>
-          )}
-        </div>
+          </div>
+        </details>
       </section>
 
       {catalogError && <p className="banner">{catalogError}</p>}
-      {!catalog && !catalogError && <p className="note">Loading the Forever item and enchant catalogs…</p>}
+      {!catalog && !catalogError && <p className="fine">Loading the Forever item and enchant catalogs…</p>}
 
       {catalog && (
         <ArmoryBoard
@@ -597,100 +583,19 @@ function planEnchants(
   return { ...result, scored: Boolean(current) && equippedScore != null };
 }
 
-function ItemCard({ item, spec, equipped, icon }: { item: EquippedItem; spec: SpecId; equipped?: boolean; icon?: string | null }) {
-  const lines = topStatLines(item.stats, spec);
-  const href = wowheadItemUrl(item.itemId, item.name);
-  return (
-    <article className={`card q-${item.quality}`}>
-      <div className="card-head">
-        <ItemIcon src={icon ?? item.iconUrl} quality={item.quality} />
-        <div>
-      <div className="card-name">
-        <ItemLink href={href}>{item.name}</ItemLink>
-      </div>
-      <div className="meta">
-        {qualityName(item.quality)} · ilvl {item.ilvl}
-        {item.req != null ? ` · requires ${item.req}` : ""}
-        {item.dps ? ` · ${item.dps.toFixed(1)} dps` : ""}
-        {equipped ? " · equipped" : ""}
-      </div>
-      <div className="lines">
-        {lines.map((line) => (
-          <span key={line}>{line}</span>
-        ))}
-      </div>
-      {item.effect && <div className="source">{item.effect}</div>}
-      {item.enchant && <div className="source">Enchant: {item.enchant.label}</div>}
-      <ItemLink className="full-link" href={href}>
-        Wowhead
-      </ItemLink>
-        </div>
-      </div>
-    </article>
-  );
+function deltaView(pick: Ranked<unknown>): { text: string; tone: "up" | "down" | "flat" } | null {
+  if (pick.delta == null) return null;
+  if (pick.upgrade) return { text: `+${formatScore(pick.delta)}`, tone: "up" };
+  if (pick.delta < -0.05) return { text: formatScore(pick.delta), tone: "down" };
+  return { text: "0.0", tone: "flat" };
 }
 
-function MiniCard<T extends GearItem | Enchant>({
-  pick,
-  spec,
-  kind,
-  icon,
-  rank,
-}: {
-  pick: Ranked<T>;
-  spec: SpecId;
-  kind: "item" | "enchant";
-  icon?: string | null;
-  rank?: number;
-}) {
-  const item = pick.entry;
-  const lines = topStatLines(item.stats, spec, 3);
-  const quality = "quality" in item ? qualityName(item.quality) : "enchant";
-  const name = item.name;
-  const href = kind === "item" ? wowheadItemUrl(item.id, name) : null;
-  const span = kind === "item" ? pick.longevity : undefined;
-  return (
-    <article className={`hunt ${pick.overallBest ? "rank1" : ""} ${pick.longest ? "longest" : ""}`}>
-      <span className="rank">{rank ?? ""}</span>
-      {kind === "item" && <ItemIcon src={icon} quality={quality} />}
-      <div className="hunt-body">
-        <div className="hunt-title">
-          <span className={`card-name qtext-${quality}`}>{href ? <ItemLink href={href}>{name}</ItemLink> : name}</span>
-          {pick.upgrade && <span className="arrow up" title="Upgrade">▲ {pick.delta != null ? `+${formatScore(pick.delta)}` : ""}</span>}
-          {pick.upgrade === false && pick.delta != null && pick.delta < -0.05 && (
-            <span className="arrow down" title="Below equipped">▼ {formatScore(pick.delta)}</span>
-          )}
-        </div>
-        <div className="meta">
-          {"ilvl" in item ? `ilvl ${item.ilvl} · ` : `skill ${item.skill} · `}
-          requires {item.req}
-          {"dps" in item && item.dps ? ` · ${item.dps.toFixed(1)} dps` : ""}
-          {kind === "enchant" && "fit" in item && item.fit !== "any" ? ` · ${fitLabel(item.fit)}` : ""}
-          {span ? ` · ${longevityLabel(span)}` : ""}
-        </div>
-        <div className="lines">
-          {lines.map((line) => (
-            <span key={line}>{line}</span>
-          ))}
-          {lines.length === 0 && "effect" in item && item.effect && <span>{item.effect.slice(0, 80)}</span>}
-        </div>
-        <div className="tags">
-          {pick.overallBest && <span className="tag recommended">Recommended</span>}
-          {pick.longest && <span className="tag longest">Longest BiS</span>}
-          {pick.upgrade === false && pick.delta != null && Math.abs(pick.delta) <= 0.05 && <span className="tag">Equipped pace</span>}
-          {"pvp" in item && item.pvp && <span className="tag">PvP</span>}
-          {"changed" in item && item.changed === "new" && <span className="tag">New in Forever</span>}
-        </div>
-        {"source" in item && item.source && <div className="source">Source: {item.source}</div>}
-        {kind === "enchant" && "effect" in item && <div className="source">{item.effect}</div>}
-        {href && (
-          <ItemLink className="full-link" href={href}>
-            Wowhead
-          </ItemLink>
-        )}
-      </div>
-    </article>
-  );
+function titleCase(value: string): string {
+  return value ? value.slice(0, 1).toUpperCase() + value.slice(1) : value;
+}
+
+function coarsePointer(): boolean {
+  return !window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 }
 
 function ItemIcon({ src, quality }: { src?: string | null; quality: string }) {
@@ -698,6 +603,177 @@ function ItemIcon({ src, quality }: { src?: string | null; quality: string }) {
     <span className={`item-icon q-${quality}`}>
       {src ? <img src={src} alt="" /> : <span className="item-icon-empty" />}
     </span>
+  );
+}
+
+function TipHost({
+  id,
+  pinned,
+  onToggle,
+  children,
+  tip,
+}: {
+  id: string;
+  pinned: boolean;
+  onToggle: (id: string) => void;
+  children: ReactNode;
+  tip: ReactNode;
+}) {
+  return (
+    <div
+      className={pinned ? "tip-host pinned" : "tip-host"}
+      onClick={(event) => {
+        const target = event.target as HTMLElement;
+        if (target.closest("[data-tip-go]")) return;
+        if (!coarsePointer() && target.closest("a")) return;
+        if (coarsePointer()) event.preventDefault();
+        onToggle(id);
+      }}
+    >
+      {children}
+      <div className="tip" role="tooltip">
+        {tip}
+      </div>
+    </div>
+  );
+}
+
+function ItemName({ name, quality, href }: { name: string; quality: string; href: string | null }) {
+  if (!href) return <span className={`name qtext-${quality}`}>{name}</span>;
+  return (
+    <a
+      className={`name qtext-${quality}`}
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      onClick={(event) => {
+        if (coarsePointer()) event.preventDefault();
+      }}
+    >
+      {name}
+    </a>
+  );
+}
+
+function WowLink({ href }: { href: string }) {
+  return (
+    <p>
+      <a href={href} target="_blank" rel="noreferrer" data-tip-go="">
+        Wowhead
+      </a>
+    </p>
+  );
+}
+
+function GearTip({
+  name,
+  quality,
+  ilvl,
+  req,
+  dps,
+  speed,
+  lines,
+  effect,
+  source,
+  extra,
+  href,
+}: {
+  name: string;
+  quality: string;
+  ilvl?: number | null;
+  req?: number | null;
+  dps?: number | null;
+  speed?: number | null;
+  lines: string[];
+  effect?: string | null;
+  source?: string | null;
+  extra?: string | null;
+  href: string | null;
+}) {
+  return (
+    <>
+      <p className={`tip-name qtext-${quality}`}>{name}</p>
+      <p className="tip-yellow">{titleCase(quality)}</p>
+      {ilvl != null && <p className="tip-yellow">Item level {ilvl}</p>}
+      {req != null && <p>Requires level {req}</p>}
+      {dps ? (
+        <p>
+          {dps.toFixed(1)} damage per second
+          {speed ? ` · ${speed.toFixed(2)} speed` : ""}
+        </p>
+      ) : null}
+      {lines.map((line) => (
+        <p key={line}>{line}</p>
+      ))}
+      {effect && <p className="tip-yellow">{effect}</p>}
+      {source && <p className="tip-yellow">{source}</p>}
+      {extra && <p>{extra}</p>}
+      {href && <WowLink href={href} />}
+    </>
+  );
+}
+
+function DataRow({
+  id,
+  pinned,
+  onToggle,
+  rank,
+  best,
+  icon,
+  quality,
+  name,
+  href,
+  sub,
+  mark,
+  detail,
+  delta,
+  solo,
+  tip,
+}: {
+  id: string;
+  pinned: boolean;
+  onToggle: (id: string) => void;
+  rank?: number;
+  best?: boolean;
+  icon?: string | null;
+  quality: string;
+  name: string;
+  href: string | null;
+  sub: string;
+  mark?: string | null;
+  detail?: string | null;
+  delta?: { text: string; tone: "up" | "down" | "flat" } | null;
+  solo?: boolean;
+  tip: ReactNode;
+}) {
+  const showIcon = icon !== undefined;
+  return (
+    <TipHost id={id} pinned={pinned} onToggle={onToggle} tip={tip}>
+      <div className={`gear-row${best ? " best" : ""}${solo ? " solo" : ""}${showIcon ? "" : " no-icon"}`}>
+        {!solo && <span className="rank">{rank ?? ""}</span>}
+        {showIcon && <ItemIcon src={icon} quality={quality} />}
+        <div className="gear-main">
+          <div>
+            {best && <span className="sr">Recommended. </span>}
+            <ItemName name={name} quality={quality} href={href} />
+          </div>
+          <div className="sub">
+            <span className="sub-text">{sub}</span>
+            {mark && <span className="mark">{mark}</span>}
+          </div>
+          {detail && (
+            <div className="sub">
+              <span className="sub-text">{detail}</span>
+            </div>
+          )}
+        </div>
+        {delta && (
+          <span className={`delta ${delta.tone}`} title={delta.tone === "flat" ? "Same score as equipped" : undefined}>
+            {delta.text}
+          </span>
+        )}
+      </div>
+    </TipHost>
   );
 }
 
@@ -731,30 +807,33 @@ function ArmoryBoard({
 }) {
   const byId = new Map(plans.map((plan) => [plan.row.id, plan]));
   const selected = byId.get(selectedId) ?? plans[0];
+  const [pinned, setPinned] = useState<string | null>(null);
   const labelFor = (row: (typeof ROWS)[number]) => (row.slot === "ranged" ? rangedLabel : row.label);
   const iconFor = (item: EquippedItem | null) => (item ? item.iconUrl || icons[item.itemId] || null : null);
 
+  useEffect(() => {
+    setPinned(null);
+  }, [selectedId]);
+
+  useEffect(() => {
+    function close(event: PointerEvent) {
+      const target = event.target as HTMLElement | null;
+      if (!target?.closest(".tip-host")) setPinned(null);
+    }
+    document.addEventListener("pointerdown", close);
+    return () => document.removeEventListener("pointerdown", close);
+  }, []);
+
+  function onToggle(id: string) {
+    setPinned((current) => (current === id ? null : id));
+  }
+
   return (
-    <section className="panel armory">
+    <section className="board">
       <div className="doll">
         <div className="doll-col">{LEFT_SLOTS.map((id) => slotButton(id))}</div>
         <div className="doll-center">
-          <div className="doll-id">
-            {character.portraitUrl && <img className="portrait" src={character.portraitUrl} alt="" />}
-            <div>
-              <h2>
-                {character.name} {character.surname}
-              </h2>
-              <p>
-                Level {character.level} {character.className}
-                {character.ilvl != null ? ` · ilvl ${character.ilvl}` : ""}
-              </p>
-            </div>
-          </div>
-          <div
-            className="doll-stage"
-            style={character.backdropUrl ? { backgroundImage: `url(${character.backdropUrl})` } : undefined}
-          >
+          <div className="doll-stage" style={character.backdropUrl ? { backgroundImage: `url(${character.backdropUrl})` } : undefined}>
             {character.modelUrl ? (
               <img className="doll-model" src={character.modelUrl} alt={`${character.name} ${character.surname}`} />
             ) : (
@@ -766,52 +845,44 @@ function ArmoryBoard({
       </div>
       <div className="doll-weapons">{WEAPON_SLOTS.map((id) => slotButton(id))}</div>
       {selected && (
-        <div className="slot-detail">
-          <div>
-            <h3>{labelFor(selected.row)}</h3>
-            {selected.equipped ? (
-              <ItemCard item={selected.equipped} spec={spec} equipped icon={iconFor(selected.equipped)} />
-            ) : (
-              <p className="empty">Nothing equipped.</p>
+        <div>
+          <h2 className="slot-banner" id="slot-detail">
+            {labelFor(selected.row)}
+          </h2>
+          <h3 className="section-label">Equipped</h3>
+          {selected.equipped ? (
+            <EquippedRow item={selected.equipped} spec={spec} icon={iconFor(selected.equipped)} pinned={pinned} onToggle={onToggle} />
+          ) : (
+            <p className="empty">Nothing equipped.</p>
+          )}
+          <h3 className="section-label">Upgrades</h3>
+          <div className="gear-list">
+            {selected.gear.length === 0 && (
+              <p className="empty">No item for this slot can be worn at required levels {low}–{high}.</p>
             )}
+            {selected.gear.map((pick, index) => (
+              <GearPick key={pick.entry.id} pick={pick} spec={spec} rank={index + 1} icon={icons[pick.entry.id]} pinned={pinned} onToggle={onToggle} />
+            ))}
           </div>
-          <div>
-            <h3>Best in slot</h3>
-            <div className="parchment">
-              <div className="wow-title">Upgrades · {labelFor(selected.row)}</div>
-              {selected.gear.length === 0 && (
-                <p className="empty">
-                  No item for this slot can be worn at required levels {low}–{high}.
-                </p>
-              )}
-              {selected.gear.map((pick, index) => (
-                <MiniCard key={pick.entry.id} rank={index + 1} pick={pick} spec={spec} kind="item" icon={icons[pick.entry.id]} />
+          <h3 className="section-label">Enchants</h3>
+          {!selected.enchantPlan.available && (
+            <p className="empty">This slot cannot be enchanted with the Forever formulas in the catalog.</p>
+          )}
+          {selected.enchantPlan.available && selected.equipped?.enchant && (
+            <p className="fine">
+              Equipped: {selected.equipped.enchant.label}
+              {selected.equipped.enchant.name ? ` (${selected.equipped.enchant.name})` : ""}
+              {selected.enchantPlan.scored ? "" : ". This enchant is not an Enchanting formula in the catalog, so upgrade marks are withheld."}
+            </p>
+          )}
+          {selected.enchantPlan.available && (
+            <div className="gear-list">
+              {selected.enchantPlan.ranked.length === 0 && <p className="empty">No enchants in this level window.</p>}
+              {selected.enchantPlan.ranked.map((pick, index) => (
+                <EnchantPick key={pick.entry.id} pick={pick} spec={spec} rank={index + 1} pinned={pinned} onToggle={onToggle} />
               ))}
             </div>
-            <div className="enchant-block">
-              <h4>Enchants</h4>
-              {!selected.enchantPlan.available && (
-                <p className="empty">This slot cannot be enchanted with the Forever formulas in the catalog.</p>
-              )}
-              {selected.enchantPlan.available && selected.equipped?.enchant && (
-                <p className="note">
-                  Equipped: {selected.equipped.enchant.label}
-                  {selected.equipped.enchant.name ? ` (${selected.equipped.enchant.name})` : ""}
-                  {selected.enchantPlan.scored
-                    ? ""
-                    : ". This enchant is not an Enchanting formula in the catalog, so upgrade marks are withheld."}
-                </p>
-              )}
-              {selected.enchantPlan.available && (
-                <div className="recs">
-                  {selected.enchantPlan.ranked.length === 0 && <p className="empty">No enchants in this level window.</p>}
-                  {selected.enchantPlan.ranked.map((pick) => (
-                    <MiniCard key={pick.entry.id} pick={pick} spec={spec} kind="enchant" />
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
+          )}
         </div>
       )}
     </section>
@@ -822,45 +893,184 @@ function ArmoryBoard({
     const row = rows.find((item) => item.id === id);
     if (!plan || !row) return null;
     const equipped = plan.equipped;
+    const isLong = Boolean(plan.gear[0]?.longevity && plan.gear[0].longevity.levels >= LONG_BIS_LEVELS);
+    const label = labelFor(row);
     return (
       <button
         key={id}
         type="button"
-        className={id === selectedId ? "slot-btn active" : "slot-btn"}
+        className={`slot-btn${id === selectedId ? " active" : ""}${isLong ? " long" : ""}`}
         aria-pressed={id === selectedId}
-        onClick={() => onSelect(id)}
+        aria-label={`${label}: ${equipped ? equipped.name : "Empty"}${isLong ? ", long BiS" : ""}`}
+        onClick={() => {
+          onSelect(id);
+          document.getElementById("slot-detail")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }}
       >
         <ItemIcon src={iconFor(equipped)} quality={equipped?.quality ?? "empty"} />
         <span className="slot-copy">
           <b>
-            {labelFor(row)}
-            {plan.gear[0]?.longevity && plan.gear[0].longevity.levels >= LONG_BIS_LEVELS && (
-              <span className="long-mark" title={longevityLabel(plan.gear[0].longevity)}>
-                long
-              </span>
-            )}
+            {label}
+            {isLong && <span className="mark"> long</span>}
           </b>
-          <span className={equipped ? `qtext-${equipped.quality}` : ""}>{equipped ? equipped.name : "Empty"}</span>
+          <span className={`item-name${equipped ? ` qtext-${equipped.quality}` : ""}`}>{equipped ? equipped.name : "Empty"}</span>
         </span>
       </button>
     );
   }
 }
 
-function ItemLink({ href, className, children }: { href: string; className?: string; children: string }) {
+function EquippedRow({
+  item,
+  spec,
+  icon,
+  pinned,
+  onToggle,
+}: {
+  item: EquippedItem;
+  spec: SpecId;
+  icon?: string | null;
+  pinned: string | null;
+  onToggle: (id: string) => void;
+}) {
+  const lines = topStatLines(item.stats, spec, 8);
+  const href = item.itemId > 0 ? wowheadItemUrl(item.itemId, item.name) : null;
+  const bits = [titleCase(item.quality), `ilvl ${item.ilvl}`];
+  if (item.req != null) bits.push(`req ${item.req}`);
+  bits.push(...topStatLines(item.stats, spec, 2));
   return (
-    <a className={className} href={href} target="_blank" rel="noreferrer">
-      {children}
-    </a>
+    <DataRow
+      id={`equipped-${item.armorySlot}`}
+      pinned={pinned === `equipped-${item.armorySlot}`}
+      onToggle={onToggle}
+      solo
+      icon={icon ?? null}
+      quality={item.quality}
+      name={item.name}
+      href={href}
+      sub={bits.join(" · ")}
+      detail={item.enchant ? item.enchant.label : null}
+      tip={
+        <GearTip
+          name={item.name}
+          quality={item.quality}
+          ilvl={item.ilvl}
+          req={item.req}
+          dps={item.dps}
+          speed={item.speed}
+          lines={lines}
+          effect={item.effect}
+          extra={item.enchant ? `Enchant: ${item.enchant.label}` : null}
+          href={href}
+        />
+      }
+    />
   );
 }
 
-function fitLabel(fit: Enchant["fit"]): string {
-  if (fit === "twohand") return "two-hand";
-  if (fit === "shield") return "shield";
-  if (fit === "holdable") return "held off-hand";
-  if (fit === "weapon") return "weapon";
-  return fit;
+function GearPick({
+  pick,
+  spec,
+  rank,
+  icon,
+  pinned,
+  onToggle,
+}: {
+  pick: Ranked<GearItem>;
+  spec: SpecId;
+  rank: number;
+  icon?: string | null;
+  pinned: string | null;
+  onToggle: (id: string) => void;
+}) {
+  const item = pick.entry;
+  const href = wowheadItemUrl(item.id, item.name);
+  const id = `gear-${item.id}`;
+  const bits = [`ilvl ${item.ilvl}`, `req ${item.req}`, ...topStatLines(item.stats, spec, 2)];
+  if (item.dps) bits.push(`${item.dps.toFixed(1)} dps`);
+  if (pick.longevity) bits.push(longevityLabel(pick.longevity));
+  if (item.pvp) bits.push("PvP");
+  if (item.changed === "new") bits.push("new");
+  return (
+    <DataRow
+      id={id}
+      pinned={pinned === id}
+      onToggle={onToggle}
+      rank={rank}
+      best={pick.overallBest}
+      icon={icon ?? null}
+      quality={qualityName(item.quality)}
+      name={item.name}
+      href={href}
+      sub={bits.join(" · ")}
+      mark={pick.longest ? "longest" : null}
+      delta={deltaView(pick)}
+      tip={
+        <GearTip
+          name={item.name}
+          quality={qualityName(item.quality)}
+          ilvl={item.ilvl}
+          req={item.req}
+          dps={item.dps}
+          speed={item.speed}
+          lines={topStatLines(item.stats, spec, 8)}
+          effect={item.effect}
+          source={item.source}
+          extra={pick.longevity ? longevityLabel(pick.longevity) : null}
+          href={href}
+        />
+      }
+    />
+  );
+}
+
+function EnchantPick({
+  pick,
+  spec,
+  rank,
+  pinned,
+  onToggle,
+}: {
+  pick: Ranked<Enchant>;
+  spec: SpecId;
+  rank: number;
+  pinned: string | null;
+  onToggle: (id: string) => void;
+}) {
+  const item = pick.entry;
+  const id = `enchant-${item.id}`;
+  const lines = topStatLines(item.stats, spec, 8);
+  const bits = [`skill ${item.skill}`, `req ${item.req}`];
+  const compact = topStatLines(item.stats, spec, 2);
+  if (compact.length) bits.push(...compact);
+  else if (item.effect) bits.push(item.effect);
+  if (item.fit !== "any") bits.push(fitLabel(item.fit));
+  return (
+    <DataRow
+      id={id}
+      pinned={pinned === id}
+      onToggle={onToggle}
+      rank={rank}
+      best={pick.overallBest}
+      quality="enchant"
+      name={item.name}
+      href={null}
+      sub={bits.join(" · ")}
+      delta={deltaView(pick)}
+      tip={
+        <GearTip
+          name={item.name}
+          quality="enchant"
+          req={item.req}
+          lines={lines}
+          effect={item.effect}
+          source={item.source}
+          extra={`Skill ${item.skill}${item.fit !== "any" ? ` · ${fitLabel(item.fit)}` : ""}`}
+          href={null}
+        />
+      }
+    />
+  );
 }
 
 function SourceFiltersBar({
@@ -873,58 +1083,49 @@ function SourceFiltersBar({
   onToggle: (type: SourceType) => void;
 }) {
   return (
-    <section className="source-filters">
-      <div className="wow-title">Item sources</div>
-      <div className="source-chips">
-        {SOURCE_TYPES.map((type) => (
-          <button
-            key={type}
-            type="button"
-            className={filters[type] ? "source-chip on" : "source-chip"}
-            aria-pressed={filters[type]}
-            onClick={() => onToggle(type)}
-          >
-            {SOURCE_LABEL[type]}
-            <span>{filters[type] ? `hides ${hideCounts[type]}` : "off"}</span>
-          </button>
-        ))}
-      </div>
-    </section>
+    <fieldset className="sources">
+      <legend>Sources</legend>
+      {SOURCE_TYPES.map((type) => (
+        <label key={type} className={filters[type] ? undefined : "off"}>
+          <input
+            type="checkbox"
+            checked={filters[type]}
+            aria-label={`${SOURCE_LABEL[type]}, hides ${hideCounts[type]} if turned off`}
+            onChange={() => onToggle(type)}
+          />
+          {SOURCE_LABEL[type]}
+          <span className="hide-count">{filters[type] ? hideCounts[type] : "off"}</span>
+        </label>
+      ))}
+    </fieldset>
   );
 }
 
 function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
   return (
-    <section className="dungeon-board">
-      <div className="wow-title">Best dungeon right now</div>
+    <section className="dungeons" aria-label="Best dungeon right now">
+      <h2 className="kicker">Best dungeon</h2>
       {dungeons.length === 0 ? (
         <p className="empty">None of the current upgrades name a dungeon you can run at this level and faction.</p>
       ) : (
-        dungeons.map((dungeon, index) => (
-          <article key={dungeon.name} className={index === 0 ? "hunt rank1" : "hunt"}>
-            <span className="rank">{index + 1}</span>
-            <div className="hunt-body">
-              <div className="hunt-title">
-                <span className="card-name">{dungeon.name}</span>
-                <span className="tag recommended">
-                  {dungeon.count} upgrade{dungeon.count === 1 ? "" : "s"}
+        <ol className="dungeon-list">
+          {dungeons.map((dungeon, index) => (
+            <li key={dungeon.name} className={index === 0 ? "top" : undefined}>
+              <span className="rank">{index + 1}</span>
+              <div className="dungeon-name">
+                <span>{dungeon.name}</span>
+                <span className="dungeon-count">
+                  {dungeon.count} {dungeon.count === 1 ? "upgrade" : "upgrades"}
                 </span>
-                {index === 0 && <span className="tag longest">Best now</span>}
               </div>
-              <div className="meta">
+              <div className="dungeon-meta">
                 Levels {dungeon.min}–{dungeon.max}
                 {dungeon.faction === "both" ? " · both factions" : ` · ${dungeon.faction}`}
               </div>
-              <div className="lines">
-                {dungeon.items.map((item) => (
-                  <span key={`${item.slot}-${item.id}`}>
-                    {item.slot}: {item.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </article>
-        ))
+              <div className="dungeon-meta">{dungeon.items.map((item) => `${item.slot} ${item.name}`).join(" · ")}</div>
+            </li>
+          ))}
+        </ol>
       )}
     </section>
   );
@@ -932,7 +1133,9 @@ function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
 
 function loadPickCount(): number {
   try {
-    return clampPickCount(Number(localStorage.getItem(PICKS_KEY)));
+    const raw = localStorage.getItem(PICKS_KEY);
+    if (raw == null || raw === "") return 4;
+    return clampPickCount(Number(raw));
   } catch {
     return 4;
   }
@@ -957,12 +1160,11 @@ function formatAsOf(iso: string): string {
   }).format(date);
 }
 
-function Mark() {
-  return (
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <rect x="4" y="4" width="56" height="56" rx="8" fill="#2a1c13" stroke="#e4b15a" strokeWidth="2" />
-      <path d="M32 10 L46 32 L32 54 L18 32 Z" fill="none" stroke="#e4b15a" strokeWidth="2" />
-      <circle cx="32" cy="32" r="4" fill="#d35245" />
-    </svg>
-  );
+function fitLabel(fit: Enchant["fit"]): string {
+  if (fit === "twohand") return "two-hand";
+  if (fit === "shield") return "shield";
+  if (fit === "holdable") return "held off-hand";
+  if (fit === "weapon") return "weapon";
+  return fit;
 }
+
