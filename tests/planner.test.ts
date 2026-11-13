@@ -1,11 +1,13 @@
 import { readFileSync } from "node:fs";
+import { renderToStaticMarkup } from "react-dom/server";
+import { SourceNote } from "../src/SourceNote.tsx";
 import { describe, expect, it } from "vitest";
 import { armoryStateFromProfileApi, characterFromArmoryState, parseArmoryHtml } from "../src/lib/armory.ts";
 import { snapshotChanged } from "../src/lib/snapshot.ts";
 import { parseCharacterQuery } from "../src/lib/names.ts";
 import { wowheadIconUrl, wowheadItemUrl } from "../src/lib/format.ts";
 import { recommendDungeons } from "../src/lib/dungeons.ts";
-import { defaultSourceFilters, hiddenByToggle, sourceAllowed, sourceTypes } from "../src/lib/sources.ts";
+import { defaultSourceFilters, hiddenByToggle, sourceAllowed, sourceLabel, sourceTypes } from "../src/lib/sources.ts";
 import { bisLongevity, hardAllowItem, itemFitsSlot, longevityLabel, rankEntries, recommendEnchantments, recommendGear, type Ranked } from "../src/lib/recommend.ts";
 import { classById, specById, specsForClass } from "../src/lib/classes.ts";
 import { scoreItem } from "../src/lib/score.ts";
@@ -321,6 +323,19 @@ describe("source filters", () => {
     expect(sourceTypes("Vendors · PvP")).toEqual(["vendor", "pvp"]);
     expect(sourceTypes("Shadowfang Keep · Baron Silverlaine")).toEqual(["dungeon", "other"]);
     expect(sourceTypes("Drops · C'Thun")).toEqual(["world", "other"]);
+    expect(sourceLabel(undefined)).toBe("Unknown source");
+    expect(sourceLabel("")).toBe("Unknown source");
+    expect(sourceLabel("Unknown source")).toBe("Unknown source");
+    expect(sourceLabel("Crafted")).toBe("Crafting");
+    expect(sourceLabel("Crafted · Tailoring")).toBe("Crafted: Tailoring");
+    expect(sourceLabel("Quest Rewards")).toBe("Quests");
+    expect(sourceLabel("Quest Rewards · The Barrens Oases")).toBe("Quest: The Barrens Oases");
+    expect(sourceLabel("Vendors")).toBe("Vendor");
+    expect(sourceLabel("Vendors · PvP")).toBe("Vendor · PvP");
+    expect(sourceLabel("Drops")).toBe("World drops");
+    expect(sourceLabel("Drops · Shal'ma")).toBe("Drop: Shal'ma");
+    expect(sourceLabel("Razorfen Kraul · Roogug")).toBe("Dungeon: Razorfen Kraul, Roogug");
+    expect(sourceLabel("Drops · Quest Rewards")).toBe("World drops · Quests");
     const filters = defaultSourceFilters();
     expect(sourceAllowed("Shadowfang Keep", { ...filters, dungeon: false })).toBe(false);
     expect(sourceAllowed("Vendors · Shadowfang Keep", { ...filters, dungeon: false })).toBe(true);
@@ -357,6 +372,35 @@ const PLANNER_SLOTS: Array<{ id: string; slot: import("../src/lib/types.ts").Pla
   { id: "offhand", slot: "offhand", armorySlot: "offhand" },
   { id: "ranged", slot: "ranged", armorySlot: "ranged" },
 ];
+
+describe("recommendation source labels", () => {
+  it("renders a source label on every recommendation row", () => {
+    for (const profile of characters) {
+      for (const spec of specsForClass(profile.character.classId)) {
+        for (const row of PLANNER_SLOTS) {
+          const ranked = recommendGear({
+            items,
+            spec: spec.id,
+            faction: profile.character.faction,
+            level: profile.character.level,
+            window: 8,
+            slot: row.slot,
+            equipped: profile.character.gear.find((piece) => piece.armorySlot === row.armorySlot) ?? null,
+            limit: 3,
+          });
+          for (const pick of ranked) {
+            const html = renderToStaticMarkup(SourceNote({ source: pick.entry.source }));
+            const text = html.replace(/<[^>]+>/g, "").trim();
+            const label = `${profile.slug} ${spec.id} ${row.id} ${pick.entry.name}`;
+            expect(html, label).toContain("source-note");
+            expect(text, label).not.toBe("");
+            if (!pick.entry.source) expect(text, label).toBe("Unknown source");
+          }
+        }
+      }
+    }
+  });
+});
 
 describe("slot inventory types", () => {
   it("keeps every recommendation in a legal slot for every saved character and spec", () => {

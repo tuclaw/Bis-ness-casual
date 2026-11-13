@@ -231,6 +231,9 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
 .dungeon-name { display: flex; justify-content: space-between; gap: 12px; font-weight: 650; }
 .dungeon-count { color: var(--muted); font-weight: 600; white-space: nowrap; }
 .dungeon-meta { grid-column: 2; color: var(--muted); font-size: 14px; }
+.dungeon-item { display: block; }
+.source-note { color: var(--muted); font-size: 14px; }
+.tip .source-note { color: var(--tip); }
 
 .board { margin-top: 4px; }
 .doll {

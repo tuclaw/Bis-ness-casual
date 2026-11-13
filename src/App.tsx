@@ -26,6 +26,7 @@ import type {
   SpecId,
 } from "./lib/types.ts";
 import seeds from "./data/characters.json";
+import { SourceNote } from "./SourceNote.tsx";
 
 const SEED_PROFILES = seeds as SavedProfile[];
 const STORAGE_KEY = "bis-ness-casual-imports";
@@ -706,7 +707,9 @@ function GearTip({
         <p key={line}>{line}</p>
       ))}
       {effect && <p className="tip-yellow">{effect}</p>}
-      {source && <p className="tip-yellow">{source}</p>}
+      <p>
+        <SourceNote source={source ?? undefined} />
+      </p>
       {extra && <p>{extra}</p>}
       {href && <WowLink href={href} />}
     </>
@@ -726,6 +729,7 @@ function DataRow({
   sub,
   mark,
   detail,
+  sourceNote,
   delta,
   solo,
   tip,
@@ -742,6 +746,8 @@ function DataRow({
   sub: string;
   mark?: string | null;
   detail?: string | null;
+  /** Catalog source. Pass "" when the row should still show Unknown source. Omit to hide the line. */
+  sourceNote?: string;
   delta?: { text: string; tone: "up" | "down" | "flat" } | null;
   solo?: boolean;
   tip: ReactNode;
@@ -761,6 +767,11 @@ function DataRow({
             <span className="sub-text">{sub}</span>
             {mark && <span className="mark">{mark}</span>}
           </div>
+          {sourceNote != null && (
+            <div className="sub">
+              <SourceNote source={sourceNote} />
+            </div>
+          )}
           {detail && (
             <div className="sub">
               <span className="sub-text">{detail}</span>
@@ -1004,6 +1015,7 @@ function GearPick({
       href={href}
       sub={bits.join(" · ")}
       mark={pick.longest ? "longest" : null}
+      sourceNote={item.source ?? ""}
       delta={deltaView(pick)}
       tip={
         <GearTip
@@ -1122,7 +1134,13 @@ function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
                 Levels {dungeon.min}–{dungeon.max}
                 {dungeon.faction === "both" ? " · both factions" : ` · ${dungeon.faction}`}
               </div>
-              <div className="dungeon-meta">{dungeon.items.map((item) => `${item.slot} ${item.name}`).join(" · ")}</div>
+              <div className="dungeon-meta">
+                {dungeon.items.map((item) => (
+                  <span key={`${item.slot}-${item.id}`} className="dungeon-item">
+                    {item.slot} {item.name} <SourceNote source={item.source} />
+                  </span>
+                ))}
+              </div>
             </li>
           ))}
         </ol>

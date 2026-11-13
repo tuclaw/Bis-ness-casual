@@ -77,6 +77,59 @@ export function sourceTypes(source: string | undefined): SourceType[] {
   return found.size ? [...found] : ["unknown"];
 }
 
+const SPECIFIC_PREFIX: Partial<Record<SourceType, string>> = {
+  world: "Drop",
+  dungeon: "Dungeon",
+  quest: "Quest",
+  craft: "Crafted",
+  vendor: "Vendor",
+  other: "Other",
+};
+
+interface SourceSegment {
+  type: SourceType;
+  details: string[];
+}
+
+/** Turn a catalog source line into the label shown on a row. Specific names are used only when the line actually contains them. */
+export function sourceLabel(source: string | undefined): string {
+  const text = source?.trim();
+  if (!text) return SOURCE_LABEL.unknown;
+  const parts = text.split("·").map((part) => part.trim()).filter(Boolean);
+  if (!parts.length) return SOURCE_LABEL.unknown;
+
+  const segments: SourceSegment[] = [];
+  let current: SourceSegment | null = null;
+  for (const part of parts) {
+    const typed = TOKEN_TYPE[part];
+    if (typed) {
+      current = { type: typed, details: [] };
+      segments.push(current);
+      continue;
+    }
+    if (DUNGEON_NAMES.has(part)) {
+      current = { type: "dungeon", details: [part] };
+      segments.push(current);
+      continue;
+    }
+    if (current) current.details.push(part);
+    else {
+      current = { type: "other", details: [part] };
+      segments.push(current);
+    }
+  }
+
+  const labels = segments.map((segment) => {
+    const detail = segment.details.join(", ");
+    if (segment.type === "unknown") return detail ? `${SOURCE_LABEL.unknown} · ${detail}` : SOURCE_LABEL.unknown;
+    if (segment.type === "pvp") return SOURCE_LABEL.pvp;
+    if (!detail) return SOURCE_LABEL[segment.type];
+    const prefix = SPECIFIC_PREFIX[segment.type];
+    return prefix ? `${prefix}: ${detail}` : detail;
+  });
+  return labels.length ? labels.join(" · ") : SOURCE_LABEL.unknown;
+}
+
 export function sourceAllowed(source: string | undefined, filters: SourceFilters): boolean {
   return sourceTypes(source).some((type) => filters[type]);
 }
