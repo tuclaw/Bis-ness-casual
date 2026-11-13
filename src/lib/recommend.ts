@@ -110,12 +110,17 @@ export function rankEntries<T extends { id: number; req: number }>(args: RankArg
     return !outsideLevel && !outsideFit;
   };
 
+  const best = scored[0]!;
   const picks: Ranked<T>[] = [];
+  const cap = Math.max(1, limit);
+  if (!practical(best)) picks.push(decorate(best, true));
   for (const row of scored) {
+    if (picks.length >= cap) break;
     if (!practical(row)) continue;
-    picks.push(decorate(row, picks.length === 0));
-    if (picks.length >= limit) break;
+    if (picks.some((pick) => pick.entry.id === row.entry.id)) continue;
+    picks.push(decorate(row, row.entry.id === best.entry.id));
   }
+  if (!picks.length) picks.push(decorate(best, true));
   return picks;
 }
 
@@ -177,6 +182,7 @@ export function recommendGear(args: {
   slot: PlannerSlot;
   equipped: EquippedItem | null;
   excludeIds?: number[];
+  limit?: number;
 }): Ranked<GearItem>[] {
   const spec = specById(args.spec);
   const cls = classById(spec.classId);
@@ -194,7 +200,7 @@ export function recommendGear(args: {
     equippedScore: scoreEquippedItem(args.equipped, args.spec),
     equippedId: args.equipped?.itemId ?? null,
     emptySlot: !args.equipped,
-    limit: 3,
+    limit: args.limit ?? 4,
   });
   const withSpan = ranked.map((pick) => ({ ...pick, longevity: bisLongevity(pick.entry, pool, args.spec, cls) }));
   const bestSpan = withSpan.reduce((best, pick) => Math.max(best, pick.longevity.levels), 0);
@@ -241,6 +247,7 @@ export function recommendEnchantments(args: {
   equipped: EquippedItem | null;
   equippedScore: number | null;
   equippedEnchantId?: number | null;
+  limit?: number;
 }): { available: boolean; ranked: Ranked<Enchant>[] } {
   const spec = specById(args.spec);
   const cls = classById(spec.classId);
@@ -270,6 +277,7 @@ export function recommendEnchantments(args: {
     equippedScore: args.equippedScore,
     equippedId: args.equippedEnchantId ?? null,
     emptySlot: false,
+    limit: args.limit ?? 4,
   });
   return { available: true, ranked };
 }

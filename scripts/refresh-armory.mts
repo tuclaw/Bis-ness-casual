@@ -153,11 +153,18 @@ function finishProfile(
   source: SavedProfile["source"],
   note: string,
 ): SavedProfile {
-  const active = character.specs.find((spec) => spec.active) ?? character.specs[0];
-  const fromArmory = active ? specFromArmory(character.classId, active.name) : null;
-  const mainSpec = (fromArmory ?? previous?.mainSpec) as SpecId | undefined;
-  const offSpec = previous?.offSpec && previous.offSpec !== mainSpec ? previous.offSpec : null;
-  const offNote = offSpec ? " The off spec is the previously saved profile; this pull only included the active spec." : "";
+  const published = character.specs
+    .map((spec) => ({ spec: specFromArmory(character.classId, spec.name), spent: spec.spent, active: spec.active }))
+    .filter((spec): spec is { spec: SpecId; spent: number; active: boolean } => spec.spec != null)
+    .sort((a, b) => Number(b.active) - Number(a.active) || b.spent - a.spent);
+  const mainSpec = (published[0]?.spec ?? previous?.mainSpec) as SpecId | undefined;
+  const otherPublished = published.find((spec) => spec.spec !== mainSpec)?.spec ?? null;
+  const offSpec = otherPublished ?? (previous?.offSpec && previous.offSpec !== mainSpec ? previous.offSpec : null);
+  const offNote = otherPublished
+    ? ""
+    : offSpec
+      ? " The off spec is the previously saved profile; this pull only included the active spec."
+      : "";
   const profile = profileFromCharacter(character, {
     slug: entry.slug,
     region: entry.region,

@@ -4,7 +4,9 @@ import { armoryStateFromProfileApi, characterFromArmoryState, parseArmoryHtml } 
 import { snapshotChanged } from "../src/lib/snapshot.ts";
 import { parseCharacterQuery } from "../src/lib/names.ts";
 import { wowheadIconUrl, wowheadItemUrl } from "../src/lib/format.ts";
-import { bisLongevity, longevityLabel, rankEntries, recommendEnchantments, recommendGear } from "../src/lib/recommend.ts";
+import { recommendDungeons } from "../src/lib/dungeons.ts";
+import { defaultSourceFilters, hiddenByToggle, sourceAllowed, sourceTypes } from "../src/lib/sources.ts";
+import { bisLongevity, longevityLabel, rankEntries, recommendEnchantments, recommendGear, type Ranked } from "../src/lib/recommend.ts";
 import { classById, specById } from "../src/lib/classes.ts";
 import { scoreItem } from "../src/lib/score.ts";
 import type { Enchant, GearItem, SavedProfile } from "../src/lib/types.ts";
@@ -47,20 +49,30 @@ describe("level window", () => {
     item({ id: 4, name: "Also", req: 18, bucket: "chest", stats: { heal: 9 } }),
   ];
 
-  it("lists only items that can be worn inside the level window", () => {
+  it("always keeps the overall best and fills the rest from the level window", () => {
     const ranked = rankEntries({
       entries: pool,
       scoreOf: (entry) => scoreItem(entry, "shaman-restoration"),
       level: 17,
       window: 2,
       equippedScore: 1,
+      limit: 2,
     });
-    expect(ranked.map((row) => row.entry.name)).not.toContain("Best");
-    expect(ranked[0]?.entry.name).toBe("Band");
+    expect(ranked.map((row) => row.entry.name)).toEqual(["Best", "Band"]);
     expect(ranked[0]?.overallBest).toBe(true);
-    expect(ranked.every((row) => !row.outsideLevel && row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
-    expect(ranked.length).toBeGreaterThan(0);
-    expect(ranked.length).toBeLessThanOrEqual(4);
+    expect(ranked[0]?.outsideLevel).toBe(true);
+    expect(ranked[1]?.outsideLevel).toBe(false);
+  });
+
+  it("does not invent extra picks when fewer items are eligible", () => {
+    const ranked = rankEntries({
+      entries: [pool[2]!, pool[1]!],
+      scoreOf: (entry) => scoreItem(entry, "shaman-restoration"),
+      level: 17,
+      window: 2,
+      limit: 10,
+    });
+    expect(ranked).toHaveLength(2);
   });
 });
 
@@ -88,7 +100,7 @@ describe("spec scores", () => {
 });
 
 describe("enchants", () => {
-  it("hides chest enchants outside a narrow level window", () => {
+  it("keeps the best chest enchant even when it is outside a narrow level window", () => {
     const result = recommendEnchantments({
       enchants,
       spec: "mage-arcane",
@@ -97,11 +109,13 @@ describe("enchants", () => {
       slot: "chest",
       equipped: null,
       equippedScore: null,
+      limit: 3,
     });
     expect(result.available).toBe(true);
-    expect(result.ranked.length).toBeGreaterThan(0);
-    expect(result.ranked.every((row) => !row.outsideLevel && row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
     expect(result.ranked[0]?.overallBest).toBe(true);
+    expect(result.ranked[0]?.outsideLevel).toBe(true);
+    expect(result.ranked.slice(1).every((row) => !row.outsideLevel && row.entry.req >= 15 && row.entry.req <= 19)).toBe(true);
+    expect(result.ranked.length).toBeLessThanOrEqual(3);
   });
 
   it("has no head enchants and does have Forever necklace enchants", () => {
@@ -121,7 +135,7 @@ describe("enchants", () => {
 });
 
 describe("wearable best in slot", () => {
-  it("skips mail a shaman cannot wear inside the level window", () => {
+  it("still lists the best mail piece when the shaman cannot wear it yet", () => {
     const mail = item({ id: 1, name: "Mail", req: 17, bucket: "chest", armor: "mail", stats: { heal: 80 } });
     const cloth = item({ id: 2, name: "Cloth", req: 17, bucket: "chest", armor: "cloth", stats: { heal: 12 } });
     const ranked = recommendGear({
@@ -132,8 +146,11 @@ describe("wearable best in slot", () => {
       window: 8,
       slot: "chest",
       equipped: null,
+      limit: 2,
     });
-    expect(ranked.map((row) => row.entry.name)).toEqual(["Cloth"]);
+    expect(ranked.map((row) => row.entry.name)).toEqual(["Mail", "Cloth"]);
+    expect(ranked[0]?.overallBest).toBe(true);
+    expect(ranked[0]?.outsideFit).toBe(true);
   });
 
   it("allows mail once the level window reaches 40", () => {
@@ -193,6 +210,107 @@ describe("bis longevity", () => {
     const span = bisLongevity(weak, [weak, strong], "shaman-restoration", cls);
     expect(span).toMatchObject({ from: 30, until: 10, levels: 0 });
     expect(longevityLabel(span)).toBe("Outranked at lvl 30");
+  });
+});
+
+function rankedPick(entry: GearItem, extras: Partial<Ranked<GearItem>> = {}): Ranked<GearItem> {
+  return {
+    entry,
+    score: 10,
+    outsideLevel: false,
+    outsideFit: false,
+    overallBest: false,
+    upgrade: true,
+    delta: 4,
+    longevity: { from: 20, until: 30, levels: 10 },
+    ...extras,
+  };
+}
+
+describe("best dungeon", () => {
+  it("groups upgrades by the dungeon named in the source and skips missing sources", () => {
+    const sfk = item({ id: 1, name: "Fang Gloves", req: 20, bucket: "hands", source: "Shadowfang Keep · Shadowfang Gloves" });
+    const deadmines = item({ id: 2, name: "Defias", req: 18, bucket: "chest", source: "The Deadmines · Edwin VanCleef" });
+    const unknown = item({ id: 3, name: "Mystery", req: 20, bucket: "head", source: "Unknown source" });
+    const raid = item({ id: 4, name: "Spire", req: 55, bucket: "legs", source: "Blackrock Spire · General Drakkisath" });
+    const ranked = recommendDungeons({
+      level: 23,
+      faction: "horde",
+      slots: [
+        { label: "Hands", slot: "hands", picks: [rankedPick(sfk, { delta: 6, longevity: { from: 20, until: 32, levels: 12 } })] },
+        { label: "Chest", slot: "chest", picks: [rankedPick(deadmines)] },
+        { label: "Head", slot: "head", picks: [rankedPick(unknown)] },
+        { label: "Legs", slot: "legs", picks: [rankedPick(raid)] },
+      ],
+    });
+    expect(ranked.map((row) => row.name)).toEqual(["Shadowfang Keep"]);
+    expect(ranked[0]?.count).toBe(1);
+    expect(ranked[0]?.items.map((row) => row.name)).toEqual(["Fang Gloves"]);
+    expect(ranked[0]?.min).toBe(18);
+    expect(ranked[0]?.max).toBe(25);
+  });
+
+  it("ranks a bigger, longer upgrade ahead of a small one", () => {
+    const small = item({ id: 1, name: "Small", req: 20, bucket: "hands", source: "Wailing Caverns" });
+    const big = item({ id: 2, name: "Big", req: 22, bucket: "chest", source: "Blackfathom Deeps" });
+    const ranked = recommendDungeons({
+      level: 23,
+      faction: "horde",
+      slots: [
+        { label: "Hands", slot: "hands", picks: [rankedPick(small, { delta: 1, longevity: { from: 20, until: 22, levels: 2 } })] },
+        { label: "Chest", slot: "chest", picks: [rankedPick(big, { delta: 30, longevity: { from: 22, until: null, levels: 39 } })] },
+      ],
+    });
+    expect(ranked[0]?.name).toBe("Blackfathom Deeps");
+    expect(ranked[1]?.name).toBe("Wailing Caverns");
+  });
+});
+
+describe("recommendations per slot", () => {
+  it("badges the longest pick among however many the slider asks for", () => {
+    const short = item({ id: 1, name: "Short", req: 50, bucket: "chest", armor: "cloth", stats: { heal: 100 } });
+    const lasting = item({ id: 2, name: "Long", req: 17, bucket: "chest", armor: "cloth", stats: { heal: 20 } });
+    const two = recommendGear({
+      items: [short, lasting],
+      spec: "shaman-restoration",
+      faction: "horde",
+      level: 17,
+      window: 2,
+      slot: "chest",
+      equipped: null,
+      limit: 2,
+    });
+    expect(two.map((row) => row.entry.name)).toEqual(["Short", "Long"]);
+    expect(two.find((row) => row.longest)?.entry.name).toBe("Long");
+    const one = recommendGear({
+      items: [short, lasting],
+      spec: "shaman-restoration",
+      faction: "horde",
+      level: 17,
+      window: 2,
+      slot: "chest",
+      equipped: null,
+      limit: 1,
+    });
+    expect(one.map((row) => row.entry.name)).toEqual(["Short"]);
+    expect(one[0]?.longest).toBe(true);
+  });
+});
+
+describe("source filters", () => {
+  it("maps catalog source tokens without adding a dungeon that is not named", () => {
+    expect(sourceTypes("Unknown source")).toEqual(["unknown"]);
+    expect(sourceTypes(undefined)).toEqual(["unknown"]);
+    expect(sourceTypes("Drops")).toEqual(["world"]);
+    expect(sourceTypes("Quest Rewards")).toEqual(["quest"]);
+    expect(sourceTypes("Crafted")).toEqual(["craft"]);
+    expect(sourceTypes("Vendors · PvP")).toEqual(["vendor", "pvp"]);
+    expect(sourceTypes("Shadowfang Keep · Baron Silverlaine")).toEqual(["dungeon", "other"]);
+    expect(sourceTypes("Drops · C'Thun")).toEqual(["world", "other"]);
+    const filters = defaultSourceFilters();
+    expect(sourceAllowed("Shadowfang Keep", { ...filters, dungeon: false })).toBe(false);
+    expect(sourceAllowed("Vendors · Shadowfang Keep", { ...filters, dungeon: false })).toBe(true);
+    expect(hiddenByToggle(["Shadowfang Keep", "Vendors", "Vendors · Shadowfang Keep"], filters, "dungeon")).toBe(1);
   });
 });
 

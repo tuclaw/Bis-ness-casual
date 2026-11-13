@@ -4,6 +4,17 @@ import { classById, specById, specsForClass } from "./lib/classes.ts";
 import { formatScore, preferredStatOrder, qualityName, statLabel, wowheadItemUrl } from "./lib/format.ts";
 import { lookupItemIcon } from "./lib/icons.ts";
 import { parseCharacterQuery, REGION_ORDER, type Region } from "./lib/names.ts";
+import { recommendDungeons, type DungeonRecommendation } from "./lib/dungeons.ts";
+import {
+  hiddenByToggle,
+  loadSourceFilters,
+  saveSourceFilters,
+  SOURCE_LABEL,
+  SOURCE_TYPES,
+  sourceAllowed,
+  type SourceFilters,
+  type SourceType,
+} from "./lib/sources.ts";
 import { longevityLabel, LONG_BIS_LEVELS, recommendEnchantments, recommendGear, type Ranked } from "./lib/recommend.ts";
 import { equippedEnchantStats, scoreEnchant, scoreStats, topStatLines } from "./lib/score.ts";
 import type {
@@ -18,6 +29,7 @@ import seeds from "./data/characters.json";
 
 const SEED_PROFILES = seeds as SavedProfile[];
 const STORAGE_KEY = "bis-ness-casual-imports";
+const PICKS_KEY = "bis-ness-casual-picks";
 
 const LEFT_SLOTS = ["head", "neck", "shoulder", "back", "chest", "wrist"];
 const RIGHT_SLOTS = ["hands", "waist", "legs", "feet", "finger1", "finger2", "trinket1", "trinket2"];
@@ -69,6 +81,7 @@ export function App() {
   const [side, setSide] = useState<"main" | "off">("main");
   const [target, setTarget] = useState<SpecId>(profile.mainSpec);
   const [windowN, setWindowN] = useState(8);
+  const [picksPerSlot, setPicksPerSlot] = useState(() => loadPickCount());
   const [query, setQuery] = useState("");
   const [region, setRegion] = useState<Region>("us");
   const [searchOthers, setSearchOthers] = useState(true);
@@ -80,6 +93,7 @@ export function App() {
   const [catalogError, setCatalogError] = useState<string | null>(null);
   const [selectedSlot, setSelectedSlot] = useState("chest");
   const [icons, setIcons] = useState<Record<number, string | null>>({});
+  const [sourceFilters, setSourceFilters] = useState<SourceFilters>(() => loadSourceFilters());
 
   useEffect(() => {
     const base = import.meta.env.BASE_URL;
@@ -171,10 +185,7 @@ export function App() {
   const character = profile.character;
   const cls = classById(character.classId);
   const specOptions = specsForClass(character.classId);
-  const activeSpecId = side === "off" && profile.offSpec ? profile.offSpec : profile.mainSpec;
-  const activeArmory = character.specs.find((spec) => spec.active) ?? character.specs[0];
-  const showingTalents =
-    side === "main" || (activeArmory && specById(activeSpecId).name.toLowerCase().startsWith(activeArmory.name.toLowerCase()));
+  const publishedTree = character.specs.find((spec) => spec.name.toLowerCase() === specById(target).name.toLowerCase());
   const low = Math.max(1, character.level - windowN);
   const high = Math.min(60, character.level + windowN);
   const rangedLabel = cls?.ranged.includes("totem")
@@ -185,39 +196,43 @@ export function App() {
         ? "Relic"
         : "Ranged";
 
+  useEffect(() => {
+    saveSourceFilters(sourceFilters);
+  }, [sourceFilters]);
+
+  useEffect(() => {
+    localStorage.setItem(PICKS_KEY, String(picksPerSlot));
+  }, [picksPerSlot]);
+
   const plans = useMemo(() => {
     if (!catalog) return [];
-    const bySlot = new Map(character.gear.map((item) => [item.armorySlot, item]));
-    return ROWS.map((row) => {
-      const equipped = bySlot.get(row.armorySlot) ?? null;
-      const exclude =
-        row.id === "finger2" || row.id === "trinket2"
-          ? uniquePick(catalog.items, {
-              spec: target,
-              faction: character.faction,
-              level: character.level,
-              window: windowN,
-              slot: row.slot,
-              equipped: bySlot.get(row.id === "finger2" ? "finger1" : "trinket1") ?? null,
-            })
-          : [];
-      return {
-        row,
-        equipped,
-        gear: recommendGear({
-          items: catalog.items,
-          spec: target,
-          faction: character.faction,
-          level: character.level,
-          window: windowN,
-          slot: row.slot,
-          equipped,
-          excludeIds: exclude,
-        }),
-        enchantPlan: planEnchants(catalog.enchants, target, character.level, windowN, row.slot, equipped),
-      };
-    });
-  }, [catalog, character, target, windowN]);
+    const items = catalog.items.filter((item) => sourceAllowed(item.source, sourceFilters));
+    return buildSlotPlans(items, character, target, windowN, catalog.enchants, picksPerSlot);
+  }, [catalog, character, target, windowN, sourceFilters, picksPerSlot]);
+
+  const unfilteredPlans = useMemo(() => {
+    if (!catalog) return [];
+    return buildSlotPlans(catalog.items, character, target, windowN, catalog.enchants, picksPerSlot);
+  }, [catalog, character, target, windowN, picksPerSlot]);
+
+  const hideCounts = useMemo(() => {
+    const sources = unfilteredPlans.flatMap((plan) => plan.gear.map((pick) => pick.entry.source));
+    return Object.fromEntries(SOURCE_TYPES.map((type) => [type, hiddenByToggle(sources, sourceFilters, type)])) as Record<SourceType, number>;
+  }, [unfilteredPlans, sourceFilters]);
+
+  const dungeonPicks = useMemo(
+    () =>
+      recommendDungeons({
+        level: character.level,
+        faction: character.faction,
+        slots: plans.map((plan) => ({
+          label: plan.row.slot === "ranged" ? rangedLabel : plan.row.label,
+          slot: plan.row.slot,
+          picks: plan.gear,
+        })),
+      }),
+    [plans, character.level, character.faction, rangedLabel],
+  );
 
   useEffect(() => {
     const ids = new Set<number>();
@@ -417,20 +432,37 @@ export function App() {
             />
           </label>
           <p className="note">
-            Showing required levels {low}–{high}. Only best-in-slot picks you can wear in this range are listed.
+            Showing required levels {low}–{high}. The overall best stays on the list even when its required level is outside this window.
           </p>
         </div>
+        <div className="slider-row">
+          <label>
+            Recommendations per slot: {picksPerSlot}
+            <input
+              type="range"
+              min={1}
+              max={10}
+              value={picksPerSlot}
+              onChange={(event) => setPicksPerSlot(clampPickCount(Number(event.target.value)))}
+              aria-valuetext={`${picksPerSlot} recommendations per slot`}
+            />
+          </label>
+          <p className="note">Each slot and its flyout show this many ranked picks. A slot with fewer eligible items shows only those.</p>
+        </div>
+
+        <SourceFiltersBar
+          filters={sourceFilters}
+          hideCounts={hideCounts}
+          onToggle={(type) => setSourceFilters((current) => ({ ...current, [type]: !current[type] }))}
+        />
+
+        {catalog && sourceFilters.dungeon && <DungeonBoard dungeons={dungeonPicks} />}
 
         <div>
           <h3>Talents</h3>
-          {side === "off" && !showingTalents ? (
-            <p className="note">
-              The public Armory snapshot only includes the active spec
-              {activeArmory ? ` (${activeArmory.name}, ${activeArmory.spent} points)` : ""}. Off-spec talents are not published until that spec is the one logged out. The saved off spec is still {specById(profile.offSpec ?? profile.mainSpec).name}, and recommendations follow the selector above.
-            </p>
-          ) : activeArmory ? (
+          {publishedTree ? (
             <div className="talents">
-              {activeArmory.talents.map((talent) => (
+              {publishedTree.talents.map((talent) => (
                 <div className="talent" key={`${talent.name}-${talent.rank}`}>
                   <b>
                     {talent.name} {talent.rank}
@@ -438,10 +470,12 @@ export function App() {
                   {talent.description && <span>{talent.description}</span>}
                 </div>
               ))}
-              {activeArmory.talents.length === 0 && <p className="note">No talent points in the Armory profile.</p>}
+              {publishedTree.talents.length === 0 && <p className="note">No talent points in the Armory profile for {publishedTree.name}.</p>}
             </div>
           ) : (
-            <p className="note">The Armory profile did not include a talent build.</p>
+            <p className="note">
+              The Armory snapshot does not include the {specById(target).name} talent tree. Recommendations still follow the selector above.
+            </p>
           )}
           {character.professions.length > 0 && (
             <p className="note">
@@ -471,7 +505,7 @@ export function App() {
 
       <footer>
         <p>
-          Seed profiles are Daz Dingomon (Restoration / Enhancement) and Mrs Dingomon (Arcane / Frost PvP), Horde, US PvP, from the official Armory on 13 Nov 2026. Gear on the page is that snapshot, not a guessed loadout.
+          Saved profiles are the characters in characters.config.json, pulled from the official US Forever Armory. Gear on the page is that snapshot, not a guessed loadout.
         </p>
         <p>
           Item stats come from Forever Wowhead tooltips. Enchant effects and skill levels come from Warcraft Forever client data build 1.60.1.70862, with formula and trainer notes from WoW Forever DB. Enchant required level is the level needed to learn the formula at 5 Enchanting skill per character level.
@@ -482,9 +516,51 @@ export function App() {
   );
 }
 
+function buildSlotPlans(
+  items: GearItem[],
+  character: SavedProfile["character"],
+  target: SpecId,
+  windowN: number,
+  enchants: Enchant[],
+  limit: number,
+) {
+  const bySlot = new Map(character.gear.map((item) => [item.armorySlot, item]));
+  return ROWS.map((row) => {
+    const equipped = bySlot.get(row.armorySlot) ?? null;
+    const exclude =
+      row.id === "finger2" || row.id === "trinket2"
+        ? uniquePick(items, {
+            spec: target,
+            faction: character.faction,
+            level: character.level,
+            window: windowN,
+            slot: row.slot,
+            equipped: bySlot.get(row.id === "finger2" ? "finger1" : "trinket1") ?? null,
+            limit,
+          })
+        : [];
+    return {
+      row,
+      equipped,
+      gear: recommendGear({
+        items,
+        spec: target,
+        faction: character.faction,
+        level: character.level,
+        window: windowN,
+        slot: row.slot,
+        equipped,
+        excludeIds: exclude,
+        limit,
+      }),
+      enchantPlan: planEnchants(enchants, target, character.level, windowN, row.slot, equipped, limit),
+    };
+  });
+}
+
 function uniquePick(
   items: GearItem[],
-  args: { spec: SpecId; faction: SavedProfile["character"]["faction"]; level: number; window: number; slot: PlannerSlot; equipped: EquippedItem | null },
+  args: { spec: SpecId; faction: SavedProfile["character"]["faction"]; level: number; window: number; slot: PlannerSlot; equipped: EquippedItem | null; limit: number },
 ): number[] {
   const ranked = recommendGear({ items, ...args });
   const unique = ranked.find((pick) => pick.entry.unique);
@@ -498,6 +574,7 @@ function planEnchants(
   window: number,
   slot: PlannerSlot,
   equipped: EquippedItem | null,
+  limit: number,
 ) {
   const current = equipped?.enchant ?? null;
   const match = current
@@ -515,6 +592,7 @@ function planEnchants(
     equipped,
     equippedScore,
     equippedEnchantId: match?.id ?? null,
+    limit,
   });
   return { ...result, scored: Boolean(current) && equippedScore != null };
 }
@@ -783,6 +861,86 @@ function fitLabel(fit: Enchant["fit"]): string {
   if (fit === "holdable") return "held off-hand";
   if (fit === "weapon") return "weapon";
   return fit;
+}
+
+function SourceFiltersBar({
+  filters,
+  hideCounts,
+  onToggle,
+}: {
+  filters: SourceFilters;
+  hideCounts: Record<SourceType, number>;
+  onToggle: (type: SourceType) => void;
+}) {
+  return (
+    <section className="source-filters">
+      <div className="wow-title">Item sources</div>
+      <div className="source-chips">
+        {SOURCE_TYPES.map((type) => (
+          <button
+            key={type}
+            type="button"
+            className={filters[type] ? "source-chip on" : "source-chip"}
+            aria-pressed={filters[type]}
+            onClick={() => onToggle(type)}
+          >
+            {SOURCE_LABEL[type]}
+            <span>{filters[type] ? `hides ${hideCounts[type]}` : "off"}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
+  return (
+    <section className="dungeon-board">
+      <div className="wow-title">Best dungeon right now</div>
+      {dungeons.length === 0 ? (
+        <p className="empty">None of the current upgrades name a dungeon you can run at this level and faction.</p>
+      ) : (
+        dungeons.map((dungeon, index) => (
+          <article key={dungeon.name} className={index === 0 ? "hunt rank1" : "hunt"}>
+            <span className="rank">{index + 1}</span>
+            <div className="hunt-body">
+              <div className="hunt-title">
+                <span className="card-name">{dungeon.name}</span>
+                <span className="tag recommended">
+                  {dungeon.count} upgrade{dungeon.count === 1 ? "" : "s"}
+                </span>
+                {index === 0 && <span className="tag longest">Best now</span>}
+              </div>
+              <div className="meta">
+                Levels {dungeon.min}–{dungeon.max}
+                {dungeon.faction === "both" ? " · both factions" : ` · ${dungeon.faction}`}
+              </div>
+              <div className="lines">
+                {dungeon.items.map((item) => (
+                  <span key={`${item.slot}-${item.id}`}>
+                    {item.slot}: {item.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      )}
+    </section>
+  );
+}
+
+function loadPickCount(): number {
+  try {
+    return clampPickCount(Number(localStorage.getItem(PICKS_KEY)));
+  } catch {
+    return 4;
+  }
+}
+
+function clampPickCount(value: number): number {
+  if (!Number.isInteger(value)) return 4;
+  return Math.min(10, Math.max(1, value));
 }
 
 function formatAsOf(iso: string): string {

@@ -1,6 +1,9 @@
 {
   "characters": [
     { "slug": "daz-dingomon", "region": "us" },
-    { "slug": "mrs-dingomon", "region": "us" }
+    { "slug": "mrs-dingomon", "region": "us" },
+    { "slug": "ffsparky-jr", "region": "us" },
+    { "slug": "ternt-up", "region": "us" },
+    { "slug": "spooky-guyy", "region": "us" }
   ]
 }

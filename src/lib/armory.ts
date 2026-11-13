@@ -41,6 +41,8 @@ const ARMORY_SLOT: Record<string, { slot: PlannerSlot; armorySlot: string }> = {
   rightFinger: { slot: "finger", armorySlot: "finger2" },
   trinket1: { slot: "trinket", armorySlot: "trinket1" },
   trinket2: { slot: "trinket", armorySlot: "trinket2" },
+  leftTrinket: { slot: "trinket", armorySlot: "trinket1" },
+  rightTrinket: { slot: "trinket", armorySlot: "trinket2" },
   weapon: { slot: "mainhand", armorySlot: "weapon" },
   offhand: { slot: "offhand", armorySlot: "offhand" },
   ranged: { slot: "ranged", armorySlot: "ranged" },
