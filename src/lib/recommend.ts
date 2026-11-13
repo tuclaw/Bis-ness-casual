@@ -17,6 +17,53 @@ export interface Ranked<T> {
   overallBest: boolean;
   upgrade: boolean | null;
   delta: number | null;
+  longevity?: BisLongevity;
+  longest?: boolean;
+}
+
+/** A pick that stays best for at least this many levels gets the paper-doll marker. */
+export const LONG_BIS_LEVELS = 10;
+
+export interface BisLongevity {
+  /** First level the item can be worn, including mail and plate gates. */
+  from: number;
+  /** Level a strictly better item for the same slot becomes wearable. Null means it stays best through 60. */
+  until: number | null;
+  /** How many levels this item is the best wearable pick. */
+  levels: number;
+}
+
+export function longevityLabel(span: BisLongevity): string {
+  if (span.levels <= 0) return `Outranked at lvl ${span.from}`;
+  if (span.until == null) return "BiS through 60";
+  return `BiS until lvl ${span.until}`;
+}
+
+export function earliestWearableLevel(item: GearItem, cls: ClassInfo): number {
+  // The catalog stores 1 when a tooltip has no "Requires Level" line. Those rows are
+  // usually high item-level pieces, so item level is the level we can actually use.
+  let level = item.req || 1;
+  if (level <= 1 && item.ilvl >= level + 15) level = item.ilvl;
+  level = Math.max(1, Math.min(60, level));
+  if (item.armor === "mail" && cls.mailAt) level = Math.max(level, cls.mailAt);
+  if (item.armor === "plate" && cls.plateAt) level = Math.max(level, cls.plateAt);
+  return Math.min(60, level);
+}
+
+/** How long `item` stays the best wearable piece in `pool` for this spec. */
+export function bisLongevity(item: GearItem, pool: GearItem[], spec: SpecId, cls: ClassInfo): BisLongevity {
+  const from = earliestWearableLevel(item, cls);
+  const mine = scoreItem(item, spec);
+  let until: number | null = null;
+  for (const other of pool) {
+    if (other.id === item.id) continue;
+    if (scoreItem(other, spec) <= mine) continue;
+    const when = earliestWearableLevel(other, cls);
+    if (until == null || when < until) until = when;
+  }
+  if (until != null && until <= from) return { from, until, levels: 0 };
+  if (until == null) return { from, until: null, levels: Math.max(0, 60 - from + 1) };
+  return { from, until, levels: until - from };
 }
 
 interface RankArgs<T extends { id: number; req: number }> {
@@ -138,7 +185,7 @@ export function recommendGear(args: {
   const pool = args.items.filter(
     (item) => !exclude.has(item.id) && slotMatch(item, args.slot, cls) && hardAllowItem(item, args.spec, args.faction),
   );
-  return rankEntries({
+  const ranked = rankEntries({
     entries: pool,
     scoreOf: (item) => scoreItem(item, args.spec),
     level: args.level,
@@ -147,6 +194,15 @@ export function recommendGear(args: {
     equippedScore: scoreEquippedItem(args.equipped, args.spec),
     equippedId: args.equipped?.itemId ?? null,
     emptySlot: !args.equipped,
+    limit: 3,
+  });
+  const withSpan = ranked.map((pick) => ({ ...pick, longevity: bisLongevity(pick.entry, pool, args.spec, cls) }));
+  const bestSpan = withSpan.reduce((best, pick) => Math.max(best, pick.longevity.levels), 0);
+  let marked = false;
+  return withSpan.map((pick) => {
+    const longest = !marked && bestSpan > 0 && pick.longevity.levels === bestSpan;
+    if (longest) marked = true;
+    return { ...pick, longest };
   });
 }
 

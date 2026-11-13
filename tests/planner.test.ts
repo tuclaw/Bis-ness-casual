@@ -3,7 +3,8 @@ import { describe, expect, it } from "vitest";
 import { characterFromArmoryState, parseArmoryHtml } from "../src/lib/armory.ts";
 import { parseCharacterQuery } from "../src/lib/names.ts";
 import { wowheadIconUrl, wowheadItemUrl } from "../src/lib/format.ts";
-import { rankEntries, recommendEnchantments, recommendGear } from "../src/lib/recommend.ts";
+import { bisLongevity, longevityLabel, rankEntries, recommendEnchantments, recommendGear } from "../src/lib/recommend.ts";
+import { classById, specById } from "../src/lib/classes.ts";
 import { scoreItem } from "../src/lib/score.ts";
 import type { Enchant, GearItem, SavedProfile } from "../src/lib/types.ts";
 
@@ -151,6 +152,49 @@ describe("wearable best in slot", () => {
   });
 });
 
+describe("bis longevity", () => {
+  const cls = classById(specById("shaman-restoration").classId)!;
+  const pool = [
+    item({ id: 1, name: "Low", req: 10, bucket: "chest", armor: "cloth", stats: { heal: 10 } }),
+    item({ id: 2, name: "Mid", req: 20, bucket: "chest", armor: "cloth", stats: { heal: 30 } }),
+    item({ id: 3, name: "High", req: 40, bucket: "chest", armor: "cloth", stats: { heal: 80 } }),
+  ];
+
+  it("keeps an item best until a strictly better one can be worn", () => {
+    const mid = bisLongevity(pool[1]!, pool, "shaman-restoration", cls);
+    expect(mid).toMatchObject({ from: 20, until: 40, levels: 20 });
+    expect(longevityLabel(mid)).toBe("BiS until lvl 40");
+    const high = bisLongevity(pool[2]!, pool, "shaman-restoration", cls);
+    expect(high.until).toBeNull();
+    expect(longevityLabel(high)).toBe("BiS through 60");
+    expect(high.levels).toBe(21);
+  });
+
+  it("holds cloth until mail is actually wearable", () => {
+    const cloth = item({ id: 4, name: "Cloth", req: 10, bucket: "chest", armor: "cloth", stats: { heal: 20 } });
+    const mail = item({ id: 5, name: "Mail", req: 10, bucket: "chest", armor: "mail", stats: { heal: 80 } });
+    const span = bisLongevity(cloth, [cloth, mail], "shaman-restoration", cls);
+    expect(span).toMatchObject({ from: 10, until: 40, levels: 30 });
+    expect(bisLongevity(mail, [cloth, mail], "shaman-restoration", cls).from).toBe(40);
+  });
+
+  it("does not treat a missing required level on a high item level as level 1", () => {
+    const gown = item({ id: 6, name: "Gown", req: 22, bucket: "chest", armor: "cloth", stats: { heal: 20 } });
+    const robe = item({ id: 7, name: "Robe", req: 1, bucket: "chest", armor: "cloth", ilvl: 60, stats: { heal: 80 } });
+    const span = bisLongevity(gown, [gown, robe], "shaman-restoration", cls);
+    expect(span.until).toBe(60);
+    expect(longevityLabel(span)).toBe("BiS until lvl 60");
+  });
+
+  it("reports zero levels when a better item is already wearable", () => {
+    const weak = item({ id: 9, name: "Weak", req: 30, bucket: "chest", armor: "cloth", stats: { heal: 5 } });
+    const strong = item({ id: 8, name: "Strong", req: 10, bucket: "chest", armor: "cloth", stats: { heal: 80 } });
+    const span = bisLongevity(weak, [weak, strong], "shaman-restoration", cls);
+    expect(span).toMatchObject({ from: 30, until: 10, levels: 0 });
+    expect(longevityLabel(span)).toBe("Outranked at lvl 30");
+  });
+});
+
 describe("item links", () => {
   it("builds the full Forever Wowhead item URL", () => {
     expect(wowheadItemUrl(6832, "Cloak of Blight")).toBe("https://www.wowhead.com/forever/item=6832/cloak-of-blight");
@@ -171,9 +215,12 @@ describe("seed characters", () => {
     expect(mrs?.offSpec).toBe("mage-frost-pvp");
     expect(daz?.character.faction).toBe("horde");
     expect(daz?.character.ruleset).toBe("PvP");
-    expect(daz?.character.gear.map((piece) => piece.name)).toContain("Satyrskin Cloak");
-    expect(mrs?.character.gear.map((piece) => piece.name)).toContain("Staff of Orgrimmar");
-    expect(mrs?.character.gear.find((piece) => piece.armorySlot === "wrist")?.enchant?.name).toBe("Enchant Bracer - Minor Deflect");
+    expect(daz?.character.level).toBe(23);
+    expect(mrs?.character.level).toBe(22);
+    expect(daz?.character.gear.map((piece) => piece.name)).toContain("Woolen Cape");
+    expect(daz?.character.gear.find((piece) => piece.armorySlot === "finger1")?.name).toBe("Slain Baron's Signet");
+    expect(mrs?.character.gear.map((piece) => piece.name)).toContain("Coldspire Staff");
+    expect(mrs?.character.gear.find((piece) => piece.armorySlot === "wrist")?.name).toBe("Tabitha's Cuffs");
     expect(daz?.character.specs[0]?.talents.map((talent) => talent.name)).toContain("Tidal Focus");
   });
 });

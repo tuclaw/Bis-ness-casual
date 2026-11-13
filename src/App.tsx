@@ -4,7 +4,7 @@ import { classById, specById, specsForClass } from "./lib/classes.ts";
 import { formatScore, preferredStatOrder, qualityName, statLabel, wowheadItemUrl } from "./lib/format.ts";
 import { lookupItemIcon } from "./lib/icons.ts";
 import { parseCharacterQuery, REGION_ORDER, type Region } from "./lib/names.ts";
-import { recommendEnchantments, recommendGear, type Ranked } from "./lib/recommend.ts";
+import { longevityLabel, LONG_BIS_LEVELS, recommendEnchantments, recommendGear, type Ranked } from "./lib/recommend.ts";
 import { equippedEnchantStats, scoreEnchant, scoreStats, topStatLines } from "./lib/score.ts";
 import type {
   Enchant,
@@ -354,8 +354,9 @@ export function App() {
             </div>
             <p className="note">
               <a href={profile.armoryUrl}>Official Armory</a>
-              {character.updatedAt ? ` · Armory updated ${character.updatedAt.slice(0, 16).replace("T", " ")} UTC` : ""}
-              {profile.sourceNote ? ` · ${profile.sourceNote}` : ""}
+              {profile.fetchedAt ? ` · Snapshot as of ${formatAsOf(profile.fetchedAt)}` : ""}
+              {character.updatedAt ? ` · Armory last updated ${formatAsOf(character.updatedAt)}` : ""}
+              . GitHub Pages keeps this capture because the Armory does not send CORS headers. The dev server can still import a live profile.
             </p>
           </div>
           <div className="stats">
@@ -470,7 +471,7 @@ export function App() {
 
       <footer>
         <p>
-          Seed profiles are Daz Dingomon (Restoration / Enhancement) and Mrs Dingomon (Arcane / Frost PvP), Horde, US PvP, from the official Armory on 8 Nov 2026. Gear on the page is that snapshot, not a guessed loadout.
+          Seed profiles are Daz Dingomon (Restoration / Enhancement) and Mrs Dingomon (Arcane / Frost PvP), Horde, US PvP, from the official Armory on 13 Nov 2026. Gear on the page is that snapshot, not a guessed loadout.
         </p>
         <p>
           Item stats come from Forever Wowhead tooltips. Enchant effects and skill levels come from Warcraft Forever client data build 1.60.1.70862, with formula and trainer notes from WoW Forever DB. Enchant required level is the level needed to learn the formula at 5 Enchanting skill per character level.
@@ -556,52 +557,59 @@ function MiniCard<T extends GearItem | Enchant>({
   spec,
   kind,
   icon,
+  rank,
 }: {
   pick: Ranked<T>;
   spec: SpecId;
   kind: "item" | "enchant";
   icon?: string | null;
+  rank?: number;
 }) {
   const item = pick.entry;
   const lines = topStatLines(item.stats, spec, 3);
   const quality = "quality" in item ? qualityName(item.quality) : "enchant";
   const name = item.name;
   const href = kind === "item" ? wowheadItemUrl(item.id, name) : null;
+  const span = kind === "item" ? pick.longevity : undefined;
   return (
-    <article className={`mini q-${quality}`}>
-      <div className="card-head">
-        {kind === "item" && <ItemIcon src={icon} quality={quality} />}
-        <div>
-      <div className="card-name">{href ? <ItemLink href={href}>{name}</ItemLink> : name}</div>
-      <div className="meta">
-        {"ilvl" in item ? `ilvl ${item.ilvl} · ` : `skill ${item.skill} · `}
-        requires {item.req}
-        {"dps" in item && item.dps ? ` · ${item.dps.toFixed(1)} dps` : ""}
-        {kind === "enchant" && "fit" in item && item.fit !== "any" ? ` · ${fitLabel(item.fit)}` : ""}
-      </div>
-      <div className="lines">
-        {lines.map((line) => (
-          <span key={line}>{line}</span>
-        ))}
-        {lines.length === 0 && "effect" in item && item.effect && <span>{item.effect.slice(0, 80)}</span>}
-      </div>
-      <div className="tags">
-        {pick.overallBest && <span className="tag best">Best</span>}
-        {pick.upgrade && <span className="tag good">Upgrade {pick.delta != null ? `+${formatScore(pick.delta)}` : ""}</span>}
-        {pick.upgrade === false && pick.delta != null && pick.delta <= 0.05 && <span className="tag">Equipped pace</span>}
-        {pick.outsideLevel && <span className="tag warn">Outside level window</span>}
-        {pick.outsideFit && <span className="tag warn">Not wearable on the current piece yet</span>}
-        {"pvp" in item && item.pvp && <span className="tag">PvP</span>}
-        {"changed" in item && item.changed === "new" && <span className="tag">New in Forever</span>}
-      </div>
-      {"source" in item && item.source && <div className="source">{item.source}</div>}
-      {kind === "enchant" && "effect" in item && <div className="source">{item.effect}</div>}
-      {href && (
-        <ItemLink className="full-link" href={href}>
-          {href}
-        </ItemLink>
-      )}
+    <article className={`hunt ${pick.overallBest ? "rank1" : ""} ${pick.longest ? "longest" : ""}`}>
+      <span className="rank">{rank ?? ""}</span>
+      {kind === "item" && <ItemIcon src={icon} quality={quality} />}
+      <div className="hunt-body">
+        <div className="hunt-title">
+          <span className={`card-name qtext-${quality}`}>{href ? <ItemLink href={href}>{name}</ItemLink> : name}</span>
+          {pick.upgrade && <span className="arrow up" title="Upgrade">▲ {pick.delta != null ? `+${formatScore(pick.delta)}` : ""}</span>}
+          {pick.upgrade === false && pick.delta != null && pick.delta < -0.05 && (
+            <span className="arrow down" title="Below equipped">▼ {formatScore(pick.delta)}</span>
+          )}
         </div>
+        <div className="meta">
+          {"ilvl" in item ? `ilvl ${item.ilvl} · ` : `skill ${item.skill} · `}
+          requires {item.req}
+          {"dps" in item && item.dps ? ` · ${item.dps.toFixed(1)} dps` : ""}
+          {kind === "enchant" && "fit" in item && item.fit !== "any" ? ` · ${fitLabel(item.fit)}` : ""}
+          {span ? ` · ${longevityLabel(span)}` : ""}
+        </div>
+        <div className="lines">
+          {lines.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
+          {lines.length === 0 && "effect" in item && item.effect && <span>{item.effect.slice(0, 80)}</span>}
+        </div>
+        <div className="tags">
+          {pick.overallBest && <span className="tag recommended">Recommended</span>}
+          {pick.longest && <span className="tag longest">Longest BiS</span>}
+          {pick.upgrade === false && pick.delta != null && Math.abs(pick.delta) <= 0.05 && <span className="tag">Equipped pace</span>}
+          {"pvp" in item && item.pvp && <span className="tag">PvP</span>}
+          {"changed" in item && item.changed === "new" && <span className="tag">New in Forever</span>}
+        </div>
+        {"source" in item && item.source && <div className="source">Source: {item.source}</div>}
+        {kind === "enchant" && "effect" in item && <div className="source">{item.effect}</div>}
+        {href && (
+          <ItemLink className="full-link" href={href}>
+            {href}
+          </ItemLink>
+        )}
       </div>
     </article>
   );
@@ -691,14 +699,15 @@ function ArmoryBoard({
           </div>
           <div>
             <h3>Best in slot</h3>
-            <div className="recs">
+            <div className="parchment">
+              <div className="wow-title">Upgrades · {labelFor(selected.row)}</div>
               {selected.gear.length === 0 && (
                 <p className="empty">
                   No item for this slot can be worn at required levels {low}–{high}.
                 </p>
               )}
-              {selected.gear.map((pick) => (
-                <MiniCard key={pick.entry.id} pick={pick} spec={spec} kind="item" icon={icons[pick.entry.id]} />
+              {selected.gear.map((pick, index) => (
+                <MiniCard key={pick.entry.id} rank={index + 1} pick={pick} spec={spec} kind="item" icon={icons[pick.entry.id]} />
               ))}
             </div>
             <div className="enchant-block">
@@ -745,7 +754,14 @@ function ArmoryBoard({
       >
         <ItemIcon src={iconFor(equipped)} quality={equipped?.quality ?? "empty"} />
         <span className="slot-copy">
-          <b>{labelFor(row)}</b>
+          <b>
+            {labelFor(row)}
+            {plan.gear[0]?.longevity && plan.gear[0].longevity.levels >= LONG_BIS_LEVELS && (
+              <span className="long-mark" title={longevityLabel(plan.gear[0].longevity)}>
+                long
+              </span>
+            )}
+          </b>
           <span className={equipped ? `qtext-${equipped.quality}` : ""}>{equipped ? equipped.name : "Empty"}</span>
         </span>
       </button>
@@ -767,6 +783,20 @@ function fitLabel(fit: Enchant["fit"]): string {
   if (fit === "holdable") return "held off-hand";
   if (fit === "weapon") return "weapon";
   return fit;
+}
+
+function formatAsOf(iso: string): string {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Los_Angeles",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZoneName: "short",
+  }).format(date);
 }
 
 function Mark() {

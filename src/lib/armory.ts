@@ -21,27 +21,29 @@ const CLASS_BY_NUMBER: Record<number, string> = {
   11: "druid",
 };
 
-const ARMORY_SLOT: Record<string, PlannerSlot> = {
-  head: "head",
-  neck: "neck",
-  shoulder: "shoulder",
-  back: "back",
-  chest: "chest",
-  wrist: "wrist",
-  hand: "hands",
-  hands: "hands",
-  waist: "waist",
-  leg: "legs",
-  legs: "legs",
-  foot: "feet",
-  feet: "feet",
-  finger1: "finger",
-  finger2: "finger",
-  trinket1: "trinket",
-  trinket2: "trinket",
-  weapon: "mainhand",
-  offhand: "offhand",
-  ranged: "ranged",
+const ARMORY_SLOT: Record<string, { slot: PlannerSlot; armorySlot: string }> = {
+  head: { slot: "head", armorySlot: "head" },
+  neck: { slot: "neck", armorySlot: "neck" },
+  shoulder: { slot: "shoulder", armorySlot: "shoulder" },
+  back: { slot: "back", armorySlot: "back" },
+  chest: { slot: "chest", armorySlot: "chest" },
+  wrist: { slot: "wrist", armorySlot: "wrist" },
+  hand: { slot: "hands", armorySlot: "hand" },
+  hands: { slot: "hands", armorySlot: "hand" },
+  waist: { slot: "waist", armorySlot: "waist" },
+  leg: { slot: "legs", armorySlot: "leg" },
+  legs: { slot: "legs", armorySlot: "leg" },
+  foot: { slot: "feet", armorySlot: "foot" },
+  feet: { slot: "feet", armorySlot: "foot" },
+  finger1: { slot: "finger", armorySlot: "finger1" },
+  finger2: { slot: "finger", armorySlot: "finger2" },
+  leftFinger: { slot: "finger", armorySlot: "finger1" },
+  rightFinger: { slot: "finger", armorySlot: "finger2" },
+  trinket1: { slot: "trinket", armorySlot: "trinket1" },
+  trinket2: { slot: "trinket", armorySlot: "trinket2" },
+  weapon: { slot: "mainhand", armorySlot: "weapon" },
+  offhand: { slot: "offhand", armorySlot: "offhand" },
+  ranged: { slot: "ranged", armorySlot: "ranged" },
 };
 
 const TOOL_SLOT: Record<string, { slot: PlannerSlot; armorySlot: string }> = {
@@ -146,9 +148,9 @@ export function characterFromArmoryState(state: Record<string, unknown>): Normal
   const gear: EquippedItem[] = [];
   const gearMap = asRecord(character.gear) ?? {};
   for (const [key, raw] of Object.entries(gearMap)) {
-    const slot = ARMORY_SLOT[key];
+    const mapped = ARMORY_SLOT[key];
     const piece = asRecord(raw);
-    if (!slot || !piece) continue;
+    if (!mapped || !piece) continue;
     const stats: StatBlock = {};
     for (const stat of Array.isArray(piece.stats) ? piece.stats : []) {
       const row = asRecord(stat);
@@ -178,8 +180,8 @@ export function characterFromArmoryState(state: Record<string, unknown>): Normal
       .map(asRecord)
       .find((asset) => text(asset?.key) === "icon");
     gear.push({
-      slot,
-      armorySlot: key,
+      slot: mapped.slot,
+      armorySlot: mapped.armorySlot,
       itemId: num(item?.id) ?? num(piece.id) ?? 0,
       name: text(piece.name) ?? "Unknown item",
       iconUrl: text(iconAsset?.value),

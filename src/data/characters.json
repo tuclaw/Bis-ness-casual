@@ -3,15 +3,15 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-08T12:02:25Z",
+    "fetchedAt": "2026-11-13T16:30:00.000Z",
     "source": "armory-snapshot",
-    "sourceNote": "Official US Forever Armory embed, captured 8 Nov 2026. The Armory only returned the active spec; the off spec is the saved profile.",
+    "sourceNote": "Official US Forever Armory embed, captured 13 Nov 2026. The Armory only returned the active spec; the off spec is the previously saved profile.",
     "mainSpec": "shaman-restoration",
     "offSpec": "shaman-enhancement",
     "character": {
       "name": "Daz",
       "surname": "Dingomon",
-      "level": 17,
+      "level": 23,
       "classId": "shaman",
       "className": "Shaman",
       "race": "Troll",
@@ -19,25 +19,25 @@
       "faction": "horde",
       "ruleset": "PvP",
       "rulesetId": 1,
-      "guild": "\u00d8nlyDads",
-      "ilvl": 9,
+      "guild": "ØnlyDads",
+      "ilvl": 16,
       "honorableKills": 44,
       "region": "us",
-      "updatedAt": "2026-11-08T12:02:25Z",
+      "updatedAt": "2026-11-13T11:08:31Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 550,
+          "value": 764,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 501,
+          "value": 933,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 9,
+          "value": 17,
           "percent": false
         },
         {
@@ -47,27 +47,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 37,
+          "value": 41,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 30,
+          "value": 37,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 32,
+          "value": 51,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 58,
+          "value": 71,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 5.197,
+          "value": 5.0747004,
           "percent": true
         },
         {
@@ -82,7 +82,7 @@
         },
         {
           "key": "BONUSARMOR",
-          "value": 0,
+          "value": 20,
           "percent": false
         },
         {
@@ -97,7 +97,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 173,
+          "value": 112,
           "percent": false
         },
         {
@@ -107,27 +107,27 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 24.607143,
+          "value": 16,
           "percent": false
         },
         {
           "key": "SPELLPOWER",
-          "value": 3,
+          "value": 28,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 52,
+          "value": 73,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 771,
+          "value": 927,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 5.197,
+          "value": 5.1547003,
           "percent": true
         },
         {
@@ -137,7 +137,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.96,
+          "value": 4.64,
           "percent": true
         }
       ],
@@ -145,7 +145,7 @@
         {
           "id": "restoration",
           "name": "Restoration",
-          "spent": 8,
+          "spent": 11,
           "active": true,
           "talents": [
             {
@@ -157,6 +157,21 @@
               "name": "Mindfulness",
               "rank": 3,
               "description": "Allows 50% of your Mana regeneration to continue while casting."
+            },
+            {
+              "name": "Totemic Focus",
+              "rank": 1,
+              "description": "Reduces the Mana cost of your totems and any spells that summon or move them by 5%."
+            },
+            {
+              "name": "Improved Reincarnation",
+              "rank": 1,
+              "description": "Reduces the cooldown of your Reincarnation spell by 10 min, increases your maximum health by 2%, and increases the amount of health and Mana you reincarnate with by an additional 10%."
+            },
+            {
+              "name": "Water Shield",
+              "rank": 1,
+              "description": "The caster is surrounded by 3 globes of water. When a spell, melee, or ranged attack hits the caster or when one of the caster's spells gets a critical result, 2% of maximum mana is restored to the caster, expending one water globe. Only one globe will activate every few seconds.  Lasts 10 min.\r\n\r\nOnly one Elemental Shield can be active on the Shaman at any one time."
             }
           ]
         }
@@ -165,55 +180,57 @@
         {
           "slot": "back",
           "armorySlot": "back",
-          "itemId": 273005,
-          "name": "Satyrskin Cloak",
-          "quality": "rare",
-          "ilvl": 18,
-          "req": 13,
+          "itemId": 2584,
+          "name": "Woolen Cape",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133762.jpg",
+          "quality": "uncommon",
+          "ilvl": 16,
+          "req": 11,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "CLOAK",
           "stats": {
-            "sta": 3.0,
-            "fireRes": 3.0,
-            "armor": 17.0
+            "sp": 1,
+            "spi": 1,
+            "armor": 15
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133770.jpg"
+          "enchant": null
         },
         {
           "slot": "chest",
           "armorySlot": "chest",
-          "itemId": 2300,
-          "name": "Embossed Leather Vest",
+          "itemId": 6561,
+          "name": "Seer's Padded Armor",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135006.jpg",
           "quality": "uncommon",
-          "ilvl": 12,
-          "req": 7,
-          "armorType": "leather",
+          "ilvl": 21,
+          "req": 16,
+          "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "CHEST",
           "stats": {
-            "sta": 2.0,
-            "armor": 62.0
+            "sta": 3,
+            "spi": 6,
+            "armor": 35
           },
           "dps": null,
           "speed": null,
           "effect": null,
           "enchant": {
-            "enchantId": 41,
-            "name": "Enchant Chest - Inferior Stamina",
-            "label": "Enchanted: Stamina +2"
-          },
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132724.jpg"
+            "enchantId": 242,
+            "name": "Enchant Chest - Lesser Stamina",
+            "label": "Enchanted: Stamina +3"
+          }
         },
         {
           "slot": "feet",
           "armorySlot": "foot",
           "itemId": 2309,
           "name": "Embossed Leather Boots",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132539.jpg",
           "quality": "uncommon",
           "ilvl": 15,
           "req": 10,
@@ -221,198 +238,259 @@
           "weaponType": null,
           "inventoryType": "FEET",
           "stats": {
-            "sta": 2.0,
-            "sp": 2.0,
-            "armor": 48.0
+            "sta": 2,
+            "sp": 2,
+            "armor": 48
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132539.jpg"
+          "enchant": null
         },
         {
           "slot": "hands",
           "armorySlot": "hand",
-          "itemId": 14117,
-          "name": "Aboriginal Gloves of the Sorcerer",
-          "quality": "uncommon",
-          "ilvl": 16,
-          "req": 11,
+          "itemId": 5970,
+          "name": "Serpent Gloves",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132953.jpg",
+          "quality": "rare",
+          "ilvl": 23,
+          "req": 18,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "HAND",
           "stats": {
-            "int": 2.0,
-            "sta": 1.0,
-            "sp": 1.0,
-            "armor": 18.0
+            "agi": 6,
+            "sp": 7,
+            "armor": 25
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132952.jpg"
+          "enchant": null
+        },
+        {
+          "slot": "finger",
+          "armorySlot": "finger1",
+          "itemId": 279867,
+          "name": "Slain Baron's Signet",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133361.jpg",
+          "quality": "uncommon",
+          "ilvl": 23,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "FINGER",
+          "stats": {
+            "sta": 3
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
         },
         {
           "slot": "legs",
           "armorySlot": "leg",
-          "itemId": 15450,
-          "name": "Dredgemire Leggings",
+          "itemId": 15312,
+          "name": "Feral Leggings of the Owl",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134586.jpg",
           "quality": "uncommon",
-          "ilvl": 18,
-          "req": null,
+          "ilvl": 20,
+          "req": 15,
           "armorType": "leather",
           "weaponType": null,
           "inventoryType": "LEGS",
           "stats": {
-            "sta": 3.0,
-            "spi": 3.0,
-            "armor": 65.0
+            "int": 4,
+            "spi": 4,
+            "armor": 68
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134587.jpg"
+          "enchant": null
+        },
+        {
+          "slot": "neck",
+          "armorySlot": "neck",
+          "itemId": 281265,
+          "name": "Roadwatcher's Confidence",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133288.jpg",
+          "quality": "uncommon",
+          "ilvl": 20,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "NECK",
+          "stats": {
+            "spi": 3
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
         },
         {
           "slot": "offhand",
           "armorySlot": "offhand",
-          "itemId": 3655,
-          "name": "Burnished Shield",
-          "quality": "uncommon",
-          "ilvl": 21,
-          "req": 16,
+          "itemId": 6630,
+          "name": "Seedcloud Buckler",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134956.jpg",
+          "quality": "rare",
+          "ilvl": 24,
+          "req": 19,
           "armorType": "shield",
           "weaponType": null,
           "inventoryType": "SHIELD",
           "stats": {
-            "str": 2.0,
-            "sta": 3.0,
-            "armor": 428.0
+            "int": 5,
+            "sp": 5,
+            "armor": 547
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134949.jpg"
+          "enchant": null
         },
         {
           "slot": "ranged",
           "armorySlot": "ranged",
-          "itemId": 263412,
-          "name": "Totem of Charged Flames",
-          "quality": "uncommon",
-          "ilvl": 10,
-          "req": null,
+          "itemId": 249398,
+          "name": "Polished Driftwood Icon",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/310733.jpg",
+          "quality": "rare",
+          "ilvl": 25,
+          "req": 20,
           "armorType": "totem",
           "weaponType": null,
           "inventoryType": "RELIC",
           "stats": {},
           "dps": null,
           "speed": null,
-          "effect": "Equip: Reduces the mana cost of Flame Shock and Lightning Bolt by 5 Mana.",
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134919.jpg"
+          "effect": "Equip: Allows 8% of your Mana regeneration to continue while casting.",
+          "enchant": null
+        },
+        {
+          "slot": "shoulder",
+          "armorySlot": "shoulder",
+          "itemId": 3324,
+          "name": "Ghostly Mantle",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135040.jpg",
+          "quality": "uncommon",
+          "ilvl": 27,
+          "req": null,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "SHOULDER",
+          "stats": {
+            "sd": 2,
+            "heal": 6,
+            "spi": 6,
+            "armor": 30
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
         },
         {
           "slot": "waist",
           "armorySlot": "waist",
-          "itemId": 4246,
-          "name": "Fine Leather Belt",
-          "quality": "uncommon",
-          "ilvl": 16,
-          "req": 11,
-          "armorType": "leather",
+          "itemId": 286980,
+          "name": "Rotmender's Sash",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132500.jpg",
+          "quality": "rare",
+          "ilvl": 22,
+          "req": 17,
+          "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "WAIST",
           "stats": {
-            "agi": 2.0,
-            "sta": 2.0,
-            "armor": 40.0
+            "int": 6,
+            "sta": 6,
+            "armor": 22
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132493.jpg"
+          "enchant": null
         },
         {
           "slot": "mainhand",
           "armorySlot": "weapon",
-          "itemId": 272998,
-          "name": "Bone Knuckles",
+          "itemId": 15443,
+          "name": "Kris of Orgrimmar",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135641.jpg",
           "quality": "rare",
           "ilvl": 18,
-          "req": 13,
+          "req": null,
           "armorType": null,
-          "weaponType": "fist weapon",
-          "inventoryType": "WEAPONMAINHAND",
+          "weaponType": "dagger",
+          "inventoryType": "WEAPON",
           "stats": {
-            "ap": 6.0,
-            "apBeast": 6.0
+            "sta": 4
           },
-          "dps": 12.25,
-          "speed": 2.0,
+          "dps": 7.9999995,
+          "speed": 1.5,
           "effect": null,
-          "enchant": {
-            "enchantId": 6,
-            "name": null,
-            "label": "Rockbiter 2"
-          },
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132369.jpg"
+          "enchant": null
         },
         {
           "slot": "wrist",
           "armorySlot": "wrist",
-          "itemId": 15453,
-          "name": "Savannah Bracers",
-          "quality": "uncommon",
-          "ilvl": 18,
-          "req": null,
+          "itemId": 3230,
+          "name": "Black Wolf Bracers",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132606.jpg",
+          "quality": "rare",
+          "ilvl": 27,
+          "req": 22,
           "armorType": "leather",
           "weaponType": null,
           "inventoryType": "WRIST",
           "stats": {
-            "sta": 3.0,
-            "armor": 33.0
+            "sta": 7,
+            "ap": 4,
+            "armor": 43
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132606.jpg"
+          "enchant": {
+            "enchantId": 243,
+            "name": "Enchant Bracer - Minor Spirit",
+            "label": "Enchanted: Spirit +3"
+          }
         }
       ],
       "professions": [
         {
           "name": "Skinning",
-          "skill": 118,
+          "skill": 150,
           "max": 150,
           "primary": true
         },
         {
           "name": "Enchanting",
-          "skill": 75,
+          "skill": 131,
           "max": 150,
           "primary": true
         },
         {
           "name": "Cooking",
-          "skill": 126,
-          "max": 150,
+          "skill": 225,
+          "max": 225,
           "primary": false
         },
         {
           "name": "Fishing",
-          "skill": 150,
-          "max": 150,
+          "skill": 225,
+          "max": 225,
           "primary": false
         },
         {
           "name": "First Aid",
-          "skill": 25,
+          "skill": 45,
           "max": 75,
           "primary": false
         }
@@ -426,15 +504,15 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-08T12:02:22Z",
+    "fetchedAt": "2026-11-13T16:30:00.000Z",
     "source": "armory-snapshot",
-    "sourceNote": "Official US Forever Armory embed, captured 8 Nov 2026. The Armory only returned the active spec; the off spec is the saved profile.",
+    "sourceNote": "Official US Forever Armory embed, captured 13 Nov 2026. The Armory only returned the active spec; the off spec is the previously saved profile.",
     "mainSpec": "mage-arcane",
     "offSpec": "mage-frost-pvp",
     "character": {
       "name": "Mrs",
       "surname": "Dingomon",
-      "level": 17,
+      "level": 22,
       "classId": "mage",
       "className": "Mage",
       "race": "Troll",
@@ -442,25 +520,25 @@
       "faction": "horde",
       "ruleset": "PvP",
       "rulesetId": 1,
-      "guild": "\u00d8nlyDads",
-      "ilvl": 9,
+      "guild": "ØnlyDads",
+      "ilvl": 15,
       "honorableKills": 52,
       "region": "us",
-      "updatedAt": "2026-11-08T12:02:22Z",
+      "updatedAt": "2026-11-13T11:08:28Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 462,
+          "value": 727,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 850,
+          "value": 990,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 10,
+          "value": 15,
           "percent": false
         },
         {
@@ -470,27 +548,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 23,
+          "value": 24,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 33,
+          "value": 26,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 55,
+          "value": 57,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 42,
+          "value": 63,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 5.0639005,
+          "value": 4.31,
           "percent": true
         },
         {
@@ -520,7 +598,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 13,
+          "value": 14,
           "percent": false
         },
         {
@@ -530,27 +608,27 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 12.746754,
+          "value": 16.13889,
           "percent": false
         },
         {
           "key": "SPELLPOWER",
-          "value": 28,
+          "value": 14,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 68,
+          "value": 72,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 220,
+          "value": 241,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 5.6639,
+          "value": 4.87,
           "percent": true
         },
         {
@@ -568,7 +646,7 @@
         {
           "id": "arcane",
           "name": "Arcane",
-          "spent": 8,
+          "spent": 13,
           "active": true,
           "talents": [
             {
@@ -587,9 +665,19 @@
               "description": "Reduces your target's resistance to all your spells by 8 and reduces the threat caused by your Arcane spells by 15%."
             },
             {
+              "name": "Arcane Concentration",
+              "rank": 4,
+              "description": "Gives you a 8% chance of entering a Clearcasting state after any damage spell hits a target.  The Clearcasting state reduces the mana cost of your next damage spell by 100%."
+            },
+            {
               "name": "Missile Barrage",
               "rank": 2,
               "description": "Gives your Arcane Blast spell a 40% chance, and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a 20% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec."
+            },
+            {
+              "name": "Arcane Blast",
+              "rank": 1,
+              "description": "Blasts the target with energy, dealing 36 to 42 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
             }
           ]
         }
@@ -598,30 +686,31 @@
         {
           "slot": "back",
           "armorySlot": "back",
-          "itemId": 6585,
-          "name": "Scouting Cloak of the Wolf",
+          "itemId": 4710,
+          "name": "Forest Cloak",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133761.jpg",
           "quality": "uncommon",
-          "ilvl": 20,
-          "req": 15,
+          "ilvl": 22,
+          "req": 17,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "CLOAK",
           "stats": {
-            "agi": 2.0,
-            "spi": 2.0,
-            "armor": 17.0
+            "int": 2,
+            "sta": 3,
+            "armor": 18
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133754.jpg"
+          "enchant": null
         },
         {
           "slot": "chest",
           "armorySlot": "chest",
           "itemId": 5202,
           "name": "Corsair's Overshirt",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135012.jpg",
           "quality": "rare",
           "ilvl": 22,
           "req": 17,
@@ -629,46 +718,49 @@
           "weaponType": null,
           "inventoryType": "CHEST",
           "stats": {
-            "sta": 5.0,
-            "sd": 3.0,
-            "heal": 11.0,
-            "spi": 8.0,
-            "armor": 40.0
+            "sta": 5,
+            "sd": 3,
+            "heal": 11,
+            "spi": 8,
+            "armor": 40
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135012.jpg"
+          "enchant": {
+            "enchantId": 242,
+            "name": "Enchant Chest - Lesser Stamina",
+            "label": "Enchanted: Stamina +3"
+          }
         },
         {
           "slot": "feet",
           "armorySlot": "foot",
-          "itemId": 14114,
-          "name": "Aboriginal Footwraps of the Sorcerer",
+          "itemId": 3065,
+          "name": "Bright Boots",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132541.jpg",
           "quality": "uncommon",
-          "ilvl": 16,
-          "req": 11,
+          "ilvl": 23,
+          "req": 18,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "FEET",
           "stats": {
-            "int": 2.0,
-            "sta": 1.0,
-            "sp": 1.0,
-            "armor": 20.0
+            "sta": 5,
+            "spi": 2,
+            "armor": 25
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132592.jpg"
+          "enchant": null
         },
         {
           "slot": "hands",
           "armorySlot": "hand",
           "itemId": 4768,
           "name": "Adept's Gloves",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132939.jpg",
           "quality": "rare",
           "ilvl": 17,
           "req": 12,
@@ -676,21 +768,41 @@
           "weaponType": null,
           "inventoryType": "HAND",
           "stats": {
-            "int": 5.0,
-            "sta": 5.0,
-            "armor": 21.0
+            "int": 5,
+            "sta": 5,
+            "armor": 21
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132939.jpg"
+          "enchant": null
+        },
+        {
+          "slot": "finger",
+          "armorySlot": "finger1",
+          "itemId": 279867,
+          "name": "Slain Baron's Signet",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133361.jpg",
+          "quality": "uncommon",
+          "ilvl": 23,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "FINGER",
+          "stats": {
+            "sta": 3
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
         },
         {
           "slot": "legs",
           "armorySlot": "leg",
           "itemId": 10047,
           "name": "Simple Kilt",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134591.jpg",
           "quality": "uncommon",
           "ilvl": 15,
           "req": 10,
@@ -698,41 +810,81 @@
           "weaponType": null,
           "inventoryType": "LEGS",
           "stats": {
-            "sta": 3.0,
-            "sp": 2.0,
-            "armor": 24.0
+            "sta": 3,
+            "sp": 2,
+            "armor": 24
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134591.jpg"
+          "enchant": null
+        },
+        {
+          "slot": "neck",
+          "armorySlot": "neck",
+          "itemId": 281265,
+          "name": "Roadwatcher's Confidence",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133288.jpg",
+          "quality": "uncommon",
+          "ilvl": 20,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "NECK",
+          "stats": {
+            "spi": 3
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
         },
         {
           "slot": "ranged",
           "armorySlot": "ranged",
-          "itemId": 11288,
-          "name": "Greater Magic Wand",
-          "quality": "uncommon",
-          "ilvl": 23,
-          "req": 13,
+          "itemId": 5198,
+          "name": "Cookie's Stirring Rod",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135139.jpg",
+          "quality": "rare",
+          "ilvl": 22,
+          "req": 17,
           "armorType": null,
           "weaponType": "wand",
           "inventoryType": "RANGEDRIGHT",
+          "stats": {},
+          "dps": 22.307692,
+          "speed": 1.3,
+          "effect": "Equip: Increases your Cooking speed by 25%.",
+          "enchant": null
+        },
+        {
+          "slot": "shoulder",
+          "armorySlot": "shoulder",
+          "itemId": 4314,
+          "name": "Double-Stitched Woolen Shoulders",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135037.jpg",
+          "quality": "uncommon",
+          "ilvl": 22,
+          "req": 17,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "SHOULDER",
           "stats": {
-            "sp": 2.0
+            "sta": 4,
+            "sp": 4,
+            "armor": 27
           },
-          "dps": 17.5,
-          "speed": 1.8,
+          "dps": null,
+          "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135144.jpg"
+          "enchant": null
         },
         {
           "slot": "waist",
           "armorySlot": "waist",
           "itemId": 253887,
           "name": "Novice Ardent's Sash",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/236918.jpg",
           "quality": "rare",
           "ilvl": 15,
           "req": 10,
@@ -740,89 +892,83 @@
           "weaponType": null,
           "inventoryType": "WAIST",
           "stats": {
-            "int": 3.0,
-            "sd": 2.0,
-            "heal": 6.0,
-            "spi": 3.0,
-            "armor": 17.0
+            "int": 3,
+            "sd": 2,
+            "heal": 6,
+            "spi": 3,
+            "armor": 17
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/236918.jpg"
+          "enchant": null
         },
         {
           "slot": "mainhand",
           "armorySlot": "weapon",
-          "itemId": 15444,
-          "name": "Staff of Orgrimmar",
+          "itemId": 271215,
+          "name": "Coldspire Staff",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135144.jpg",
           "quality": "rare",
-          "ilvl": 18,
-          "req": null,
+          "ilvl": 24,
+          "req": 19,
           "armorType": null,
           "weaponType": "staff",
           "inventoryType": "TWOHWEAPON",
           "stats": {
-            "int": 6.0,
-            "agi": 6.0
+            "frostRes": 13
           },
-          "dps": 11.818181,
-          "speed": 3.3,
+          "dps": 15.138888,
+          "speed": 3.6,
           "effect": null,
-          "enchant": null,
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135225.jpg"
+          "enchant": null
         },
         {
           "slot": "wrist",
           "armorySlot": "wrist",
-          "itemId": 14148,
-          "name": "Crystalline Cuffs",
-          "quality": "rare",
-          "ilvl": 18,
-          "req": 13,
+          "itemId": 251486,
+          "name": "Tabitha's Cuffs",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132609.jpg",
+          "quality": "uncommon",
+          "ilvl": 24,
+          "req": null,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "WRIST",
           "stats": {
-            "sta": 2.0,
-            "spi": 3.0,
-            "armor": 15.0
+            "sta": 4,
+            "sp": 3,
+            "armor": 17
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": {
-            "enchantId": 924,
-            "name": "Enchant Bracer - Minor Deflect",
-            "label": "Enchanted: Defense +3"
-          },
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132612.jpg"
+          "enchant": null
         }
       ],
       "professions": [
         {
           "name": "Tailoring",
-          "skill": 83,
+          "skill": 100,
           "max": 150,
           "primary": true
         },
         {
           "name": "Herbalism",
-          "skill": 77,
+          "skill": 99,
           "max": 150,
           "primary": true
         },
         {
           "name": "Cooking",
-          "skill": 124,
+          "skill": 150,
           "max": 150,
           "primary": false
         },
         {
           "name": "Fishing",
-          "skill": 123,
-          "max": 150,
+          "skill": 215,
+          "max": 225,
           "primary": false
         },
         {

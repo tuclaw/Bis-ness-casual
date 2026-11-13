@@ -2,7 +2,7 @@
 
 A static planner for World of Warcraft: Forever. Load a character from the official Armory, switch the spec the recommendations target, and compare the best upgrades per equipment slot that can be worn in the required-level window. Each item links to its full Forever Wowhead page.
 
-Daz Dingomon (Horde shaman, Restoration / Enhancement) and Mrs Dingomon (Horde mage, Arcane / Frost PvP) are saved profiles from the US PvP Armory. Their equipped items, stats, and active-spec talents are the live Armory embed captured on 8 Nov 2026. The Armory only returned the spec they were logged out on, so the off spec is the saved profile and its talents are marked as not published.
+Daz Dingomon (Horde shaman, Restoration / Enhancement) and Mrs Dingomon (Horde mage, Arcane / Frost PvP) are saved profiles from the US PvP Armory. Their equipped items, stats, and active-spec talents are the live Armory embed captured on 13 Nov 2026. The Armory only returned the spec they were logged out on, so the off spec is the previously saved profile and its talents are marked as not published. The page shows that snapshot date because GitHub Pages cannot refresh the Armory (no CORS). `npm run dev` still proxies a live import.
 
 ## Run locally
 
@@ -36,7 +36,7 @@ Items come from Forever Wowhead tooltips (the Forever cache published with Class
 
 Each spec has weights for the stats Forever items actually carry: intellect, spirit, mana per 5, spell power, healing, school damage, attack power, weapon DPS, crit, hit, stamina, and defense. Restoration favors healing, intellect, spirit, and mana per 5. Enhancement favors weapon DPS, agility, strength, attack power, crit, and hit. Arcane favors arcane and generic spell damage, intellect, crit, and hit, with some wand DPS. Frost (PvP) keeps frost damage and adds stamina and other survivability, so a stamina piece can beat a glass-cannon piece. PvP gear gets only a small nudge for Enhancement and Frost (PvP). It does not automatically win for Restoration.
 
-The slider is the character's level plus or minus N, applied to item required level. Only items that can be worn inside that window are shown, and the highest-scoring one is the best-in-slot pick for the range.
+The slider is the character's level plus or minus N, applied to item required level. Only items that can be worn inside that window are shown, and the highest-scoring one is the best-in-slot pick for the range. Each recommendation also says how long it stays that pick: from the level it can be worn until a strictly better item for the slot and spec becomes wearable, or through 60. The longest of those picks is badged, and a slot whose current best lasts at least 10 levels is marked on the paper doll.
 
 Enchants come from Warcraft Forever's client data for build 1.60.1.70862 (effects and the skill at which the formula turns yellow), with source notes from WoW Forever DB: trainer, formula, or unconfirmed when the client does not say. The required level is that skill divided by 5, because Forever caps profession skill at 5 per character level. The same slider applies, and enchants outside the window are hidden. Slots with no Forever formula (head, shoulder, waist, legs, finger, trinket, relic, wand) say so. An Armory enchant is shown only when the profile includes it. If that enchant is in the catalog, a higher-scoring recommendation is marked as an upgrade. Weapon imbues such as Rockbiter are shown and are not scored as Enchanting formulas.
 
