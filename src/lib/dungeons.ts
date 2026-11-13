@@ -41,6 +41,7 @@ export interface DungeonItem {
   delta: number | null;
   levels: number;
   source?: string;
+  gear?: GearItem;
 }
 
 export interface DungeonRecommendation {
@@ -106,6 +107,7 @@ export function recommendDungeons(args: {
           delta: pick.delta,
           levels: pick.longevity?.levels ?? 0,
           source,
+          gear: pick.entry,
         });
         buckets.set(dungeon.name, row);
       }

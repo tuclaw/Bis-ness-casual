@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { ImportError, importCharacter, profileFromPaste } from "./lib/armory.ts";
 import { classById, specById, specsForClass } from "./lib/classes.ts";
 import { formatScore, preferredStatOrder, qualityName, statLabel, wowheadItemUrl } from "./lib/format.ts";
@@ -27,6 +27,7 @@ import type {
 } from "./lib/types.ts";
 import seeds from "./data/characters.json";
 import { SourceNote } from "./SourceNote.tsx";
+import { tooltipFromEquipped, tooltipFromGear, type TipModel } from "./lib/tooltip.ts";
 
 const SEED_PROFILES = seeds as SavedProfile[];
 const STORAGE_KEY = "bis-ness-casual-imports";
@@ -620,21 +621,77 @@ function TipHost({
   children: ReactNode;
   tip: ReactNode;
 }) {
+  const hostRef = useRef<HTMLDivElement>(null);
+  const tipRef = useRef<HTMLDivElement>(null);
+  function place() {
+    const host = hostRef.current;
+    const tip = tipRef.current;
+    if (!host || !tip) return;
+    tip.style.display = "block";
+    const rect = host.getBoundingClientRect();
+    const box = tip.getBoundingClientRect();
+    const left = Math.max(8, Math.min(rect.left, window.innerWidth - box.width - 8));
+    let top = rect.bottom + 6;
+    if (top + box.height > window.innerHeight - 8) top = Math.max(8, rect.top - box.height - 6);
+    tip.style.left = `${left}px`;
+    tip.style.top = `${top}px`;
+  }
   return (
     <div
+      ref={hostRef}
       className={pinned ? "tip-host pinned" : "tip-host"}
+      onMouseEnter={() => {
+        if (!coarsePointer()) place();
+      }}
+      onMouseLeave={() => {
+        const tip = tipRef.current;
+        if (tip && !pinned) tip.style.display = "";
+      }}
       onClick={(event) => {
         const target = event.target as HTMLElement;
         if (target.closest("[data-tip-go]")) return;
         if (!coarsePointer() && target.closest("a")) return;
         if (coarsePointer()) event.preventDefault();
         onToggle(id);
+        requestAnimationFrame(place);
       }}
     >
       {children}
-      <div className="tip" role="tooltip">
+      <div ref={tipRef} className="armory-tip" role="tooltip">
         {tip}
       </div>
+    </div>
+  );
+}
+
+function ArmoryPanel({ model }: { model: TipModel }) {
+  return (
+    <div className={`armory-panel q-${model.quality}`}>
+      {model.lines.map((line, index) => {
+        if (line.kind === "name") return <p key={index} className={`tip-name qtext-${model.quality}`}>{line.text}</p>;
+        if (line.kind === "slot") {
+          return (
+            <p key={index} className="tip-split">
+              <span>{line.text}</span>
+              {line.right && <span>{line.right}</span>}
+            </p>
+          );
+        }
+        if (line.kind === "effect" || line.kind === "enchant") return <p key={index} className="tip-green">{line.text}</p>;
+        if (line.kind === "source") return <p key={index}><SourceNote source={line.text} /></p>;
+        if (line.kind === "stat") return <p key={index} className={line.delta ? `tip-${line.delta}` : undefined}>{line.text}</p>;
+        return <p key={index}>{line.text}</p>;
+      })}
+      {model.href && <WowLink href={model.href} />}
+    </div>
+  );
+}
+
+function ArmoryPanels({ item, equipped }: { item: TipModel; equipped?: TipModel | null }) {
+  return (
+    <div className="armory-compare">
+      <ArmoryPanel model={item} />
+      {equipped && <ArmoryPanel model={equipped} />}
     </div>
   );
 }
@@ -872,7 +929,7 @@ function ArmoryBoard({
               <p className="empty">No item for this slot can be worn at required levels {low}–{high}.</p>
             )}
             {selected.gear.map((pick, index) => (
-              <GearPick key={pick.entry.id} pick={pick} spec={spec} rank={index + 1} icon={icons[pick.entry.id]} pinned={pinned} onToggle={onToggle} />
+              <GearPick key={pick.entry.id} pick={pick} spec={spec} rank={index + 1} icon={icons[pick.entry.id]} pinned={pinned} onToggle={onToggle} equipped={selected.equipped} />
             ))}
           </div>
           <h3 className="section-label">Enchants</h3>
@@ -906,9 +963,8 @@ function ArmoryBoard({
     const equipped = plan.equipped;
     const isLong = Boolean(plan.gear[0]?.longevity && plan.gear[0].longevity.levels >= LONG_BIS_LEVELS);
     const label = labelFor(row);
-    return (
+    const button = (
       <button
-        key={id}
         type="button"
         className={`slot-btn${id === selectedId ? " active" : ""}${isLong ? " long" : ""}`}
         aria-pressed={id === selectedId}
@@ -928,6 +984,17 @@ function ArmoryBoard({
         </span>
       </button>
     );
+    if (!equipped) return button;
+    return (
+      <TipHost
+        id={`slot-${id}`}
+        pinned={pinned === `slot-${id}`}
+        onToggle={onToggle}
+        tip={<ArmoryPanels item={tooltipFromEquipped(equipped, equipped.itemId > 0 ? wowheadItemUrl(equipped.itemId, equipped.name) : null)} />}
+      >
+        {button}
+      </TipHost>
+    );
   }
 }
 
@@ -944,7 +1011,6 @@ function EquippedRow({
   pinned: string | null;
   onToggle: (id: string) => void;
 }) {
-  const lines = topStatLines(item.stats, spec, 8);
   const href = item.itemId > 0 ? wowheadItemUrl(item.itemId, item.name) : null;
   const bits = [titleCase(item.quality), `ilvl ${item.ilvl}`];
   if (item.req != null) bits.push(`req ${item.req}`);
@@ -961,20 +1027,7 @@ function EquippedRow({
       href={href}
       sub={bits.join(" · ")}
       detail={item.enchant ? item.enchant.label : null}
-      tip={
-        <GearTip
-          name={item.name}
-          quality={item.quality}
-          ilvl={item.ilvl}
-          req={item.req}
-          dps={item.dps}
-          speed={item.speed}
-          lines={lines}
-          effect={item.effect}
-          extra={item.enchant ? `Enchant: ${item.enchant.label}` : null}
-          href={href}
-        />
-      }
+      tip={<ArmoryPanels item={tooltipFromEquipped(item, href)} />}
     />
   );
 }
@@ -986,6 +1039,7 @@ function GearPick({
   icon,
   pinned,
   onToggle,
+  equipped,
 }: {
   pick: Ranked<GearItem>;
   spec: SpecId;
@@ -993,6 +1047,7 @@ function GearPick({
   icon?: string | null;
   pinned: string | null;
   onToggle: (id: string) => void;
+  equipped: EquippedItem | null;
 }) {
   const item = pick.entry;
   const href = wowheadItemUrl(item.id, item.name);
@@ -1018,18 +1073,9 @@ function GearPick({
       sourceNote={item.source ?? ""}
       delta={deltaView(pick)}
       tip={
-        <GearTip
-          name={item.name}
-          quality={qualityName(item.quality)}
-          ilvl={item.ilvl}
-          req={item.req}
-          dps={item.dps}
-          speed={item.speed}
-          lines={topStatLines(item.stats, spec, 8)}
-          effect={item.effect}
-          source={item.source}
-          extra={pick.longevity ? longevityLabel(pick.longevity) : null}
-          href={href}
+        <ArmoryPanels
+          item={tooltipFromGear(item, href, equipped && equipped.itemId !== item.id ? equipped.stats : null)}
+          equipped={equipped && equipped.itemId !== item.id ? tooltipFromEquipped(equipped, equipped.itemId > 0 ? wowheadItemUrl(equipped.itemId, equipped.name) : null) : null}
         />
       }
     />
@@ -1114,6 +1160,7 @@ function SourceFiltersBar({
 }
 
 function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
+  const [pinned, setPinned] = useState<string | null>(null);
   return (
     <section className="dungeons" aria-label="Best dungeon right now">
       <h2 className="kicker">Best dungeon</h2>
@@ -1137,7 +1184,22 @@ function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
               <div className="dungeon-meta">
                 {dungeon.items.map((item) => (
                   <span key={`${item.slot}-${item.id}`} className="dungeon-item">
-                    {item.slot} {item.name} <SourceNote source={item.source} />
+                    {item.gear ? (
+                      <TipHost
+                        id={`dungeon-${item.slot}-${item.id}`}
+                        pinned={pinned === `dungeon-${item.slot}-${item.id}`}
+                        onToggle={(id) => setPinned((current) => (current === id ? null : id))}
+                        tip={<ArmoryPanels item={tooltipFromGear(item.gear, wowheadItemUrl(item.gear.id, item.gear.name))} />}
+                      >
+                        <span>
+                          {item.slot} {item.name} <SourceNote source={item.source} />
+                        </span>
+                      </TipHost>
+                    ) : (
+                      <>
+                        {item.slot} {item.name} <SourceNote source={item.source} />
+                      </>
+                    )}
                   </span>
                 ))}
               </div>
