@@ -1,6 +1,16 @@
 import { classById, specById } from "./lib/classes.ts";
+import { SELECT_HASH } from "./lib/lineup.ts";
 import { publicAssetUrl } from "./lib/renders.ts";
 import type { SavedProfile } from "./lib/types.ts";
+
+export function BrandLink() {
+  return (
+    <a className="brand-link" href={SELECT_HASH}>
+      <span className="brand-name">Bis-ness</span>
+      <span className="brand-sub">Casual</span>
+    </a>
+  );
+}
 
 export function Lineup({
   profiles,
@@ -14,10 +24,7 @@ export function Lineup({
   return (
     <div className="lineup-screen">
       <header className="lineup-bar">
-        <div className="brand">
-          <span className="brand-name">Bis-ness</span>
-          <span className="brand-sub">Casual</span>
-        </div>
+        <BrandLink />
         <button className="btn" type="button" onClick={onEnter}>
           Enter
         </button>

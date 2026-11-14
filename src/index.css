@@ -60,6 +60,16 @@ a { color: var(--gold); }
   margin-bottom: 16px;
 }
 .brand { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.brand-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.brand-link:hover .brand-name,
+.brand-link:focus-visible .brand-name { color: var(--gold); }
 .app-nav { display: flex; }
 .app-nav a {
   min-height: 44px;

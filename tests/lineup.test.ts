@@ -1,7 +1,9 @@
 import { createHash } from "node:crypto";
 import { PNG } from "pngjs";
 import { describe, expect, it } from "vitest";
-import { characterKeyFromHash, shouldShowLineup } from "../src/lib/lineup.ts";
+import { renderToStaticMarkup } from "react-dom/server";
+import { BrandLink } from "../src/Lineup.tsx";
+import { characterKeyFromHash, lineupExit, shouldShowLineup } from "../src/lib/lineup.ts";
 import { imageExtension, pickMediaUrl, publicAssetUrl, renderWriteNeeded } from "../src/lib/renders.ts";
 import { snapshotChanged } from "../src/lib/snapshot.ts";
 import type { SavedProfile } from "../src/lib/types.ts";
@@ -15,6 +17,19 @@ describe("character lineup", () => {
     expect(shouldShowLineup("#questing", null)).toBe(false);
     expect(shouldShowLineup("#gear", null)).toBe(false);
     expect(shouldShowLineup("#c/us:sir-stackers", null)).toBe(false);
+  });
+
+  it("opens the lineup from #select even after the visitor has entered", () => {
+    expect(shouldShowLineup("#select", "1")).toBe(true);
+    expect(shouldShowLineup("#select", null)).toBe(true);
+    expect(shouldShowLineup("#/select", "1")).toBe(true);
+    expect(lineupExit("#select")).toBe("push");
+    expect(lineupExit("")).toBe("replace");
+    expect(lineupExit("#questing")).toBe("keep");
+    const html = renderToStaticMarkup(BrandLink());
+    expect(html).toContain('href="#select"');
+    expect(html).toContain("Bis-ness");
+    expect(html).toContain("Casual");
   });
 
   it("reads a character deep link and ignores other hashes", () => {

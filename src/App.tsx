@@ -26,9 +26,9 @@ import type {
   SpecId,
 } from "./lib/types.ts";
 import seeds from "./data/characters.json";
-import { Lineup } from "./Lineup.tsx";
+import { BrandLink, Lineup } from "./Lineup.tsx";
 import { QuestingPage } from "./Questing.tsx";
-import { characterKeyFromHash, ENTER_KEY, shouldShowLineup } from "./lib/lineup.ts";
+import { characterKeyFromHash, ENTER_KEY, lineupExit, shouldShowLineup } from "./lib/lineup.ts";
 import { publicAssetUrl } from "./lib/renders.ts";
 import { SourceNote } from "./SourceNote.tsx";
 import { tooltipFromEnchant, tooltipFromEquipped, tooltipFromGear, type TipModel } from "./lib/tooltip.ts";
@@ -76,6 +76,14 @@ function profileKey(profile: SavedProfile): string {
   return `${profile.region}:${profile.slug}`;
 }
 
+function enteredFlag(): string | null {
+  try {
+    return localStorage.getItem(ENTER_KEY);
+  } catch {
+    return null;
+  }
+}
+
 export function App() {
   const [imports, setImports] = useState<SavedProfile[]>(() => loadImports());
   const profiles = useMemo(() => {
@@ -83,13 +91,8 @@ export function App() {
     return [...SEED_PROFILES, ...imports.filter((profile) => !keys.has(profileKey(profile)))];
   }, [imports]);
   const [activeKey, setActiveKey] = useState(() => characterKeyFromHash(window.location.hash) ?? profileKey(SEED_PROFILES[0]!));
-  const [showLineup, setShowLineup] = useState(() => {
-    try {
-      return shouldShowLineup(window.location.hash, localStorage.getItem(ENTER_KEY));
-    } catch {
-      return shouldShowLineup(window.location.hash, null);
-    }
-  });
+  const [showLineup, setShowLineup] = useState(() => shouldShowLineup(window.location.hash, enteredFlag()));
+  const [lineupVisit, setLineupVisit] = useState(0);
   const profile = profiles.find((item) => profileKey(item) === activeKey) ?? profiles[0]!;
   const [side, setSide] = useState<"main" | "off">("main");
   const [target, setTarget] = useState<SpecId>(profile.mainSpec);
@@ -111,7 +114,10 @@ export function App() {
 
   useEffect(() => {
     function onHash() {
-      setPage(window.location.hash.replace(/^#\/?/, "").startsWith("questing") ? "questing" : "gear");
+      const hash = window.location.hash;
+      setPage(hash.replace(/^#\/?/, "").startsWith("questing") ? "questing" : "gear");
+      setShowLineup(shouldShowLineup(hash, enteredFlag()));
+      if (hash.replace(/^#\/?/, "") === "select") setLineupVisit((visit) => visit + 1);
     }
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
@@ -139,7 +145,9 @@ export function App() {
       /* storage can be blocked; the hash still keeps this visit in the planner */
     }
     setShowLineup(false);
-    if (!window.location.hash.replace(/^#\/?/, "")) history.replaceState(null, "", "#gear");
+    const exit = lineupExit(window.location.hash);
+    if (exit === "replace") history.replaceState(null, "", "#gear");
+    if (exit === "push") window.location.hash = "gear";
   }
 
   function selectProfile(next: SavedProfile) {
@@ -297,6 +305,7 @@ export function App() {
   if (showLineup) {
     return (
       <Lineup
+        key={lineupVisit}
         profiles={SEED_PROFILES}
         onChoose={(next) => {
           selectProfile(next);
@@ -311,8 +320,7 @@ export function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <span className="brand-name">Bis-ness</span>
-          <span className="brand-sub">Casual</span>
+          <BrandLink />
           <nav className="app-nav" aria-label="Sections">
             <a href="#gear" aria-current={page === "gear" ? "page" : undefined}>
               Gear
