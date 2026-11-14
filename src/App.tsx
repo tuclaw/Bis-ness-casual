@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { ImportError, importCharacter, profileFromPaste } from "./lib/armory.ts";
 import { classById, specById, specsForClass } from "./lib/classes.ts";
 import { formatScore, preferredStatOrder, qualityName, statLabel, wowheadItemUrl } from "./lib/format.ts";
@@ -31,7 +31,36 @@ import { QuestingPage } from "./Questing.tsx";
 import { characterKeyFromHash, ENTER_KEY, lineupExit, shouldShowLineup } from "./lib/lineup.ts";
 import { publicAssetUrl } from "./lib/renders.ts";
 import { SourceNote } from "./SourceNote.tsx";
+import { nextOpenTip, placeTooltip } from "./lib/tips.ts";
 import { tooltipFromEnchant, tooltipFromEquipped, tooltipFromGear, type TipModel } from "./lib/tooltip.ts";
+
+const TipContext = createContext<{
+  openId: string | null;
+  toggle: (id: string) => void;
+  close: () => void;
+}>({ openId: null, toggle: () => {}, close: () => {} });
+
+function TipProvider({ children }: { children: ReactNode }) {
+  const [openId, setOpenId] = useState<string | null>(null);
+  const toggle = useCallback((id: string) => setOpenId((current) => nextOpenTip(current, id)), []);
+  const close = useCallback(() => setOpenId(null), []);
+  useEffect(() => {
+    function onPointerDown(event: PointerEvent) {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target?.closest(".tip-host")) close();
+    }
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") close();
+    }
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [close]);
+  return <TipContext.Provider value={{ openId, toggle, close }}>{children}</TipContext.Provider>;
+}
 
 const SEED_PROFILES = seeds as SavedProfile[];
 const STORAGE_KEY = "bis-ness-casual-imports";
@@ -317,6 +346,7 @@ export function App() {
   }
 
   return (
+    <TipProvider>
     <div className="app">
       <header className="topbar">
         <div className="brand">
@@ -570,6 +600,7 @@ export function App() {
         <p>Scores are a Forever-oriented stat weighting for the selected spec. They are a planning aid, not a simulation.</p>
       </footer>
     </div>
+    </TipProvider>
   );
 }
 
@@ -677,52 +708,65 @@ function ItemIcon({ src, quality }: { src?: string | null; quality: string }) {
   );
 }
 
-function TipHost({
-  id,
-  pinned,
-  onToggle,
-  children,
-  tip,
-}: {
-  id: string;
-  pinned: boolean;
-  onToggle: (id: string) => void;
-  children: ReactNode;
-  tip: ReactNode;
-}) {
+function TipHost({ id, children, tip }: { id: string; children: ReactNode; tip: ReactNode }) {
+  const { openId, toggle, close } = useContext(TipContext);
+  const pinned = openId === id;
   const hostRef = useRef<HTMLDivElement>(null);
   const tipRef = useRef<HTMLDivElement>(null);
   function place() {
     const host = hostRef.current;
-    const tip = tipRef.current;
-    if (!host || !tip) return;
-    tip.style.display = "block";
+    const tipNode = tipRef.current;
+    if (!host || !tipNode) return;
+    const previous = tipNode.style.display;
+    tipNode.style.display = "block";
     const rect = host.getBoundingClientRect();
-    const box = tip.getBoundingClientRect();
-    const left = Math.max(8, Math.min(rect.left, window.innerWidth - box.width - 8));
-    let top = rect.bottom + 6;
-    if (top + box.height > window.innerHeight - 8) top = Math.max(8, rect.top - box.height - 6);
-    tip.style.left = `${left}px`;
-    tip.style.top = `${top}px`;
+    const box = tipNode.getBoundingClientRect();
+    const placed = placeTooltip({
+      hostTop: rect.top,
+      hostBottom: rect.bottom,
+      hostLeft: rect.left,
+      tipWidth: box.width,
+      tipHeight: Math.max(box.height, tipNode.scrollHeight),
+      viewportWidth: window.innerWidth,
+      viewportHeight: window.innerHeight,
+    });
+    const nextTop = `${placed.top}px`;
+    const nextLeft = `${placed.left}px`;
+    if (tipNode.style.top === nextTop && tipNode.style.left === nextLeft && tipNode.style.maxHeight === `${placed.maxHeight}px`) {
+      tipNode.style.display = previous;
+      return;
+    }
+    tipNode.style.left = nextLeft;
+    tipNode.style.top = nextTop;
+    tipNode.style.maxHeight = `${placed.maxHeight}px`;
+    tipNode.style.overflow = Math.max(box.height, tipNode.scrollHeight) > placed.maxHeight ? "auto" : "";
+    tipNode.style.display = previous;
   }
+  useEffect(() => {
+    const tipNode = tipRef.current;
+    if (!pinned || !tipNode) return;
+    place();
+    const observer = new ResizeObserver(() => place());
+    observer.observe(tipNode);
+    return () => observer.disconnect();
+  }, [pinned]);
   return (
     <div
       ref={hostRef}
       className={pinned ? "tip-host pinned" : "tip-host"}
       onMouseEnter={() => {
-        if (!coarsePointer()) place();
-      }}
-      onMouseLeave={() => {
-        const tip = tipRef.current;
-        if (tip && !pinned) tip.style.display = "";
+        if (coarsePointer()) return;
+        if (openId && openId !== id) close();
+        place();
       }}
       onClick={(event) => {
         const target = event.target as HTMLElement;
         if (target.closest("[data-tip-go]")) return;
         if (!coarsePointer() && target.closest("a")) return;
         if (coarsePointer()) event.preventDefault();
-        onToggle(id);
-        requestAnimationFrame(place);
+        const willOpen = openId !== id;
+        toggle(id);
+        if (willOpen) requestAnimationFrame(place);
       }}
     >
       {children}
@@ -794,8 +838,6 @@ function WowLink({ href }: { href: string }) {
 
 function DataRow({
   id,
-  pinned,
-  onToggle,
   rank,
   best,
   icon,
@@ -811,8 +853,6 @@ function DataRow({
   tip,
 }: {
   id: string;
-  pinned: boolean;
-  onToggle: (id: string) => void;
   rank?: number;
   best?: boolean;
   icon?: string | null;
@@ -830,7 +870,7 @@ function DataRow({
 }) {
   const showIcon = icon !== undefined;
   return (
-    <TipHost id={id} pinned={pinned} onToggle={onToggle} tip={tip}>
+    <TipHost id={id} tip={tip}>
       <div className={`gear-row${best ? " best" : ""}${solo ? " solo" : ""}${showIcon ? "" : " no-icon"}`}>
         {!solo && <span className="rank">{rank ?? ""}</span>}
         {showIcon && <ItemIcon src={icon} quality={quality} />}
@@ -896,26 +936,13 @@ function ArmoryBoard({
 }) {
   const byId = new Map(plans.map((plan) => [plan.row.id, plan]));
   const selected = byId.get(selectedId) ?? plans[0];
-  const [pinned, setPinned] = useState<string | null>(null);
+  const { close } = useContext(TipContext);
   const labelFor = (row: (typeof ROWS)[number]) => (row.slot === "ranged" ? rangedLabel : row.label);
   const iconFor = (item: EquippedItem | null) => (item ? item.iconUrl || icons[item.itemId] || null : null);
 
   useEffect(() => {
-    setPinned(null);
-  }, [selectedId]);
-
-  useEffect(() => {
-    function close(event: PointerEvent) {
-      const target = event.target as HTMLElement | null;
-      if (!target?.closest(".tip-host")) setPinned(null);
-    }
-    document.addEventListener("pointerdown", close);
-    return () => document.removeEventListener("pointerdown", close);
-  }, []);
-
-  function onToggle(id: string) {
-    setPinned((current) => (current === id ? null : id));
-  }
+    close();
+  }, [selectedId, close]);
 
   return (
     <section className="board">
@@ -940,7 +967,7 @@ function ArmoryBoard({
           </h2>
           <h3 className="section-label">Equipped</h3>
           {selected.equipped ? (
-            <EquippedRow item={selected.equipped} spec={spec} icon={iconFor(selected.equipped)} pinned={pinned} onToggle={onToggle} />
+            <EquippedRow item={selected.equipped} spec={spec} icon={iconFor(selected.equipped)} />
           ) : (
             <p className="empty">Nothing equipped.</p>
           )}
@@ -950,7 +977,7 @@ function ArmoryBoard({
               <p className="empty">No item for this slot can be worn at required levels {low}–{high}.</p>
             )}
             {selected.gear.map((pick, index) => (
-              <GearPick key={pick.entry.id} pick={pick} spec={spec} rank={index + 1} icon={icons[pick.entry.id]} pinned={pinned} onToggle={onToggle} equipped={selected.equipped} />
+              <GearPick key={pick.entry.id} pick={pick} spec={spec} rank={index + 1} icon={icons[pick.entry.id]} equipped={selected.equipped} />
             ))}
           </div>
           <h3 className="section-label">Enchants</h3>
@@ -968,7 +995,7 @@ function ArmoryBoard({
             <div className="gear-list">
               {selected.enchantPlan.ranked.length === 0 && <p className="empty">No enchants in this level window.</p>}
               {selected.enchantPlan.ranked.map((pick, index) => (
-                <EnchantPick key={pick.entry.id} pick={pick} spec={spec} rank={index + 1} pinned={pinned} onToggle={onToggle} />
+                <EnchantPick key={pick.entry.id} pick={pick} spec={spec} rank={index + 1} />
               ))}
             </div>
           )}
@@ -1009,8 +1036,6 @@ function ArmoryBoard({
     return (
       <TipHost
         id={`slot-${id}`}
-        pinned={pinned === `slot-${id}`}
-        onToggle={onToggle}
         tip={<ArmoryPanels item={tooltipFromEquipped(equipped, equipped.itemId > 0 ? wowheadItemUrl(equipped.itemId, equipped.name) : null)} />}
       >
         {button}
@@ -1023,14 +1048,10 @@ function EquippedRow({
   item,
   spec,
   icon,
-  pinned,
-  onToggle,
 }: {
   item: EquippedItem;
   spec: SpecId;
   icon?: string | null;
-  pinned: string | null;
-  onToggle: (id: string) => void;
 }) {
   const href = item.itemId > 0 ? wowheadItemUrl(item.itemId, item.name) : null;
   const bits = [titleCase(item.quality), `ilvl ${item.ilvl}`];
@@ -1039,8 +1060,6 @@ function EquippedRow({
   return (
     <DataRow
       id={`equipped-${item.armorySlot}`}
-      pinned={pinned === `equipped-${item.armorySlot}`}
-      onToggle={onToggle}
       solo
       icon={icon ?? null}
       quality={item.quality}
@@ -1058,16 +1077,12 @@ function GearPick({
   spec,
   rank,
   icon,
-  pinned,
-  onToggle,
   equipped,
 }: {
   pick: Ranked<GearItem>;
   spec: SpecId;
   rank: number;
   icon?: string | null;
-  pinned: string | null;
-  onToggle: (id: string) => void;
   equipped: EquippedItem | null;
 }) {
   const item = pick.entry;
@@ -1081,8 +1096,6 @@ function GearPick({
   return (
     <DataRow
       id={id}
-      pinned={pinned === id}
-      onToggle={onToggle}
       rank={rank}
       best={pick.overallBest}
       icon={icon ?? null}
@@ -1107,14 +1120,10 @@ function EnchantPick({
   pick,
   spec,
   rank,
-  pinned,
-  onToggle,
 }: {
   pick: Ranked<Enchant>;
   spec: SpecId;
   rank: number;
-  pinned: string | null;
-  onToggle: (id: string) => void;
 }) {
   const item = pick.entry;
   const id = `enchant-${item.id}`;
@@ -1126,8 +1135,6 @@ function EnchantPick({
   return (
     <DataRow
       id={id}
-      pinned={pinned === id}
-      onToggle={onToggle}
       rank={rank}
       best={pick.overallBest}
       quality="enchant"
@@ -1169,7 +1176,6 @@ function SourceFiltersBar({
 }
 
 function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
-  const [pinned, setPinned] = useState<string | null>(null);
   return (
     <section className="dungeons" aria-label="Best dungeon right now">
       <h2 className="kicker">Best dungeon</h2>
@@ -1196,8 +1202,6 @@ function DungeonBoard({ dungeons }: { dungeons: DungeonRecommendation[] }) {
                     {item.gear ? (
                       <TipHost
                         id={`dungeon-${item.slot}-${item.id}`}
-                        pinned={pinned === `dungeon-${item.slot}-${item.id}`}
-                        onToggle={(id) => setPinned((current) => (current === id ? null : id))}
                         tip={<ArmoryPanels item={tooltipFromGear(item.gear, wowheadItemUrl(item.gear.id, item.gear.name))} />}
                       >
                         <span>

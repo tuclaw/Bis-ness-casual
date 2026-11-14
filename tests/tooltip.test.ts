@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { nextOpenTip, placeTooltip } from "../src/lib/tips.ts";
 import { enchantDisplayText, tooltipFromEnchant, tooltipFromEquipped, tooltipFromGear } from "../src/lib/tooltip.ts";
 import type { Enchant, EquippedItem, GearItem, SavedProfile } from "../src/lib/types.ts";
 
@@ -22,6 +23,39 @@ function gear(partial: Partial<GearItem> & Pick<GearItem, "id" | "name">): GearI
     ...partial,
   };
 }
+
+describe("one open tooltip", () => {
+  it("swaps to the tapped item, closes on a second tap, and closes from outside or Escape", () => {
+    let open = nextOpenTip(null, "gear-1");
+    expect(open).toBe("gear-1");
+    open = nextOpenTip(open, "gear-2");
+    expect(open).toBe("gear-2");
+    open = nextOpenTip(open, "enchant-9");
+    expect(open).toBe("enchant-9");
+    open = nextOpenTip(open, "enchant-9");
+    expect(open).toBeNull();
+    open = nextOpenTip("slot-trinket1", "gear-3");
+    expect(open).toBe("gear-3");
+    expect(nextOpenTip(open, open!)).toBeNull();
+  });
+
+  it("keeps a tooltip inside a 390px viewport", () => {
+    const placed = placeTooltip({
+      hostTop: 520,
+      hostBottom: 580,
+      hostLeft: 40,
+      tipWidth: 360,
+      tipHeight: 420,
+      viewportWidth: 390,
+      viewportHeight: 700,
+    });
+    expect(placed.left).toBeGreaterThanOrEqual(8);
+    expect(placed.left + Math.min(360, 390 - 16)).toBeLessThanOrEqual(390 - 8);
+    expect(placed.top).toBeGreaterThanOrEqual(8);
+    expect(placed.top + Math.min(420, placed.maxHeight)).toBeLessThanOrEqual(700 - 8);
+    expect(placed.maxHeight).toBeLessThanOrEqual(700 - 16);
+  });
+});
 
 describe("armory item tooltip", () => {
   it("shows the lines the catalog actually has and skips binding, durability, sell price, and damage range", () => {
