@@ -91,7 +91,7 @@ describe("spec scores", () => {
     expect(weightFor("shaman-restoration", "heal")).toBeGreaterThan(1);
     expect(weightFor("paladin-holy", "heal")).toBeGreaterThan(1);
     expect(healingIsMainValue(healing.stats)).toBe(true);
-    expect(scoreItem(healing, "mage-arcane")).toBeCloseTo(scoreItem(stripped, "mage-arcane"));
+    expect(scoreItem(healing, "mage-arcane")).toBeLessThan(scoreItem(stripped, "mage-arcane"));
     expect(scoreItem(damage, "mage-arcane")).toBeGreaterThan(scoreItem(healing, "mage-arcane"));
     expect(scoreItem(healing, "shaman-restoration")).toBeGreaterThan(scoreItem(damage, "shaman-restoration"));
     expect(scoreItem(healing, "paladin-holy")).toBeGreaterThan(scoreItem(damage, "paladin-holy"));
@@ -115,8 +115,13 @@ describe("spec scores", () => {
           });
           for (const pick of picks) {
             if (!healingIsMainValue(pick.entry.stats)) continue;
-            sawHealing = true;
-            expect(specHeals(spec.id), `${profile.slug} ${spec.id} ${slot} ${pick.entry.name}`).toBe(true);
+            const label = `${profile.slug} ${spec.id} ${slot} ${pick.entry.name}`;
+            if (specHeals(spec.id)) {
+              sawHealing = true;
+              continue;
+            }
+            const dpsScore = (pick.entry.dps ?? 0) * weightFor(spec.id, "dps");
+            expect(dpsScore, label).toBeGreaterThan(pick.score * 0.5);
           }
         }
         if (specHeals(spec.id)) expect(sawHealing, `${profile.slug} ${spec.id}`).toBe(true);

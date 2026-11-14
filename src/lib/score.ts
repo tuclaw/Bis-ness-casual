@@ -42,8 +42,13 @@ export function scoreStats(stats: StatBlock, spec: SpecId, dps = 0): number {
 }
 
 export function scoreItem(item: GearItem, spec: SpecId): number {
+  const tie = item.ilvl * 0.001 + item.quality * 0.0001;
+  // A healing-primary piece keeps only weapon DPS for a damage spec. Intellect and spirit on that piece are the healer package.
+  if (!specHeals(spec) && healingIsMainValue(item.stats)) {
+    return (item.dps ?? 0) * weightFor(spec, "dps") + tie;
+  }
   let total = scoreStats(item.stats, spec, item.dps ?? 0);
-  total += item.ilvl * 0.001 + item.quality * 0.0001;
+  total += tie;
   if (item.pvp && (spec === "mage-frost-pvp" || spec === "shaman-enhancement")) {
     total += spec === "mage-frost-pvp" ? 2 : 1.25;
   }

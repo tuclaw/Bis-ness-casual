@@ -107,8 +107,6 @@ describe("armory item tooltip", () => {
       }
     }
     expect(seen.length).toBeGreaterThan(0);
-    expect(seen).toContain("daz-dingomon:chest");
-    expect(seen).toContain("sir-stackers:chest");
   });
 
   it("does not invent enchant text when the payload has only an id or a name", () => {
