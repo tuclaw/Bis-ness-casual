@@ -1,9 +1,29 @@
 import { formatStat } from "./format.ts";
 import type { Enchant, GearItem, SpecId, StatBlock } from "./types.ts";
-import { weightFor } from "./weights.ts";
+import { specHeals, weightFor } from "./weights.ts";
+
+const SPELL_DAMAGE_KEYS = ["sd", "sp", "fire", "frost", "arcane", "shadow", "nature", "holy"] as const;
+
+/** True when +healing is larger than every damage spell bonus on the item. */
+export function healingIsMainValue(stats: StatBlock): boolean {
+  const heal = stats.heal ?? 0;
+  if (heal <= 0) return false;
+  const damage = SPELL_DAMAGE_KEYS.reduce((sum, key) => sum + (stats[key] ?? 0), 0);
+  return heal > damage;
+}
+
+/**
+ * Damage specs ignore +healing. On a healing-primary piece they also ignore the
+ * small spell-damage rider that classic healing gear carries beside the heal number.
+ */
+export function statsForSpec(stats: StatBlock, spec: SpecId): StatBlock {
+  if (specHeals(spec) || !stats.heal) return stats;
+  if (healingIsMainValue(stats)) return { ...stats, heal: 0, sd: 0 };
+  return { ...stats, heal: 0 };
+}
 
 export function topStatLines(stats: StatBlock, spec: SpecId, limit = 4): string[] {
-  return Object.entries(stats)
+  return Object.entries(statsForSpec(stats, spec))
     .filter(([, value]) => value)
     .map(([key, value]) => ({ key, value, weight: Math.abs(value * weightFor(spec, key)) }))
     .sort((a, b) => b.weight - a.weight || b.value - a.value)
@@ -13,7 +33,7 @@ export function topStatLines(stats: StatBlock, spec: SpecId, limit = 4): string[
 
 export function scoreStats(stats: StatBlock, spec: SpecId, dps = 0): number {
   let total = 0;
-  for (const [key, value] of Object.entries(stats)) {
+  for (const [key, value] of Object.entries(statsForSpec(stats, spec))) {
     if (!value) continue;
     total += value * weightFor(spec, key);
   }

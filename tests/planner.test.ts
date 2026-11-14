@@ -10,7 +10,8 @@ import { recommendDungeons } from "../src/lib/dungeons.ts";
 import { defaultSourceFilters, hiddenByToggle, sourceAllowed, sourceLabel, sourceTypes } from "../src/lib/sources.ts";
 import { bisLongevity, hardAllowItem, itemFitsSlot, longevityLabel, rankEntries, recommendEnchantments, recommendGear, type Ranked } from "../src/lib/recommend.ts";
 import { classById, specById, specsForClass } from "../src/lib/classes.ts";
-import { scoreItem } from "../src/lib/score.ts";
+import { healingIsMainValue, scoreItem } from "../src/lib/score.ts";
+import { specHeals, weightFor } from "../src/lib/weights.ts";
 import type { Enchant, GearItem, SavedProfile } from "../src/lib/types.ts";
 
 const characters = JSON.parse(readFileSync(new URL("../src/data/characters.json", import.meta.url), "utf8")) as SavedProfile[];
@@ -78,6 +79,51 @@ describe("level window", () => {
 });
 
 describe("spec scores", () => {
+  it("does not give a damage spec credit for +healing", () => {
+    const healing = item({ id: 1, name: "Holy Shroud", req: 27, bucket: "head", armor: "cloth", stats: { heal: 33, sd: 11, spi: 6 } });
+    const damage = item({ id: 2, name: "Spellpower Cowl", req: 27, bucket: "head", armor: "cloth", stats: { sp: 8, int: 8, spi: 9 } });
+    const stripped = item({ id: 3, name: "Spirit only", req: 27, bucket: "head", armor: "cloth", stats: { spi: 6 } });
+    expect(weightFor("mage-arcane", "heal")).toBe(0);
+    expect(weightFor("mage-frost-pvp", "heal")).toBe(0);
+    expect(weightFor("shaman-elemental", "heal")).toBe(0);
+    expect(weightFor("druid-balance", "heal")).toBe(0);
+    expect(weightFor("priest-shadow", "heal")).toBe(0);
+    expect(weightFor("shaman-restoration", "heal")).toBeGreaterThan(1);
+    expect(weightFor("paladin-holy", "heal")).toBeGreaterThan(1);
+    expect(healingIsMainValue(healing.stats)).toBe(true);
+    expect(scoreItem(healing, "mage-arcane")).toBeCloseTo(scoreItem(stripped, "mage-arcane"));
+    expect(scoreItem(damage, "mage-arcane")).toBeGreaterThan(scoreItem(healing, "mage-arcane"));
+    expect(scoreItem(healing, "shaman-restoration")).toBeGreaterThan(scoreItem(damage, "shaman-restoration"));
+    expect(scoreItem(healing, "paladin-holy")).toBeGreaterThan(scoreItem(damage, "paladin-holy"));
+  });
+
+  it("keeps healing-primary picks off damage specs for every saved character", () => {
+    const slots = ["head", "neck", "shoulder", "back", "chest", "wrist", "hands", "waist", "legs", "feet", "finger", "trinket", "mainhand", "offhand", "ranged"] as const;
+    for (const profile of characters) {
+      for (const spec of specsForClass(profile.character.classId)) {
+        let sawHealing = false;
+        for (const slot of slots) {
+          const equipped = profile.character.gear.find((piece) => piece.slot === slot) ?? null;
+          const picks = recommendGear({
+            items,
+            spec: spec.id,
+            faction: profile.character.faction,
+            level: profile.character.level,
+            window: 8,
+            slot,
+            equipped,
+          });
+          for (const pick of picks) {
+            if (!healingIsMainValue(pick.entry.stats)) continue;
+            sawHealing = true;
+            expect(specHeals(spec.id), `${profile.slug} ${spec.id} ${slot} ${pick.entry.name}`).toBe(true);
+          }
+        }
+        if (specHeals(spec.id)) expect(sawHealing, `${profile.slug} ${spec.id}`).toBe(true);
+      }
+    }
+  });
+
   it("ranks healing cloth over attack power leather for restoration", () => {
     const healing = item({ id: 1, name: "Heal", req: 60, bucket: "chest", armor: "cloth", stats: { int: 20, heal: 40, spi: 15 } });
     const melee = item({ id: 2, name: "Melee", req: 60, bucket: "chest", armor: "leather", stats: { agi: 20, ap: 40, sta: 20 } });

@@ -12,7 +12,7 @@ const clothCaster: Weights = {
   mp5: 0.55,
   sp: 1.35,
   sd: 1.25,
-  heal: 0.35,
+  heal: 0,
   sta: 0.28,
   crit: 10,
   spellCrit: 12,
@@ -168,6 +168,19 @@ export const WEIGHTS: Record<SpecId, Weights> = {
   "druid-feral": mix(melee, { agi: 1.15, str: 0.7, sta: 0.55, int: 0.12, dps: 3.3 }),
   "druid-restoration": mix(healer, { spi: 1, heal: 1.55, int: 1 }),
 };
+
+const HEALING_SPECS = new Set<SpecId>([
+  "paladin-holy",
+  "priest-discipline",
+  "priest-holy",
+  "shaman-restoration",
+  "druid-restoration",
+]);
+
+/** Holy, discipline, and restoration spend their gear budget on healing. Damage specs do not. */
+export function specHeals(spec: SpecId): boolean {
+  return HEALING_SPECS.has(spec);
+}
 
 export function weightFor(spec: SpecId, stat: string): number {
   return WEIGHTS[spec][stat] ?? 0;
