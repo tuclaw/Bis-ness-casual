@@ -488,6 +488,19 @@ describe("seed characters", () => {
     expect(profile?.character.race).toBe("Undead");
     expect(profile?.character.faction).toBe("horde");
   });
+
+  it("includes Sleepy Sleepyy from the US Forever Armory", () => {
+    const profile = characters.find((item) => item.slug === "sleepy-sleepyy");
+    expectLiveSnapshot(profile);
+    expect(profile?.region).toBe("us");
+    expect(profile?.character.name).toBe("Sleepy");
+    expect(profile?.character.surname).toBe("Sleepyy");
+    expect(profile?.character.className).toBe("Shaman");
+    expect(profile?.character.race).toBe("Windshaper Skyborne");
+    expect(profile?.character.faction).toBe("horde");
+    expect(profile?.character.ruleset).toBe("PvP");
+    expect(profile?.mainSpec.startsWith("shaman-")).toBe(true);
+  });
 });
 
 describe("profile api snapshot", () => {
