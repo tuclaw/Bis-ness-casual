@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-14T19:35:37.328Z",
+    "fetchedAt": "2026-11-14T23:54:19.563Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -11,7 +11,7 @@
     "character": {
       "name": "Daz",
       "surname": "Dingomon",
-      "level": 25,
+      "level": 26,
       "classId": "shaman",
       "className": "Shaman",
       "race": "Troll",
@@ -23,16 +23,16 @@
       "ilvl": 21,
       "honorableKills": 45,
       "region": "us",
-      "updatedAt": "2026-11-14T11:10:32Z",
+      "updatedAt": "2026-11-14T22:39:34Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 979,
+          "value": 1007,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1035,
+          "value": 1080,
           "percent": false
         },
         {
@@ -47,27 +47,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 53,
-          "percent": false
-        },
-        {
-          "key": "AGILITY",
-          "value": 38,
-          "percent": false
-        },
-        {
-          "key": "INTELLECT",
           "value": 54,
           "percent": false
         },
         {
+          "key": "AGILITY",
+          "value": 39,
+          "percent": false
+        },
+        {
+          "key": "INTELLECT",
+          "value": 55,
+          "percent": false
+        },
+        {
           "key": "STAMINA",
-          "value": 90,
+          "value": 91,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.8297997,
+          "value": 4.6177006,
           "percent": true
         },
         {
@@ -97,7 +97,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 136,
+          "value": 140,
           "percent": false
         },
         {
@@ -107,7 +107,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 17.714287,
+          "value": 18,
           "percent": false
         },
         {
@@ -117,17 +117,17 @@
         },
         {
           "key": "MANAREGEN",
-          "value": 84,
+          "value": 85,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 1104,
+          "value": 1106,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.8698006,
+          "value": 4.6577,
           "percent": true
         },
         {
@@ -137,7 +137,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.48,
+          "value": 4.28,
           "percent": true
         }
       ],
@@ -563,15 +563,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/daz-dingomon.png",
-    "renderHash": "ffcb1ca1bb79",
+    "renderHash": "452d8174ecf0",
     "avatarFile": "characters/daz-dingomon-avatar.jpg",
-    "avatarHash": "9e1ed8d9ef7f"
+    "avatarHash": "27231f45b297"
   },
   {
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-14T19:35:37.328Z",
+    "fetchedAt": "2026-11-14T23:54:19.563Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -1095,7 +1095,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-14T19:35:37.328Z",
+    "fetchedAt": "2026-11-14T23:54:19.563Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1626,7 +1626,7 @@
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-14T19:35:37.328Z",
+    "fetchedAt": "2026-11-14T23:54:19.563Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -1961,7 +1961,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-14T19:35:37.328Z",
+    "fetchedAt": "2026-11-14T23:54:19.563Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -1979,9 +1979,9 @@
       "rulesetId": 1,
       "guild": "ØnlyDads",
       "ilvl": 28,
-      "honorableKills": 13,
+      "honorableKills": 15,
       "region": "us",
-      "updatedAt": "2026-11-14T12:20:33Z",
+      "updatedAt": "2026-11-14T22:14:56Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -2025,7 +2025,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 7.6437006,
+          "value": 8.843699,
           "percent": true
         },
         {
@@ -2085,12 +2085,12 @@
         },
         {
           "key": "DODGE",
-          "value": 17.0997,
+          "value": 17.5797,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 10.400001,
+          "value": 10.879999,
           "percent": true
         },
         {
@@ -2397,11 +2397,7 @@
           "dps": 20.588234,
           "speed": 1.7,
           "effect": "Chance on hit: Hurl spikes at the target, dealing 45 Physical damage and jumping to 1 additional nearby enemy. Each jump reduces the damage by 50%.",
-          "enchant": {
-            "enchantId": 323,
-            "name": "Instant Poison",
-            "label": "Instant Poison (50"
-          }
+          "enchant": null
         },
         {
           "slot": "ranged",
@@ -2508,11 +2504,7 @@
           "dps": 15.681818,
           "speed": 2.2,
           "effect": null,
-          "enchant": {
-            "enchantId": 22,
-            "name": "Runecarving Test - Crippling Poison",
-            "label": "Crippling Poison"
-          }
+          "enchant": null
         },
         {
           "slot": "wrist",
@@ -2539,7 +2531,7 @@
       "professions": [
         {
           "name": "Mining",
-          "skill": 105,
+          "skill": 107,
           "max": 150,
           "primary": true
         },
@@ -2581,7 +2573,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-14T19:35:37.328Z",
+    "fetchedAt": "2026-11-14T23:54:19.563Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3183,7 +3175,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-14T19:35:37.328Z",
+    "fetchedAt": "2026-11-14T23:54:19.563Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -3191,7 +3183,7 @@
     "character": {
       "name": "Sleepy",
       "surname": "Sleepyy",
-      "level": 33,
+      "level": 34,
       "classId": "shaman",
       "className": "Shaman",
       "race": "Windshaper Skyborne",
@@ -3203,21 +3195,21 @@
       "ilvl": 28,
       "honorableKills": 18,
       "region": "us",
-      "updatedAt": "2026-11-14T13:35:06Z",
+      "updatedAt": "2026-11-14T22:01:59Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 894,
+          "value": 929,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 2092,
+          "value": 2126,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 28,
+          "value": 30,
           "percent": false
         },
         {
@@ -3227,27 +3219,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 62,
+          "value": 63,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 37,
+          "value": 38,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 107,
+          "value": 108,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 68,
+          "value": 69,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 9.7125,
+          "value": 9.635,
           "percent": true
         },
         {
@@ -3277,7 +3269,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 345,
+          "value": 350,
           "percent": false
         },
         {
@@ -3287,7 +3279,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 53.422394,
+          "value": 53.78671,
           "percent": false
         },
         {
@@ -3302,12 +3294,12 @@
         },
         {
           "key": "ARMOR",
-          "value": 650,
+          "value": 652,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.6325,
+          "value": 4.5950003,
           "percent": true
         },
         {
@@ -3317,7 +3309,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.88,
+          "value": 4.76,
           "percent": true
         }
       ],
@@ -3325,7 +3317,7 @@
         {
           "id": "enhancement",
           "name": "Enhancement",
-          "spent": 24,
+          "spent": 25,
           "active": true,
           "talents": [
             {
@@ -3362,6 +3354,11 @@
               "name": "Stormstrike",
               "rank": 1,
               "description": "Instantly strike for 100% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
+            },
+            {
+              "name": "Improved Ghost Wolf",
+              "rank": 1,
+              "description": "Reduces the cast time of your Ghost Wolf spell by 1.0 sec, and Ghost Wolf may be used indoors."
             },
             {
               "name": "Mental Quickness",
@@ -3741,8 +3738,8 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/sleepy-sleepyy.png",
-    "renderHash": "0c35ea92868c",
+    "renderHash": "4f1c0aa6d9d6",
     "avatarFile": "characters/sleepy-sleepyy-avatar.jpg",
-    "avatarHash": "046600fd423f"
+    "avatarHash": "453f5d1470dc"
   }
 ]
