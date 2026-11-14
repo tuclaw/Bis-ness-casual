@@ -455,6 +455,70 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
 .kind-slay, .kind-errand { color: var(--gold); }
 .kind-gather, .kind-unknown { color: var(--muted); }
 
+.lineup-screen {
+  width: min(1120px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 20px 0 48px;
+}
+.lineup-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.lineup-screen h1 { font-size: clamp(32px, 5vw, 48px); }
+.lineup {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 12px 2px 20px;
+}
+.lineup-card {
+  flex: 0 0 150px;
+  scroll-snap-align: start;
+  display: grid;
+  align-content: end;
+  gap: 4px;
+  min-height: 320px;
+  padding: 8px 8px 12px;
+  text-align: left;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+.lineup-card strong { font-family: var(--display); font-size: 18px; font-weight: 600; }
+.lineup-meta, .lineup-spec { color: var(--muted); font-size: 14px; }
+.lineup-spec { color: color-mix(in srgb, var(--accent, var(--gold)) 62%, white); font-weight: 650; }
+.lineup-figure {
+  height: 220px;
+  display: grid;
+  align-items: end;
+  justify-items: center;
+  background: #0c0b09;
+  margin-bottom: 8px;
+}
+.lineup-figure img { max-width: 100%; max-height: 220px; object-fit: contain; object-position: center bottom; }
+.lineup-card:hover, .lineup-card:focus-visible {
+  border-color: var(--accent, var(--gold));
+  transform: translateY(-6px);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--accent, var(--gold)) 40%, transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lineup-card {
+    animation: lineup-in 0.7s ease both;
+    animation-delay: calc(var(--i) * 120ms);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lineup-card:hover, .lineup-card:focus-visible { transform: none; }
+}
+@keyframes lineup-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (min-width: 1040px) {
+  .lineup { overflow: visible; scroll-snap-type: none; }
+  .lineup-card { flex: 1 1 0; min-width: 0; }
+}
+
 footer { margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 footer p { margin: 8px 0; max-width: 68ch; }
 

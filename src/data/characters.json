@@ -498,7 +498,11 @@
       "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/231/189671-avatar.jpg",
       "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/231/189671-main-raw.png",
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
-    }
+    },
+    "renderFile": "characters/daz-dingomon.png",
+    "renderHash": "831f17e1c148",
+    "avatarFile": "characters/daz-dingomon-avatar.jpg",
+    "avatarHash": "2bea3f493f1b"
   },
   {
     "slug": "mrs-dingomon",
@@ -981,7 +985,11 @@
       "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/223/5406431-avatar.jpg",
       "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/223/5406431-main-raw.png",
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
-    }
+    },
+    "renderFile": "characters/mrs-dingomon.png",
+    "renderHash": "1963a02dc236",
+    "avatarFile": "characters/mrs-dingomon-avatar.jpg",
+    "avatarHash": "1d2cbb3b7bd0"
   },
   {
     "slug": "ffsparky-jr",
@@ -1497,7 +1505,11 @@
       "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/100/3953252-avatar.jpg",
       "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/100/3953252-main-raw.png",
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
-    }
+    },
+    "renderFile": "characters/ffsparky-jr.png",
+    "renderHash": "88f7549d5317",
+    "avatarFile": "characters/ffsparky-jr-avatar.jpg",
+    "avatarHash": "1843a4fce0ba"
   },
   {
     "slug": "ternt-up",
@@ -1944,7 +1956,11 @@
       "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/75/18726475-avatar.jpg",
       "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/75/18726475-main-raw.png",
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
-    }
+    },
+    "renderFile": "characters/ternt-up.png",
+    "renderHash": "e671fc9fb6b6",
+    "avatarFile": "characters/ternt-up-avatar.jpg",
+    "avatarHash": "4120f044cbd0"
   },
   {
     "slug": "spooky-guyy",
@@ -2542,7 +2558,11 @@
       "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/240/11165168-avatar.jpg",
       "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/240/11165168-main-raw.png",
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
-    }
+    },
+    "renderFile": "characters/spooky-guyy.png",
+    "renderHash": "cfae260c882b",
+    "avatarFile": "characters/spooky-guyy-avatar.jpg",
+    "avatarHash": "02b46fdcd58f"
   },
   {
     "slug": "sir-stackers",
@@ -3142,6 +3162,10 @@
       "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/155/8913819-avatar.jpg",
       "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/155/8913819-main-raw.png",
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
-    }
+    },
+    "renderFile": "characters/sir-stackers.png",
+    "renderHash": "03f33c3af143",
+    "avatarFile": "characters/sir-stackers-avatar.jpg",
+    "avatarHash": "abd5709dd4bb"
   }
 ]

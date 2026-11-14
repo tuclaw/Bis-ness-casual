@@ -172,5 +172,11 @@ export interface SavedProfile {
   sourceNote?: string;
   mainSpec: SpecId;
   offSpec: SpecId | null;
+  /** Repo-relative Armory full-body render, for example characters/daz-dingomon.png. */
+  renderFile?: string;
+  /** Short hash of the render bytes. The site appends it so a new image is not cached. */
+  renderHash?: string;
+  avatarFile?: string;
+  avatarHash?: string;
   character: NormalizedCharacter;
 }

@@ -26,7 +26,10 @@ import type {
   SpecId,
 } from "./lib/types.ts";
 import seeds from "./data/characters.json";
+import { Lineup } from "./Lineup.tsx";
 import { QuestingPage } from "./Questing.tsx";
+import { characterKeyFromHash, ENTER_KEY, shouldShowLineup } from "./lib/lineup.ts";
+import { publicAssetUrl } from "./lib/renders.ts";
 import { SourceNote } from "./SourceNote.tsx";
 import { tooltipFromEnchant, tooltipFromEquipped, tooltipFromGear, type TipModel } from "./lib/tooltip.ts";
 
@@ -79,7 +82,14 @@ export function App() {
     const keys = new Set(SEED_PROFILES.map(profileKey));
     return [...SEED_PROFILES, ...imports.filter((profile) => !keys.has(profileKey(profile)))];
   }, [imports]);
-  const [activeKey, setActiveKey] = useState(() => profileKey(SEED_PROFILES[0]!));
+  const [activeKey, setActiveKey] = useState(() => characterKeyFromHash(window.location.hash) ?? profileKey(SEED_PROFILES[0]!));
+  const [showLineup, setShowLineup] = useState(() => {
+    try {
+      return shouldShowLineup(window.location.hash, localStorage.getItem(ENTER_KEY));
+    } catch {
+      return shouldShowLineup(window.location.hash, null);
+    }
+  });
   const profile = profiles.find((item) => profileKey(item) === activeKey) ?? profiles[0]!;
   const [side, setSide] = useState<"main" | "off">("main");
   const [target, setTarget] = useState<SpecId>(profile.mainSpec);
@@ -121,6 +131,16 @@ export function App() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(imports));
   }, [imports]);
+
+  function dismissLineup() {
+    try {
+      localStorage.setItem(ENTER_KEY, "1");
+    } catch {
+      /* storage can be blocked; the hash still keeps this visit in the planner */
+    }
+    setShowLineup(false);
+    if (!window.location.hash.replace(/^#\/?/, "")) history.replaceState(null, "", "#gear");
+  }
 
   function selectProfile(next: SavedProfile) {
     setActiveKey(profileKey(next));
@@ -271,6 +291,22 @@ export function App() {
     .filter((stat) => ["HEALTH", "MANA", "STRENGTH", "AGILITY", "INTELLECT", "STAMINA", "SPELLPOWER", "ATTACKPOWER", "ARMOR", "CRITICALSTRIKE"].includes(stat.key))
     .sort((a, b) => preferredStatOrder(a.key) - preferredStatOrder(b.key));
 
+  const renderSrc = publicAssetUrl(import.meta.env.BASE_URL, profile.renderFile, profile.renderHash);
+  const avatarSrc = publicAssetUrl(import.meta.env.BASE_URL, profile.avatarFile, profile.avatarHash);
+
+  if (showLineup) {
+    return (
+      <Lineup
+        profiles={SEED_PROFILES}
+        onChoose={(next) => {
+          selectProfile(next);
+          dismissLineup();
+        }}
+        onEnter={dismissLineup}
+      />
+    );
+  }
+
   return (
     <div className="app">
       <header className="topbar">
@@ -288,7 +324,7 @@ export function App() {
         </div>
         <div className="switchers">
           <label className="char-pick">
-            {character.portraitUrl && <img src={character.portraitUrl} alt="" />}
+            {(avatarSrc || renderSrc) && <img src={avatarSrc ?? renderSrc ?? undefined} alt="" />}
             <select
               value={profileKey(profile)}
               aria-label="Character"
@@ -510,6 +546,7 @@ export function App() {
           low={low}
           high={high}
           spec={target}
+          modelSrc={renderSrc}
         />
       )}
         </>
@@ -830,6 +867,7 @@ function ArmoryBoard({
   low,
   high,
   spec,
+  modelSrc,
 }: {
   rows: typeof ROWS;
   plans: Array<{
@@ -846,6 +884,7 @@ function ArmoryBoard({
   low: number;
   high: number;
   spec: SpecId;
+  modelSrc: string | null;
 }) {
   const byId = new Map(plans.map((plan) => [plan.row.id, plan]));
   const selected = byId.get(selectedId) ?? plans[0];
@@ -876,8 +915,8 @@ function ArmoryBoard({
         <div className="doll-col">{LEFT_SLOTS.map((id) => slotButton(id))}</div>
         <div className="doll-center">
           <div className="doll-stage" style={character.backdropUrl ? { backgroundImage: `url(${character.backdropUrl})` } : undefined}>
-            {character.modelUrl ? (
-              <img className="doll-model" src={character.modelUrl} alt={`${character.name} ${character.surname}`} />
+            {modelSrc ? (
+              <img className="doll-model" src={modelSrc} alt={`${character.name} ${character.surname}`} />
             ) : (
               <p className="empty">No Armory portrait for this profile.</p>
             )}
