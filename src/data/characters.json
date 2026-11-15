@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "fetchedAt": "2026-11-15T20:23:49.281Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -574,7 +574,7 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "fetchedAt": "2026-11-15T20:23:49.281Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -1123,7 +1123,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "fetchedAt": "2026-11-15T20:23:49.281Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1131,7 +1131,7 @@
     "character": {
       "name": "Ffsparky",
       "surname": "Jr",
-      "level": 32,
+      "level": 33,
       "classId": "druid",
       "className": "Druid",
       "race": "Windshaper Skyborne",
@@ -1141,18 +1141,18 @@
       "rulesetId": 1,
       "guild": "ØnlyDads",
       "ilvl": 23,
-      "honorableKills": 15,
+      "honorableKills": 19,
       "region": "us",
-      "updatedAt": "2026-11-14T19:18:02Z",
+      "updatedAt": "2026-11-15T20:05:27Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1121,
+          "value": 1154,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1414,
+          "value": 1459,
           "percent": false
         },
         {
@@ -1167,17 +1167,17 @@
         },
         {
           "key": "STRENGTH",
-          "value": 60,
+          "value": 61,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 82,
+          "value": 83,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 69,
+          "value": 70,
           "percent": false
         },
         {
@@ -1187,7 +1187,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.4104004,
+          "value": 4.1881995,
           "percent": true
         },
         {
@@ -1217,7 +1217,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 116,
+          "value": 118,
           "percent": false
         },
         {
@@ -1227,7 +1227,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 40.370422,
+          "value": 40.516148,
           "percent": false
         },
         {
@@ -1237,17 +1237,17 @@
         },
         {
           "key": "MANAREGEN",
-          "value": 86,
+          "value": 87,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 695,
+          "value": 697,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 12.0104,
+          "value": 11.7482,
           "percent": true
         },
         {
@@ -1278,7 +1278,7 @@
         {
           "id": "feral-combat",
           "name": "Feral Combat",
-          "spent": 21,
+          "spent": 22,
           "active": true,
           "talents": [
             {
@@ -1325,6 +1325,11 @@
               "name": "Leader of the Pack",
               "rank": 1,
               "description": "While in Cat Form, Bear Form, or Dire Bear Form, the Leader of the Pack increases the Critical Strike chance of all party or raid members within 45 yards by 3%."
+            },
+            {
+              "name": "Natural Instinct",
+              "rank": 1,
+              "description": "Increases the critical strike damage bonus of your melee abilities by 10% and increases your spell healing by 12% of your Intellect."
             }
           ]
         }
@@ -1646,15 +1651,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/ffsparky-jr.png",
-    "renderHash": "0ba8bdc6577e",
+    "renderHash": "9fa0b463bf64",
     "avatarFile": "characters/ffsparky-jr-avatar.jpg",
-    "avatarHash": "1843a4fce0ba"
+    "avatarHash": "aa5957bcde3d"
   },
   {
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "fetchedAt": "2026-11-15T20:23:49.281Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2105,7 +2110,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "fetchedAt": "2026-11-15T20:23:49.281Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2125,7 +2130,7 @@
       "ilvl": 28,
       "honorableKills": 17,
       "region": "us",
-      "updatedAt": "2026-11-15T05:03:08Z",
+      "updatedAt": "2026-11-15T19:37:43Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -2159,7 +2164,7 @@
         },
         {
           "key": "INTELLECT",
-          "value": 31,
+          "value": 20,
           "percent": false
         },
         {
@@ -2169,7 +2174,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 8.5362,
+          "value": 7.5361996,
           "percent": true
         },
         {
@@ -2542,9 +2547,9 @@
           "speed": 1.7,
           "effect": "Chance on hit: Hurl spikes at the target, dealing 45 Physical damage and jumping to 1 additional nearby enemy. Each jump reduces the damage by 50%.",
           "enchant": {
-            "enchantId": 22,
-            "name": "Runecarving Test - Crippling Poison",
-            "label": "Crippling Poison"
+            "enchantId": 324,
+            "name": "Instant Poison II",
+            "label": "Instant Poison II (63"
           }
         },
         {
@@ -2655,7 +2660,7 @@
           "enchant": {
             "enchantId": 324,
             "name": "Instant Poison II",
-            "label": "Instant Poison II (68"
+            "label": "Instant Poison II (43"
           }
         },
         {
@@ -2717,15 +2722,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/spooky-guyy.png",
-    "renderHash": "53604c64653a",
+    "renderHash": "a0708712a1af",
     "avatarFile": "characters/spooky-guyy-avatar.jpg",
-    "avatarHash": "c9d0b6188509"
+    "avatarHash": "e80ad74cf01d"
   },
   {
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "fetchedAt": "2026-11-15T20:23:49.281Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3327,7 +3332,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "fetchedAt": "2026-11-15T20:23:49.281Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -3903,7 +3908,7 @@
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "fetchedAt": "2026-11-15T20:23:49.281Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
