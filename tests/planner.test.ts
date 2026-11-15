@@ -540,6 +540,22 @@ describe("seed characters", () => {
     expect(profile?.character.faction).toBe("horde");
   });
 
+  it("includes Zap Gpt from the US Forever Armory", () => {
+    const profile = characters.find((item) => item.slug === "zap-gpt");
+    expectLiveSnapshot(profile);
+    expect(profile?.region).toBe("us");
+    expect(profile?.character.name).toBe("Zap");
+    expect(profile?.character.surname).toBe("Gpt");
+    expect(profile?.character.className).toBe("Rogue");
+    expect(profile?.character.race).toBe("Windshaper Skyborne");
+    expect(profile?.character.faction).toBe("horde");
+    expect(profile?.character.ruleset).toBe("PvP");
+    expect(profile?.character.guild).toBe("ØnlyDads");
+    expect(profile?.mainSpec.startsWith("rogue-")).toBe(true);
+    expect(profile?.character.level).toBeGreaterThanOrEqual(1);
+    expect(profile?.character.level).toBeLessThanOrEqual(60);
+  });
+
   it("includes Sleepy Sleepyy from the US Forever Armory", () => {
     const profile = characters.find((item) => item.slug === "sleepy-sleepyy");
     expectLiveSnapshot(profile);

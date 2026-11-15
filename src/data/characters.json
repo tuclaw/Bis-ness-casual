@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-15T14:45:00.733Z",
+    "fetchedAt": "2026-11-15T18:58:49.828Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -574,7 +574,7 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-15T14:45:00.733Z",
+    "fetchedAt": "2026-11-15T18:58:49.828Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -1123,7 +1123,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-15T14:45:00.733Z",
+    "fetchedAt": "2026-11-15T18:58:49.828Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1654,7 +1654,7 @@
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-15T14:45:00.733Z",
+    "fetchedAt": "2026-11-15T18:58:49.828Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2105,7 +2105,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-15T14:45:00.733Z",
+    "fetchedAt": "2026-11-15T18:58:49.828Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2725,7 +2725,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-15T14:45:00.733Z",
+    "fetchedAt": "2026-11-15T18:58:49.828Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -2743,9 +2743,9 @@
       "rulesetId": 1,
       "guild": "ØnlyDads",
       "ilvl": 30,
-      "honorableKills": 10,
+      "honorableKills": 12,
       "region": "us",
-      "updatedAt": "2026-11-15T04:57:45Z",
+      "updatedAt": "2026-11-15T18:28:22Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -2789,7 +2789,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.3543,
+          "value": 4.5143,
           "percent": true
         },
         {
@@ -2829,7 +2829,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 68.10349,
+          "value": 69.41318,
           "percent": false
         },
         {
@@ -2849,17 +2849,17 @@
         },
         {
           "key": "DODGE",
-          "value": 4.2743,
+          "value": 4.4743004,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 7.7200003,
+          "value": 7.92,
           "percent": true
         },
         {
           "key": "BLOCK",
-          "value": 5.72,
+          "value": 5.9200006,
           "percent": true
         }
       ],
@@ -2867,7 +2867,7 @@
         {
           "id": "arms",
           "name": "Arms",
-          "spent": 23,
+          "spent": 24,
           "active": true,
           "talents": [
             {
@@ -2907,8 +2907,8 @@
             },
             {
               "name": "Two-Handed Weapon Specialization",
-              "rank": 2,
-              "description": "Increases the damage you deal with two-handed melee weapons by 4%."
+              "rank": 3,
+              "description": "Increases the damage you deal with two-handed melee weapons by 6%."
             },
             {
               "name": "Impale",
@@ -3285,7 +3285,7 @@
       "professions": [
         {
           "name": "Mining",
-          "skill": 173,
+          "skill": 179,
           "max": 225,
           "primary": true
         },
@@ -3319,15 +3319,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/sir-stackers.png",
-    "renderHash": "6646692e0166",
+    "renderHash": "d8f4ad45590c",
     "avatarFile": "characters/sir-stackers-avatar.jpg",
-    "avatarHash": "bebf9e2862ce"
+    "avatarHash": "bc36e8ddbcb5"
   },
   {
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-15T14:45:00.733Z",
+    "fetchedAt": "2026-11-15T18:58:49.828Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -3898,5 +3898,421 @@
     "renderHash": "ddd89905ef38",
     "avatarFile": "characters/sleepy-sleepyy-avatar.jpg",
     "avatarHash": "db8aa077722b"
+  },
+  {
+    "slug": "zap-gpt",
+    "region": "us",
+    "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
+    "fetchedAt": "2026-11-15T18:58:49.828Z",
+    "source": "armory-snapshot",
+    "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
+    "mainSpec": "rogue-assassination",
+    "offSpec": null,
+    "character": {
+      "name": "Zap",
+      "surname": "Gpt",
+      "level": 18,
+      "classId": "rogue",
+      "className": "Rogue",
+      "race": "Windshaper Skyborne",
+      "gender": "Female",
+      "faction": "horde",
+      "ruleset": "PvP",
+      "rulesetId": 1,
+      "guild": "ØnlyDads",
+      "ilvl": 7,
+      "honorableKills": 0,
+      "region": "us",
+      "updatedAt": "2026-11-09T21:31:07Z",
+      "stats": [
+        {
+          "key": "HEALTH",
+          "value": 430,
+          "percent": false
+        },
+        {
+          "key": "ENERGY",
+          "value": 100,
+          "percent": false
+        },
+        {
+          "key": "ITEMLEVEL",
+          "value": 7,
+          "percent": false
+        },
+        {
+          "key": "MOVEMENTSPEED",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "STRENGTH",
+          "value": 33,
+          "percent": false
+        },
+        {
+          "key": "AGILITY",
+          "value": 56,
+          "percent": false
+        },
+        {
+          "key": "INTELLECT",
+          "value": 22,
+          "percent": false
+        },
+        {
+          "key": "STAMINA",
+          "value": 41,
+          "percent": false
+        },
+        {
+          "key": "CRITICALSTRIKE",
+          "value": 7.8848004,
+          "percent": true
+        },
+        {
+          "key": "HASTE",
+          "value": 1.9999981,
+          "percent": true
+        },
+        {
+          "key": "MASTERY",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "BONUSARMOR",
+          "value": 8,
+          "percent": false
+        },
+        {
+          "key": "VERSATILITY",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "AVOIDANCE",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "ATTACKPOWER",
+          "value": 105,
+          "percent": false
+        },
+        {
+          "key": "ATTACKSPEED",
+          "value": 1.471,
+          "percent": false
+        },
+        {
+          "key": "ATTACKDPS",
+          "value": 15.933716,
+          "percent": false
+        },
+        {
+          "key": "SPELLPOWER",
+          "value": 11,
+          "percent": false
+        },
+        {
+          "key": "MANAREGEN",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "ARMOR",
+          "value": 398,
+          "percent": false
+        },
+        {
+          "key": "DODGE",
+          "value": 15.735199,
+          "percent": true
+        },
+        {
+          "key": "PARRY",
+          "value": 4.96,
+          "percent": true
+        },
+        {
+          "key": "BLOCK",
+          "value": 0,
+          "percent": true
+        }
+      ],
+      "specs": [],
+      "gear": [
+        {
+          "slot": "back",
+          "armorySlot": "back",
+          "itemId": 1733,
+          "name": "Worn Cloak",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133760.jpg",
+          "quality": "poor",
+          "ilvl": 15,
+          "req": 10,
+          "armorType": "cloth",
+          "weaponType": null,
+          "inventoryType": "CLOAK",
+          "stats": {
+            "armor": 13
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "chest",
+          "armorySlot": "chest",
+          "itemId": 257344,
+          "name": "Skywatcher's Vestments",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/7734196.jpg",
+          "quality": "uncommon",
+          "ilvl": 13,
+          "req": null,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "CHEST",
+          "stats": {
+            "agi": 1,
+            "sta": 2,
+            "armor": 65
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "feet",
+          "armorySlot": "foot",
+          "itemId": 263309,
+          "name": "Freedom Walkers",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132542.jpg",
+          "quality": "uncommon",
+          "ilvl": 11,
+          "req": null,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "FEET",
+          "stats": {
+            "str": 1,
+            "armor": 40
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": {
+            "enchantId": 15,
+            "name": "Light Armor Kit",
+            "label": "Enchanted: Stamina +1 and Armor +8"
+          }
+        },
+        {
+          "slot": "hands",
+          "armorySlot": "hand",
+          "itemId": 263306,
+          "name": "Nightclaw Gloves",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/7734215.jpg",
+          "quality": "uncommon",
+          "ilvl": 11,
+          "req": null,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "HAND",
+          "stats": {
+            "agi": 1,
+            "armor": 36
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "finger",
+          "armorySlot": "finger1",
+          "itemId": 264908,
+          "name": "Ancient Heirloom",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/629694.jpg",
+          "quality": "common",
+          "ilvl": 1,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "FINGER",
+          "stats": {},
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "legs",
+          "armorySlot": "leg",
+          "itemId": 263330,
+          "name": "Tracker's Pants",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/7731377.jpg",
+          "quality": "uncommon",
+          "ilvl": 13,
+          "req": null,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "LEGS",
+          "stats": {
+            "agi": 3,
+            "armor": 57
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "offhand",
+          "armorySlot": "offhand",
+          "itemId": 15443,
+          "name": "Kris of Orgrimmar",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135641.jpg",
+          "quality": "rare",
+          "ilvl": 18,
+          "req": null,
+          "armorType": null,
+          "weaponType": "dagger",
+          "inventoryType": "WEAPON",
+          "stats": {
+            "sta": 4
+          },
+          "dps": 7.9999995,
+          "speed": 1.5,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "ranged",
+          "armorySlot": "ranged",
+          "itemId": 287060,
+          "name": "Rezlak's Spare Knife",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135641.jpg",
+          "quality": "uncommon",
+          "ilvl": 11,
+          "req": null,
+          "armorType": null,
+          "weaponType": "thrown",
+          "inventoryType": "THROWN",
+          "stats": {
+            "apBeast": 3
+          },
+          "dps": 5.2777777,
+          "speed": 1.8,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "waist",
+          "armorySlot": "waist",
+          "itemId": 263405,
+          "name": "Belt of Blades",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132495.jpg",
+          "quality": "uncommon",
+          "ilvl": 15,
+          "req": null,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "WAIST",
+          "stats": {
+            "agi": 2,
+            "str": 2,
+            "armor": 39
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "mainhand",
+          "armorySlot": "weapon",
+          "itemId": 273003,
+          "name": "Searing Dagger",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135639.jpg",
+          "quality": "rare",
+          "ilvl": 18,
+          "req": 13,
+          "armorType": null,
+          "weaponType": "dagger",
+          "inventoryType": "WEAPONMAINHAND",
+          "stats": {
+            "spi": 4
+          },
+          "dps": 8.125,
+          "speed": 1.6,
+          "effect": "Equip: Harmful spell casts sear the target for 7 Fire damage.",
+          "enchant": null
+        },
+        {
+          "slot": "wrist",
+          "armorySlot": "wrist",
+          "itemId": 263338,
+          "name": "Defender's Bracers",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132606.jpg",
+          "quality": "uncommon",
+          "ilvl": 13,
+          "req": null,
+          "armorType": "leather",
+          "weaponType": null,
+          "inventoryType": "WRIST",
+          "stats": {
+            "sta": 1,
+            "armor": 28
+          },
+          "dps": null,
+          "speed": null,
+          "effect": null,
+          "enchant": null
+        }
+      ],
+      "professions": [
+        {
+          "name": "Leatherworking",
+          "skill": 74,
+          "max": 150,
+          "primary": true
+        },
+        {
+          "name": "Skinning",
+          "skill": 126,
+          "max": 225,
+          "primary": true
+        },
+        {
+          "name": "Cooking",
+          "skill": 1,
+          "max": 75,
+          "primary": false
+        },
+        {
+          "name": "Fishing",
+          "skill": 22,
+          "max": 75,
+          "primary": false
+        },
+        {
+          "name": "First Aid",
+          "skill": 1,
+          "max": 75,
+          "primary": false
+        }
+      ],
+      "portraitUrl": "https://render.worldofwarcraft.com/forever-us/character/139/2752139-avatar.jpg",
+      "modelUrl": "https://render.worldofwarcraft.com/forever-us/character/139/2752139-main-raw.png",
+      "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
+    },
+    "renderFile": "characters/zap-gpt.png",
+    "renderHash": "6e39a9b0b659",
+    "avatarFile": "characters/zap-gpt-avatar.jpg",
+    "avatarHash": "a545bd36a150"
   }
 ]
