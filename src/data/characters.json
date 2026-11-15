@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-15T06:27:08.975Z",
+    "fetchedAt": "2026-11-15T14:45:00.733Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -11,7 +11,7 @@
     "character": {
       "name": "Daz",
       "surname": "Dingomon",
-      "level": 26,
+      "level": 27,
       "classId": "shaman",
       "className": "Shaman",
       "race": "Troll",
@@ -20,24 +20,24 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 21,
-      "honorableKills": 45,
+      "ilvl": 26,
+      "honorableKills": 126,
       "region": "us",
-      "updatedAt": "2026-11-15T01:37:30Z",
+      "updatedAt": "2026-11-15T11:04:39Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1007,
+          "value": 1270,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1080,
+          "value": 1051,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 22,
+          "value": 26,
           "percent": false
         },
         {
@@ -47,7 +47,7 @@
         },
         {
           "key": "STRENGTH",
-          "value": 54,
+          "value": 55,
           "percent": false
         },
         {
@@ -57,17 +57,17 @@
         },
         {
           "key": "INTELLECT",
-          "value": 55,
+          "value": 51,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 91,
+          "value": 115,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.6177006,
+          "value": 2.8177001,
           "percent": true
         },
         {
@@ -97,7 +97,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 140,
+          "value": 154,
           "percent": false
         },
         {
@@ -107,27 +107,27 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 18,
+          "value": 31.769234,
           "percent": false
         },
         {
           "key": "SPELLPOWER",
-          "value": 52,
+          "value": 62,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 85,
+          "value": 95,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 1106,
+          "value": 560,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.6577,
+          "value": 4.4577,
           "percent": true
         },
         {
@@ -137,7 +137,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.28,
+          "value": 4.08,
           "percent": true
         }
       ],
@@ -195,19 +195,19 @@
         {
           "slot": "back",
           "armorySlot": "back",
-          "itemId": 273005,
-          "name": "Satyrskin Cloak",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133770.jpg",
-          "quality": "rare",
-          "ilvl": 18,
-          "req": 13,
+          "itemId": 4711,
+          "name": "Glimmering Cloak",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133762.jpg",
+          "quality": "uncommon",
+          "ilvl": 28,
+          "req": 23,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "CLOAK",
           "stats": {
-            "sta": 3,
-            "fireRes": 3,
-            "armor": 17
+            "sta": 2,
+            "spi": 5,
+            "armor": 21
           },
           "dps": null,
           "speed": null,
@@ -239,23 +239,29 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": {
+            "enchantId": 242,
+            "name": "Enchant Chest - Lesser Stamina",
+            "label": "Enchanted: Stamina +3"
+          }
         },
         {
           "slot": "feet",
           "armorySlot": "foot",
-          "itemId": 6335,
-          "name": "Grizzled Boots",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132537.jpg",
-          "quality": "uncommon",
-          "ilvl": 28,
-          "req": null,
-          "armorType": "leather",
+          "itemId": 273024,
+          "name": "Glinteye Slippers",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132539.jpg",
+          "quality": "rare",
+          "ilvl": 31,
+          "req": 26,
+          "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "FEET",
           "stats": {
-            "sta": 7,
-            "armor": 62
+            "sta": 9,
+            "sp": 7,
+            "spi": 6,
+            "armor": 33
           },
           "dps": null,
           "speed": null,
@@ -314,21 +320,40 @@
         {
           "slot": "finger",
           "armorySlot": "finger1",
-          "itemId": 279867,
-          "name": "Slain Baron's Signet",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133361.jpg",
-          "quality": "uncommon",
-          "ilvl": 23,
+          "itemId": 6414,
+          "name": "Seal of Sylvanas",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133357.jpg",
+          "quality": "rare",
+          "ilvl": 29,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
           "inventoryType": "FINGER",
           "stats": {
-            "sta": 3
+            "sta": 8,
+            "ap": 6
           },
           "dps": null,
           "speed": null,
           "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "trinket",
+          "armorySlot": "trinket1",
+          "itemId": 280766,
+          "name": "Satchel of Potions",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133633.jpg",
+          "quality": "uncommon",
+          "ilvl": 33,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "TRINKET",
+          "stats": {},
+          "dps": null,
+          "speed": null,
+          "effect": "Use: Reach into the bag and hope for the best. (10 Min Cooldown)",
           "enchant": null
         },
         {
@@ -367,28 +392,6 @@
           "inventoryType": "NECK",
           "stats": {
             "spi": 3
-          },
-          "dps": null,
-          "speed": null,
-          "effect": null,
-          "enchant": null
-        },
-        {
-          "slot": "offhand",
-          "armorySlot": "offhand",
-          "itemId": 6630,
-          "name": "Seedcloud Buckler",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134956.jpg",
-          "quality": "rare",
-          "ilvl": 24,
-          "req": 19,
-          "armorType": "shield",
-          "weaponType": null,
-          "inventoryType": "SHIELD",
-          "stats": {
-            "int": 5,
-            "sp": 5,
-            "armor": 547
           },
           "dps": null,
           "speed": null,
@@ -482,60 +485,60 @@
         {
           "slot": "mainhand",
           "armorySlot": "weapon",
-          "itemId": 15443,
-          "name": "Kris of Orgrimmar",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135641.jpg",
+          "itemId": 271767,
+          "name": "Healer's Staff",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135147.jpg",
           "quality": "rare",
-          "ilvl": 18,
+          "ilvl": 33,
           "req": null,
           "armorType": null,
-          "weaponType": "dagger",
-          "inventoryType": "WEAPON",
+          "weaponType": "staff",
+          "inventoryType": "TWOHWEAPON",
           "stats": {
-            "sta": 4
+            "sta": 12
           },
-          "dps": 7.9999995,
-          "speed": 1.5,
+          "dps": 20.76923,
+          "speed": 2.6,
           "effect": null,
           "enchant": null
         },
         {
           "slot": "wrist",
           "armorySlot": "wrist",
-          "itemId": 251486,
-          "name": "Tabitha's Cuffs",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132609.jpg",
-          "quality": "uncommon",
-          "ilvl": 24,
-          "req": null,
-          "armorType": "cloth",
+          "itemId": 3230,
+          "name": "Black Wolf Bracers",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132606.jpg",
+          "quality": "rare",
+          "ilvl": 27,
+          "req": 22,
+          "armorType": "leather",
           "weaponType": null,
           "inventoryType": "WRIST",
           "stats": {
-            "sta": 4,
-            "sp": 3,
-            "armor": 17
+            "sta": 7,
+            "ap": 4,
+            "armor": 43
           },
           "dps": null,
           "speed": null,
           "effect": null,
           "enchant": {
-            "enchantId": 243,
-            "name": "Enchant Bracer - Minor Spirit",
-            "label": "Enchanted: Spirit +3"
+            "enchantId": 66,
+            "name": "Enchant Bracer - Minor Stamina",
+            "label": "Enchanted: Stamina +3"
           }
         }
       ],
       "professions": [
         {
           "name": "Skinning",
-          "skill": 150,
+          "skill": 167,
           "max": 225,
           "primary": true
         },
         {
           "name": "Enchanting",
-          "skill": 152,
+          "skill": 153,
           "max": 225,
           "primary": true
         },
@@ -563,15 +566,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/daz-dingomon.png",
-    "renderHash": "87a9fe0ed529",
+    "renderHash": "80eaf6f09422",
     "avatarFile": "characters/daz-dingomon-avatar.jpg",
-    "avatarHash": "093c4b165900"
+    "avatarHash": "ea79c432706c"
   },
   {
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-15T06:27:08.975Z",
+    "fetchedAt": "2026-11-15T14:45:00.733Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -579,7 +582,7 @@
     "character": {
       "name": "Mrs",
       "surname": "Dingomon",
-      "level": 25,
+      "level": 27,
       "classId": "mage",
       "className": "Mage",
       "race": "Troll",
@@ -588,24 +591,24 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 18,
-      "honorableKills": 52,
+      "ilvl": 23,
+      "honorableKills": 130,
       "region": "us",
-      "updatedAt": "2026-11-14T11:10:44Z",
+      "updatedAt": "2026-11-15T11:04:05Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 755,
+          "value": 942,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1251,
+          "value": 1455,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 19,
+          "value": 23,
           "percent": false
         },
         {
@@ -620,22 +623,22 @@
         },
         {
           "key": "AGILITY",
-          "value": 27,
+          "value": 29,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 70,
+          "value": 80,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 62,
+          "value": 78,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.104,
+          "value": 3.968,
           "percent": true
         },
         {
@@ -665,7 +668,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 14,
+          "value": 20,
           "percent": false
         },
         {
@@ -675,27 +678,27 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 16.13889,
+          "value": 22.197803,
           "percent": false
         },
         {
           "key": "SPELLPOWER",
-          "value": 26,
+          "value": 58,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 83,
+          "value": 90,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 262,
+          "value": 282,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.3840003,
+          "value": 4.288,
           "percent": true
         },
         {
@@ -749,12 +752,12 @@
             {
               "name": "Arcane Blast",
               "rank": 1,
-              "description": "Blasts the target with energy, dealing 44 to 48 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
+              "description": "Blasts the target with energy, dealing 57 to 63 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
             },
             {
               "name": "Arcane Wrath",
               "rank": 1,
-              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 135 to 156 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
+              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 166 to 190 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
             }
           ]
         }
@@ -763,19 +766,19 @@
         {
           "slot": "back",
           "armorySlot": "back",
-          "itemId": 4710,
-          "name": "Forest Cloak",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133761.jpg",
+          "itemId": 7419,
+          "name": "Phalanx Cloak of the Eagle",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133767.jpg",
           "quality": "uncommon",
-          "ilvl": 22,
-          "req": 17,
+          "ilvl": 30,
+          "req": 25,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "CLOAK",
           "stats": {
-            "int": 2,
-            "sta": 3,
-            "armor": 18
+            "int": 4,
+            "sta": 4,
+            "armor": 21
           },
           "dps": null,
           "speed": null,
@@ -785,21 +788,22 @@
         {
           "slot": "chest",
           "armorySlot": "chest",
-          "itemId": 5202,
-          "name": "Corsair's Overshirt",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135012.jpg",
+          "itemId": 6324,
+          "name": "Robes of Arugal",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132672.jpg",
           "quality": "rare",
-          "ilvl": 22,
-          "req": 17,
+          "ilvl": 28,
+          "req": 23,
           "armorType": "cloth",
           "weaponType": null,
-          "inventoryType": "CHEST",
+          "inventoryType": "ROBE",
           "stats": {
             "sta": 5,
-            "sd": 3,
-            "heal": 11,
-            "spi": 8,
-            "armor": 40
+            "sd": 6,
+            "heal": 18,
+            "shadowRes": 8,
+            "spi": 6,
+            "armor": 46
           },
           "dps": null,
           "speed": null,
@@ -861,21 +865,40 @@
         {
           "slot": "finger",
           "armorySlot": "finger1",
-          "itemId": 279867,
-          "name": "Slain Baron's Signet",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133361.jpg",
-          "quality": "uncommon",
-          "ilvl": 23,
+          "itemId": 6414,
+          "name": "Seal of Sylvanas",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133357.jpg",
+          "quality": "rare",
+          "ilvl": 29,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
           "inventoryType": "FINGER",
           "stats": {
-            "sta": 3
+            "sta": 8,
+            "ap": 6
           },
           "dps": null,
           "speed": null,
           "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "trinket",
+          "armorySlot": "trinket1",
+          "itemId": 280766,
+          "name": "Satchel of Potions",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133633.jpg",
+          "quality": "uncommon",
+          "ilvl": 33,
+          "req": null,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "TRINKET",
+          "stats": {},
+          "dps": null,
+          "speed": null,
+          "effect": "Use: Reach into the bag and hope for the best. (10 Min Cooldown)",
           "enchant": null
         },
         {
@@ -964,23 +987,24 @@
         {
           "slot": "shoulder",
           "armorySlot": "shoulder",
-          "itemId": 10657,
-          "name": "Talbar Mantle",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135040.jpg",
-          "quality": "uncommon",
-          "ilvl": 26,
-          "req": null,
+          "itemId": 3748,
+          "name": "Feline Mantle",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135036.jpg",
+          "quality": "rare",
+          "ilvl": 28,
+          "req": 23,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "SHOULDER",
           "stats": {
-            "int": 4,
-            "sta": 2,
-            "armor": 30
+            "int": 8,
+            "agi": 2,
+            "sp": 4,
+            "armor": 34
           },
           "dps": null,
           "speed": null,
-          "effect": null,
+          "effect": "Equip: Reduces damage from falling.",
           "enchant": null
         },
         {
@@ -1010,57 +1034,61 @@
         {
           "slot": "mainhand",
           "armorySlot": "weapon",
-          "itemId": 271215,
-          "name": "Coldspire Staff",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135144.jpg",
+          "itemId": 271767,
+          "name": "Healer's Staff",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135147.jpg",
           "quality": "rare",
-          "ilvl": 24,
-          "req": 19,
+          "ilvl": 33,
+          "req": null,
           "armorType": null,
           "weaponType": "staff",
           "inventoryType": "TWOHWEAPON",
           "stats": {
-            "frostRes": 13
+            "sta": 12
           },
-          "dps": 15.138888,
-          "speed": 3.6,
+          "dps": 20.76923,
+          "speed": 2.6,
           "effect": null,
           "enchant": null
         },
         {
           "slot": "wrist",
           "armorySlot": "wrist",
-          "itemId": 251486,
-          "name": "Tabitha's Cuffs",
+          "itemId": 271740,
+          "name": "Knife-Polishing Rag",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132609.jpg",
           "quality": "uncommon",
-          "ilvl": 24,
+          "ilvl": 33,
           "req": null,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "WRIST",
           "stats": {
-            "sta": 4,
-            "sp": 3,
-            "armor": 17
+            "sp": 6,
+            "spi": 4,
+            "armor": 20
           },
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": {
+            "enchantId": 66,
+            "name": "Enchant Bracer - Minor Stamina",
+            "label": "Enchanted: Stamina +3"
+          }
         }
       ],
       "professions": [
         {
           "name": "Tailoring",
-          "skill": 112,
+          "skill": 113,
           "max": 150,
           "primary": true
         },
         {
           "name": "Herbalism",
-          "skill": 115,
-          "max": 150,
+          "skill": 126,
+          "max": 225,
           "primary": true
         },
         {
@@ -1087,15 +1115,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/mrs-dingomon.png",
-    "renderHash": "d7dbbe9f0eff",
+    "renderHash": "f176ddb7ba88",
     "avatarFile": "characters/mrs-dingomon-avatar.jpg",
-    "avatarHash": "b6621d45eea4"
+    "avatarHash": "c6a6787299c9"
   },
   {
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-15T06:27:08.975Z",
+    "fetchedAt": "2026-11-15T14:45:00.733Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1626,7 +1654,7 @@
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-15T06:27:08.975Z",
+    "fetchedAt": "2026-11-15T14:45:00.733Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -1646,8 +1674,124 @@
       "ilvl": 18,
       "honorableKills": 1,
       "region": "us",
-      "updatedAt": "2026-11-13T18:02:43Z",
-      "stats": [],
+      "updatedAt": "2026-11-15T12:11:55Z",
+      "stats": [
+        {
+          "key": "HEALTH",
+          "value": 1107,
+          "percent": false
+        },
+        {
+          "key": "MANA",
+          "value": 941,
+          "percent": false
+        },
+        {
+          "key": "ITEMLEVEL",
+          "value": 18,
+          "percent": false
+        },
+        {
+          "key": "MOVEMENTSPEED",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "STRENGTH",
+          "value": 89,
+          "percent": false
+        },
+        {
+          "key": "AGILITY",
+          "value": 38,
+          "percent": false
+        },
+        {
+          "key": "INTELLECT",
+          "value": 40,
+          "percent": false
+        },
+        {
+          "key": "STAMINA",
+          "value": 98,
+          "percent": false
+        },
+        {
+          "key": "CRITICALSTRIKE",
+          "value": 4.5112004,
+          "percent": true
+        },
+        {
+          "key": "HASTE",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "MASTERY",
+          "value": 0,
+          "percent": true
+        },
+        {
+          "key": "BONUSARMOR",
+          "value": 16,
+          "percent": false
+        },
+        {
+          "key": "VERSATILITY",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "AVOIDANCE",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "ATTACKPOWER",
+          "value": 245,
+          "percent": false
+        },
+        {
+          "key": "ATTACKSPEED",
+          "value": 2,
+          "percent": false
+        },
+        {
+          "key": "ATTACKDPS",
+          "value": 39.166668,
+          "percent": false
+        },
+        {
+          "key": "SPELLPOWER",
+          "value": 0,
+          "percent": false
+        },
+        {
+          "key": "MANAREGEN",
+          "value": 62,
+          "percent": false
+        },
+        {
+          "key": "ARMOR",
+          "value": 1005,
+          "percent": false
+        },
+        {
+          "key": "DODGE",
+          "value": 4.4311996,
+          "percent": true
+        },
+        {
+          "key": "PARRY",
+          "value": 4.84,
+          "percent": true
+        },
+        {
+          "key": "BLOCK",
+          "value": 4.84,
+          "percent": true
+        }
+      ],
       "specs": [
         {
           "id": "holy",
@@ -1953,15 +2097,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/ternt-up.png",
-    "renderHash": "e671fc9fb6b6",
+    "renderHash": "8ce781344574",
     "avatarFile": "characters/ternt-up-avatar.jpg",
-    "avatarHash": "4120f044cbd0"
+    "avatarHash": "92d44a7d5247"
   },
   {
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-15T06:27:08.975Z",
+    "fetchedAt": "2026-11-15T14:45:00.733Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2581,7 +2725,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-15T06:27:08.975Z",
+    "fetchedAt": "2026-11-15T14:45:00.733Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3183,7 +3327,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-15T06:27:08.975Z",
+    "fetchedAt": "2026-11-15T14:45:00.733Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -3191,7 +3335,7 @@
     "character": {
       "name": "Sleepy",
       "surname": "Sleepyy",
-      "level": 34,
+      "level": 35,
       "classId": "shaman",
       "className": "Shaman",
       "race": "Windshaper Skyborne",
@@ -3203,16 +3347,16 @@
       "ilvl": 29,
       "honorableKills": 18,
       "region": "us",
-      "updatedAt": "2026-11-15T04:43:07Z",
+      "updatedAt": "2026-11-15T14:05:10Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 999,
+          "value": 1035,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 2081,
+          "value": 2145,
           "percent": false
         },
         {
@@ -3227,7 +3371,7 @@
         },
         {
           "key": "STRENGTH",
-          "value": 63,
+          "value": 64,
           "percent": false
         },
         {
@@ -3237,17 +3381,17 @@
         },
         {
           "key": "INTELLECT",
-          "value": 105,
+          "value": 107,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 76,
+          "value": 78,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 9.795,
+          "value": 9.526799,
           "percent": true
         },
         {
@@ -3277,7 +3421,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 347,
+          "value": 353,
           "percent": false
         },
         {
@@ -3287,17 +3431,17 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 53.56812,
+          "value": 54.005302,
           "percent": false
         },
         {
           "key": "SPELLPOWER",
-          "value": 57,
+          "value": 58,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 94,
+          "value": 96,
           "percent": false
         },
         {
@@ -3307,7 +3451,7 @@
         },
         {
           "key": "DODGE",
-          "value": 4.715,
+          "value": 4.4868,
           "percent": true
         },
         {
@@ -3317,7 +3461,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.88,
+          "value": 4.8,
           "percent": true
         }
       ],
@@ -3325,7 +3469,7 @@
         {
           "id": "enhancement",
           "name": "Enhancement",
-          "spent": 25,
+          "spent": 26,
           "active": true,
           "talents": [
             {
@@ -3377,6 +3521,11 @@
               "name": "Improved Stormstrike",
               "rank": 2,
               "description": "When you Stormstrike, you have a 100% chance to gain 50% mana regeneration while casting spells for 15 sec, and Stormstrike's cooldown has a 100% chance to reset each time you Dodge or Parry."
+            },
+            {
+              "name": "Maelstrom Weapon",
+              "rank": 1,
+              "description": "When you deal damage with a melee attack, you have a 33% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec."
             }
           ]
         }
@@ -3746,8 +3895,8 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/sleepy-sleepyy.png",
-    "renderHash": "55ff54ff61c9",
+    "renderHash": "ddd89905ef38",
     "avatarFile": "characters/sleepy-sleepyy-avatar.jpg",
-    "avatarHash": "9da2d8afbd13"
+    "avatarHash": "db8aa077722b"
   }
 ]
