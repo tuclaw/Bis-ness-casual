@@ -178,12 +178,12 @@ export function wowheadQuestUrl(id: number, name: string): string {
 export const DURATION_NOTE =
   "No time estimate. A Questie coordinate is a percentage of that zone's map, and zones are different sizes, so travel time is not in this catalog. Objective counts are not a duration either.";
 
-export function pinsInZone(pins: QuestPin[] | undefined, zone: string): QuestPin[] {
-  if (!pins) return [];
-  return pins.filter((pin) => pin.zone === zone && pin.x >= 0 && pin.x <= 100 && pin.y >= 0 && pin.y <= 100);
+/** One zone panel is open. The same zone again collapses it. */
+export function nextOpenZone(current: string | null, zone: string): string | null {
+  return current === zone ? null : zone;
 }
 
-export type QuestListSort = "level" | "name" | "duo";
+export type QuestListSort = "xp" | "level" | "name" | "duo";
 
 export function listZoneQuests(
   quests: RankedQuest[],
@@ -201,6 +201,7 @@ export function listZoneQuests(
       const friendly = Number(b.friendly) - Number(a.friendly);
       if (friendly !== 0) return friendly;
     }
+    if (options.sort === "xp") return (b.xp ?? -1) - (a.xp ?? -1) || (a.level ?? 0) - (b.level ?? 0) || a.id - b.id;
     return (a.level ?? 0) - (b.level ?? 0) || a.name.localeCompare(b.name) || a.id - b.id;
   });
   return rows;

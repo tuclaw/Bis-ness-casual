@@ -7,7 +7,7 @@ import {
   classifyStep,
   isDuoFriendly,
   listZoneQuests,
-  pinsInZone,
+  nextOpenZone,
   rankZones,
   wowheadQuestUrl,
   type ObjectiveKind,
@@ -87,25 +87,24 @@ describe("zone quest list", () => {
 
   it("filters by action and sorts duo-friendly quests first", () => {
     const rows = [
-      ranked({ id: 1, name: "Horns", objectives: ["drop"], actions: ["drop"], level: 20 }),
-      ranked({ id: 2, name: "Talk", objectives: ["errand"], actions: ["talk"], level: 22 }),
-      ranked({ id: 3, name: "Boars", objectives: ["slay"], actions: ["slay"], level: 18 }),
+      ranked({ id: 1, name: "Horns", objectives: ["drop"], actions: ["drop"], level: 20, xp: 9000 }),
+      ranked({ id: 2, name: "Talk", objectives: ["errand"], actions: ["talk"], level: 22, xp: 500 }),
+      ranked({ id: 3, name: "Boars", objectives: ["slay"], actions: ["slay"], level: 18, xp: 2000 }),
     ];
     expect(listZoneQuests(rows, { actions: ["slay", "talk"], sort: "level" }).map((row) => row.name)).toEqual(["Boars", "Talk"]);
     expect(listZoneQuests(rows, { actions: null, sort: "duo" })[0]?.name).not.toBe("Horns");
   });
 
-  it("plots only pins that belong to the selected zone", () => {
-    expect(
-      pinsInZone(
-        [
-          { role: "giver", zone: "Undercity", x: 62, y: 42 },
-          { role: "objective", zone: "Silverpine Forest", x: 45, y: 85 },
-          { role: "objective", zone: "Silverpine Forest", x: 120, y: 10 },
-        ],
-        "Silverpine Forest",
-      ),
-    ).toEqual([{ role: "objective", zone: "Silverpine Forest", x: 45, y: 85 }]);
+  it("defaults a zone list to highest XP and opens only one zone", () => {
+    const rows = [
+      ranked({ id: 1, name: "Small", objectives: ["slay"], level: 18, xp: 100 }),
+      ranked({ id: 2, name: "Big", objectives: ["slay"], level: 25, xp: 5000 }),
+      ranked({ id: 3, name: "None", objectives: ["errand"], level: 20, xp: null }),
+    ];
+    expect(listZoneQuests(rows, { actions: null, sort: "xp" }).map((row) => row.name)).toEqual(["Big", "Small", "None"]);
+    expect(nextOpenZone(null, "The Barrens")).toBe("The Barrens");
+    expect(nextOpenZone("The Barrens", "Hillsbrad Foothills")).toBe("Hillsbrad Foothills");
+    expect(nextOpenZone("The Barrens", "The Barrens")).toBeNull();
   });
 
   it("does not turn map percentages into a duration", () => {

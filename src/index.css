@@ -432,7 +432,7 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
 .next-zone { margin: 4px 0 16px; }
 .zone-title { font-family: var(--display); font-size: 28px; font-weight: 600; margin: 4px 0; }
 .zone-list { list-style: none; margin: 0; padding: 0; }
-.zone-list button {
+.zone-list > li > button {
   width: 100%;
   text-align: left;
   background: transparent;
@@ -445,7 +445,7 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
   display: grid;
   gap: 2px;
 }
-.zone-list button[aria-pressed="true"] { border-left-color: var(--gold); }
+.zone-list > li > button[aria-expanded="true"] { border-left-color: var(--gold); }
 .zone-name { display: flex; justify-content: space-between; gap: 12px; font-weight: 650; }
 .zone-stats { display: block; }
 .quest-list { display: grid; }
@@ -466,7 +466,12 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
 .kind-gather, .kind-unknown { color: var(--muted); }
 .quest-drop { background: color-mix(in srgb, var(--down) 8%, transparent); }
 .quest-drop-label { color: var(--down); font-size: 13px; font-weight: 650; }
-.zone-detail { scroll-margin-top: 88px; }
+.zone-detail { scroll-margin-top: 88px; padding: 4px 0 16px 10px; }
+.quest-xp { display: block; color: var(--gold); font-weight: 700; font-variant-numeric: tabular-nums; }
+.quest-side { text-align: right; }
+.quest-xp-bar { height: 3px; margin-top: 6px; background: var(--line); }
+.quest-xp-bar > span { display: block; height: 100%; background: var(--gold); }
+.quest-row.xp-top { background: color-mix(in srgb, var(--gold) 10%, transparent); }
 .quest-tools { display: grid; gap: 10px; margin: 8px 0 12px; }
 .quest-filters { display: flex; flex-wrap: wrap; gap: 6px; }
 .quest-filters button {
@@ -477,13 +482,6 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
   border-radius: 0;
 }
 .quest-filters button[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
-.zone-plot { margin: 8px 0 16px; }
-.zone-plot svg { width: min(420px, 100%); height: auto; background: #0c0b09; border: 1px solid var(--line); }
-.zone-plot rect { fill: none; stroke: var(--line-strong); stroke-width: 0.6; }
-.pin-giver { fill: var(--gold); }
-.pin-objective { fill: #3fc7eb; }
-.pin-turnin { fill: var(--muted); }
-
 .lineup-screen {
   width: min(1120px, calc(100% - 24px));
   margin: 0 auto;
