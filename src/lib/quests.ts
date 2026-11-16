@@ -45,6 +45,30 @@ export interface GuideStep {
   moreText?: string;
 }
 
+/** Finer step labels for the zone list. Ranking still uses ObjectiveKind. */
+export type QuestAction = "slay" | "drop" | "gather" | "talk" | "deliver" | "explore" | "errand" | "unknown";
+
+export const QUEST_ACTIONS: QuestAction[] = ["slay", "drop", "gather", "talk", "deliver", "explore", "errand", "unknown"];
+
+export const ACTION_LABEL: Record<QuestAction, string> = {
+  slay: "Slay",
+  drop: "Drop",
+  gather: "Gather",
+  talk: "Talk",
+  deliver: "Deliver",
+  explore: "Explore",
+  errand: "Errand",
+  unknown: "Unknown",
+};
+
+/** A Questie map pin. x and y are percentages of that zone map, from the top left. */
+export interface QuestPin {
+  role: "giver" | "objective" | "turnin";
+  zone: string;
+  x: number;
+  y: number;
+}
+
 export interface QuestRecord {
   id: number;
   name: string;
@@ -55,6 +79,12 @@ export interface QuestRecord {
   classes: string[];
   xp: number | null;
   objectives: ObjectiveKind[];
+  /** Present after a catalog compile that kept the Wowhelm detail fields. */
+  actions?: QuestAction[];
+  giver?: string | null;
+  chainPosition?: number | null;
+  chainTotal?: number | null;
+  pins?: QuestPin[];
 }
 
 export interface QuestCatalog {
@@ -92,6 +122,37 @@ export function classifyStep(step: GuideStep): ObjectiveKind | null {
   return "unknown";
 }
 
+const EXPLORE_STEPS = new Set(["explore", "discover", "visit"]);
+
+/** Display label for one step. Talk, deliver, and explore stay separate from other errands. */
+export function classifyAction(step: GuideStep): QuestAction | null {
+  const type = step.type.trim().toLowerCase();
+  if (!type || SKIPPED_STEPS.has(type)) return null;
+  if (type === "kill" || type === "slay") return "slay";
+  if (type === "talk") return "talk";
+  if (type === "deliver") return "deliver";
+  if (EXPLORE_STEPS.has(type)) return "explore";
+  if (type === "gather") return "gather";
+  if (type === "collect" || type === "loot") {
+    const coarse = classifyStep(step);
+    if (coarse === "drop" || coarse === "gather" || coarse === "errand" || coarse === "unknown") return coarse;
+    return "unknown";
+  }
+  if (ERRAND_STEPS.has(type)) return "errand";
+  return "unknown";
+}
+
+export function classifyActions(steps: GuideStep[]): QuestAction[] {
+  const actions: QuestAction[] = [];
+  for (const step of steps) {
+    const action = classifyAction(step);
+    if (action) actions.push(action);
+  }
+  if (actions.length > 0) return actions;
+  if (steps.some((step) => SKIPPED_STEPS.has(step.type.trim().toLowerCase()))) return ["errand"];
+  return ["unknown"];
+}
+
 /** One kind per objective step. A quest with only a turn-in is an errand, not unknown. */
 export function classifyQuest(steps: GuideStep[]): ObjectiveKind[] {
   const objectives: ObjectiveKind[] = [];
@@ -111,6 +172,38 @@ export function wowheadQuestUrl(id: number, name: string): string {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
   return `https://www.wowhead.com/forever/quest=${id}/${slug}`;
+}
+
+/** Questie x,y values are a percent of one zone map. They are not a distance and not a duration. */
+export const DURATION_NOTE =
+  "No time estimate. A Questie coordinate is a percentage of that zone's map, and zones are different sizes, so travel time is not in this catalog. Objective counts are not a duration either.";
+
+export function pinsInZone(pins: QuestPin[] | undefined, zone: string): QuestPin[] {
+  if (!pins) return [];
+  return pins.filter((pin) => pin.zone === zone && pin.x >= 0 && pin.x <= 100 && pin.y >= 0 && pin.y <= 100);
+}
+
+export type QuestListSort = "level" | "name" | "duo";
+
+export function listZoneQuests(
+  quests: RankedQuest[],
+  options: { actions: QuestAction[] | null; sort: QuestListSort },
+): RankedQuest[] {
+  const wanted = options.actions;
+  const rows = quests.filter((quest) => {
+    if (!wanted || wanted.length === 0) return true;
+    const kinds = quest.actions?.length ? quest.actions : (quest.objectives as QuestAction[]);
+    return kinds.some((kind) => wanted.includes(kind));
+  });
+  rows.sort((a, b) => {
+    if (options.sort === "name") return a.name.localeCompare(b.name) || a.id - b.id;
+    if (options.sort === "duo") {
+      const friendly = Number(b.friendly) - Number(a.friendly);
+      if (friendly !== 0) return friendly;
+    }
+    return (a.level ?? 0) - (b.level ?? 0) || a.name.localeCompare(b.name) || a.id - b.id;
+  });
+  return rows;
 }
 
 export function isDuoFriendly(objectives: ObjectiveKind[], gatherFriendly: boolean): boolean {

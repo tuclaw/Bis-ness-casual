@@ -462,8 +462,27 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
 .quest-row a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .quest-kinds { font-size: 13px; font-weight: 650; text-align: right; }
 .kind-drop { color: var(--down); }
-.kind-slay, .kind-errand { color: var(--gold); }
+.kind-slay, .kind-errand, .kind-talk, .kind-deliver, .kind-explore { color: var(--gold); }
 .kind-gather, .kind-unknown { color: var(--muted); }
+.quest-drop { background: color-mix(in srgb, var(--down) 8%, transparent); }
+.quest-drop-label { color: var(--down); font-size: 13px; font-weight: 650; }
+.zone-detail { scroll-margin-top: 88px; }
+.quest-tools { display: grid; gap: 10px; margin: 8px 0 12px; }
+.quest-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.quest-filters button {
+  min-height: 36px;
+  padding: 0 8px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 0;
+}
+.quest-filters button[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+.zone-plot { margin: 8px 0 16px; }
+.zone-plot svg { width: min(420px, 100%); height: auto; background: #0c0b09; border: 1px solid var(--line); }
+.zone-plot rect { fill: none; stroke: var(--line-strong); stroke-width: 0.6; }
+.pin-giver { fill: var(--gold); }
+.pin-objective { fill: #3fc7eb; }
+.pin-turnin { fill: var(--muted); }
 
 .lineup-screen {
   width: min(1120px, calc(100% - 24px));

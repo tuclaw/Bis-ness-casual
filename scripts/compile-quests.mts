@@ -9,10 +9,18 @@
  * says "Drops from", and a gather only when it says the item is found in an object.
  */
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { classifyQuest, type GuideStep, type ObjectiveKind, type QuestRecord } from "../src/lib/quests.ts";
+import {
+  classifyActions,
+  classifyQuest,
+  type GuideStep,
+  type ObjectiveKind,
+  type QuestPin,
+  type QuestRecord,
+} from "../src/lib/quests.ts";
 
 const API = "https://wowhelm.com/api/v1/forever/quests";
 const CACHE = "/tmp/bis-quests/quests.jsonl";
+const RICH = "/tmp/bis-quests/rich.jsonl";
 const OUT = new URL("../public/data/quests.json", import.meta.url);
 const PACE_MS = 560;
 
@@ -27,6 +35,10 @@ interface RawQuest {
   xp: number | null;
   steps: GuideStep[];
   build: string | null;
+  giver?: string | null;
+  chainPosition?: number | null;
+  chainTotal?: number | null;
+  pins?: QuestPin[];
 }
 
 function labelText(value: unknown): string {
@@ -39,16 +51,42 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" ? (value as Record<string, unknown>) : null;
 }
 
+function finitePercent(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 100 ? value : null;
+}
+
+function pinFrom(role: QuestPin["role"], where: unknown): QuestPin | null {
+  const record = asRecord(where);
+  if (!record || typeof record.zone !== "string" || !record.zone.trim()) return null;
+  const x = finitePercent(record.x);
+  const y = finitePercent(record.y);
+  if (x == null || y == null) return null;
+  return { role, zone: record.zone.trim(), x, y };
+}
+
 function compact(payload: Record<string, unknown>): RawQuest {
   const guide = Array.isArray(payload.guide) ? payload.guide : [];
   const steps: GuideStep[] = [];
+  const pins: QuestPin[] = [];
   for (const entry of guide) {
     const step = asRecord(entry);
     if (!step || typeof step.type !== "string") continue;
     const more = Array.isArray(step.more) ? step.more.map(labelText).join(" ") : "";
     steps.push({ type: step.type, moreText: more });
+    const type = step.type.trim().toLowerCase();
+    const role = type === "start" ? "giver" : type === "finish" ? "turnin" : type === "before" || type === "after" ? null : "objective";
+    if (role) {
+      const pin = pinFrom(role, step.where);
+      if (pin && !pins.some((have) => have.role === pin.role && have.zone === pin.zone && have.x === pin.x && have.y === pin.y)) {
+        pins.push(pin);
+      }
+    }
   }
   const classes = Array.isArray(payload.classes) ? payload.classes.filter((name): name is string => typeof name === "string") : [];
+  const started = Array.isArray(payload.startedBy) ? asRecord(payload.startedBy[0]) : null;
+  const chain = asRecord(payload.chain);
+  const chainTotal = typeof chain?.total === "number" ? chain.total : null;
+  const chainPosition = typeof chain?.position === "number" ? chain.position : null;
   return {
     id: Number(payload.id),
     name: String(payload.name ?? ""),
@@ -60,6 +98,10 @@ function compact(payload: Record<string, unknown>): RawQuest {
     xp: typeof payload.xp === "number" ? payload.xp : null,
     steps,
     build: typeof payload.build === "string" ? payload.build : null,
+    giver: started && typeof started.name === "string" ? started.name : null,
+    chainPosition: chainTotal != null && chainTotal > 1 ? chainPosition : null,
+    chainTotal: chainTotal != null && chainTotal > 1 ? chainTotal : null,
+    pins: pins.slice(0, 6),
   };
 }
 
@@ -74,7 +116,8 @@ function loadCache(): Map<number, RawQuest> {
   return found;
 }
 
-async function getJson(url: string): Promise<unknown> {
+async function getJson(url: string, paced = true): Promise<unknown> {
+  if (paced) await pace();
   for (let attempt = 0; attempt < 6; attempt += 1) {
     const response = await fetch(url, { headers: { "user-agent": "Bis-ness-casual quest catalog" } });
     if (response.status === 429) {
@@ -172,12 +215,17 @@ function publish(cache: Map<number, RawQuest>): void {
       classes: raw.classes,
       xp: raw.xp,
       objectives,
+      actions: classifyActions(raw.steps),
+      giver: raw.giver ?? null,
+      chainPosition: raw.chainPosition ?? null,
+      chainTotal: raw.chainTotal ?? null,
+      pins: raw.pins ?? [],
     });
   }
   quests.sort((a, b) => a.id - b.id);
   const catalog = {
     source:
-      "Wowhelm Forever quest API (https://wowhelm.com/api/v1/forever/quests), which reads the Warcraft Forever client and QuestieDB objective steps (GPL-3.0, https://github.com/Questie/QuestieDB). Objective kind is taken from those steps: kill, collect marked Drops from, collect marked Found in, or a talk/escort/explore step. Steps with no such mark stay unknown.",
+      "Wowhelm Forever quest API (https://wowhelm.com/api/v1/forever/quests), which reads the Warcraft Forever client and QuestieDB objective steps (GPL-3.0, https://github.com/Questie/QuestieDB). Objective kind is taken from those steps: kill, collect marked Drops from, collect marked Found in, or a talk/escort/explore step. Steps with no such mark stay unknown. Giver, chain position, and map pins are the startedBy, chain, and guide where fields from that same response. Pins are a percent of the named zone map.",
     build,
     total: quests.length,
     objectiveSteps,
@@ -202,10 +250,53 @@ function publish(cache: Map<number, RawQuest>): void {
   );
 }
 
+async function enrich(): Promise<void> {
+  const ids = await listIds();
+  const have = new Set<number>();
+  if (existsSync(RICH)) {
+    for (const line of readFileSync(RICH, "utf8").split("\n")) {
+      if (!line.trim()) continue;
+      const row = JSON.parse(line) as { id?: number };
+      if (typeof row.id === "number") have.add(row.id);
+    }
+  }
+  const pending = ids.filter((id) => !have.has(id));
+  console.log(`rich ${have.size}, fetching ${pending.length}`);
+  const batch = 24;
+  for (let index = 0; index < pending.length; index += batch) {
+    const slice = pending.slice(index, index + batch);
+    const rows = await Promise.all(
+      slice.map(async (id) => {
+        const payload = await getJson(`${API}/${id}`, false);
+        const record = payload ? compact(asRecord(payload) ?? {}) : compact({ id, name: "", guide: [] });
+        if (!payload) record.name = "";
+        return record;
+      }),
+    );
+    appendFileSync(RICH, rows.map((row) => JSON.stringify(row)).join("\n") + "\n");
+    if ((index / batch) % 10 === 0) console.log(`enriched ${Math.min(index + batch, pending.length)}/${pending.length}`);
+  }
+}
+
 mkdirSync("/tmp/bis-quests", { recursive: true });
-const cache = loadCache();
-if (!process.argv.includes("--compile-only")) {
+if (process.argv.includes("--enrich")) {
+  await enrich();
+}
+const useRich = process.argv.includes("--rich") || existsSync(RICH);
+const cachePath = useRich ? RICH : CACHE;
+function loadChosen(): Map<number, RawQuest> {
+  const found = new Map<number, RawQuest>();
+  if (!existsSync(cachePath)) return found;
+  for (const line of readFileSync(cachePath, "utf8").split("\n")) {
+    if (!line.trim()) continue;
+    const row = JSON.parse(line) as RawQuest;
+    found.set(row.id, row);
+  }
+  return found;
+}
+if (!process.argv.includes("--compile-only") && !process.argv.includes("--enrich")) {
+  const cache = loadCache();
   const ids = await listIds();
   await fetchMissing(ids, cache);
 }
-publish(loadCache());
+if (!process.argv.includes("--enrich-only")) publish(loadChosen());

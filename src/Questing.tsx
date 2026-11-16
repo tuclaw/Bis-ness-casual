@@ -1,11 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import {
+  ACTION_LABEL,
+  DURATION_NOTE,
   OBJECTIVE_KINDS,
   OBJECTIVE_LABEL,
+  QUEST_ACTIONS,
+  listZoneQuests,
+  pinsInZone,
   rankZones,
   wowheadQuestUrl,
-  type ObjectiveKind,
+  type QuestAction,
   type QuestCatalog,
+  type QuestListSort,
+  type QuestPin,
   type ZoneRank,
 } from "./lib/quests.ts";
 import type { Faction, SavedProfile } from "./lib/types.ts";
@@ -22,6 +29,8 @@ export function QuestingPage({ character }: { character: SavedProfile["character
   const [windowN, setWindowN] = useState(loadWindow);
   const [gatherFriendly, setGatherFriendly] = useState(loadGather);
   const [selected, setSelected] = useState<string | null>(null);
+  const [sort, setSort] = useState<QuestListSort>("level");
+  const [typeFilter, setTypeFilter] = useState<QuestAction[] | null>(null);
 
   useEffect(() => {
     const base = import.meta.env.BASE_URL;
@@ -60,6 +69,8 @@ export function QuestingPage({ character }: { character: SavedProfile["character
   }, [catalog, level, windowN, faction, className, gatherFriendly]);
 
   const active = ranks.find((zone) => zone.zone === selected) ?? ranks[0] ?? null;
+  const listed = active ? listZoneQuests(active.quests, { actions: typeFilter, sort }) : [];
+  const pins = active ? pinsInZone(listed.flatMap((quest) => quest.pins ?? []), active.zone) : [];
 
   return (
     <section className="questing" aria-label="Questing planner">
@@ -151,27 +162,74 @@ export function QuestingPage({ character }: { character: SavedProfile["character
             ))}
           </ol>
 
-          <h2 className="section-label">{active.zone}</h2>
-          <div className="quest-list">
-            {active.quests.map((quest) => (
-              <article key={quest.id} className="quest-row">
-                <div>
-                  <a href={wowheadQuestUrl(quest.id, quest.name)} target="_blank" rel="noreferrer">
-                    {quest.name}
-                  </a>
-                  <div className="sub">
-                    <span className="sub-text">
-                      lvl {quest.level}
-                      {quest.req != null ? ` · req ${quest.req}` : ""}
-                      {quest.xp != null ? ` · ${quest.xp.toLocaleString("en-US")} xp` : ""}
-                      {quest.friendly ? "" : " · drop-dependent"}
-                    </span>
-                  </div>
-                </div>
-                <div className="quest-kinds">{kindTags(quest.objectives)}</div>
-              </article>
-            ))}
-          </div>
+          <section className="zone-detail" aria-label={`${active.zone} quests`}>
+            <h2 className="section-label">{active.zone}</h2>
+            <p className="fine" title={DURATION_NOTE}>
+              {DURATION_NOTE}
+            </p>
+            <div className="quest-tools">
+              <label className="field">
+                Sort
+                <select aria-label="Sort quests" value={sort} onChange={(event) => setSort(event.target.value as QuestListSort)}>
+                  <option value="level">Level</option>
+                  <option value="name">Name</option>
+                  <option value="duo">Duo-friendly first</option>
+                </select>
+              </label>
+              <div className="quest-filters" role="group" aria-label="Quest type">
+                <button type="button" aria-pressed={typeFilter == null} onClick={() => setTypeFilter(null)}>
+                  All
+                </button>
+                {QUEST_ACTIONS.map((action) => (
+                  <button
+                    key={action}
+                    type="button"
+                    aria-pressed={typeFilter?.includes(action) ?? false}
+                    onClick={() =>
+                      setTypeFilter((current) => {
+                        const base = current ?? [];
+                        const next = base.includes(action) ? base.filter((kind) => kind !== action) : [...base, action];
+                        return next.length ? next : null;
+                      })
+                    }
+                  >
+                    {ACTION_LABEL[action]}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <ZonePlot zone={active.zone} pins={pins} />
+            {listed.length === 0 && <p className="empty">No quests in this zone match the type filter.</p>}
+            <div className="quest-list">
+              {listed.map((quest) => {
+                const actions = quest.actions?.length ? quest.actions : (quest.objectives as QuestAction[]);
+                const drop = quest.objectives.includes("drop");
+                return (
+                  <article key={quest.id} className={`quest-row${drop ? " quest-drop" : ""}`}>
+                    <div>
+                      <a href={wowheadQuestUrl(quest.id, quest.name)} target="_blank" rel="noreferrer">
+                        {quest.name}
+                      </a>
+                      <div className="sub">
+                        <span className="sub-text">
+                          lvl {quest.level ?? "—"}
+                          {quest.req != null ? ` · req ${quest.req}` : ""}
+                          {quest.faction ? ` · ${quest.faction}` : ""}
+                          {quest.giver ? ` · ${quest.giver}` : ""}
+                          {quest.chainTotal != null && quest.chainPosition != null
+                            ? ` · chain ${quest.chainPosition} of ${quest.chainTotal}`
+                            : ""}
+                          {quest.xp != null ? ` · ${quest.xp.toLocaleString("en-US")} xp` : ""}
+                        </span>
+                      </div>
+                      {drop && <div className="quest-drop-label">Drop-dependent. A duo shares this roll.</div>}
+                    </div>
+                    <div className="quest-kinds">{actionTags(actions)}</div>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
         </>
       )}
 
@@ -205,12 +263,35 @@ function ZoneStats({ zone }: { zone: ZoneRank }) {
   );
 }
 
-function kindTags(objectives: ObjectiveKind[]) {
-  const unique = OBJECTIVE_KINDS.filter((kind) => objectives.includes(kind));
+function ZonePlot({ zone, pins }: { zone: string; pins: QuestPin[] }) {
+  if (pins.length === 0) {
+    return (
+      <p className="fine">
+        No Questie coordinates fall inside {zone} for this list. A pin from another zone, such as a city giver, is left off this square.
+      </p>
+    );
+  }
+  return (
+    <figure className="zone-plot">
+      <svg viewBox="0 0 100 100" role="img" aria-label={`Abstract plot of quest pins in ${zone}`}>
+        <rect x="0" y="0" width="100" height="100" />
+        {pins.map((pin, index) => (
+          <circle key={`${pin.role}-${pin.x}-${pin.y}-${index}`} className={`pin-${pin.role}`} cx={pin.x} cy={pin.y} r={pin.role === "objective" ? 1.6 : 1.3} />
+        ))}
+      </svg>
+      <figcaption className="fine">
+        Abstract plot of {zone}. Not a map. Questie x,y run from the top left, 0 to 100. Gold is the giver, blue is an objective, and gray is the turn-in, when that step is in this zone.
+      </figcaption>
+    </figure>
+  );
+}
+
+function actionTags(actions: QuestAction[]) {
+  const unique = QUEST_ACTIONS.filter((kind) => actions.includes(kind));
   return unique.map((kind, index) => (
     <span key={kind}>
       {index > 0 ? " · " : ""}
-      <span className={`kind-${kind}`}>{OBJECTIVE_LABEL[kind]}</span>
+      <span className={`kind-${kind}`}>{ACTION_LABEL[kind]}</span>
     </span>
   ));
 }

@@ -1,14 +1,19 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
+  DURATION_NOTE,
+  classifyAction,
   classifyQuest,
   classifyStep,
   isDuoFriendly,
+  listZoneQuests,
+  pinsInZone,
   rankZones,
   wowheadQuestUrl,
   type ObjectiveKind,
   type QuestCatalog,
   type QuestRecord,
+  type RankedQuest,
 } from "../src/lib/quests.ts";
 
 function quest(partial: Partial<QuestRecord> & Pick<QuestRecord, "id" | "name" | "zone">): QuestRecord {
@@ -44,6 +49,14 @@ describe("quest objective classification", () => {
     expect(classifyStep({ type: "collect", moreText: "" })).toBe("unknown");
   });
 
+  it("keeps talk, deliver, and explore distinct from a generic errand", () => {
+    expect(classifyAction({ type: "talk" })).toBe("talk");
+    expect(classifyAction({ type: "deliver" })).toBe("deliver");
+    expect(classifyAction({ type: "explore" })).toBe("explore");
+    expect(classifyStep({ type: "explore" })).toBe("errand");
+    expect(classifyAction({ type: "use" })).toBe("errand");
+  });
+
   it("treats escort, explore, and a bare turn-in as errands", () => {
     expect(classifyStep({ type: "escort" })).toBe("errand");
     expect(classifyStep({ type: "explore" })).toBe("errand");
@@ -64,6 +77,40 @@ describe("quest objective classification", () => {
     expect(wowheadQuestUrl(530, "A Husband's Revenge")).toBe(
       "https://www.wowhead.com/forever/quest=530/a-husbands-revenge",
     );
+  });
+});
+
+describe("zone quest list", () => {
+  function ranked(partial: Partial<QuestRecord> & Pick<QuestRecord, "id" | "name">): RankedQuest {
+    return { ...quest({ ...partial, zone: partial.zone ?? "The Barrens" }), friendly: !partial.objectives?.includes("drop") };
+  }
+
+  it("filters by action and sorts duo-friendly quests first", () => {
+    const rows = [
+      ranked({ id: 1, name: "Horns", objectives: ["drop"], actions: ["drop"], level: 20 }),
+      ranked({ id: 2, name: "Talk", objectives: ["errand"], actions: ["talk"], level: 22 }),
+      ranked({ id: 3, name: "Boars", objectives: ["slay"], actions: ["slay"], level: 18 }),
+    ];
+    expect(listZoneQuests(rows, { actions: ["slay", "talk"], sort: "level" }).map((row) => row.name)).toEqual(["Boars", "Talk"]);
+    expect(listZoneQuests(rows, { actions: null, sort: "duo" })[0]?.name).not.toBe("Horns");
+  });
+
+  it("plots only pins that belong to the selected zone", () => {
+    expect(
+      pinsInZone(
+        [
+          { role: "giver", zone: "Undercity", x: 62, y: 42 },
+          { role: "objective", zone: "Silverpine Forest", x: 45, y: 85 },
+          { role: "objective", zone: "Silverpine Forest", x: 120, y: 10 },
+        ],
+        "Silverpine Forest",
+      ),
+    ).toEqual([{ role: "objective", zone: "Silverpine Forest", x: 45, y: 85 }]);
+  });
+
+  it("does not turn map percentages into a duration", () => {
+    expect(DURATION_NOTE.toLowerCase()).toContain("no time estimate");
+    expect(DURATION_NOTE.toLowerCase()).not.toContain("minute");
   });
 });
 
@@ -120,6 +167,11 @@ describe("duo zone ranking", () => {
     const catalog = JSON.parse(readFileSync(new URL("../public/data/quests.json", import.meta.url), "utf8")) as QuestCatalog;
     const kinds = new Set<ObjectiveKind>(["slay", "drop", "gather", "errand", "unknown"]);
     expect(catalog.total).toBeGreaterThan(4000);
+    const revenge = catalog.quests.find((quest) => quest.id === 530);
+    expect(revenge?.giver).toBe("Raleigh Andrean");
+    expect(revenge?.chainPosition).toBe(6);
+    expect(revenge?.chainTotal).toBe(6);
+    expect(revenge?.pins?.some((pin) => pin.role === "objective" && pin.zone === "Silverpine Forest")).toBe(true);
     expect(catalog.unknownObjectives).toBeGreaterThan(0);
     expect(catalog.unknownObjectives).toBeLessThan(catalog.objectiveSteps);
     for (const quest of catalog.quests) {
