@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-16T18:31:37.785Z",
+    "fetchedAt": "2026-11-17T02:28:35.099Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -571,7 +571,7 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-16T18:31:37.785Z",
+    "fetchedAt": "2026-11-17T02:28:35.099Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -1146,7 +1146,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-16T18:31:37.785Z",
+    "fetchedAt": "2026-11-17T02:28:35.099Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1154,7 +1154,7 @@
     "character": {
       "name": "Ffsparky",
       "surname": "Jr",
-      "level": 33,
+      "level": 34,
       "classId": "druid",
       "className": "Druid",
       "race": "Windshaper Skyborne",
@@ -1166,16 +1166,16 @@
       "ilvl": 23,
       "honorableKills": 19,
       "region": "us",
-      "updatedAt": "2026-11-16T16:41:43Z",
+      "updatedAt": "2026-11-16T23:43:55Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1154,
+          "value": 1188,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1459,
+          "value": 1489,
           "percent": false
         },
         {
@@ -1195,22 +1195,22 @@
         },
         {
           "key": "AGILITY",
-          "value": 83,
-          "percent": false
-        },
-        {
-          "key": "INTELLECT",
-          "value": 70,
-          "percent": false
-        },
-        {
-          "key": "STAMINA",
           "value": 84,
           "percent": false
         },
         {
+          "key": "INTELLECT",
+          "value": 71,
+          "percent": false
+        },
+        {
+          "key": "STAMINA",
+          "value": 85,
+          "percent": false
+        },
+        {
           "key": "CRITICALSTRIKE",
-          "value": 4.3081994,
+          "value": 4.050801,
           "percent": true
         },
         {
@@ -1260,17 +1260,17 @@
         },
         {
           "key": "MANAREGEN",
-          "value": 87,
+          "value": 88,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 697,
+          "value": 699,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 11.948201,
+          "value": 11.6908,
           "percent": true
         },
         {
@@ -1301,7 +1301,7 @@
         {
           "id": "feral-combat",
           "name": "Feral Combat",
-          "spent": 22,
+          "spent": 23,
           "active": true,
           "talents": [
             {
@@ -1351,8 +1351,8 @@
             },
             {
               "name": "Natural Instinct",
-              "rank": 1,
-              "description": "Increases the critical strike damage bonus of your melee abilities by 10% and increases your spell healing by 12% of your Intellect."
+              "rank": 2,
+              "description": "Increases the critical strike damage bonus of your melee abilities by 20% and increases your spell healing by 25% of your Intellect."
             }
           ]
         }
@@ -1652,7 +1652,7 @@
         },
         {
           "name": "Cooking",
-          "skill": 150,
+          "skill": 151,
           "max": 225,
           "primary": false
         },
@@ -1674,15 +1674,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/ffsparky-jr.png",
-    "renderHash": "98fcaa1bd141",
+    "renderHash": "a5f500964dc3",
     "avatarFile": "characters/ffsparky-jr-avatar.jpg",
-    "avatarHash": "149dc5bac15b"
+    "avatarHash": "a89da7051a47"
   },
   {
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-16T18:31:37.785Z",
+    "fetchedAt": "2026-11-17T02:28:35.099Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2133,7 +2133,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-16T18:31:37.785Z",
+    "fetchedAt": "2026-11-17T02:28:35.099Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2141,7 +2141,7 @@
     "character": {
       "name": "Spooky",
       "surname": "Guyy",
-      "level": 34,
+      "level": 35,
       "classId": "rogue",
       "className": "Rogue",
       "race": "Undead",
@@ -2151,13 +2151,13 @@
       "rulesetId": 1,
       "guild": "ØnlyDads",
       "ilvl": 28,
-      "honorableKills": 26,
+      "honorableKills": 27,
       "region": "us",
-      "updatedAt": "2026-11-16T15:01:05Z",
+      "updatedAt": "2026-11-16T18:58:20Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1486,
+          "value": 1443,
           "percent": false
         },
         {
@@ -2177,12 +2177,12 @@
         },
         {
           "key": "STRENGTH",
-          "value": 47,
+          "value": 48,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 125,
+          "value": 137,
           "percent": false
         },
         {
@@ -2192,12 +2192,12 @@
         },
         {
           "key": "STAMINA",
-          "value": 114,
+          "value": 107,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 8.3475,
+          "value": 6.5964994,
           "percent": true
         },
         {
@@ -2227,7 +2227,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 236,
+          "value": 251,
           "percent": false
         },
         {
@@ -2237,7 +2237,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 40.770187,
+          "value": 41.841618,
           "percent": false
         },
         {
@@ -2252,17 +2252,17 @@
         },
         {
           "key": "ARMOR",
-          "value": 831,
+          "value": 905,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 16.654999,
+          "value": 17.353,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 10.879999,
+          "value": 10.68,
           "percent": true
         },
         {
@@ -2450,19 +2450,19 @@
         {
           "slot": "head",
           "armorySlot": "head",
-          "itemId": 4385,
-          "name": "Green Tinted Goggles",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133149.jpg",
+          "itemId": 6720,
+          "name": "Spirit Hunter Headdress",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133119.jpg",
           "quality": "uncommon",
-          "ilvl": 30,
+          "ilvl": 37,
           "req": null,
-          "armorType": "cloth",
+          "armorType": "leather",
           "weaponType": null,
           "inventoryType": "HEAD",
           "stats": {
-            "sta": 8,
-            "spi": 7,
-            "armor": 35
+            "agi": 10,
+            "spi": 9,
+            "armor": 85
           },
           "dps": null,
           "speed": null,
@@ -2737,15 +2737,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/spooky-guyy.png",
-    "renderHash": "53604c64653a",
+    "renderHash": "05cdf07c665b",
     "avatarFile": "characters/spooky-guyy-avatar.jpg",
-    "avatarHash": "c9d0b6188509"
+    "avatarHash": "6f9bb6a87ab5"
   },
   {
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-16T18:31:37.785Z",
+    "fetchedAt": "2026-11-17T02:28:35.099Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -2762,14 +2762,14 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 30,
-      "honorableKills": 12,
+      "ilvl": 32,
+      "honorableKills": 15,
       "region": "us",
-      "updatedAt": "2026-11-16T16:49:20Z",
+      "updatedAt": "2026-11-16T20:52:05Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1518,
+          "value": 1588,
           "percent": false
         },
         {
@@ -2779,7 +2779,7 @@
         },
         {
           "key": "ITEMLEVEL",
-          "value": 31,
+          "value": 33,
           "percent": false
         },
         {
@@ -2789,7 +2789,7 @@
         },
         {
           "key": "STRENGTH",
-          "value": 158,
+          "value": 151,
           "percent": false
         },
         {
@@ -2804,7 +2804,7 @@
         },
         {
           "key": "STAMINA",
-          "value": 123,
+          "value": 130,
           "percent": false
         },
         {
@@ -2839,7 +2839,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 426,
+          "value": 439,
           "percent": false
         },
         {
@@ -2849,7 +2849,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 69.94317,
+          "value": 70.92747,
           "percent": false
         },
         {
@@ -2864,22 +2864,22 @@
         },
         {
           "key": "ARMOR",
-          "value": 1645,
+          "value": 1658,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.4804,
+          "value": 4.5204,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 7.92,
+          "value": 7.96,
           "percent": true
         },
         {
           "key": "BLOCK",
-          "value": 5.9200006,
+          "value": 5.9600005,
           "percent": true
         }
       ],
@@ -3141,17 +3141,19 @@
         {
           "slot": "neck",
           "armorySlot": "neck",
-          "itemId": 281265,
-          "name": "Roadwatcher's Confidence",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133288.jpg",
+          "itemId": 12030,
+          "name": "Jet Chain of the Bandit",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133293.jpg",
           "quality": "uncommon",
-          "ilvl": 20,
-          "req": null,
+          "ilvl": 39,
+          "req": 34,
           "armorType": "miscellaneous",
           "weaponType": null,
           "inventoryType": "NECK",
           "stats": {
-            "spi": 3
+            "agi": 3,
+            "sta": 7,
+            "ap": 7
           },
           "dps": null,
           "speed": null,
@@ -3243,19 +3245,18 @@
         {
           "slot": "waist",
           "armorySlot": "waist",
-          "itemId": 6460,
-          "name": "Cobrahn's Grasp",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132492.jpg",
-          "quality": "rare",
-          "ilvl": 22,
-          "req": 17,
+          "itemId": 9869,
+          "name": "Renegade Belt of Power",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132515.jpg",
+          "quality": "uncommon",
+          "ilvl": 35,
+          "req": 30,
           "armorType": "mail",
           "weaponType": null,
           "inventoryType": "WAIST",
           "stats": {
-            "agi": 3,
-            "str": 7,
-            "armor": 107
+            "ap": 20,
+            "armor": 120
           },
           "dps": null,
           "speed": null,
@@ -3310,7 +3311,7 @@
       "professions": [
         {
           "name": "Mining",
-          "skill": 185,
+          "skill": 188,
           "max": 225,
           "primary": true
         },
@@ -3344,15 +3345,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/sir-stackers.png",
-    "renderHash": "d8f4ad45590c",
+    "renderHash": "a2e46bfa2dac",
     "avatarFile": "characters/sir-stackers-avatar.jpg",
-    "avatarHash": "bc36e8ddbcb5"
+    "avatarHash": "2e963eb8d246"
   },
   {
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-16T18:31:37.785Z",
+    "fetchedAt": "2026-11-17T02:28:35.099Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -3370,9 +3371,9 @@
       "rulesetId": 1,
       "guild": null,
       "ilvl": 32,
-      "honorableKills": 32,
+      "honorableKills": 83,
       "region": "us",
-      "updatedAt": "2026-11-16T16:32:27Z",
+      "updatedAt": "2026-11-16T19:01:01Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -3925,15 +3926,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/sleepy-sleepyy.png",
-    "renderHash": "6e83155e36f5",
+    "renderHash": "77e3aa213090",
     "avatarFile": "characters/sleepy-sleepyy-avatar.jpg",
-    "avatarHash": "6a6068b5855a"
+    "avatarHash": "b33f5f409f1d"
   },
   {
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-16T18:31:37.785Z",
+    "fetchedAt": "2026-11-17T02:28:35.099Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
