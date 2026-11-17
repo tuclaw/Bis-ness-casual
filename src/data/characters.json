@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-17T02:28:35.099Z",
+    "fetchedAt": "2026-11-17T11:49:31.078Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -23,7 +23,7 @@
       "ilvl": 27,
       "honorableKills": 128,
       "region": "us",
-      "updatedAt": "2026-11-16T07:28:56Z",
+      "updatedAt": "2026-11-17T05:39:24Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -571,7 +571,7 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-17T02:28:35.099Z",
+    "fetchedAt": "2026-11-17T11:49:31.078Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -591,7 +591,7 @@
       "ilvl": 23,
       "honorableKills": 132,
       "region": "us",
-      "updatedAt": "2026-11-16T08:01:02Z",
+      "updatedAt": "2026-11-17T07:17:53Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -749,7 +749,7 @@
             {
               "name": "Arcane Blast",
               "rank": 1,
-              "description": "Blasts the target with energy, dealing 59 to 67 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
+              "description": "Blasts the target with energy, dealing 62 to 65 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
             },
             {
               "name": "Arcane Meditation",
@@ -759,7 +759,7 @@
             {
               "name": "Arcane Wrath",
               "rank": 1,
-              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 169 to 196 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
+              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 175 to 203 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
             }
           ]
         }
@@ -1146,7 +1146,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-17T02:28:35.099Z",
+    "fetchedAt": "2026-11-17T11:49:31.078Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1163,24 +1163,24 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 23,
+      "ilvl": 25,
       "honorableKills": 19,
       "region": "us",
-      "updatedAt": "2026-11-16T23:43:55Z",
+      "updatedAt": "2026-11-17T06:11:34Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1188,
+          "value": 1238,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1489,
+          "value": 1774,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 23,
+          "value": 25,
           "percent": false
         },
         {
@@ -1190,27 +1190,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 61,
+          "value": 51,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 84,
+          "value": 93,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 71,
+          "value": 90,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 85,
+          "value": 90,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.050801,
+          "value": 4.8441005,
           "percent": true
         },
         {
@@ -1225,7 +1225,7 @@
         },
         {
           "key": "BONUSARMOR",
-          "value": 0,
+          "value": 24,
           "percent": false
         },
         {
@@ -1240,7 +1240,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 118,
+          "value": 110,
           "percent": false
         },
         {
@@ -1250,7 +1250,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 40.516148,
+          "value": 39.93325,
           "percent": false
         },
         {
@@ -1260,17 +1260,17 @@
         },
         {
           "key": "MANAREGEN",
-          "value": 88,
+          "value": 81,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 699,
+          "value": 745,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 11.6908,
+          "value": 12.684101,
           "percent": true
         },
         {
@@ -1383,20 +1383,20 @@
         {
           "slot": "chest",
           "armorySlot": "chest",
-          "itemId": 270043,
-          "name": "Dreamer's Chestguard",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132716.jpg",
+          "itemId": 273038,
+          "name": "Garb of Fallen Felbark",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135013.jpg",
           "quality": "rare",
-          "ilvl": 32,
-          "req": null,
+          "ilvl": 34,
+          "req": 29,
           "armorType": "leather",
           "weaponType": null,
           "inventoryType": "CHEST",
           "stats": {
-            "str": 10,
-            "sta": 5,
-            "spi": 11,
-            "armor": 106
+            "int": 13,
+            "agi": 9,
+            "sta": 7,
+            "armor": 110
           },
           "dps": null,
           "speed": null,
@@ -1445,7 +1445,11 @@
           "dps": null,
           "speed": null,
           "effect": null,
-          "enchant": null
+          "enchant": {
+            "enchantId": 8484,
+            "name": "Heavy Armor Kit",
+            "label": "Enchanted: Stamina +3 and Armor +24"
+          }
         },
         {
           "slot": "head",
@@ -1507,6 +1511,27 @@
           "dps": null,
           "speed": null,
           "effect": null,
+          "enchant": null
+        },
+        {
+          "slot": "neck",
+          "armorySlot": "neck",
+          "itemId": 273049,
+          "name": "Archmagister's Faceted Pendant",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/466975.jpg",
+          "quality": "rare",
+          "ilvl": 35,
+          "req": 30,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "NECK",
+          "stats": {
+            "int": 6,
+            "ap": 12
+          },
+          "dps": null,
+          "speed": null,
+          "effect": "Use: Increase experience gained from slaying Undead by 10% for 5 min. (6 Hr Cooldown)",
           "enchant": null
         },
         {
@@ -1646,7 +1671,7 @@
         },
         {
           "name": "Skinning",
-          "skill": 198,
+          "skill": 202,
           "max": 225,
           "primary": true
         },
@@ -1682,7 +1707,7 @@
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-17T02:28:35.099Z",
+    "fetchedAt": "2026-11-17T11:49:31.078Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2133,7 +2158,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-17T02:28:35.099Z",
+    "fetchedAt": "2026-11-17T11:49:31.078Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2151,9 +2176,9 @@
       "rulesetId": 1,
       "guild": "ØnlyDads",
       "ilvl": 28,
-      "honorableKills": 27,
+      "honorableKills": 36,
       "region": "us",
-      "updatedAt": "2026-11-16T18:58:20Z",
+      "updatedAt": "2026-11-17T05:07:16Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -2197,7 +2222,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 6.5964994,
+          "value": 8.7965,
           "percent": true
         },
         {
@@ -2257,12 +2282,12 @@
         },
         {
           "key": "DODGE",
-          "value": 17.353,
+          "value": 17.553,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 10.68,
+          "value": 10.879999,
           "percent": true
         },
         {
@@ -2275,7 +2300,7 @@
         {
           "id": "combat",
           "name": "Combat",
-          "spent": 25,
+          "spent": 26,
           "active": true,
           "talents": [
             {
@@ -2325,8 +2350,8 @@
             },
             {
               "name": "Aggression",
-              "rank": 2,
-              "description": "Increases the damage of your Sinister Strike and Eviscerate abilities by 10%."
+              "rank": 3,
+              "description": "Increases the damage of your Sinister Strike and Eviscerate abilities by 15%."
             },
             {
               "name": "Dual Wield Specialization",
@@ -2569,7 +2594,11 @@
           "dps": 20.588234,
           "speed": 1.7,
           "effect": "Chance on hit: Hurl spikes at the target, dealing 45 Physical damage and jumping to 1 additional nearby enemy. Each jump reduces the damage by 50%.",
-          "enchant": null
+          "enchant": {
+            "enchantId": 22,
+            "name": "Runecarving Test - Crippling Poison",
+            "label": "Crippling Poison"
+          }
         },
         {
           "slot": "ranged",
@@ -2676,7 +2705,11 @@
           "dps": 23.913042,
           "speed": 2.3,
           "effect": null,
-          "enchant": null
+          "enchant": {
+            "enchantId": 324,
+            "name": "Instant Poison II",
+            "label": "Instant Poison II (68"
+          }
         },
         {
           "slot": "wrist",
@@ -2745,7 +2778,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-17T02:28:35.099Z",
+    "fetchedAt": "2026-11-17T11:49:31.078Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -2753,7 +2786,7 @@
     "character": {
       "name": "Sir",
       "surname": "Stackers",
-      "level": 34,
+      "level": 35,
       "classId": "warrior",
       "className": "Warrior",
       "race": "Undead",
@@ -2763,13 +2796,13 @@
       "rulesetId": 1,
       "guild": "ØnlyDads",
       "ilvl": 32,
-      "honorableKills": 15,
+      "honorableKills": 23,
       "region": "us",
-      "updatedAt": "2026-11-16T20:52:05Z",
+      "updatedAt": "2026-11-17T04:06:05Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1588,
+          "value": 1629,
           "percent": false
         },
         {
@@ -2779,7 +2812,7 @@
         },
         {
           "key": "ITEMLEVEL",
-          "value": 33,
+          "value": 34,
           "percent": false
         },
         {
@@ -2789,12 +2822,12 @@
         },
         {
           "key": "STRENGTH",
-          "value": 151,
+          "value": 153,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 52,
+          "value": 53,
           "percent": false
         },
         {
@@ -2804,12 +2837,12 @@
         },
         {
           "key": "STAMINA",
-          "value": 130,
+          "value": 131,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.5604,
+          "value": 4.4491,
           "percent": true
         },
         {
@@ -2839,7 +2872,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 439,
+          "value": 446,
           "percent": false
         },
         {
@@ -2849,7 +2882,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 70.92747,
+          "value": 71.45746,
           "percent": false
         },
         {
@@ -2864,22 +2897,22 @@
         },
         {
           "key": "ARMOR",
-          "value": 1658,
+          "value": 1660,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.5204,
+          "value": 4.4090996,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 7.96,
+          "value": 7.92,
           "percent": true
         },
         {
           "key": "BLOCK",
-          "value": 5.9600005,
+          "value": 5.9200006,
           "percent": true
         }
       ],
@@ -2887,7 +2920,7 @@
         {
           "id": "arms",
           "name": "Arms",
-          "spent": 25,
+          "spent": 26,
           "active": true,
           "talents": [
             {
@@ -2949,6 +2982,11 @@
               "name": "Weaponmaster",
               "rank": 1,
               "description": "Gives your melee weapon attacks a benefit depending on the weapon.\r\n\r\n    Axe/Polearm: Increases your\r\n    critical strike chance by 1%.\r\n\r\n    Mace/Staff: Your attacks ignore\r\n    3% of your target's armor.\r\n\r\n    Sword: Your successful melee \r\n    attacks have a 1% chance to \r\n    trigger an extra attack on the \r\n    target."
+            },
+            {
+              "name": "Improved Slam",
+              "rank": 1,
+              "description": "Reduces the cooldown of your Slam ability by 2.5 sec, the cast time and global cooldown by 0.25 sec, and Slam no longer interrupts or delays your melee swing."
             }
           ]
         }
@@ -3353,7 +3391,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-17T02:28:35.099Z",
+    "fetchedAt": "2026-11-17T11:49:31.078Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -3371,9 +3409,9 @@
       "rulesetId": 1,
       "guild": null,
       "ilvl": 32,
-      "honorableKills": 83,
+      "honorableKills": 272,
       "region": "us",
-      "updatedAt": "2026-11-16T19:01:01Z",
+      "updatedAt": "2026-11-17T04:17:35Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -3417,7 +3455,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 9.5313,
+          "value": 9.6513,
           "percent": true
         },
         {
@@ -3477,7 +3515,7 @@
         },
         {
           "key": "DODGE",
-          "value": 4.5313005,
+          "value": 4.5713005,
           "percent": true
         },
         {
@@ -3487,7 +3525,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.84,
+          "value": 4.88,
           "percent": true
         }
       ],
@@ -3904,7 +3942,7 @@
         },
         {
           "name": "Herbalism",
-          "skill": 186,
+          "skill": 192,
           "max": 225,
           "primary": true
         },
@@ -3934,7 +3972,7 @@
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-17T02:28:35.099Z",
+    "fetchedAt": "2026-11-17T11:49:31.078Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
