@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-19T02:33:12.796Z",
+    "fetchedAt": "2026-11-19T11:36:41.350Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -576,7 +576,7 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-19T02:33:12.796Z",
+    "fetchedAt": "2026-11-19T11:36:41.350Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -1169,7 +1169,7 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/mrs-dingomon.png",
-    "renderHash": "57b361a3e2bd",
+    "renderHash": "323935854822",
     "avatarFile": "characters/mrs-dingomon-avatar.jpg",
     "avatarHash": "1652f354842e"
   },
@@ -1177,7 +1177,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-19T02:33:12.796Z",
+    "fetchedAt": "2026-11-19T11:36:41.350Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1194,14 +1194,14 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 29,
+      "ilvl": 30,
       "honorableKills": 43,
       "region": "us",
-      "updatedAt": "2026-11-18T23:27:39Z",
+      "updatedAt": "2026-11-19T05:51:06Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1426,
+          "value": 1486,
           "percent": false
         },
         {
@@ -1211,7 +1211,7 @@
         },
         {
           "key": "ITEMLEVEL",
-          "value": 29,
+          "value": 30,
           "percent": false
         },
         {
@@ -1221,7 +1221,7 @@
         },
         {
           "key": "STRENGTH",
-          "value": 62,
+          "value": 67,
           "percent": false
         },
         {
@@ -1236,7 +1236,7 @@
         },
         {
           "key": "STAMINA",
-          "value": 101,
+          "value": 107,
           "percent": false
         },
         {
@@ -1271,7 +1271,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 130,
+          "value": 140,
           "percent": false
         },
         {
@@ -1281,7 +1281,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 39.047134,
+          "value": 39.775627,
           "percent": false
         },
         {
@@ -1291,17 +1291,17 @@
         },
         {
           "key": "MANAREGEN",
-          "value": 85,
+          "value": 80,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 840,
+          "value": 848,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 13.567999,
+          "value": 13.648001,
           "percent": true
         },
         {
@@ -1647,19 +1647,20 @@
         {
           "slot": "shoulder",
           "armorySlot": "shoulder",
-          "itemId": 5404,
-          "name": "Serpent's Shoulders",
+          "itemId": 5964,
+          "name": "Barbaric Shoulders",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135039.jpg",
-          "quality": "rare",
-          "ilvl": 23,
-          "req": 18,
+          "quality": "uncommon",
+          "ilvl": 35,
+          "req": 30,
           "armorType": "leather",
           "weaponType": null,
           "inventoryType": "SHOULDER",
           "stats": {
             "agi": 5,
-            "spi": 7,
-            "armor": 68
+            "str": 5,
+            "sta": 6,
+            "armor": 76
           },
           "dps": null,
           "speed": null,
@@ -1735,14 +1736,14 @@
       "professions": [
         {
           "name": "Leatherworking",
-          "skill": 150,
+          "skill": 165,
           "max": 225,
           "primary": true
         },
         {
           "name": "Skinning",
           "skill": 225,
-          "max": 225,
+          "max": 300,
           "primary": true
         },
         {
@@ -1769,15 +1770,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/ffsparky-jr.png",
-    "renderHash": "b0d31211aa15",
+    "renderHash": "3db62e48b8b9",
     "avatarFile": "characters/ffsparky-jr-avatar.jpg",
-    "avatarHash": "dc14dcf19b93"
+    "avatarHash": "034d3bdd0da4"
   },
   {
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-19T02:33:12.796Z",
+    "fetchedAt": "2026-11-19T11:36:41.350Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2228,7 +2229,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-19T02:33:12.796Z",
+    "fetchedAt": "2026-11-19T11:36:41.350Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2236,7 +2237,7 @@
     "character": {
       "name": "Spooky",
       "surname": "Guyy",
-      "level": 36,
+      "level": 37,
       "classId": "rogue",
       "className": "Rogue",
       "race": "Undead",
@@ -2246,13 +2247,13 @@
       "rulesetId": 1,
       "guild": "ØnlyDads",
       "ilvl": 29,
-      "honorableKills": 54,
+      "honorableKills": 70,
       "region": "us",
-      "updatedAt": "2026-11-18T21:50:47Z",
+      "updatedAt": "2026-11-19T05:28:49Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1391,
+          "value": 1430,
           "percent": false
         },
         {
@@ -2272,12 +2273,12 @@
         },
         {
           "key": "STRENGTH",
-          "value": 53,
+          "value": 54,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 147,
+          "value": 148,
           "percent": false
         },
         {
@@ -2287,12 +2288,12 @@
         },
         {
           "key": "STAMINA",
-          "value": 99,
+          "value": 100,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 9.187499,
+          "value": 8.988,
           "percent": true
         },
         {
@@ -2322,7 +2323,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 296,
+          "value": 300,
           "percent": false
         },
         {
@@ -2332,7 +2333,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 45.0559,
+          "value": 45.341618,
           "percent": false
         },
         {
@@ -2347,17 +2348,17 @@
         },
         {
           "key": "ARMOR",
-          "value": 948,
+          "value": 950,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 18.175,
+          "value": 17.936,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 10.799999,
+          "value": 10.879999,
           "percent": true
         },
         {
@@ -2370,7 +2371,7 @@
         {
           "id": "combat",
           "name": "Combat",
-          "spent": 27,
+          "spent": 28,
           "active": true,
           "talents": [
             {
@@ -2435,8 +2436,8 @@
             },
             {
               "name": "Hack and Slash",
-              "rank": 3,
-              "description": "Gives your melee weapon attacks a benefit depending on the weapon.\r\n\r\n    Axe/Sword: Your successful\r\n    melee attacks have a 3% chance\r\n    to trigger an extra attack on the \r\n    target.\r\n\r\n    Dagger/Fist: Increases your\r\n    critical strike chance by 3%.\r\n\r\n    Mace: Your attacks ignore 9% of\r\n    your target's armor."
+              "rank": 4,
+              "description": "Gives your melee weapon attacks a benefit depending on the weapon.\r\n\r\n    Axe/Sword: Your successful\r\n    melee attacks have a 4% chance\r\n    to trigger an extra attack on the \r\n    target.\r\n\r\n    Dagger/Fist: Increases your\r\n    critical strike chance by 4%.\r\n\r\n    Mace: Your attacks ignore 12% of\r\n    your target's armor."
             }
           ]
         }
@@ -2798,7 +2799,7 @@
       "professions": [
         {
           "name": "Mining",
-          "skill": 108,
+          "skill": 109,
           "max": 150,
           "primary": true
         },
@@ -2822,7 +2823,7 @@
         },
         {
           "name": "First Aid",
-          "skill": 212,
+          "skill": 218,
           "max": 225,
           "primary": false
         }
@@ -2832,15 +2833,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/spooky-guyy.png",
-    "renderHash": "ad9fbf6a5b39",
+    "renderHash": "d0782f14c06c",
     "avatarFile": "characters/spooky-guyy-avatar.jpg",
-    "avatarHash": "a207d8958019"
+    "avatarHash": "644434681b7b"
   },
   {
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-19T02:33:12.796Z",
+    "fetchedAt": "2026-11-19T11:36:41.350Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3450,7 +3451,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-19T02:33:12.796Z",
+    "fetchedAt": "2026-11-19T11:36:41.350Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -3468,9 +3469,9 @@
       "rulesetId": 1,
       "guild": null,
       "ilvl": 33,
-      "honorableKills": 950,
+      "honorableKills": 968,
       "region": "us",
-      "updatedAt": "2026-11-18T19:18:18Z",
+      "updatedAt": "2026-11-19T04:33:09Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -3514,7 +3515,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 9.58,
+          "value": 9.66,
           "percent": true
         },
         {
@@ -3574,17 +3575,17 @@
         },
         {
           "key": "DODGE",
-          "value": 4.34,
+          "value": 4.54,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 4.64,
+          "value": 4.84,
           "percent": true
         },
         {
           "key": "BLOCK",
-          "value": 4.64,
+          "value": 4.84,
           "percent": true
         }
       ],
@@ -4007,7 +4008,7 @@
         },
         {
           "name": "Herbalism",
-          "skill": 203,
+          "skill": 213,
           "max": 225,
           "primary": true
         },
@@ -4037,7 +4038,7 @@
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-19T02:33:12.796Z",
+    "fetchedAt": "2026-11-19T11:36:41.350Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
