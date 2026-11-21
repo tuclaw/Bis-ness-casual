@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-21T17:29:29.158Z",
+    "fetchedAt": "2026-11-21T23:13:18.693Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -11,7 +11,7 @@
     "character": {
       "name": "Daz",
       "surname": "Dingomon",
-      "level": 30,
+      "level": 31,
       "classId": "shaman",
       "className": "Shaman",
       "race": "Troll",
@@ -20,24 +20,24 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 27,
+      "ilvl": 28,
       "honorableKills": 129,
       "region": "us",
-      "updatedAt": "2026-11-21T05:53:15Z",
+      "updatedAt": "2026-11-21T23:05:30Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1270,
+          "value": 1374,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1120,
+          "value": 1274,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 27,
+          "value": 28,
           "percent": false
         },
         {
@@ -47,27 +47,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 59,
+          "value": 60,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 41,
+          "value": 35,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 49,
+          "value": 57,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 109,
+          "value": 118,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.6588,
+          "value": 4.018,
           "percent": true
         },
         {
@@ -97,7 +97,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 162,
+          "value": 166,
           "percent": false
         },
         {
@@ -107,27 +107,27 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 32.34066,
+          "value": 32.626377,
           "percent": false
         },
         {
           "key": "SPELLPOWER",
-          "value": 74,
+          "value": 67,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 106,
+          "value": 107,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 559,
+          "value": 553,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.9788003,
+          "value": 4.298,
           "percent": true
         },
         {
@@ -137,7 +137,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.7200003,
+          "value": 4.56,
           "percent": true
         }
       ],
@@ -145,7 +145,7 @@
         {
           "id": "restoration",
           "name": "Restoration",
-          "spent": 21,
+          "spent": 22,
           "active": true,
           "talents": [
             {
@@ -185,8 +185,8 @@
             },
             {
               "name": "Restorative Totems",
-              "rank": 4,
-              "description": "Increases the effect of your Mana Spring Totem by 20% and increases the effect of your Healing Stream Totem by 40%."
+              "rank": 5,
+              "description": "Increases the effect of your Mana Spring Totem by 25% and increases the effect of your Healing Stream Totem by 50%."
             },
             {
               "name": "Mana Tide Totem",
@@ -282,19 +282,19 @@
         {
           "slot": "hands",
           "armorySlot": "hand",
-          "itemId": 5970,
-          "name": "Serpent Gloves",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132953.jpg",
+          "itemId": 273034,
+          "name": "Ephemeral Grips",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132958.jpg",
           "quality": "rare",
-          "ilvl": 23,
-          "req": 18,
+          "ilvl": 32,
+          "req": 27,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "HAND",
           "stats": {
-            "agi": 6,
-            "sp": 7,
-            "armor": 25
+            "int": 7,
+            "sta": 7,
+            "armor": 31
           },
           "dps": null,
           "speed": null,
@@ -576,15 +576,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/daz-dingomon.png",
-    "renderHash": "532d823ab72b",
+    "renderHash": "2612fd30ac7a",
     "avatarFile": "characters/daz-dingomon-avatar.jpg",
-    "avatarHash": "8e34ec1e5dda"
+    "avatarHash": "687354d96cf3"
   },
   {
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-21T17:29:29.158Z",
+    "fetchedAt": "2026-11-21T23:13:18.693Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -592,7 +592,7 @@
     "character": {
       "name": "Mrs",
       "surname": "Dingomon",
-      "level": 30,
+      "level": 31,
       "classId": "mage",
       "className": "Mage",
       "race": "Troll",
@@ -601,24 +601,24 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 26,
+      "ilvl": 28,
       "honorableKills": 133,
       "region": "us",
-      "updatedAt": "2026-11-21T05:52:46Z",
+      "updatedAt": "2026-11-21T22:36:43Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 945,
+          "value": 908,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1863,
+          "value": 2094,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 26,
+          "value": 29,
           "percent": false
         },
         {
@@ -638,17 +638,17 @@
         },
         {
           "key": "INTELLECT",
-          "value": 102,
+          "value": 116,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 73,
+          "value": 67,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 1.2360002,
+          "value": 1.8360002,
           "percent": true
         },
         {
@@ -663,7 +663,7 @@
         },
         {
           "key": "BONUSARMOR",
-          "value": 0,
+          "value": 50,
           "percent": false
         },
         {
@@ -693,7 +693,7 @@
         },
         {
           "key": "SPELLPOWER",
-          "value": 80,
+          "value": 101,
           "percent": false
         },
         {
@@ -703,12 +703,12 @@
         },
         {
           "key": "ARMOR",
-          "value": 321,
+          "value": 393,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 5.196,
+          "value": 5.0360003,
           "percent": true
         },
         {
@@ -726,7 +726,7 @@
         {
           "id": "arcane",
           "name": "Arcane",
-          "spent": 21,
+          "spent": 22,
           "active": true,
           "talents": [
             {
@@ -762,7 +762,7 @@
             {
               "name": "Arcane Blast",
               "rank": 1,
-              "description": "Blasts the target with energy, dealing 66 to 74 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
+              "description": "Blasts the target with energy, dealing 77 to 79 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
             },
             {
               "name": "Arcane Meditation",
@@ -772,12 +772,17 @@
             {
               "name": "Arcane Wrath",
               "rank": 1,
-              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 200 to 224 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
+              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 215 to 245 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
             },
             {
               "name": "Presence of Mind",
               "rank": 1,
               "description": "When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell."
+            },
+            {
+              "name": "Arcane Mind",
+              "rank": 1,
+              "description": "Increases your Intellect by 2% and increases the critical strike damage bonus of your Arcane spells by 20%."
             }
           ]
         }
@@ -808,48 +813,41 @@
         {
           "slot": "chest",
           "armorySlot": "chest",
-          "itemId": 6324,
-          "name": "Robes of Arugal",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132672.jpg",
+          "itemId": 273044,
+          "name": "Violet Sorcerer's Robes",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132658.jpg",
           "quality": "rare",
-          "ilvl": 28,
-          "req": 23,
+          "ilvl": 32,
+          "req": 27,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "ROBE",
           "stats": {
-            "sta": 5,
-            "sd": 6,
-            "heal": 18,
-            "shadowRes": 8,
-            "spi": 6,
-            "armor": 46
+            "int": 15,
+            "sp": 9,
+            "armor": 49
           },
           "dps": null,
           "speed": null,
-          "effect": null,
-          "enchant": {
-            "enchantId": 242,
-            "name": "Enchant Chest - Lesser Stamina",
-            "label": "Enchanted: Stamina +3"
-          }
+          "effect": "Equip: When damaged, has a chance to reduce threat level on all enemies by a small amount for 10 sec.",
+          "enchant": null
         },
         {
           "slot": "feet",
           "armorySlot": "foot",
-          "itemId": 6394,
-          "name": "Silver-thread Boots",
+          "itemId": 279843,
+          "name": "Enchanted Sandals",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132539.jpg",
-          "quality": "uncommon",
-          "ilvl": 27,
-          "req": 22,
+          "quality": "rare",
+          "ilvl": 36,
+          "req": null,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "FEET",
           "stats": {
-            "int": 5,
-            "sta": 4,
-            "armor": 28
+            "sta": 10,
+            "sp": 9,
+            "armor": 36
           },
           "dps": null,
           "speed": null,
@@ -984,18 +982,20 @@
         {
           "slot": "offhand",
           "armorySlot": "offhand",
-          "itemId": 16887,
-          "name": "Witch's Finger",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135474.jpg",
+          "itemId": 273052,
+          "name": "Ponderous Orb",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134336.jpg",
           "quality": "rare",
-          "ilvl": 32,
-          "req": null,
+          "ilvl": 35,
+          "req": 30,
           "armorType": "miscellaneous",
           "weaponType": null,
           "inventoryType": "HOLDABLE",
           "stats": {
-            "int": 8,
-            "sta": 4
+            "int": 2,
+            "sd": 4,
+            "heal": 11,
+            "spi": 8
           },
           "dps": null,
           "speed": null,
@@ -1069,21 +1069,19 @@
         {
           "slot": "waist",
           "armorySlot": "waist",
-          "itemId": 253887,
-          "name": "Novice Ardent's Sash",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/236918.jpg",
+          "itemId": 273039,
+          "name": "Blightleaf Rope",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132499.jpg",
           "quality": "rare",
-          "ilvl": 15,
-          "req": 10,
+          "ilvl": 34,
+          "req": 29,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "WAIST",
           "stats": {
-            "int": 3,
-            "sd": 2,
-            "heal": 6,
-            "spi": 3,
-            "armor": 17
+            "int": 10,
+            "sp": 7,
+            "armor": 28
           },
           "dps": null,
           "speed": null,
@@ -1175,15 +1173,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/mrs-dingomon.png",
-    "renderHash": "d6d2c5bdd682",
+    "renderHash": "85105e599272",
     "avatarFile": "characters/mrs-dingomon-avatar.jpg",
-    "avatarHash": "7246226b7aea"
+    "avatarHash": "738ec5890e9c"
   },
   {
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-21T17:29:29.158Z",
+    "fetchedAt": "2026-11-21T23:13:18.693Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1203,7 +1201,7 @@
       "ilvl": 34,
       "honorableKills": 48,
       "region": "us",
-      "updatedAt": "2026-11-21T06:01:51Z",
+      "updatedAt": "2026-11-21T21:03:16Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -1247,7 +1245,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.0722995,
+          "value": 4.1523,
           "percent": true
         },
         {
@@ -1307,7 +1305,7 @@
         },
         {
           "key": "DODGE",
-          "value": 13.2323,
+          "value": 13.272301,
           "percent": true
         },
         {
@@ -1796,15 +1794,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/ffsparky-jr.png",
-    "renderHash": "968ca7e312a4",
+    "renderHash": "c108d13fc230",
     "avatarFile": "characters/ffsparky-jr-avatar.jpg",
-    "avatarHash": "a5938560d446"
+    "avatarHash": "db9df897636d"
   },
   {
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-21T17:29:29.158Z",
+    "fetchedAt": "2026-11-21T23:13:18.693Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -1824,7 +1822,7 @@
       "ilvl": 18,
       "honorableKills": 1,
       "region": "us",
-      "updatedAt": "2026-11-15T12:11:55Z",
+      "updatedAt": "2026-11-21T20:57:07Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -2247,15 +2245,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/ternt-up.png",
-    "renderHash": "8ce781344574",
+    "renderHash": "41ac6aa509ce",
     "avatarFile": "characters/ternt-up-avatar.jpg",
-    "avatarHash": "92d44a7d5247"
+    "avatarHash": "f3b59e25052a"
   },
   {
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-21T17:29:29.158Z",
+    "fetchedAt": "2026-11-21T23:13:18.693Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2273,9 +2271,9 @@
       "rulesetId": 1,
       "guild": "ØnlyDads",
       "ilvl": 34,
-      "honorableKills": 80,
+      "honorableKills": 81,
       "region": "us",
-      "updatedAt": "2026-11-20T19:48:45Z",
+      "updatedAt": "2026-11-21T20:57:27Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -2879,15 +2877,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/spooky-guyy.png",
-    "renderHash": "ce694bbedda5",
+    "renderHash": "fd06132343a2",
     "avatarFile": "characters/spooky-guyy-avatar.jpg",
-    "avatarHash": "106420b60576"
+    "avatarHash": "5e39697cd011"
   },
   {
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-21T17:29:29.158Z",
+    "fetchedAt": "2026-11-21T23:13:18.693Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3497,7 +3495,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-21T17:29:29.158Z",
+    "fetchedAt": "2026-11-21T23:13:18.693Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -4091,15 +4089,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/sleepy-sleepyy.png",
-    "renderHash": "c63ea08c59f5",
+    "renderHash": "d49e9b2a4377",
     "avatarFile": "characters/sleepy-sleepyy-avatar.jpg",
-    "avatarHash": "b1988bbe72d1"
+    "avatarHash": "33d2012dea8c"
   },
   {
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-21T17:29:29.158Z",
+    "fetchedAt": "2026-11-21T23:13:18.693Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
