@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-22T11:20:05.782Z",
+    "fetchedAt": "2026-11-22T19:36:54.376Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -11,7 +11,7 @@
     "character": {
       "name": "Daz",
       "surname": "Dingomon",
-      "level": 31,
+      "level": 32,
       "classId": "shaman",
       "className": "Shaman",
       "race": "Troll",
@@ -20,24 +20,24 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 28,
-      "honorableKills": 129,
+      "ilvl": 29,
+      "honorableKills": 130,
       "region": "us",
-      "updatedAt": "2026-11-22T06:08:58Z",
+      "updatedAt": "2026-11-22T11:50:51Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1384,
+          "value": 1479,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1274,
+          "value": 1473,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 28,
+          "value": 29,
           "percent": false
         },
         {
@@ -47,27 +47,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 60,
+          "value": 61,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 35,
+          "value": 36,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 57,
+          "value": 68,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 119,
+          "value": 126,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.018,
+          "value": 3.9856002,
           "percent": true
         },
         {
@@ -97,7 +97,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 166,
+          "value": 170,
           "percent": false
         },
         {
@@ -107,27 +107,27 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 32.626377,
+          "value": 32.91209,
           "percent": false
         },
         {
           "key": "SPELLPOWER",
-          "value": 67,
+          "value": 72,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 107,
+          "value": 106,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 553,
+          "value": 564,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.298,
+          "value": 4.1056004,
           "percent": true
         },
         {
@@ -137,7 +137,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.56,
+          "value": 4.36,
           "percent": true
         }
       ],
@@ -145,7 +145,7 @@
         {
           "id": "restoration",
           "name": "Restoration",
-          "spent": 22,
+          "spent": 23,
           "active": true,
           "talents": [
             {
@@ -192,6 +192,11 @@
               "name": "Mana Tide Totem",
               "rank": 1,
               "description": "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 88 mana every 3 seconds to group members within 30 yards."
+            },
+            {
+              "name": "Healing Way",
+              "rank": 1,
+              "description": "Increases the amount healed by your Healing Wave spell by 8%."
             },
             {
               "name": "Nature's Swiftness",
@@ -390,17 +395,18 @@
         {
           "slot": "neck",
           "armorySlot": "neck",
-          "itemId": 281265,
-          "name": "Roadwatcher's Confidence",
+          "itemId": 5002,
+          "name": "Glowing Green Talisman",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133288.jpg",
           "quality": "uncommon",
-          "ilvl": 20,
-          "req": null,
+          "ilvl": 30,
+          "req": 25,
           "armorType": "miscellaneous",
           "weaponType": null,
           "inventoryType": "NECK",
           "stats": {
-            "spi": 3
+            "sta": 1,
+            "spi": 6
           },
           "dps": null,
           "speed": null,
@@ -450,20 +456,20 @@
         {
           "slot": "shoulder",
           "armorySlot": "shoulder",
-          "itemId": 3324,
-          "name": "Ghostly Mantle",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135040.jpg",
-          "quality": "uncommon",
-          "ilvl": 27,
+          "itemId": 4197,
+          "name": "Berylline Pads",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135036.jpg",
+          "quality": "rare",
+          "ilvl": 36,
           "req": null,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "SHOULDER",
           "stats": {
-            "sd": 2,
-            "heal": 6,
-            "spi": 6,
-            "armor": 30
+            "int": 10,
+            "sta": 5,
+            "sp": 7,
+            "armor": 39
           },
           "dps": null,
           "speed": null,
@@ -542,7 +548,7 @@
       "professions": [
         {
           "name": "Skinning",
-          "skill": 214,
+          "skill": 216,
           "max": 300,
           "primary": true
         },
@@ -576,15 +582,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/daz-dingomon.png",
-    "renderHash": "c1889f65c9c9",
+    "renderHash": "2612fd30ac7a",
     "avatarFile": "characters/daz-dingomon-avatar.jpg",
-    "avatarHash": "687354d96cf3"
+    "avatarHash": "34dbbf3418ab"
   },
   {
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-22T11:20:05.782Z",
+    "fetchedAt": "2026-11-22T19:36:54.376Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -601,24 +607,24 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 28,
+      "ilvl": 31,
       "honorableKills": 133,
       "region": "us",
-      "updatedAt": "2026-11-22T06:09:02Z",
+      "updatedAt": "2026-11-22T11:50:55Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 908,
+          "value": 968,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 2094,
+          "value": 2124,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 29,
+          "value": 31,
           "percent": false
         },
         {
@@ -633,22 +639,22 @@
         },
         {
           "key": "AGILITY",
-          "value": 30,
+          "value": 28,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 116,
+          "value": 118,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 67,
+          "value": 73,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 1.9560002,
+          "value": 2.4176002,
           "percent": true
         },
         {
@@ -693,22 +699,22 @@
         },
         {
           "key": "SPELLPOWER",
-          "value": 101,
+          "value": 104,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 93,
+          "value": 99,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 393,
+          "value": 394,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 5.076,
+          "value": 4.9376,
           "percent": true
         },
         {
@@ -762,7 +768,7 @@
             {
               "name": "Arcane Blast",
               "rank": 1,
-              "description": "Blasts the target with energy, dealing 76 to 79 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
+              "description": "Blasts the target with energy, dealing 78 to 85 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
             },
             {
               "name": "Arcane Meditation",
@@ -772,7 +778,7 @@
             {
               "name": "Arcane Wrath",
               "rank": 1,
-              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 216 to 232 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
+              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 229 to 247 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
             },
             {
               "name": "Presence of Mind",
@@ -962,17 +968,18 @@
         {
           "slot": "neck",
           "armorySlot": "neck",
-          "itemId": 281265,
-          "name": "Roadwatcher's Confidence",
+          "itemId": 5002,
+          "name": "Glowing Green Talisman",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133288.jpg",
           "quality": "uncommon",
-          "ilvl": 20,
-          "req": null,
+          "ilvl": 30,
+          "req": 25,
           "armorType": "miscellaneous",
           "weaponType": null,
           "inventoryType": "NECK",
           "stats": {
-            "spi": 3
+            "sta": 1,
+            "spi": 6
           },
           "dps": null,
           "speed": null,
@@ -1044,26 +1051,46 @@
           "enchant": null
         },
         {
+          "slot": "trinket",
+          "armorySlot": "trinket2",
+          "itemId": 274152,
+          "name": "Roogug's Severed Head",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134172.jpg",
+          "quality": "rare",
+          "ilvl": 30,
+          "req": 25,
+          "armorType": "miscellaneous",
+          "weaponType": null,
+          "inventoryType": "TRINKET",
+          "stats": {
+            "spi": 6
+          },
+          "dps": null,
+          "speed": null,
+          "effect": "Use: Raise the severed head of Roogug, Horrifying and Silencing all Swine within 15 yds for 5 sec. (5 Min Cooldown)",
+          "enchant": null
+        },
+        {
           "slot": "shoulder",
           "armorySlot": "shoulder",
-          "itemId": 3748,
-          "name": "Feline Mantle",
+          "itemId": 4197,
+          "name": "Berylline Pads",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135036.jpg",
           "quality": "rare",
-          "ilvl": 28,
-          "req": 23,
+          "ilvl": 36,
+          "req": null,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "SHOULDER",
           "stats": {
-            "int": 8,
-            "agi": 2,
-            "sp": 4,
-            "armor": 34
+            "int": 10,
+            "sta": 5,
+            "sp": 7,
+            "armor": 39
           },
           "dps": null,
           "speed": null,
-          "effect": "Equip: Reduces damage from falling.",
+          "effect": null,
           "enchant": null
         },
         {
@@ -1145,7 +1172,7 @@
         },
         {
           "name": "Herbalism",
-          "skill": 186,
+          "skill": 187,
           "max": 225,
           "primary": true
         },
@@ -1173,15 +1200,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/mrs-dingomon.png",
-    "renderHash": "f2dd78943445",
+    "renderHash": "5946341c767a",
     "avatarFile": "characters/mrs-dingomon-avatar.jpg",
-    "avatarHash": "738ec5890e9c"
+    "avatarHash": "c2f33555ecad"
   },
   {
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-22T11:20:05.782Z",
+    "fetchedAt": "2026-11-22T19:36:54.376Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1189,7 +1216,7 @@
     "character": {
       "name": "Ffsparky",
       "surname": "Jr",
-      "level": 40,
+      "level": 41,
       "classId": "druid",
       "className": "Druid",
       "race": "Windshaper Skyborne",
@@ -1198,19 +1225,19 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 35,
+      "ilvl": 36,
       "honorableKills": 48,
       "region": "us",
-      "updatedAt": "2026-11-22T06:56:51Z",
+      "updatedAt": "2026-11-22T19:00:21Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1863,
+          "value": 1944,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1759,
+          "value": 1789,
           "percent": false
         },
         {
@@ -1225,7 +1252,7 @@
         },
         {
           "key": "STRENGTH",
-          "value": 69,
+          "value": 70,
           "percent": false
         },
         {
@@ -1235,17 +1262,17 @@
         },
         {
           "key": "INTELLECT",
-          "value": 79,
+          "value": 80,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 136,
+          "value": 141,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.3042,
+          "value": 3.9626002,
           "percent": true
         },
         {
@@ -1275,7 +1302,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 132,
+          "value": 144,
           "percent": false
         },
         {
@@ -1285,7 +1312,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 39.192833,
+          "value": 40.06702,
           "percent": false
         },
         {
@@ -1295,17 +1322,17 @@
         },
         {
           "key": "MANAREGEN",
-          "value": 95,
+          "value": 90,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 950,
+          "value": 961,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 13.4242,
+          "value": 13.162598,
           "percent": true
         },
         {
@@ -1336,7 +1363,7 @@
         {
           "id": "feral-combat",
           "name": "Feral Combat",
-          "spent": 29,
+          "spent": 30,
           "active": true,
           "talents": [
             {
@@ -1396,8 +1423,8 @@
             },
             {
               "name": "Rend and Tear",
-              "rank": 4,
-              "description": "Increases damage done by your melee abilities on Bleeding targets by 12%."
+              "rank": 5,
+              "description": "Increases damage done by your melee abilities on Bleeding targets by 15%."
             }
           ]
         }
@@ -1593,9 +1620,9 @@
         {
           "slot": "neck",
           "armorySlot": "neck",
-          "itemId": 10824,
-          "name": "Amberglow Talisman",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133294.jpg",
+          "itemId": 10711,
+          "name": "Dragon's Blood Necklace",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133289.jpg",
           "quality": "rare",
           "ilvl": 44,
           "req": null,
@@ -1603,9 +1630,7 @@
           "weaponType": null,
           "inventoryType": "NECK",
           "stats": {
-            "agi": 1,
-            "sta": 7,
-            "spi": 10
+            "sta": 12
           },
           "dps": null,
           "speed": null,
@@ -1737,19 +1762,19 @@
         {
           "slot": "wrist",
           "armorySlot": "wrist",
-          "itemId": 270032,
-          "name": "Cultist's Armguards",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132611.jpg",
+          "itemId": 19508,
+          "name": "Branded Leather Bracers",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132610.jpg",
           "quality": "rare",
-          "ilvl": 29,
-          "req": null,
+          "ilvl": 42,
+          "req": 37,
           "armorType": "leather",
           "weaponType": null,
           "inventoryType": "WRIST",
           "stats": {
-            "sta": 7,
-            "ap": 10,
-            "armor": 44
+            "sta": 6,
+            "ap": 20,
+            "armor": 55
           },
           "dps": null,
           "speed": null,
@@ -1794,15 +1819,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/ffsparky-jr.png",
-    "renderHash": "c8ffd715d2d6",
+    "renderHash": "cbce864368ad",
     "avatarFile": "characters/ffsparky-jr-avatar.jpg",
-    "avatarHash": "db9df897636d"
+    "avatarHash": "9236eb655a23"
   },
   {
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-22T11:20:05.782Z",
+    "fetchedAt": "2026-11-22T19:36:54.376Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2253,7 +2278,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-22T11:20:05.782Z",
+    "fetchedAt": "2026-11-22T19:36:54.376Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2886,7 +2911,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-22T11:20:05.782Z",
+    "fetchedAt": "2026-11-22T19:36:54.376Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3496,7 +3521,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-22T11:20:05.782Z",
+    "fetchedAt": "2026-11-22T19:36:54.376Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -4108,15 +4133,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/sleepy-sleepyy.png",
-    "renderHash": "d49e9b2a4377",
+    "renderHash": "6eb7ac9ef884",
     "avatarFile": "characters/sleepy-sleepyy-avatar.jpg",
-    "avatarHash": "33d2012dea8c"
+    "avatarHash": "5ffa3ee6715b"
   },
   {
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-22T11:20:05.782Z",
+    "fetchedAt": "2026-11-22T19:36:54.376Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
