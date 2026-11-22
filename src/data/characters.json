@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-21T23:13:18.693Z",
+    "fetchedAt": "2026-11-22T03:10:15.091Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -578,13 +578,13 @@
     "renderFile": "characters/daz-dingomon.png",
     "renderHash": "2612fd30ac7a",
     "avatarFile": "characters/daz-dingomon-avatar.jpg",
-    "avatarHash": "687354d96cf3"
+    "avatarHash": "8e34ec1e5dda"
   },
   {
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-21T23:13:18.693Z",
+    "fetchedAt": "2026-11-22T03:10:15.091Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -1173,15 +1173,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/mrs-dingomon.png",
-    "renderHash": "85105e599272",
+    "renderHash": "d6d2c5bdd682",
     "avatarFile": "characters/mrs-dingomon-avatar.jpg",
-    "avatarHash": "738ec5890e9c"
+    "avatarHash": "7246226b7aea"
   },
   {
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-21T23:13:18.693Z",
+    "fetchedAt": "2026-11-22T03:10:15.091Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1794,15 +1794,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/ffsparky-jr.png",
-    "renderHash": "c108d13fc230",
+    "renderHash": "968ca7e312a4",
     "avatarFile": "characters/ffsparky-jr-avatar.jpg",
-    "avatarHash": "db9df897636d"
+    "avatarHash": "a5938560d446"
   },
   {
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-21T23:13:18.693Z",
+    "fetchedAt": "2026-11-22T03:10:15.091Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2245,15 +2245,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/ternt-up.png",
-    "renderHash": "41ac6aa509ce",
+    "renderHash": "8ce781344574",
     "avatarFile": "characters/ternt-up-avatar.jpg",
-    "avatarHash": "f3b59e25052a"
+    "avatarHash": "92d44a7d5247"
   },
   {
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-21T23:13:18.693Z",
+    "fetchedAt": "2026-11-22T03:10:15.091Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2877,15 +2877,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_undead.jpg"
     },
     "renderFile": "characters/spooky-guyy.png",
-    "renderHash": "fd06132343a2",
+    "renderHash": "ce694bbedda5",
     "avatarFile": "characters/spooky-guyy-avatar.jpg",
-    "avatarHash": "5e39697cd011"
+    "avatarHash": "106420b60576"
   },
   {
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-21T23:13:18.693Z",
+    "fetchedAt": "2026-11-22T03:10:15.091Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3495,7 +3495,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-21T23:13:18.693Z",
+    "fetchedAt": "2026-11-22T03:10:15.091Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -4089,15 +4089,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/sleepy-sleepyy.png",
-    "renderHash": "d49e9b2a4377",
+    "renderHash": "c63ea08c59f5",
     "avatarFile": "characters/sleepy-sleepyy-avatar.jpg",
-    "avatarHash": "33d2012dea8c"
+    "avatarHash": "b1988bbe72d1"
   },
   {
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-21T23:13:18.693Z",
+    "fetchedAt": "2026-11-22T03:10:15.091Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
