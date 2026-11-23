@@ -472,6 +472,26 @@ input[type="range"] { padding: 0; accent-color: var(--gold); }
 .quest-xp-bar { height: 3px; margin-top: 6px; background: var(--line); }
 .quest-xp-bar > span { display: block; height: 100%; background: var(--gold); }
 .quest-row.xp-top { background: color-mix(in srgb, var(--gold) 10%, transparent); }
+.long-panel { margin: 18px 0 8px; scroll-margin-top: 88px; }
+.long-panel .fine { max-width: 72ch; }
+.long-list { display: grid; }
+.long-row {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: start;
+  min-height: 48px;
+  padding: 8px 4px;
+  border-top: 1px solid var(--line);
+}
+.long-row.top { background: color-mix(in srgb, var(--gold) 10%, transparent); }
+.long-value { min-width: 64px; text-align: right; }
+.long-bar { height: 3px; margin-top: 6px; background: var(--line); }
+.long-bar > span { display: block; height: 100%; background: var(--gold); }
+@media (max-width: 640px) {
+  .long-row { grid-template-columns: auto auto minmax(0, 1fr); }
+  .long-value { grid-column: 3; text-align: left; }
+}
 .quest-tools { display: grid; gap: 10px; margin: 8px 0 12px; }
 .quest-filters { display: flex; flex-wrap: wrap; gap: 6px; }
 .quest-filters button {

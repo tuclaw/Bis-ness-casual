@@ -16,6 +16,7 @@ import {
   type SourceType,
 } from "./lib/sources.ts";
 import { DEFAULT_PICKS_PER_SLOT, longevityLabel, LONG_BIS_LEVELS, recommendEnchantments, recommendGear, type Ranked } from "./lib/recommend.ts";
+import { baselineEquipped, LONG_UPGRADE_NOTE, rankLongUpgrades, type LongUpgrade, type LongUpgradeSlot } from "./lib/long-upgrades.ts";
 import { equippedEnchantStats, scoreEnchant, scoreStats, topStatLines } from "./lib/score.ts";
 import type {
   Enchant,
@@ -904,6 +905,81 @@ function DataRow({
   );
 }
 
+function LongUpgradePanel({
+  rows,
+  slots,
+  spec,
+  icons,
+}: {
+  rows: LongUpgrade[];
+  slots: LongUpgradeSlot[];
+  spec: SpecId;
+  icons: Record<number, string | null>;
+}) {
+  const top = rows[0]?.value ?? 0;
+  const unknown = rows.some((row) => row.unknownLongevity);
+  return (
+    <section className="long-panel" id="long-upgrades" aria-labelledby="long-upgrades-title">
+      <h2 className="section-label" id="long-upgrades-title">
+        Best long-term upgrades
+      </h2>
+      <p className="fine">
+        <b>How this is ranked. </b>
+        {LONG_UPGRADE_NOTE}
+      </p>
+      {unknown && <p className="fine">Longevity is unknown for some items, so those are ranked by upgrade size only.</p>}
+      {rows.length === 0 && <p className="empty">No upgrade in this level window beats what is equipped.</p>}
+      <div className="long-list">
+        {rows.map((row, index) => {
+          const equipped = baselineEquipped(row.slot, slots, spec);
+          const href = wowheadItemUrl(row.item.id, row.item.name);
+          const width = top > 0 ? Math.max(4, Math.round((row.value / top) * 100)) : 0;
+          const until =
+            row.unknownLongevity || row.until == null ? "Longevity unknown" : `good until about level ${row.until}`;
+          const compare = equipped && equipped.itemId !== row.item.id ? equipped : null;
+          return (
+            <TipHost
+              key={row.item.id}
+              id={`long-${row.item.id}`}
+              tip={
+                <ArmoryPanels
+                  item={tooltipFromGear(row.item, href, compare ? compare.stats : null)}
+                  equipped={compare ? tooltipFromEquipped(compare, compare.itemId > 0 ? wowheadItemUrl(compare.itemId, compare.name) : null) : null}
+                />
+              }
+            >
+              <article className={`long-row${index < 3 ? " top" : ""}`}>
+                <span className="rank">{index + 1}</span>
+                <ItemIcon src={icons[row.item.id] ?? null} quality={qualityName(row.item.quality)} />
+                <div className="gear-main">
+                  <div className="sub">
+                    <span className="sub-text">{row.slotLabel}</span>
+                  </div>
+                  <ItemName name={row.item.name} quality={qualityName(row.item.quality)} href={href} />
+                  <div className="sub">
+                    <SourceNote source={row.item.source ?? ""} />
+                  </div>
+                  <div className="sub">
+                    <span className="sub-text">
+                      +{formatScore(row.delta)} upgrade · {until}
+                    </span>
+                  </div>
+                </div>
+                <div className="long-value">
+                  <span className="quest-xp">{formatScore(row.value)}</span>
+                  <div className="long-bar" aria-hidden="true">
+                    <span style={{ width: `${width}%` }} />
+                  </div>
+                </div>
+              </article>
+            </TipHost>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function ArmoryBoard({
   rows,
   plans,
@@ -939,6 +1015,19 @@ function ArmoryBoard({
   const { close } = useContext(TipContext);
   const labelFor = (row: (typeof ROWS)[number]) => (row.slot === "ranged" ? rangedLabel : row.label);
   const iconFor = (item: EquippedItem | null) => (item ? item.iconUrl || icons[item.itemId] || null : null);
+  const upgradeSlots: LongUpgradeSlot[] = plans.map((plan) => ({
+    id: plan.row.id,
+    label: labelFor(plan.row),
+    slot: plan.row.slot,
+    equipped: plan.equipped,
+    gear: plan.gear,
+  }));
+  const longUpgrades = rankLongUpgrades({
+    slots: upgradeSlots,
+    spec,
+    level: character.level,
+    horizon: high,
+  });
 
   useEffect(() => {
     close();
@@ -960,6 +1049,7 @@ function ArmoryBoard({
         <div className="doll-col">{RIGHT_SLOTS.map((id) => slotButton(id))}</div>
       </div>
       <div className="doll-weapons">{WEAPON_SLOTS.map((id) => slotButton(id))}</div>
+      <LongUpgradePanel rows={longUpgrades} slots={upgradeSlots} spec={spec} icons={icons} />
       {selected && (
         <div>
           <h2 className="slot-banner" id="slot-detail">
