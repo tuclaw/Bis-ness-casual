@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-23T00:50:50.708Z",
+    "fetchedAt": "2026-11-23T09:00:42.179Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -590,7 +590,7 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-23T00:50:50.708Z",
+    "fetchedAt": "2026-11-23T09:00:42.179Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -1208,7 +1208,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-23T00:50:50.708Z",
+    "fetchedAt": "2026-11-23T09:00:42.179Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1228,11 +1228,11 @@
       "ilvl": 36,
       "honorableKills": 48,
       "region": "us",
-      "updatedAt": "2026-11-23T00:38:22Z",
+      "updatedAt": "2026-11-23T04:41:18Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1944,
+          "value": 1954,
           "percent": false
         },
         {
@@ -1252,7 +1252,7 @@
         },
         {
           "key": "STRENGTH",
-          "value": 70,
+          "value": 76,
           "percent": false
         },
         {
@@ -1267,12 +1267,12 @@
         },
         {
           "key": "STAMINA",
-          "value": 141,
+          "value": 142,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.0026,
+          "value": 4.0826006,
           "percent": true
         },
         {
@@ -1287,7 +1287,7 @@
         },
         {
           "key": "BONUSARMOR",
-          "value": 56,
+          "value": 94,
           "percent": false
         },
         {
@@ -1302,7 +1302,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 144,
+          "value": 156,
           "percent": false
         },
         {
@@ -1312,7 +1312,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 40.06702,
+          "value": 40.941216,
           "percent": false
         },
         {
@@ -1327,12 +1327,12 @@
         },
         {
           "key": "ARMOR",
-          "value": 961,
+          "value": 1004,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 13.2425995,
+          "value": 13.2825985,
           "percent": true
         },
         {
@@ -1719,19 +1719,20 @@
         {
           "slot": "waist",
           "armorySlot": "waist",
-          "itemId": 279846,
-          "name": "Larcenist's Belt",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132493.jpg",
-          "quality": "uncommon",
-          "ilvl": 36,
-          "req": null,
+          "itemId": 252460,
+          "name": "Warden's Leather Belt",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132495.jpg",
+          "quality": "rare",
+          "ilvl": 35,
+          "req": 30,
           "armorType": "leather",
           "weaponType": null,
           "inventoryType": "WAIST",
           "stats": {
             "agi": 6,
-            "sta": 8,
-            "armor": 58
+            "str": 6,
+            "sta": 9,
+            "armor": 63
           },
           "dps": null,
           "speed": null,
@@ -1791,7 +1792,7 @@
         },
         {
           "name": "Skinning",
-          "skill": 236,
+          "skill": 237,
           "max": 300,
           "primary": true
         },
@@ -1827,7 +1828,7 @@
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-23T00:50:50.708Z",
+    "fetchedAt": "2026-11-23T09:00:42.179Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2278,7 +2279,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-23T00:50:50.708Z",
+    "fetchedAt": "2026-11-23T09:00:42.179Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2911,7 +2912,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-23T00:50:50.708Z",
+    "fetchedAt": "2026-11-23T09:00:42.179Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3521,7 +3522,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-23T00:50:50.708Z",
+    "fetchedAt": "2026-11-23T09:00:42.179Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -3529,7 +3530,7 @@
     "character": {
       "name": "Sleepy",
       "surname": "Sleepyy",
-      "level": 41,
+      "level": 42,
       "classId": "shaman",
       "className": "Shaman",
       "race": "Windshaper Skyborne",
@@ -3538,24 +3539,24 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": null,
-      "ilvl": 35,
-      "honorableKills": 1139,
+      "ilvl": 36,
+      "honorableKills": 1141,
       "region": "us",
-      "updatedAt": "2026-11-22T05:13:58Z",
+      "updatedAt": "2026-11-23T04:06:21Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1842,
+          "value": 1885,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 2289,
+          "value": 2428,
           "percent": false
         },
         {
           "key": "ITEMLEVEL",
-          "value": 36,
+          "value": 37,
           "percent": false
         },
         {
@@ -3565,27 +3566,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 117,
+          "value": 118,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 70,
+          "value": 71,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 104,
+          "value": 112,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 143,
+          "value": 144,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 11.574,
+          "value": 11.444199,
           "percent": true
         },
         {
@@ -3615,7 +3616,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 400,
+          "value": 412,
           "percent": false
         },
         {
@@ -3625,37 +3626,37 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 65.41716,
+          "value": 66.29155,
           "percent": false
         },
         {
           "key": "SPELLPOWER",
-          "value": 51,
+          "value": 55,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 91,
+          "value": 89,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 1367,
+          "value": 1369,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 6.373999,
+          "value": 6.3642,
           "percent": true
         },
         {
           "key": "PARRY",
-          "value": 4.76,
+          "value": 4.6800003,
           "percent": true
         },
         {
           "key": "BLOCK",
-          "value": 4.76,
+          "value": 4.6800003,
           "percent": true
         }
       ],
@@ -3869,20 +3870,18 @@
         {
           "slot": "finger",
           "armorySlot": "finger1",
-          "itemId": 273031,
-          "name": "Runemender's Seal",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133370.jpg",
+          "itemId": 270081,
+          "name": "Purified Ring",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133343.jpg",
           "quality": "rare",
-          "ilvl": 32,
-          "req": 27,
+          "ilvl": 44,
+          "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
           "inventoryType": "FINGER",
           "stats": {
-            "int": 6,
-            "sd": 3,
-            "heal": 9,
-            "spi": 6
+            "int": 12,
+            "sp": 5
           },
           "dps": null,
           "speed": null,
@@ -4111,7 +4110,7 @@
         },
         {
           "name": "Herbalism",
-          "skill": 231,
+          "skill": 243,
           "max": 300,
           "primary": true
         },
@@ -4141,7 +4140,7 @@
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-23T00:50:50.708Z",
+    "fetchedAt": "2026-11-23T09:00:42.179Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
