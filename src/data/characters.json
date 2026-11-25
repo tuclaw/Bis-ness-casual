@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-25T12:50:12.934Z",
+    "fetchedAt": "2026-11-25T22:29:56.098Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -603,7 +603,7 @@
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-25T12:50:12.934Z",
+    "fetchedAt": "2026-11-25T22:29:56.098Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -1203,7 +1203,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-25T12:50:12.934Z",
+    "fetchedAt": "2026-11-25T22:29:56.098Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1211,7 +1211,7 @@
     "character": {
       "name": "Ffsparky",
       "surname": "Jr",
-      "level": 43,
+      "level": 44,
       "classId": "druid",
       "className": "Druid",
       "race": "Windshaper Skyborne",
@@ -1223,16 +1223,16 @@
       "ilvl": null,
       "honorableKills": 62,
       "region": "us",
-      "updatedAt": "2026-11-25T06:52:58Z",
+      "updatedAt": "2026-11-25T18:43:54Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 2179,
+          "value": 2223,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1879,
+          "value": 1939,
           "percent": false
         },
         {
@@ -1242,17 +1242,17 @@
         },
         {
           "key": "STRENGTH",
-          "value": 67,
+          "value": 68,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 122,
+          "value": 123,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 83,
+          "value": 85,
           "percent": false
         },
         {
@@ -1262,7 +1262,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 3.8590002,
+          "value": 3.5809002,
           "percent": true
         },
         {
@@ -1292,7 +1292,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 138,
+          "value": 140,
           "percent": false
         },
         {
@@ -1302,7 +1302,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 47.997902,
+          "value": 48.143616,
           "percent": false
         },
         {
@@ -1312,17 +1312,17 @@
         },
         {
           "key": "MANAREGEN",
-          "value": 96,
+          "value": 98,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 1062,
+          "value": 1064,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 13.339001,
+          "value": 13.140899,
           "percent": true
         },
         {
@@ -1340,13 +1340,13 @@
         {
           "id": "balance",
           "name": "Balance",
-          "spent": 2,
+          "spent": 3,
           "active": true,
           "talents": [
             {
               "name": "Genesis",
-              "rank": 2,
-              "description": "Increases the periodic damage and healing done by your spells and abilities by 4%."
+              "rank": 3,
+              "description": "Increases the periodic damage and healing done by your spells and abilities by 6%."
             }
           ]
         },
@@ -1424,7 +1424,7 @@
             {
               "name": "Shifting Power",
               "rank": 1,
-              "description": "Instantly convert 463 Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting."
+              "description": "Instantly convert 479 Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting."
             }
           ]
         }
@@ -1825,7 +1825,7 @@
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-25T12:50:12.934Z",
+    "fetchedAt": "2026-11-25T22:29:56.098Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -1842,10 +1842,10 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 18,
+      "ilvl": null,
       "honorableKills": 1,
       "region": "us",
-      "updatedAt": "2026-11-21T20:57:07Z",
+      "updatedAt": "2026-11-25T20:40:11Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -1855,11 +1855,6 @@
         {
           "key": "MANA",
           "value": 941,
-          "percent": false
-        },
-        {
-          "key": "ITEMLEVEL",
-          "value": 18,
           "percent": false
         },
         {
@@ -2001,7 +1996,7 @@
           "name": "Engineer's Cloak",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133765.jpg",
           "quality": "uncommon",
-          "ilvl": 27,
+          "ilvl": 0,
           "req": null,
           "armorType": "cloth",
           "weaponType": null,
@@ -2023,7 +2018,7 @@
           "name": "Abomination Bones",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132637.jpg",
           "quality": "rare",
-          "ilvl": 20,
+          "ilvl": 0,
           "req": 15,
           "armorType": "mail",
           "weaponType": null,
@@ -2045,7 +2040,7 @@
           "name": "Savage Trodders",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132535.jpg",
           "quality": "rare",
-          "ilvl": 23,
+          "ilvl": 0,
           "req": 18,
           "armorType": "mail",
           "weaponType": null,
@@ -2066,7 +2061,7 @@
           "name": "Hulking Gauntlets",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132939.jpg",
           "quality": "uncommon",
-          "ilvl": 23,
+          "ilvl": 0,
           "req": 18,
           "armorType": "mail",
           "weaponType": null,
@@ -2089,7 +2084,7 @@
           "name": "Skull Ring",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132501.jpg",
           "quality": "uncommon",
-          "ilvl": 25,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -2110,7 +2105,7 @@
           "name": "Raider's Legguards of the Bear",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134583.jpg",
           "quality": "uncommon",
-          "ilvl": 19,
+          "ilvl": 0,
           "req": 14,
           "armorType": "mail",
           "weaponType": null,
@@ -2136,7 +2131,7 @@
           "name": "Seal of Sylvanas",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133357.jpg",
           "quality": "rare",
-          "ilvl": 29,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -2157,7 +2152,7 @@
           "name": "Bronzed Shoulderguards",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135058.jpg",
           "quality": "uncommon",
-          "ilvl": 27,
+          "ilvl": 0,
           "req": null,
           "armorType": "mail",
           "weaponType": null,
@@ -2179,7 +2174,7 @@
           "name": "Grunt's Belt of Strength",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132504.jpg",
           "quality": "uncommon",
-          "ilvl": 20,
+          "ilvl": 0,
           "req": 15,
           "armorType": "mail",
           "weaponType": null,
@@ -2200,7 +2195,7 @@
           "name": "Arced War Axe",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132397.jpg",
           "quality": "rare",
-          "ilvl": 26,
+          "ilvl": 0,
           "req": 21,
           "armorType": null,
           "weaponType": "axe",
@@ -2221,7 +2216,7 @@
           "name": "Glimmering Mail Bracers",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132618.jpg",
           "quality": "uncommon",
-          "ilvl": 29,
+          "ilvl": 0,
           "req": 24,
           "armorType": "mail",
           "weaponType": null,
@@ -2270,13 +2265,13 @@
     "renderFile": "characters/ternt-up.png",
     "renderHash": "41ac6aa509ce",
     "avatarFile": "characters/ternt-up-avatar.jpg",
-    "avatarHash": "f3b59e25052a"
+    "avatarHash": "811a4b63dda1"
   },
   {
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-25T12:50:12.934Z",
+    "fetchedAt": "2026-11-25T22:29:56.098Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2909,7 +2904,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-25T12:50:12.934Z",
+    "fetchedAt": "2026-11-25T22:29:56.098Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3519,7 +3514,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-25T12:50:12.934Z",
+    "fetchedAt": "2026-11-25T22:29:56.098Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -4141,7 +4136,7 @@
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-25T12:50:12.934Z",
+    "fetchedAt": "2026-11-25T22:29:56.098Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
