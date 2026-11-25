@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-24T17:41:06.122Z",
+    "fetchedAt": "2026-11-25T02:25:20.955Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -20,24 +20,19 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 33,
-      "honorableKills": 130,
+      "ilvl": null,
+      "honorableKills": 131,
       "region": "us",
-      "updatedAt": "2026-11-24T11:52:48Z",
+      "updatedAt": "2026-11-25T02:19:53Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1270,
+          "value": 1341,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1950,
-          "percent": false
-        },
-        {
-          "key": "ITEMLEVEL",
-          "value": 33,
+          "value": 1890,
           "percent": false
         },
         {
@@ -57,17 +52,17 @@
         },
         {
           "key": "INTELLECT",
-          "value": 94,
+          "value": 90,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 99,
+          "value": 106,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 3.6082003,
+          "value": 3.7282002,
           "percent": true
         },
         {
@@ -112,22 +107,22 @@
         },
         {
           "key": "SPELLPOWER",
-          "value": 84,
+          "value": 91,
           "percent": false
         },
         {
           "key": "MANAREGEN",
-          "value": 107,
+          "value": 105,
           "percent": false
         },
         {
           "key": "ARMOR",
-          "value": 515,
+          "value": 520,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 3.7282002,
+          "value": 3.7682002,
           "percent": true
         },
         {
@@ -137,7 +132,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.12,
+          "value": 4.16,
           "percent": true
         }
       ],
@@ -219,7 +214,7 @@
           "name": "Priestess Cloak",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133767.jpg",
           "quality": "rare",
-          "ilvl": 40,
+          "ilvl": 0,
           "req": 35,
           "armorType": "cloth",
           "weaponType": null,
@@ -242,7 +237,7 @@
           "name": "Civinad Robes",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132659.jpg",
           "quality": "rare",
-          "ilvl": 37,
+          "ilvl": 0,
           "req": null,
           "armorType": "cloth",
           "weaponType": null,
@@ -266,7 +261,7 @@
           "name": "Twilight Boots of Healing",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132539.jpg",
           "quality": "uncommon",
-          "ilvl": 37,
+          "ilvl": 0,
           "req": 32,
           "armorType": "cloth",
           "weaponType": null,
@@ -288,7 +283,7 @@
           "name": "Ephemeral Grips",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132958.jpg",
           "quality": "rare",
-          "ilvl": 32,
+          "ilvl": 0,
           "req": 27,
           "armorType": "cloth",
           "weaponType": null,
@@ -310,7 +305,7 @@
           "name": "Geomancer Headdress",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133116.jpg",
           "quality": "rare",
-          "ilvl": 30,
+          "ilvl": 0,
           "req": 25,
           "armorType": "leather",
           "weaponType": null,
@@ -333,7 +328,7 @@
           "name": "Runemender's Seal",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133370.jpg",
           "quality": "rare",
-          "ilvl": 32,
+          "ilvl": 0,
           "req": 27,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -356,7 +351,7 @@
           "name": "Satchel of Potions",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133633.jpg",
           "quality": "uncommon",
-          "ilvl": 33,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -374,7 +369,7 @@
           "name": "Dark Ritual Leggings",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134582.jpg",
           "quality": "rare",
-          "ilvl": 29,
+          "ilvl": 0,
           "req": null,
           "armorType": "leather",
           "weaponType": null,
@@ -396,7 +391,7 @@
           "name": "Glowing Green Talisman",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133288.jpg",
           "quality": "uncommon",
-          "ilvl": 30,
+          "ilvl": 0,
           "req": 25,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -417,7 +412,7 @@
           "name": "Polished Driftwood Icon",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/310733.jpg",
           "quality": "rare",
-          "ilvl": 25,
+          "ilvl": 0,
           "req": 20,
           "armorType": "totem",
           "weaponType": null,
@@ -435,7 +430,7 @@
           "name": "Solid Gold Band",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133345.jpg",
           "quality": "uncommon",
-          "ilvl": 36,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -457,7 +452,7 @@
           "name": "Dog Whistle",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132161.jpg",
           "quality": "rare",
-          "ilvl": 30,
+          "ilvl": 0,
           "req": 25,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -477,7 +472,7 @@
           "name": "Berylline Pads",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135036.jpg",
           "quality": "rare",
-          "ilvl": 36,
+          "ilvl": 0,
           "req": null,
           "armorType": "cloth",
           "weaponType": null,
@@ -500,7 +495,7 @@
           "name": "Briny Sash",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132496.jpg",
           "quality": "rare",
-          "ilvl": 40,
+          "ilvl": 0,
           "req": 35,
           "armorType": "cloth",
           "weaponType": null,
@@ -523,7 +518,7 @@
           "name": "Healer's Staff",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135147.jpg",
           "quality": "rare",
-          "ilvl": 33,
+          "ilvl": 0,
           "req": null,
           "armorType": null,
           "weaponType": "staff",
@@ -543,19 +538,19 @@
         {
           "slot": "wrist",
           "armorySlot": "wrist",
-          "itemId": 7355,
-          "name": "Elder's Bracers of the Owl",
-          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132612.jpg",
+          "itemId": 279883,
+          "name": "Mutinous Cuffs",
+          "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132606.jpg",
           "quality": "uncommon",
-          "ilvl": 31,
-          "req": 26,
+          "ilvl": 0,
+          "req": null,
           "armorType": "cloth",
           "weaponType": null,
           "inventoryType": "WRIST",
           "stats": {
-            "int": 4,
-            "spi": 4,
-            "armor": 19
+            "sta": 7,
+            "sp": 7,
+            "armor": 24
           },
           "dps": null,
           "speed": null,
@@ -566,7 +561,7 @@
       "professions": [
         {
           "name": "Skinning",
-          "skill": 221,
+          "skill": 224,
           "max": 300,
           "primary": true
         },
@@ -600,15 +595,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/daz-dingomon.png",
-    "renderHash": "bb3bdc7aac8d",
+    "renderHash": "3da0945d44fc",
     "avatarFile": "characters/daz-dingomon-avatar.jpg",
-    "avatarHash": "64d02f8ce920"
+    "avatarHash": "8ebd22ed5423"
   },
   {
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-24T17:41:06.122Z",
+    "fetchedAt": "2026-11-25T02:25:20.955Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -616,7 +611,7 @@
     "character": {
       "name": "Mrs",
       "surname": "Dingomon",
-      "level": 34,
+      "level": 35,
       "classId": "mage",
       "className": "Mage",
       "race": "Troll",
@@ -625,24 +620,19 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 33,
-      "honorableKills": 134,
+      "ilvl": null,
+      "honorableKills": 135,
       "region": "us",
-      "updatedAt": "2026-11-24T11:52:45Z",
+      "updatedAt": "2026-11-25T02:19:54Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 993,
+          "value": 1020,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 2517,
-          "percent": false
-        },
-        {
-          "key": "ITEMLEVEL",
-          "value": 33,
+          "value": 2568,
           "percent": false
         },
         {
@@ -662,7 +652,7 @@
         },
         {
           "key": "INTELLECT",
-          "value": 139,
+          "value": 141,
           "percent": false
         },
         {
@@ -672,7 +662,7 @@
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.4143,
+          "value": 5.3343,
           "percent": true
         },
         {
@@ -722,7 +712,7 @@
         },
         {
           "key": "MANAREGEN",
-          "value": 102,
+          "value": 103,
           "percent": false
         },
         {
@@ -732,7 +722,7 @@
         },
         {
           "key": "DODGE",
-          "value": 4.6943,
+          "value": 4.8143005,
           "percent": true
         },
         {
@@ -750,7 +740,7 @@
         {
           "id": "arcane",
           "name": "Arcane",
-          "spent": 25,
+          "spent": 26,
           "active": true,
           "talents": [
             {
@@ -786,7 +776,7 @@
             {
               "name": "Arcane Blast",
               "rank": 1,
-              "description": "Blasts the target with energy, dealing 84 to 85 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
+              "description": "Blasts the target with energy, dealing 86 to 88 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
             },
             {
               "name": "Arcane Meditation",
@@ -796,7 +786,7 @@
             {
               "name": "Arcane Wrath",
               "rank": 1,
-              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 241 to 255 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
+              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 237 to 265 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
             },
             {
               "name": "Presence of Mind",
@@ -807,6 +797,11 @@
               "name": "Arcane Mind",
               "rank": 4,
               "description": "Increases your Intellect by 8% and increases the critical strike damage bonus of your Arcane spells by 80%."
+            },
+            {
+              "name": "Arcane Instability",
+              "rank": 1,
+              "description": "Increases the damage done by your spells by 1% and your critical strike chance by 1%."
             }
           ]
         }
@@ -819,7 +814,7 @@
           "name": "Long Silken Cloak",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133754.jpg",
           "quality": "uncommon",
-          "ilvl": 37,
+          "ilvl": 0,
           "req": 32,
           "armorType": "cloth",
           "weaponType": null,
@@ -841,7 +836,7 @@
           "name": "Violet Sorcerer's Robes",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132658.jpg",
           "quality": "rare",
-          "ilvl": 32,
+          "ilvl": 0,
           "req": 27,
           "armorType": "cloth",
           "weaponType": null,
@@ -863,7 +858,7 @@
           "name": "Enchanted Sandals",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132539.jpg",
           "quality": "rare",
-          "ilvl": 36,
+          "ilvl": 0,
           "req": null,
           "armorType": "cloth",
           "weaponType": null,
@@ -885,7 +880,7 @@
           "name": "Twilight Gloves of the Elder",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132955.jpg",
           "quality": "uncommon",
-          "ilvl": 37,
+          "ilvl": 0,
           "req": 32,
           "armorType": "cloth",
           "weaponType": null,
@@ -908,7 +903,7 @@
           "name": "Azure Silk Hood",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133131.jpg",
           "quality": "uncommon",
-          "ilvl": 29,
+          "ilvl": 0,
           "req": 24,
           "armorType": "cloth",
           "weaponType": null,
@@ -929,7 +924,7 @@
           "name": "Solid Gold Band",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133345.jpg",
           "quality": "uncommon",
-          "ilvl": 36,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -951,7 +946,7 @@
           "name": "Satchel of Potions",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133633.jpg",
           "quality": "uncommon",
-          "ilvl": 33,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -969,7 +964,7 @@
           "name": "Gaze Dreamer Pants",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134582.jpg",
           "quality": "rare",
-          "ilvl": 28,
+          "ilvl": 0,
           "req": 23,
           "armorType": "cloth",
           "weaponType": null,
@@ -991,7 +986,7 @@
           "name": "Glowing Green Talisman",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133288.jpg",
           "quality": "uncommon",
-          "ilvl": 30,
+          "ilvl": 0,
           "req": 25,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -1012,7 +1007,7 @@
           "name": "Wand of Mana Concentration",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135468.jpg",
           "quality": "rare",
-          "ilvl": 32,
+          "ilvl": 0,
           "req": 27,
           "armorType": null,
           "weaponType": "wand",
@@ -1032,7 +1027,7 @@
           "name": "Snake Hoop",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133348.jpg",
           "quality": "uncommon",
-          "ilvl": 32,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -1053,7 +1048,7 @@
           "name": "Roogug's Severed Head",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134172.jpg",
           "quality": "rare",
-          "ilvl": 30,
+          "ilvl": 0,
           "req": 25,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -1073,7 +1068,7 @@
           "name": "Berylline Pads",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135036.jpg",
           "quality": "rare",
-          "ilvl": 36,
+          "ilvl": 0,
           "req": null,
           "armorType": "cloth",
           "weaponType": null,
@@ -1096,7 +1091,7 @@
           "name": "Blightleaf Rope",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132499.jpg",
           "quality": "rare",
-          "ilvl": 34,
+          "ilvl": 0,
           "req": 29,
           "armorType": "cloth",
           "weaponType": null,
@@ -1118,7 +1113,7 @@
           "name": "Illusionary Rod",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135466.jpg",
           "quality": "rare",
-          "ilvl": 39,
+          "ilvl": 0,
           "req": 34,
           "armorType": null,
           "weaponType": "staff",
@@ -1140,7 +1135,7 @@
           "name": "Knife-Polishing Rag",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132609.jpg",
           "quality": "uncommon",
-          "ilvl": 33,
+          "ilvl": 0,
           "req": null,
           "armorType": "cloth",
           "weaponType": null,
@@ -1169,7 +1164,7 @@
         },
         {
           "name": "Herbalism",
-          "skill": 191,
+          "skill": 192,
           "max": 225,
           "primary": true
         },
@@ -1197,7 +1192,7 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/mrs-dingomon.png",
-    "renderHash": "26580caaf194",
+    "renderHash": "226b62ce31cb",
     "avatarFile": "characters/mrs-dingomon-avatar.jpg",
     "avatarHash": "98429e7b181e"
   },
@@ -1205,7 +1200,7 @@
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-24T17:41:06.122Z",
+    "fetchedAt": "2026-11-25T02:25:20.955Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1213,7 +1208,7 @@
     "character": {
       "name": "Ffsparky",
       "surname": "Jr",
-      "level": 42,
+      "level": 43,
       "classId": "druid",
       "className": "Druid",
       "race": "Windshaper Skyborne",
@@ -1222,24 +1217,19 @@
       "ruleset": "PvP",
       "rulesetId": 1,
       "guild": "ØnlyDads",
-      "ilvl": 37,
+      "ilvl": null,
       "honorableKills": 62,
       "region": "us",
-      "updatedAt": "2026-11-24T07:40:20Z",
+      "updatedAt": "2026-11-25T01:15:10Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 2136,
+          "value": 2179,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1849,
-          "percent": false
-        },
-        {
-          "key": "ITEMLEVEL",
-          "value": 39,
+          "value": 1879,
           "percent": false
         },
         {
@@ -1249,27 +1239,27 @@
         },
         {
           "key": "STRENGTH",
-          "value": 66,
+          "value": 67,
           "percent": false
         },
         {
           "key": "AGILITY",
-          "value": 121,
+          "value": 122,
           "percent": false
         },
         {
           "key": "INTELLECT",
-          "value": 82,
+          "value": 83,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 157,
+          "value": 158,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.0547004,
+          "value": 3.8590002,
           "percent": true
         },
         {
@@ -1299,7 +1289,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 136,
+          "value": 138,
           "percent": false
         },
         {
@@ -1309,7 +1299,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 47.852192,
+          "value": 47.997902,
           "percent": false
         },
         {
@@ -1324,12 +1314,12 @@
         },
         {
           "key": "ARMOR",
-          "value": 1060,
+          "value": 1062,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 13.534698,
+          "value": 13.339001,
           "percent": true
         },
         {
@@ -1360,7 +1350,7 @@
         {
           "id": "feral-combat",
           "name": "Feral Combat",
-          "spent": 31,
+          "spent": 32,
           "active": true,
           "talents": [
             {
@@ -1424,9 +1414,14 @@
               "description": "Increases damage done by your melee abilities on Bleeding targets by 15%."
             },
             {
+              "name": "Primal Bite",
+              "rank": 1,
+              "description": "Bite the target, dealing 100% normal damage plus 42 and generating a high amount of threat."
+            },
+            {
               "name": "Shifting Power",
               "rank": 1,
-              "description": "Instantly convert 454 Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting."
+              "description": "Instantly convert 463 Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting."
             }
           ]
         }
@@ -1439,7 +1434,7 @@
           "name": "Silky Spider Cape",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133769.jpg",
           "quality": "rare",
-          "ilvl": 42,
+          "ilvl": 0,
           "req": 37,
           "armorType": "cloth",
           "weaponType": null,
@@ -1460,7 +1455,7 @@
           "name": "Garb of Fallen Felbark",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135013.jpg",
           "quality": "rare",
-          "ilvl": 34,
+          "ilvl": 0,
           "req": 29,
           "armorType": "leather",
           "weaponType": null,
@@ -1487,7 +1482,7 @@
           "name": "Warsong Boots",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132539.jpg",
           "quality": "rare",
-          "ilvl": 27,
+          "ilvl": 0,
           "req": null,
           "armorType": "leather",
           "weaponType": null,
@@ -1509,7 +1504,7 @@
           "name": "Cartilage Shapers",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132952.jpg",
           "quality": "rare",
-          "ilvl": 33,
+          "ilvl": 0,
           "req": 28,
           "armorType": "leather",
           "weaponType": null,
@@ -1535,7 +1530,7 @@
           "name": "Spirit Hunter Headdress",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133119.jpg",
           "quality": "uncommon",
-          "ilvl": 37,
+          "ilvl": 0,
           "req": null,
           "armorType": "leather",
           "weaponType": null,
@@ -1557,7 +1552,7 @@
           "name": "Archaedic Stone of the Wolf",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135241.jpg",
           "quality": "rare",
-          "ilvl": 47,
+          "ilvl": 0,
           "req": 42,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -1578,7 +1573,7 @@
           "name": "Transformative Cocoon",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/237431.jpg",
           "quality": "uncommon",
-          "ilvl": 30,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -1596,7 +1591,7 @@
           "name": "Triprunner Dungarees",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134588.jpg",
           "quality": "rare",
-          "ilvl": 37,
+          "ilvl": 0,
           "req": null,
           "armorType": "leather",
           "weaponType": null,
@@ -1623,7 +1618,7 @@
           "name": "Dragon's Blood Necklace",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133289.jpg",
           "quality": "rare",
-          "ilvl": 44,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -1643,7 +1638,7 @@
           "name": "Idol of Shifting Tides",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/134914.jpg",
           "quality": "uncommon",
-          "ilvl": 16,
+          "ilvl": 0,
           "req": null,
           "armorType": "idol",
           "weaponType": null,
@@ -1661,7 +1656,7 @@
           "name": "Nogg's Gold Ring",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133345.jpg",
           "quality": "rare",
-          "ilvl": 37,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -1681,7 +1676,7 @@
           "name": "Satchel of Potions",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/133633.jpg",
           "quality": "uncommon",
-          "ilvl": 33,
+          "ilvl": 0,
           "req": null,
           "armorType": "miscellaneous",
           "weaponType": null,
@@ -1699,7 +1694,7 @@
           "name": "Fleshhide Shoulders",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135059.jpg",
           "quality": "rare",
-          "ilvl": 42,
+          "ilvl": 0,
           "req": 37,
           "armorType": "leather",
           "weaponType": null,
@@ -1722,7 +1717,7 @@
           "name": "Warden's Leather Belt",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132495.jpg",
           "quality": "rare",
-          "ilvl": 35,
+          "ilvl": 0,
           "req": 30,
           "armorType": "leather",
           "weaponType": null,
@@ -1745,7 +1740,7 @@
           "name": "Ironshod Bludgeon",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/135165.jpg",
           "quality": "rare",
-          "ilvl": 42,
+          "ilvl": 0,
           "req": 37,
           "armorType": null,
           "weaponType": "staff",
@@ -1766,7 +1761,7 @@
           "name": "Branded Leather Bracers",
           "iconUrl": "https://render.worldofwarcraft.com/forever-us/icons/56/132610.jpg",
           "quality": "rare",
-          "ilvl": 42,
+          "ilvl": 0,
           "req": 37,
           "armorType": "leather",
           "weaponType": null,
@@ -1791,7 +1786,7 @@
         },
         {
           "name": "Skinning",
-          "skill": 253,
+          "skill": 254,
           "max": 300,
           "primary": true
         },
@@ -1819,15 +1814,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/ffsparky-jr.png",
-    "renderHash": "dd3d3472097d",
+    "renderHash": "a2118d420add",
     "avatarFile": "characters/ffsparky-jr-avatar.jpg",
-    "avatarHash": "3811dff97eb3"
+    "avatarHash": "529cbc7913b9"
   },
   {
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-24T17:41:06.122Z",
+    "fetchedAt": "2026-11-25T02:25:20.955Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2278,7 +2273,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-24T17:41:06.122Z",
+    "fetchedAt": "2026-11-25T02:25:20.955Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2911,7 +2906,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-24T17:41:06.122Z",
+    "fetchedAt": "2026-11-25T02:25:20.955Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3521,7 +3516,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-24T17:41:06.122Z",
+    "fetchedAt": "2026-11-25T02:25:20.955Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -4135,15 +4130,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/sleepy-sleepyy.png",
-    "renderHash": "fac58987e3b7",
+    "renderHash": "7d7dfc00de65",
     "avatarFile": "characters/sleepy-sleepyy-avatar.jpg",
-    "avatarHash": "8cfb7adad770"
+    "avatarHash": "a5bbea85a62d"
   },
   {
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-24T17:41:06.122Z",
+    "fetchedAt": "2026-11-25T02:25:20.955Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
