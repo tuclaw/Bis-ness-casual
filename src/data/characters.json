@@ -3,7 +3,7 @@
     "slug": "daz-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/daz-dingomon",
-    "fetchedAt": "2026-11-26T15:12:39.674Z",
+    "fetchedAt": "2026-11-26T23:51:22.445Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "shaman-restoration",
@@ -23,16 +23,16 @@
       "ilvl": null,
       "honorableKills": 136,
       "region": "us",
-      "updatedAt": "2026-11-26T07:40:55Z",
+      "updatedAt": "2026-11-26T19:59:49Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1377,
+          "value": 1418,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 1988,
+          "value": 1928,
           "percent": false
         },
         {
@@ -52,17 +52,17 @@
         },
         {
           "key": "INTELLECT",
-          "value": 92,
+          "value": 88,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 104,
+          "value": 108,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 4.8084,
+          "value": 4.8884,
           "percent": true
         },
         {
@@ -77,7 +77,7 @@
         },
         {
           "key": "BONUSARMOR",
-          "value": 40,
+          "value": 72,
           "percent": false
         },
         {
@@ -92,7 +92,7 @@
         },
         {
           "key": "ATTACKPOWER",
-          "value": 168,
+          "value": 433,
           "percent": false
         },
         {
@@ -102,7 +102,7 @@
         },
         {
           "key": "ATTACKDPS",
-          "value": 32.769234,
+          "value": 51.697807,
           "percent": false
         },
         {
@@ -117,12 +117,12 @@
         },
         {
           "key": "ARMOR",
-          "value": 608,
+          "value": 640,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 5.0884,
+          "value": 5.1284,
           "percent": true
         },
         {
@@ -132,7 +132,7 @@
         },
         {
           "key": "BLOCK",
-          "value": 4.4,
+          "value": 4.44,
           "percent": true
         }
       ],
@@ -257,9 +257,9 @@
           "speed": null,
           "effect": null,
           "enchant": {
-            "enchantId": 843,
-            "name": "Enchant Chest - Intellect",
-            "label": "Enchanted: Intellect +4"
+            "enchantId": 8487,
+            "name": "Thick Armor Kit",
+            "label": "Enchanted: Stamina +4 and Armor +32"
           }
         },
         {
@@ -542,7 +542,11 @@
           "dps": 20.76923,
           "speed": 2.6,
           "effect": null,
-          "enchant": null
+          "enchant": {
+            "enchantId": 1663,
+            "name": null,
+            "label": "Rockbiter 5"
+          }
         },
         {
           "slot": "wrist",
@@ -574,7 +578,7 @@
       "professions": [
         {
           "name": "Skinning",
-          "skill": 245,
+          "skill": 251,
           "max": 300,
           "primary": true
         },
@@ -608,15 +612,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/daz-dingomon.png",
-    "renderHash": "c04b5d28c072",
+    "renderHash": "1a19bac8fdb5",
     "avatarFile": "characters/daz-dingomon-avatar.jpg",
-    "avatarHash": "2b50b819f138"
+    "avatarHash": "82559041a68a"
   },
   {
     "slug": "mrs-dingomon",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/mrs-dingomon",
-    "fetchedAt": "2026-11-26T15:12:39.674Z",
+    "fetchedAt": "2026-11-26T23:51:22.445Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used. The off spec is the previously saved profile; this pull only included the active spec.",
     "mainSpec": "mage-arcane",
@@ -636,16 +640,16 @@
       "ilvl": null,
       "honorableKills": 139,
       "region": "us",
-      "updatedAt": "2026-11-26T07:43:03Z",
+      "updatedAt": "2026-11-26T19:59:44Z",
       "stats": [
         {
           "key": "HEALTH",
-          "value": 1067,
+          "value": 1107,
           "percent": false
         },
         {
           "key": "MANA",
-          "value": 2955,
+          "value": 2880,
           "percent": false
         },
         {
@@ -665,17 +669,17 @@
         },
         {
           "key": "INTELLECT",
-          "value": 163,
+          "value": 158,
           "percent": false
         },
         {
           "key": "STAMINA",
-          "value": 70,
+          "value": 74,
           "percent": false
         },
         {
           "key": "CRITICALSTRIKE",
-          "value": 7.4489994,
+          "value": 7.5690002,
           "percent": true
         },
         {
@@ -690,7 +694,7 @@
         },
         {
           "key": "BONUSARMOR",
-          "value": 60,
+          "value": 92,
           "percent": false
         },
         {
@@ -730,12 +734,12 @@
         },
         {
           "key": "ARMOR",
-          "value": 428,
+          "value": 460,
           "percent": false
         },
         {
           "key": "DODGE",
-          "value": 4.8490005,
+          "value": 4.929,
           "percent": true
         },
         {
@@ -789,7 +793,7 @@
             {
               "name": "Arcane Blast",
               "rank": 1,
-              "description": "Blasts the target with energy, dealing 84 to 91 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
+              "description": "Blasts the target with energy, dealing 89 to 89 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
             },
             {
               "name": "Arcane Meditation",
@@ -799,7 +803,7 @@
             {
               "name": "Arcane Wrath",
               "rank": 1,
-              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 250 to 261 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
+              "description": "Launches a projectile of pure Arcane energy at the enemy target, causing 239 to 279 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
             },
             {
               "name": "Presence of Mind",
@@ -867,9 +871,9 @@
           "speed": null,
           "effect": "Equip: When damaged, has a chance to reduce threat level on all enemies by a small amount for 10 sec.",
           "enchant": {
-            "enchantId": 843,
-            "name": "Enchant Chest - Intellect",
-            "label": "Enchanted: Intellect +4"
+            "enchantId": 8487,
+            "name": "Thick Armor Kit",
+            "label": "Enchanted: Stamina +4 and Armor +32"
           }
         },
         {
@@ -1192,7 +1196,7 @@
         },
         {
           "name": "Herbalism",
-          "skill": 209,
+          "skill": 211,
           "max": 300,
           "primary": true
         },
@@ -1220,15 +1224,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_troll.jpg"
     },
     "renderFile": "characters/mrs-dingomon.png",
-    "renderHash": "958247b60978",
+    "renderHash": "577396648d0e",
     "avatarFile": "characters/mrs-dingomon-avatar.jpg",
-    "avatarHash": "fda9673390c9"
+    "avatarHash": "df755282b7d1"
   },
   {
     "slug": "ffsparky-jr",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ffsparky-jr",
-    "fetchedAt": "2026-11-26T15:12:39.674Z",
+    "fetchedAt": "2026-11-26T23:51:22.445Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "druid-feral",
@@ -1248,7 +1252,7 @@
       "ilvl": null,
       "honorableKills": 63,
       "region": "us",
-      "updatedAt": "2026-11-26T14:53:20Z",
+      "updatedAt": "2026-11-26T15:34:59Z",
       "stats": [
         {
           "key": "HEALTH",
@@ -1347,7 +1351,7 @@
         },
         {
           "key": "DODGE",
-          "value": 12.9363985,
+          "value": 12.976399,
           "percent": true
         },
         {
@@ -1847,15 +1851,15 @@
       "backdropUrl": "https://render.worldofwarcraft.com/profile-backgrounds/v2/armory_bg_race_skyborne.jpg"
     },
     "renderFile": "characters/ffsparky-jr.png",
-    "renderHash": "867e49111095",
+    "renderHash": "dd3d3472097d",
     "avatarFile": "characters/ffsparky-jr-avatar.jpg",
-    "avatarHash": "2d3d43337b5b"
+    "avatarHash": "3811dff97eb3"
   },
   {
     "slug": "ternt-up",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/ternt-up",
-    "fetchedAt": "2026-11-26T15:12:39.674Z",
+    "fetchedAt": "2026-11-26T23:51:22.445Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "paladin-holy",
@@ -2301,7 +2305,7 @@
     "slug": "spooky-guyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/spooky-guyy",
-    "fetchedAt": "2026-11-26T15:12:39.674Z",
+    "fetchedAt": "2026-11-26T23:51:22.445Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-combat",
@@ -2934,7 +2938,7 @@
     "slug": "sir-stackers",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sir-stackers",
-    "fetchedAt": "2026-11-26T15:12:39.674Z",
+    "fetchedAt": "2026-11-26T23:51:22.445Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "warrior-arms",
@@ -3544,7 +3548,7 @@
     "slug": "sleepy-sleepyy",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/sleepy-sleepyy",
-    "fetchedAt": "2026-11-26T15:12:39.674Z",
+    "fetchedAt": "2026-11-26T23:51:22.445Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "shaman-enhancement",
@@ -4166,7 +4170,7 @@
     "slug": "zap-gpt",
     "region": "us",
     "armoryUrl": "https://worldofwarcraft.blizzard.com/en-us/forever/us/armory/character/zap-gpt",
-    "fetchedAt": "2026-11-26T15:12:39.674Z",
+    "fetchedAt": "2026-11-26T23:51:22.445Z",
     "source": "armory-snapshot",
     "sourceNote": "Official Forever Armory page. Profile API credentials were not used.",
     "mainSpec": "rogue-assassination",
